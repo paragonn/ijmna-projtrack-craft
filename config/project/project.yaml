@@ -1,4 +1,4 @@
-dateModified: 1715581276
+dateModified: 1715582899
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
@@ -6,10 +6,83 @@ email:
 meta:
   __names__:
     7ebee255-e999-4580-9139-b6b93b034ddb: Common # Common
+    8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Project Tracker' # IJM Project Tracker
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Project Tracker' # IJM Project Tracker
+    bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
+    d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
+    ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
 plugins:
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  colour-swatches:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.4.3
+  craft-range-slider:
+    edition: standard
+    enabled: true
+    licenseKey: XTK8R84UVOIS7OAIWIRR2JG3
+    schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: WIQUZC8QRUXW7HIY5D0Z4905
+    schemaVersion: 2.0.15
+  hyper:
+    edition: standard
+    enabled: true
+    licenseKey: H96AXCHZR4LITRZ62BM6TX0X
+    schemaVersion: 1.0.0
+  icon-picker:
+    edition: standard
+    enabled: true
+    licenseKey: K92IKU3RM8LPX6SIY0BGAD2Y
+    schemaVersion: 1.2.3
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: V5RA73U38PF7P7A7MKHI0A89
+    schemaVersion: 4.0.0
+  inventory:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    licenseKey: 4A9NGKFKTS61WKHQ0RLFS5NF
+    schemaVersion: 2.0.7
+  neo:
+    edition: standard
+    enabled: true
+    licenseKey: 8NBR5V21CE3HK6A4K8927WNJ
+    schemaVersion: 4.0.0
+  nocache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: MM9T4KW8F4JJN4FVAEDW37MZ
+    schemaVersion: 3.0.12
+  super-dynamic-fields:
+    edition: standard
+    enabled: true
+    licenseKey: MZE883HWLAI6YMOU1JFLIX72
+    schemaVersion: 2.0.1.1
+  twig-perversion:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0

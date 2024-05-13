@@ -1,7 +1,22 @@
 {
   "require": {
+    "amici/craft-super-dynamic-fields": "^2.0.1.1",
+    "craftcms/ckeditor": "^3.8.3",
     "craftcms/cms": "^4.4.0",
+    "craftpulse/craft-colour-swatches": "^4.4.0",
+    "doublesecretagency/craft-inventory": "^3.2.0",
+    "lewisjenkins/craft-range-slider": "^4.0.1",
+    "marionnewlevant/twig-perversion": "^3.0.0",
     "misterbk/mix": "^v1.7.1",
+    "nystudio107/craft-minify": "^4.0.1",
+    "nystudio107/craft-seomatic": "^4.0.48",
+    "spacecatninja/imager-x": "^4.4.0",
+    "spicyweb/craft-neo": "^4.1.2",
+    "ttempleton/craft-nocache": "^3.0.2",
+    "verbb/formie": "^2.1.14",
+    "verbb/hyper": "^1.1.29",
+    "verbb/icon-picker": "^2.0.17",
+    "verbb/navigation": "^2.0.27",
     "vlucas/phpdotenv": "^5.4.0"
   },
   "require-dev": {
