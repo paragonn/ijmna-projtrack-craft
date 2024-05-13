@@ -1,0 +1,5 @@
+@import 'tailwind/_core';
+@import 'general/_core';
+
+$aos-distance: 10px !default;
+@import 'aos/dist/aos.css';

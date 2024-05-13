@@ -1,4 +1,4 @@
-dateModified: 1715580696
+dateModified: 1715581276
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
@@ -8,6 +8,11 @@ meta:
     7ebee255-e999-4580-9139-b6b93b034ddb: Common # Common
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Project Tracker' # IJM Project Tracker
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Project Tracker' # IJM Project Tracker
+plugins:
+  mix:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
 system:
   edition: solo
   live: true
