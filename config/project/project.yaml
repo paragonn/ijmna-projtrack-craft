@@ -1,0 +1,22 @@
+dateModified: 1715580696
+email:
+  fromEmail: mufi@paragonn.com
+  fromName: 'IJM Project Tracker'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    7ebee255-e999-4580-9139-b6b93b034ddb: Common # Common
+    061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Project Tracker' # IJM Project Tracker
+    af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Project Tracker' # IJM Project Tracker
+system:
+  edition: solo
+  live: true
+  name: 'IJM Project Tracker'
+  schemaVersion: 4.5.3.0
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true
