@@ -1,0 +1,45 @@
+{% extends "html/_includes/layout" %}
+
+{% block seo %}
+<title>Page Link</title>
+{% endblock %}
+
+{% block content %}
+
+
+<section class="mb-16 md:mb-28 mt-40 lg:mt-60">
+    <div class="container">
+        <div class="grid grid-cols-1">
+            <div class="overflow-x-auto">
+                <div class="inline-block min-w-full">
+                    <div class="overflow-hidden">
+                        <table class="min-w-full whitespace-nowrap border border-gray-100 rounded-lg overflow-hidden">
+                            <thead class="bg-primary-500/20 text-primary-500 border-b">
+                                <tr>
+                                    <th scope="col" class="font-medium px-6 py-4">
+                                        Page Name
+                                    </th>
+                                    <th scope="col" class="font-medium px-6 py-4">
+                                        Page Link
+                                    </th>
+                                </tr>
+                            </thead>
+                             <tbody>
+                                <tr class="bg-white border-b border-gray-100 last:border-0">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">Home Page</td>
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap text-primary-500 hover:text-blue-500 transition-all duration-300"><a href="/html/home">Home Page</a></td>
+                                </tr>
+                                <tr class="bg-white border-b border-gray-100 last:border-0">
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap">Typography Page</td>
+                                    <td class="px-6 py-4 font-medium whitespace-nowrap text-primary-500 hover:text-blue-500 transition-all duration-300"><a href="/html/typography">Typography Page</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

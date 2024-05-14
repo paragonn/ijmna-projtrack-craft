@@ -1,0 +1,112 @@
+{% set headerBg = headerBg ?? 'white' %}
+{% set headerSettings = {
+light: {
+bg: 'bg-white lg:bg-transparent shadow-sm lg:shadow-none',
+bgMenu: 'bg-white shadow-sm',
+text: 'text-white',
+textSticky: 'text-primary-500',
+textSub: 'text-gray-500',
+border: 'border-white',
+borderSticky: '!border-gray-200/50',
+logo: 'lg:block hidden',
+logosticky: 'lg:hidden '
+},
+white: {
+bg: '!bg-white shadow-sm lg:shadow-none',
+bgMenu: 'bg-white shadow-sm',
+text: 'text-primary-500',
+textSticky: '!text-primary-500',
+textSub: 'text-gray-500',
+border: 'border-gray-200/50',
+borderSticky: '!border-gray-200/50',
+logo: 'hidden',
+logosticky: 'block'
+}
+} %}
+
+{% set navClass = headerSettings[headerBg] %}
+
+
+<!-- Menu transperent mate and sticky mate -->
+<!-- Start Navbar -->
+<header class="main-menu" x-data="{ isSticky: 0 }" x-init="window.addEventListener('scroll', () => { isSticky = window.pageYOffset; })">
+    <nav x-data="{hamburger: false }" :class="{ 'py-[11px] {{ navClass.bgMenu }}': isSticky, 'py-[11px] {{ navClass.bg }}': !isSticky }" class="fixed w-full border-b border-blue-800/25 top-0 z-50 mobile-menu-bg transition-all duration-300">
+        <div class="px-5">
+            <div class="lg:flex items-center justify-between gap-6">
+                <div class="flex items-center justify-between shrink-0 w-full lg:w-auto">
+                    <a href="#" class="logo">
+                        <img src="/assets/images/logo.svg" class="h-14 block" alt="Aiec" :class="{ '{{ navClass.logo }} !block': isSticky, '{{ navClass.logosticky }}': !isSticky }" />
+                        <img src="/assets/images/logo.svg" class="h-14" alt="Aiec" :class="{ '{{ navClass.logosticky }} hidden': isSticky, ' {{ navClass.logo }}': !isSticky }" />
+                    </a>
+                    <div class="lg:hidden block">
+                        <button x-on:click="hamburger = ! hamburger;isOverflowHidden = !isOverflowHidden" @keydown.escape="hamburger = false" :class="{'!w-10 !h-5 md:!h-[26px]' : hamburger , '' : !hamburger}" class="w-10 h-8 relative z-30 shrink-0">
+                            <span :class="{'rotate-[45deg] translate-y-[10px] md:translate-y-[9px]' : hamburger , '' : !hamburger}" class="w-full h-1 mx-auto right-0 block bg-current absolute left-0 top-0 transition-transform"></span>
+                            <span :class="{'opacity-0' : hamburger , '' : !hamburger}" class="w-full ml-0 h-1 mx-auto block bg-current my-3 transition-all"></span>
+                            <span :class="{'-rotate-[45deg] -translate-y-[7px] md:-translate-y-[14px]' : hamburger , '' : !hamburger}" class="w-full h-1 mx-auto block bg-current absolute bottom-0 left-0 transition-transform"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:block hidden">
+                    <ul class="space-y-3 lg:space-y-0 lg:space-x-5 xl:space-x-10 p-5 lg:p-0 lg:!flex lg:items-center lg:mt-0 max-[991px]:overflow-auto  duration-300 ease-in-out right-0  lg:h-full w-full bg-gray-700 lg:bg-transparent fixed top-28 lg:top-0 lg:relative h-[calc(100vh-112px)]">
+                        <li>
+                            <div x-data="{ isOpen: false }" class="relative">
+                                <!-- Button to toggle the dropdown -->
+                                <button @click="isOpen = !isOpen" class="text-sm text-white font-medium capitalize flex items-center gap-1.5 hover:text-gold-500 duration-300 transition-all">
+                                    <svg width="32" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M23.9 12c0 5.73-4.9 10.5-11.1 10.5-6.2 0-11.1-4.77-11.1-10.5S6.6 1.5 12.8 1.5C19 1.5 23.9 6.27 23.9 12Z" stroke="#101523" stroke-width="3" />
+                                        <path d="m21.2 20 9.45 9" stroke="#000" stroke-width="3" />
+                                    </svg>
+                                </button>
+
+                                <!-- Dropdown menu -->
+                                <div x-show="isOpen" @click.away="isOpen = false" x-transition:enter="transition ease-in-out duration-150" x-transition:enter-start="opacity-0 transform -translate-y-3" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in-in duration-150" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-3" class="absolute z-50 bg-white min-w-40 rounded p-2 shadow-md right-0 top-8">
+                                    <!-- Dropdown content goes here -->
+                                    <form>
+                                        <div class="relative">
+                                            <input type="text" class="fotm-input pr-9 w-72 border border-gray-200/50 focus:border-crimson-500 text-sm tracking-[1px] focus:ring-transparent" placeholder="Search">
+                                            <button type="submit" class="absolute right-3 leading-none top-1/2 -translate-y-1/2 hover:text-crimson-500 transition-all duration-300"><svg class="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="24px" height="24px">
+                                                    <path fill="currentColor" d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z" />
+                                                </svg></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="relative">
+                            <a href="javaScript:void();" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300" :class="{ '{{ navClass.textSticky }}': isSticky, '{{ navClass.text}}': !isSticky }">
+                                <span class="cursor-pointer font-medium">About the Tracker</span>
+                            </a>
+                        </li>
+                        <li class="relative">
+                            <a href="javaScript:void();" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300" :class="{ '{{ navClass.textSticky }}': isSticky, '{{ navClass.text}}': !isSticky }">
+                                <span class="cursor-pointer font-medium">Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="xl:flex items-center hidden">
+                    <button :class="{ '{{ navClass.textSticky }}': isSticky, '{{ navClass.text}}': !isSticky }">
+                        <svg width="44" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.621 29.086c-.531 0-.976-.18-1.336-.54-.36-.359-.539-.804-.539-1.336 0-.531.18-.976.54-1.335.359-.36.804-.539 1.335-.539h38.75c.531 0 .976.18 1.336.54.36.359.539.804.539 1.336s-.18.977-.54 1.336c-.359.359-.804.538-1.335.538H2.621Zm0-12.211c-.531 0-.976-.18-1.336-.54-.36-.36-.539-.805-.539-1.336 0-.532.18-.977.54-1.336.359-.359.804-.538 1.335-.538h38.75c.531 0 .976.18 1.336.539.36.36.539.805.539 1.337 0 .531-.18.976-.54 1.335-.359.36-.804.539-1.335.539H2.621Zm0-12.212c-.531 0-.976-.18-1.336-.54-.36-.359-.539-.804-.539-1.336 0-.531.18-.976.54-1.335.359-.36.804-.539 1.335-.539h38.75c.531 0 .976.18 1.336.54.36.359.539.804.539 1.336 0 .531-.18.977-.54 1.336-.359.359-.804.538-1.335.538H2.621Z" fill="currentColor" />
+                        </svg>
+                    </button>
+                </div> -->
+                <div class="lg:hidden block">
+                    <ul x-show="hamburger" @click.outside="hamburger = false" class="p-5  duration-300 ease-in-out right-0  w-full bg-white fixed top-[88px] overflow-auto h-[calc(100vh-88px)]" x-transition:enter="transform transition ease-in-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-300" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+                        <li class="relative py-1.5 first:pt-0 last:pb-0">
+                            <a href="javaScript:void();" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300" :class="{ '{{ navClass.textSticky }}': isSticky, '{{ navClass.text}}': !isSticky }">
+                                <span class="cursor-pointer font-medium">About the Tracker</span>
+                            </a>
+                        </li>
+                        <li class="relative py-1.5 first:pt-0 last:pb-0">
+                            <a href="javaScript:void();" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300" :class="{ '{{ navClass.textSticky }}': isSticky, '{{ navClass.text}}': !isSticky }">
+                                <span class="cursor-pointer font-medium">Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- End Navbar -->
