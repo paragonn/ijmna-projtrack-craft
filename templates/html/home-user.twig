@@ -11,8 +11,10 @@
         <div class="flex-1 w-full h-full">
             <div class="flex w-full h-full">
                 <div class="bg-blue-800 w-full" :class="{'flex-1' : hamburger , '' : !hamburger}" x-show="hamburger" x-transition:enter="transition-transform ease-in-out duration-300" x-transition:enter="transform transition ease-in-out duration-300" x-transition:enter-start="-translate-x-full opacity-0" x-transition:enter-end="translate-x-0 opacity-100" x-transition:leave="transform transition ease-in-out duration-300" x-transition:leave-start="translate-x-0 opacity-100" x-transition:leave-end="-translate-x-full opacity-0">
-                    <div>
-
+                    <div class="px-[76px] py-10">
+                        <div class="max-w-[450px]">
+                            <h4 class="text-xl md:text-2xl font-Baskervville text-white">Progress Toward Protecting 500 Million People from Slavery and Violence</h4>
+                        </div>
                     </div>
                 </div>
                 <div class="w-[62px] shrink-0 border-l border-white bg-blue-800 transition-all duration-300">
@@ -417,10 +419,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="">
-                                <div class="px-16 bottom-10 inset-x-0 sticky">
-                                    <button type="submit" class="bg-blue-800 w-full font-bold text-base text-center hover:cursor-pointer hover:bg-turkey-900 transition-all duration-300 uppercase text-white py-5 px-6">View 5 Jurisdictions</button>
-                                </div>
+                            <div class="px-16 bottom-10 fixed w-[320px] md:w-[450px] lg:w-[631px]">
+                                <button type="submit" class="bg-blue-800 block w-full font-bold text-base text-center hover:cursor-pointer hover:bg-turkey-900 transition-all duration-300 uppercase text-white py-5 px-6">View 5 Jurisdictions</button>
                             </div>
                         </div>
                     </div>
