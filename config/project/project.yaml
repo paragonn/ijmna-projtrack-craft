@@ -1,4 +1,4 @@
-dateModified: 1716359642
+dateModified: 1716371167
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
@@ -20,6 +20,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 3.0.0.0
+  cloudflare:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
   colour-swatches:
     edition: standard
     enabled: true
@@ -29,6 +33,10 @@ plugins:
     enabled: true
     licenseKey: XTK8R84UVOIS7OAIWIRR2JG3
     schemaVersion: 1.0.0
+  dospaces:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
   formie:
     edition: standard
     enabled: true
@@ -49,6 +57,10 @@ plugins:
     enabled: true
     licenseKey: V5RA73U38PF7P7A7MKHI0A89
     schemaVersion: 4.0.0
+  imager-x-do-spaces-driver:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true
