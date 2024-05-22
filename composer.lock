@@ -129,16 +129,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.306.4",
+            "version": "3.308.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "f50ff987dbe6d3e60d68794970422eae71ffb525"
+                "reference": "806ad75dcb72b6e6569848159e7a350003526bc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f50ff987dbe6d3e60d68794970422eae71ffb525",
-                "reference": "f50ff987dbe6d3e60d68794970422eae71ffb525",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/806ad75dcb72b6e6569848159e7a350003526bc9",
+                "reference": "806ad75dcb72b6e6569848159e7a350003526bc9",
                 "shasum": ""
             },
             "require": {
@@ -218,9 +218,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.306.4"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.308.0"
             },
-            "time": "2024-05-10T18:23:57+00:00"
+            "time": "2024-05-21T18:06:10+00:00"
         },
         {
             "name": "brick/math",
@@ -1216,16 +1216,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "4.9.2",
+            "version": "4.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "fbef5f2421b1d2517feb2b3a6eb33e3f6924172a"
+                "reference": "230ea033c59618b2ae066a5439616c8de5090f0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/fbef5f2421b1d2517feb2b3a6eb33e3f6924172a",
-                "reference": "fbef5f2421b1d2517feb2b3a6eb33e3f6924172a",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/230ea033c59618b2ae066a5439616c8de5090f0e",
+                "reference": "230ea033c59618b2ae066a5439616c8de5090f0e",
                 "shasum": ""
             },
             "require": {
@@ -1328,7 +1328,7 @@
                 "rss": "https://github.com/craftcms/cms/releases.atom",
                 "source": "https://github.com/craftcms/cms"
             },
-            "time": "2024-05-07T18:40:05+00:00"
+            "time": "2024-05-17T20:02:25+00:00"
         },
         {
             "name": "craftcms/html-field",
@@ -2336,26 +2336,26 @@
         },
         {
             "name": "firebase/php-jwt",
-            "version": "v6.10.0",
+            "version": "v6.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/firebase/php-jwt.git",
-                "reference": "a49db6f0a5033aef5143295342f1c95521b075ff"
+                "reference": "500501c2ce893c824c801da135d02661199f60c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/a49db6f0a5033aef5143295342f1c95521b075ff",
-                "reference": "a49db6f0a5033aef5143295342f1c95521b075ff",
+                "url": "https://api.github.com/repos/firebase/php-jwt/zipball/500501c2ce893c824c801da135d02661199f60c5",
+                "reference": "500501c2ce893c824c801da135d02661199f60c5",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.4||^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
-                "guzzlehttp/guzzle": "^6.5||^7.4",
+                "guzzlehttp/guzzle": "^7.4",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "psr/cache": "^1.0||^2.0",
+                "psr/cache": "^2.0||^3.0",
                 "psr/http-client": "^1.0",
                 "psr/http-factory": "^1.0"
             },
@@ -2393,22 +2393,22 @@
             ],
             "support": {
                 "issues": "https://github.com/firebase/php-jwt/issues",
-                "source": "https://github.com/firebase/php-jwt/tree/v6.10.0"
+                "source": "https://github.com/firebase/php-jwt/tree/v6.10.1"
             },
-            "time": "2023-12-01T16:26:39+00:00"
+            "time": "2024-05-18T18:05:11+00:00"
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.13.36",
+            "version": "8.13.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "9ca4179e4332d21578cb29f0c0406f0a2b8803e3"
+                "reference": "536c747ff1af433dddc615b26b9674047e013076"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/9ca4179e4332d21578cb29f0c0406f0a2b8803e3",
-                "reference": "9ca4179e4332d21578cb29f0c0406f0a2b8803e3",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/536c747ff1af433dddc615b26b9674047e013076",
+                "reference": "536c747ff1af433dddc615b26b9674047e013076",
                 "shasum": ""
             },
             "require": {
@@ -2470,7 +2470,7 @@
                 "issues": "https://github.com/giggsey/libphonenumber-for-php/issues",
                 "source": "https://github.com/giggsey/libphonenumber-for-php"
             },
-            "time": "2024-05-03T06:27:03+00:00"
+            "time": "2024-05-16T09:01:39+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -2695,16 +2695,16 @@
         },
         {
             "name": "google/cloud-storage",
-            "version": "v1.41.4",
+            "version": "v1.42.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/google-cloud-php-storage.git",
-                "reference": "304b3ef6a1bd827774faa1deea315b5844826af2"
+                "reference": "1c77f5882c30bec95ab2837b9534a946325d1c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/304b3ef6a1bd827774faa1deea315b5844826af2",
-                "reference": "304b3ef6a1bd827774faa1deea315b5844826af2",
+                "url": "https://api.github.com/repos/googleapis/google-cloud-php-storage/zipball/1c77f5882c30bec95ab2837b9534a946325d1c57",
+                "reference": "1c77f5882c30bec95ab2837b9534a946325d1c57",
                 "shasum": ""
             },
             "require": {
@@ -2746,9 +2746,9 @@
             ],
             "description": "Cloud Storage Client for PHP",
             "support": {
-                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.41.4"
+                "source": "https://github.com/googleapis/google-cloud-php-storage/tree/v1.42.0"
             },
-            "time": "2024-05-03T18:32:44+00:00"
+            "time": "2024-05-19T17:27:42+00:00"
         },
         {
             "name": "google/common-protos",
@@ -2804,23 +2804,23 @@
         },
         {
             "name": "google/gax",
-            "version": "v1.32.0",
+            "version": "v1.33.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/googleapis/gax-php.git",
-                "reference": "9b06449585573f76540cb55d8d0d041e232057ce"
+                "reference": "12a158e9b503df0087ebf9e218e8d75dc815a521"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/9b06449585573f76540cb55d8d0d041e232057ce",
-                "reference": "9b06449585573f76540cb55d8d0d041e232057ce",
+                "url": "https://api.github.com/repos/googleapis/gax-php/zipball/12a158e9b503df0087ebf9e218e8d75dc815a521",
+                "reference": "12a158e9b503df0087ebf9e218e8d75dc815a521",
                 "shasum": ""
             },
             "require": {
                 "google/auth": "^1.34.0",
                 "google/common-protos": "^4.4",
                 "google/grpc-gcp": "^0.4",
-                "google/longrunning": "~0.2",
+                "google/longrunning": "~0.4",
                 "google/protobuf": "^v3.25.3||^4.26.1",
                 "grpc/grpc": "^1.13",
                 "guzzlehttp/promises": "^2.0",
@@ -2855,9 +2855,9 @@
             ],
             "support": {
                 "issues": "https://github.com/googleapis/gax-php/issues",
-                "source": "https://github.com/googleapis/gax-php/tree/v1.32.0"
+                "source": "https://github.com/googleapis/gax-php/tree/v1.33.0"
             },
-            "time": "2024-04-25T15:45:37+00:00"
+            "time": "2024-05-14T14:55:14+00:00"
         },
         {
             "name": "google/grpc-gcp",
@@ -5407,16 +5407,16 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "4.0.48",
+            "version": "4.0.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nystudio107/craft-seomatic.git",
-                "reference": "4f81d00701e3c5cb6882dc76008ad7426177035f"
+                "reference": "a4ddb79cdd80e81f860e1e603e313a0cbfb2598e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/4f81d00701e3c5cb6882dc76008ad7426177035f",
-                "reference": "4f81d00701e3c5cb6882dc76008ad7426177035f",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/a4ddb79cdd80e81f860e1e603e313a0cbfb2598e",
+                "reference": "a4ddb79cdd80e81f860e1e603e313a0cbfb2598e",
                 "shasum": ""
             },
             "require": {
@@ -5502,7 +5502,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-10T18:16:53+00:00"
+            "time": "2024-05-20T19:44:44+00:00"
         },
         {
             "name": "oscarotero/html-parser",
@@ -5811,16 +5811,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.4.0",
+            "version": "5.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "298d2febfe79d03fe714eb871d5538da55205b1a"
+                "reference": "9d07b3f7fdcf5efec5d1609cba3c19c5ea2bdc9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/298d2febfe79d03fe714eb871d5538da55205b1a",
-                "reference": "298d2febfe79d03fe714eb871d5538da55205b1a",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/9d07b3f7fdcf5efec5d1609cba3c19c5ea2bdc9c",
+                "reference": "9d07b3f7fdcf5efec5d1609cba3c19c5ea2bdc9c",
                 "shasum": ""
             },
             "require": {
@@ -5869,9 +5869,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.4.0"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.4.1"
             },
-            "time": "2024-04-09T21:13:58+00:00"
+            "time": "2024-05-21T05:55:05+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -10230,16 +10230,16 @@
         },
         {
             "name": "verbb/base",
-            "version": "2.0.5",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/verbb-base.git",
-                "reference": "d8bf72792c826fe4f3785c0942f7f74adb5c2670"
+                "reference": "3ef8401a7d0b4e4f45c03739b798439eee32b9ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/verbb-base/zipball/d8bf72792c826fe4f3785c0942f7f74adb5c2670",
-                "reference": "d8bf72792c826fe4f3785c0942f7f74adb5c2670",
+                "url": "https://api.github.com/repos/verbb/verbb-base/zipball/3ef8401a7d0b4e4f45c03739b798439eee32b9ae",
+                "reference": "3ef8401a7d0b4e4f45c03739b798439eee32b9ae",
                 "shasum": ""
             },
             "require": {
@@ -10276,20 +10276,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-03-13T23:35:14+00:00"
+            "time": "2024-05-18T01:32:27+00:00"
         },
         {
             "name": "verbb/formie",
-            "version": "2.1.14",
+            "version": "2.1.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/formie.git",
-                "reference": "02cc5056ddd20ba9332aa3dfe68ecc7f7e061456"
+                "reference": "314cd749573d9de35595f4b3bafef0c37139ed33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/formie/zipball/02cc5056ddd20ba9332aa3dfe68ecc7f7e061456",
-                "reference": "02cc5056ddd20ba9332aa3dfe68ecc7f7e061456",
+                "url": "https://api.github.com/repos/verbb/formie/zipball/314cd749573d9de35595f4b3bafef0c37139ed33",
+                "reference": "314cd749573d9de35595f4b3bafef0c37139ed33",
                 "shasum": ""
             },
             "require": {
@@ -10351,20 +10351,20 @@
                 "rss": "https://github.com/verbb/formie/commits/v2.atom",
                 "source": "https://github.com/verbb/formie"
             },
-            "time": "2024-05-07T14:42:06+00:00"
+            "time": "2024-05-20T10:57:26+00:00"
         },
         {
             "name": "verbb/hyper",
-            "version": "1.1.29",
+            "version": "1.1.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/hyper.git",
-                "reference": "68f1e7bf6cb0a1f0112b942318772634b6391fde"
+                "reference": "a39bb9626b70a94a85cc0ed4dc65b3e487846fd2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/hyper/zipball/68f1e7bf6cb0a1f0112b942318772634b6391fde",
-                "reference": "68f1e7bf6cb0a1f0112b942318772634b6391fde",
+                "url": "https://api.github.com/repos/verbb/hyper/zipball/a39bb9626b70a94a85cc0ed4dc65b3e487846fd2",
+                "reference": "a39bb9626b70a94a85cc0ed4dc65b3e487846fd2",
                 "shasum": ""
             },
             "require": {
@@ -10417,20 +10417,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-05-11T02:05:33+00:00"
+            "time": "2024-05-18T12:55:54+00:00"
         },
         {
             "name": "verbb/icon-picker",
-            "version": "2.0.17",
+            "version": "2.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/verbb/icon-picker.git",
-                "reference": "8d956247b0e09122b035d051ad8d1d9237626618"
+                "reference": "ba3d026ef3198844632998eb094764458e361414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/icon-picker/zipball/8d956247b0e09122b035d051ad8d1d9237626618",
-                "reference": "8d956247b0e09122b035d051ad8d1d9237626618",
+                "url": "https://api.github.com/repos/verbb/icon-picker/zipball/ba3d026ef3198844632998eb094764458e361414",
+                "reference": "ba3d026ef3198844632998eb094764458e361414",
                 "shasum": ""
             },
             "require": {
@@ -10480,7 +10480,7 @@
                 "rss": "https://github.com/verbb/icon-picker/commits/v2.atom",
                 "source": "https://github.com/verbb/icon-picker"
             },
-            "time": "2024-03-03T23:33:03+00:00"
+            "time": "2024-05-18T13:24:33+00:00"
         },
         {
             "name": "verbb/navigation",
@@ -12299,5 +12299,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

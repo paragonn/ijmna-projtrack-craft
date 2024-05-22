@@ -1,8 +1,12 @@
-dateModified: 1716355486
+dateModified: 1716357983
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
   transportType: craft\mail\transportadapters\Sendmail
+graphql:
+  publicToken:
+    enabled: false
+    expiryDate: null
 meta:
   __names__:
     7ebee255-e999-4580-9139-b6b93b034ddb: Common # Common
