@@ -1,4 +1,4 @@
-dateModified: 1716357983
+dateModified: 1716359642
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
@@ -9,7 +9,6 @@ graphql:
     expiryDate: null
 meta:
   __names__:
-    7ebee255-e999-4580-9139-b6b93b034ddb: Common # Common
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Project Tracker' # IJM Project Tracker
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Project Tracker' # IJM Project Tracker
@@ -34,7 +33,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: WIQUZC8QRUXW7HIY5D0Z4905
-    schemaVersion: 2.0.15
+    schemaVersion: 3.4.4
   hyper:
     edition: standard
     enabled: true
@@ -62,12 +61,12 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 4A9NGKFKTS61WKHQ0RLFS5NF
-    schemaVersion: 2.0.7
+    schemaVersion: 2.1.0
   neo:
     edition: standard
     enabled: true
     licenseKey: 8NBR5V21CE3HK6A4K8927WNJ
-    schemaVersion: 4.0.0
+    schemaVersion: 5.0.0.1
   nocache:
     edition: standard
     enabled: true
@@ -81,7 +80,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: MZE883HWLAI6YMOU1JFLIX72
-    schemaVersion: 2.0.1.1
+    schemaVersion: 5.0.1
   twig-perversion:
     edition: standard
     enabled: true
@@ -90,7 +89,7 @@ system:
   edition: solo
   live: true
   name: 'IJM Project Tracker'
-  schemaVersion: 4.5.3.0
+  schemaVersion: 5.0.0.20
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false
