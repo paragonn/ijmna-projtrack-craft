@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc0fce6c9dfc909d435622bc7bb2429d",
+    "content-hash": "c27b587fa4f458d2fcbad686025e2e84",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -1964,62 +1964,6 @@
                 "source": "https://github.com/dompdf/dompdf/tree/v2.0.8"
             },
             "time": "2024-04-29T13:06:17+00:00"
-        },
-        {
-            "name": "doublesecretagency/craft-inventory",
-            "version": "3.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doublesecretagency/craft-inventory.git",
-                "reference": "aee2af99df55f847f357173ab5ce9c594d90494d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doublesecretagency/craft-inventory/zipball/aee2af99df55f847f357173ab5ce9c594d90494d",
-                "reference": "aee2af99df55f847f357173ab5ce9c594d90494d",
-                "shasum": ""
-            },
-            "require": {
-                "craftcms/cms": "^4.0.0"
-            },
-            "type": "craft-plugin",
-            "extra": {
-                "name": "Inventory",
-                "handle": "inventory",
-                "schemaVersion": "3.0.0",
-                "changelogUrl": "https://raw.githubusercontent.com/doublesecretagency/craft-inventory/v3/CHANGELOG.md",
-                "class": "doublesecretagency\\inventory\\Inventory"
-            },
-            "autoload": {
-                "psr-4": {
-                    "doublesecretagency\\inventory\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Double Secret Agency",
-                    "homepage": "https://www.doublesecretagency.com/plugins"
-                }
-            ],
-            "description": "Take stock of your field usage.",
-            "keywords": [
-                "Craft",
-                "cms",
-                "craft-plugin",
-                "craftcms",
-                "fields",
-                "inventory"
-            ],
-            "support": {
-                "docs": "https://github.com/doublesecretagency/craft-inventory/blob/v3/README.md",
-                "issues": "https://github.com/doublesecretagency/craft-inventory/issues",
-                "source": "https://github.com/doublesecretagency/craft-inventory/tree/3.2.0"
-            },
-            "time": "2024-03-19T22:15:59+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -12355,5 +12299,5 @@
     "platform-overrides": {
         "php": "8.0.2"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

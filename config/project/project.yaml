@@ -1,4 +1,4 @@
-dateModified: 1715582899
+dateModified: 1716355486
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Project Tracker'
@@ -46,10 +46,6 @@ plugins:
     enabled: true
     licenseKey: V5RA73U38PF7P7A7MKHI0A89
     schemaVersion: 4.0.0
-  inventory:
-    edition: standard
-    enabled: true
-    schemaVersion: 3.0.0
   minify:
     edition: standard
     enabled: true
