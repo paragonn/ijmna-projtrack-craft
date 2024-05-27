@@ -1,7 +1,11 @@
-dateModified: 1716371167
+dateModified: 1716817639
 email:
   fromEmail: mufi@paragonn.com
-  fromName: 'IJM Project Tracker'
+  fromName: 'IJM Program Tracker'
+  replyToEmail: null
+  template: null
+  transportSettings:
+    command: '/usr/sbin/sendmail -t -i'
   transportType: craft\mail\transportadapters\Sendmail
 graphql:
   publicToken:
@@ -10,8 +14,8 @@ graphql:
 meta:
   __names__:
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
-    061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Project Tracker' # IJM Project Tracker
-    af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Project Tracker' # IJM Project Tracker
+    061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
+    af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
@@ -100,7 +104,8 @@ plugins:
 system:
   edition: solo
   live: true
-  name: 'IJM Project Tracker'
+  name: 'IJM Program Tracker'
+  retryDuration: null
   schemaVersion: 5.0.0.20
   timeZone: America/Los_Angeles
 users:
