@@ -8,20 +8,20 @@
 
 <section class="mt-[79px]">
     <div class="h-[calc(100vh-79px)] flex items-stretch w-full overflow-hidden" x-data="{ open: false }">
-        <div class="h-full transition-all duration-700 md:w-[calc(100vw-62px)]" :class="open ? '-ml-[100%] w-[calc(100vw+50px)] md:!w-[calc(100vw+62px)]' : 'w-[calc(100vw-50px)]'" x-cloak>
+        <div class="h-full transition-all duration-1000 md:w-[calc(100vw-62px)]" :class="open ? '-ml-[100%] w-[calc(100vw+50px)] md:!w-[calc(100vw+62px)]' : 'w-[calc(100vw-50px)]'" x-cloak>
             <div class="h-full bg-blue-800">
-                <div class="">
-                    <div class="px-[76px] py-10">
-                        <div class="max-w-[600px]">
-                            <h4 class="text-xl md:text-2xl font-Baskervville text-white">Progress Toward Protecting 500 Million People from Slavery and Violence</h4>
+                <div class="" :class="open ? 'transition-opacity duration-200 opacity-0' : 'transition-opacity duration-500 opacity-100'">
+                    <div class="px-[76px] py-10 max-w-[600px]">
+                        <div class="">
+                            <h4 class="text-xl md:text-2xl font-Baskervville text-white text-balance">Progress Toward Protecting 500 Million People from Slavery and Violence</h4>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="w-[calc(100vw+50px)] md:!w-[calc(100vw+62px)] h-full transition-all duration-700" :class="open ? 'ml-0 lg:mr-0 mr-0' : '-mr-[40%] lg:mr-0'">
+        <div class="w-[calc(100vw+50px)] md:w-[calc(100vw+62px)] h-full transition-all duration-1000" :class="open ? 'ml-0 lg:mr-0 mr-0' : '-mr-[40%] lg:mr-0'">
             <div class="flex items-stretch w-full h-full">
-                <div class="w-[50px] md:w-[62px] shrink-0 border-l border-white bg-blue-800 duration-300 transition-transform" :class="{'translate-x-0' : hamburger , '-translate-x-0' : !hamburger}">
+                <div class="w-[50px] md:w-[62px] shrink-0 border-l border-white bg-blue-800 duration-300 transition-transform">
                     <div>
                         <button class="flex items-center justify-center h-[87px] w-full" :class="open ? '' : 'bg-blue-500'" @click="open = !open" @keydown.escape="hamburger = false">
                             <svg width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all duration-300" :class="open ? '' : 'rotate-180'">
@@ -99,7 +99,7 @@
                                         </button>
                                     </div>
                                     <div x-data="{ activeMenu: '' }">
-                                        <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-16 py-8">
+                                        <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-8 md:px-16 py-8">
                                             <span @click="activeMenu === 'jurisdiction' ? activeMenu = null : activeMenu = 'jurisdiction'" class="hover:text-blue-500 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Jurisdiction
                                                 <div class="w-4 h-4 flex items-center justify-center transition-all duration-300" :class="{'!rotate-180' : activeMenu === 'jurisdiction'}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -260,7 +260,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-16 py-8">
+                                        <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-8 md:px-16 py-8">
                                             <span @click="activeMenu === 'casework' ? activeMenu = null : activeMenu = 'casework'" class="hover:text-blue-500 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Casework
                                                 <div class="w-4 h-4 flex items-center justify-center transition-all duration-300" :class="{'!rotate-180' : activeMenu === 'casework'}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -422,7 +422,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="px-16 bottom-10 z-10 fixed w-[320px] md:w-[450px] lg:w-[631px]">
+                                    <div class="px-8 md:px-16 bottom-10 z-10 fixed w-[320px] md:w-[450px] lg:w-[631px]">
                                         <button type="submit" class="bg-blue-800 block w-full font-bold text-base text-center hover:cursor-pointer hover:bg-turkey-900 transition-all duration-300 uppercase text-white py-5 px-6">View 5 Jurisdictions</button>
                                     </div>
                                 </div>
