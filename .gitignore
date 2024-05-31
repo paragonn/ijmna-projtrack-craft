@@ -13,7 +13,6 @@ node_modules
 /web/transforms/
 /web/imager/
 /web/feeds/
-
 /web/imports
 
 # Compiled Java class files
