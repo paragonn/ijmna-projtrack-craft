@@ -1,0 +1,35 @@
+.scrollbar-thin {
+    scrollbar-gutter: stable;
+}
+.trigger-progress.active + .target-progress {
+    .borderactive-bottom {
+        &::after,
+        &::before {
+            @apply border-white transition-all duration-300;
+        }
+    }
+}
+
+.trigger-progress.active ~ .target-progress .content-progress {
+    @apply opacity-100;
+}
+
+.trigger-progress.active ~ .target-progress .content-progress {
+    @apply opacity-50;
+}
+
+.trigger-progress.active {
+    .borderactive-bottom {
+        &::after,
+        &::before {
+            @apply border-white transition-all duration-300;
+        }
+    }
+}
+
+.trigger-progress.active {
+    @apply bg-blue-500/40;
+    .borderactive {
+        @apply border-white;
+    }
+}
