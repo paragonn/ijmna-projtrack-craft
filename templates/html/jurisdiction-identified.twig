@@ -1,0 +1,54 @@
+{% extends "html/_includes/layout" %}
+{% set header = "closable" %}
+{% block seo %}
+<title>Page Link</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="relative lg:min-h-[920px] lg:flex lg:items-center">
+    <img src="/assets/images/bg-main.png" alt="img" class="object-cover w-full h-full absolute">
+    <div class="container relative z-10 pt-[168px] lg:pb-[120px] md:pb-[76px]">
+        <div class="flex items-start md:flex-row flex-col gap-9">
+            <div class="text-white w-full flex-1">
+                <p class="text-blue-500 uppercase tracking-widest">Region: Africa</p>
+                <h1 class="text-4xl md:text-7xl font-Baskervville mt-5">Ghana</h1>
+                <div class="mt-12">
+                    <p class="text-lg uppercase font-bold tracking-widest"><span class="text-blue-500">Stage:</span> Jurisdiction Identified</p>
+                    <p class="text-xs mt-2">Pre-qualified: High poverty, High violence, High plausibility of change</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-14">
+                    <div>
+                        <p class="text-blue-500 uppercase font-medium text-sm tracking-widest">Protection Target:</p>
+                        <p class="font-bold text-lg tracking-widest uppercase">XX Million</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-500 uppercase font-medium text-sm tracking-widest">CaseType:</p>
+                        <p class="font-bold text-lg tracking-widest uppercase">CaseType Name</p>
+                    </div>
+                </div>
+                <div class="relative mt-12">
+                    <h4 class="text-xl md:text-2xl font-Baskervville"><span class="absolute -left-5">“</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.”</h4>
+                    <p class="mt-3">- First Last</p>
+                </div>
+            </div>
+            <div class="md:max-w-[440px] w-full flex-1">
+                <div class="aspect-h-6 aspect-w-9 md:aspect-h-16 md:aspect-w-12">
+                    <img src="/assets/images/mockup-1.png" class="object-cover w-full h-full" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-blue-500/[7%] pb-24">
+    <div class="container">
+        <div class="grid grid-cols-1">
+            <div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

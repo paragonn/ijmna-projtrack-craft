@@ -10,12 +10,19 @@
     }
 }
 
-.trigger-progress.active ~ .target-progress .content-progress {
-    @apply opacity-100;
-}
-
-.trigger-progress.active ~ .target-progress .content-progress {
-    @apply opacity-50;
+.progress-active {
+    &:has(.trigger-progress.active) {
+        .trigger-progress {
+            &.active {
+                .content-progress {
+                    opacity: 1;
+                }
+            }
+        }
+        .content-progress {
+            opacity: 0.5;
+        }
+    }
 }
 
 .trigger-progress.active {
