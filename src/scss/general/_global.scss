@@ -1,0 +1,42 @@
+.scrollbar-thin {
+    scrollbar-gutter: stable;
+}
+.trigger-progress.active + .target-progress {
+    .borderactive-bottom {
+        &::after,
+        &::before {
+            @apply border-white transition-all duration-300;
+        }
+    }
+}
+
+.progress-active {
+    &:has(.trigger-progress.active) {
+        .trigger-progress {
+            &.active {
+                .content-progress {
+                    opacity: 1;
+                }
+            }
+        }
+        .content-progress {
+            opacity: 0.5;
+        }
+    }
+}
+
+.trigger-progress.active {
+    .borderactive-bottom {
+        &::after,
+        &::before {
+            @apply border-white transition-all duration-300;
+        }
+    }
+}
+
+.trigger-progress.active {
+    @apply bg-blue-500/40;
+    .borderactive {
+        @apply border-white;
+    }
+}
