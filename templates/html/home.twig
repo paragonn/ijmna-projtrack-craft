@@ -377,16 +377,16 @@
                                 </svg>
                             </button>
                         </div>
-                        <div x-data="{ activeMenu: '' }" class="pb-28 pt-8 !mt-0">
-                            <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-8 md:px-16 py-8">
-                                <span @click="activeMenu === 'jurisdiction' ? activeMenu = null : activeMenu = 'jurisdiction'" class="hover:text-blue-500 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Jurisdiction
+                        <div x-data="{ activeMenu: '' }" class="pb-28 !mt-0">
+                            <div class="text-base border-b last:border-0 border-blue-800/50 px-8 md:px-16">
+                                <span @click="activeMenu === 'jurisdiction' ? activeMenu = null : activeMenu = 'jurisdiction'" class="hover:text-blue-500 py-8 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Jurisdiction
                                     <div class="shrink-0 flex items-center justify-center transition-all duration-300" :class="{'!rotate-180' : activeMenu === 'jurisdiction'}">
                                         <svg width="18" height="11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="m1 1 8 8 8-8" stroke="currentColor" stroke-width="2" />
                                         </svg>
                                     </div>
                                 </span>
-                                <div style="display:none" x-show="activeMenu === 'jurisdiction'" x-collapse class="pl-2 select-none grid grid-cols-2 gap-x-4 gap-y-3.5 mt-10">
+                                <div style="display:none" x-show="activeMenu === 'jurisdiction'" x-collapse class="pl-2 select-none grid grid-cols-2 gap-x-4 gap-y-3.5">
                                     <div>
                                         <label class="inline-flex cursor-pointer">
                                             <input type="checkbox" disabled class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-3">
@@ -539,15 +539,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-base border-b first:pt-0 last:border-0 border-blue-800/50 px-8 md:px-16 py-8">
-                                <span @click="activeMenu === 'casework' ? activeMenu = null : activeMenu = 'casework'" class="hover:text-blue-500 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Casework
+                            <div class="text-base border-b last:border-0 border-blue-800/50 px-8 md:px-16">
+                                <span @click="activeMenu === 'casework' ? activeMenu = null : activeMenu = 'casework'" class="hover:text-blue-500 py-8 text-lg transition-all duration-300 flex items-center justify-between w-full cursor-pointer">Casework
                                     <div class="w-4 h-4 flex items-center justify-center transition-all duration-300" :class="{'!rotate-180' : activeMenu === 'casework'}">
                                         <svg width="18" height="11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="m1 1 8 8 8-8" stroke="currentColor" stroke-width="2" />
                                         </svg>
                                     </div>
                                 </span>
-                                <div style="display:none" x-show="activeMenu === 'casework'" x-collapse class="pl-2 select-none grid grid-cols-2 gap-x-4 gap-y-3.5 mt-10">
+                                <div style="display:none" x-show="activeMenu === 'casework'" x-collapse class="pl-2 select-none grid grid-cols-2 gap-x-4 gap-y-3.5">
                                     <div>
                                         <label class="inline-flex cursor-pointer">
                                             <input type="checkbox" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-1.5">

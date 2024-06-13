@@ -12,6 +12,7 @@
     "production": "mix --production"
   },
   "dependencies": {
+    "@alpinejs/collapse": "^3.14.0",
     "alpinejs": "^3.12.0",
     "aos": "^2.3.4",
     "dotenv": "^16.0.3",
