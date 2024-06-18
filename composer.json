@@ -2,23 +2,23 @@
     "require": {
         "amici/craft-super-dynamic-fields": "^5.0.1",
         "craftcms/ckeditor": "^4.0.6",
-        "craftcms/cms": "^5.0.0",
+        "craftcms/cms": "5.2.1",
         "craftpulse/craft-colour-swatches": "^5.0.0",
         "lewisjenkins/craft-range-slider": "^5.0.0",
         "marionnewlevant/twig-perversion": "^5.0.0",
         "misterbk/mix": "^v1.7.1",
         "nystudio107/craft-minify": "^5.0.0",
-        "nystudio107/craft-seomatic": "^5.0.3",
+        "nystudio107/craft-seomatic": "5.0.4",
         "putyourlightson/craft-cloudflare": "^3.0.0",
         "spacecatninja/imager-x": "^5.0.0",
         "spacecatninja/imager-x-do-spaces-driver": "^4.0.0",
-        "spicyweb/craft-neo": "^5.0.0-beta.1",
+        "spicyweb/craft-neo": "5.0.3",
         "ttempleton/craft-nocache": "^3.0.2",
         "vaersaagod/dospaces": "^3.0.0-beta.1",
-        "verbb/formie": "^3.0.0-beta.11",
-        "verbb/hyper": "^2.0.0",
+        "verbb/formie": "3.0.0-beta.15",
+        "verbb/hyper": "2.0.2",
         "verbb/icon-picker": "^3.0.0",
-        "verbb/navigation": "^3.0.0",
+        "verbb/navigation": "3.0.1",
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
@@ -57,5 +57,12 @@
         ],
         "post-update-cmd": "@post-craft-update",
         "post-install-cmd": "@post-craft-update"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.craftcms.com",
+            "canonical": false
+        }
+    ]
 }
