@@ -1,0 +1,49 @@
+defaultPlacement: end
+fieldLayouts:
+  80ef9a15-2328-4ce7-b6ff-6ca375ff8412:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: c24ba441-eba4-4cb0-b203-452aff1dd361
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: ae5535c8-3f00-4644-acbe-fef4b9537753
+        userCondition: null
+handle: casework
+name: Casework
+siteSettings:
+  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 17b5bf3d-e5d4-46be-8349-cc0be241c313

@@ -1,0 +1,49 @@
+defaultPlacement: end
+fieldLayouts:
+  22cd9bf6-4f93-4849-9705-612e25528003:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            uid: d6580b61-1329-44e5-bf2d-92bcdb6d508c
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: d11acfd9-f81b-4595-9ec1-ce3554f29c83
+        userCondition: null
+handle: jurisdiction
+name: Jurisdiction
+siteSettings:
+  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 68870d14-a530-4982-985f-a39821dc0e65

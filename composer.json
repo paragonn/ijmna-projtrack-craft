@@ -4,6 +4,7 @@
         "craftcms/ckeditor": "4.1.0",
         "craftcms/cms": "5.2.1",
         "craftpulse/craft-colour-swatches": "^5.0.0",
+        "ether/simplemap": "^5.0.0",
         "lewisjenkins/craft-range-slider": "^5.0.0",
         "marionnewlevant/twig-perversion": "^5.0.0",
         "misterbk/mix": "^v1.7.1",

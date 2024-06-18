@@ -1,0 +1,9 @@
+[
+	{"value" : "", "label" : "---"},
+	{"value" : "jurisdictionsIdentified", "label" : "Jurisdictions Identified"},
+	{"value" : "teamsDeployed", "label" : "Teams Deployed"},
+	{"value" : "projectsReady", "label" : "Projects Ready"},
+	{"value" : "inFlight", "label" : "In-Flight"},
+	{"value" : "landing", "label" : "Landing"},
+	{"value" : "successful", "label" : "Successful"}
+]

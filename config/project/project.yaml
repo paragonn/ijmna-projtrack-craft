@@ -1,4 +1,4 @@
-dateModified: 1718702921
+dateModified: 1718704694
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -13,12 +13,20 @@ graphql:
     expiryDate: null
 meta:
   __names__:
+    4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
+    5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Projects # Projects
+    7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
+    95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
+    434146a4-9bb6-41fc-8ce9-984ed4921d55: Jurisdiction # Jurisdiction
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
+    bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Projects # Projects
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
+    cf6c9928-e050-4212-a498-0618e38611b1: Jurisdiction # Jurisdiction
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
+    fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:
   ckeditor:
     edition: standard
@@ -92,6 +100,10 @@ plugins:
     enabled: true
     licenseKey: MM9T4KW8F4JJN4FVAEDW37MZ
     schemaVersion: 3.0.12
+  simplemap:
+    edition: lite
+    enabled: true
+    schemaVersion: 3.4.2
   super-dynamic-fields:
     edition: standard
     enabled: true

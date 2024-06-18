@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - bac5974c-f86b-4ef2-a13c-d4e61c2883b7 # Projects
+handle: projects
+maxAuthors: 1
+name: Projects
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
+    enabledByDefault: true
+    hasUrls: true
+    template: _pages/index.twig
+    uriFormat: 'projects/{slug}'
+type: channel

@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: stage
+instructions: null
+name: Stage
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/stages.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
