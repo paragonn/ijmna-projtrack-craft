@@ -1,4 +1,4 @@
-dateModified: 1716817639
+dateModified: 1718702921
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -45,7 +45,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: WIQUZC8QRUXW7HIY5D0Z4905
-    schemaVersion: 3.4.4
+    schemaVersion: 3.4.6
   hyper:
     edition: standard
     enabled: true
