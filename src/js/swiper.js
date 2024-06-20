@@ -1,5 +1,5 @@
 import Swiper from "swiper";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 
 window.Swiper = Swiper;
 window.initslider = function () {
@@ -21,6 +21,10 @@ window.initslider = function () {
             modules["modules"].push(Autoplay);
         }
 
+        if (slider.dataset.moduleeffectfade) {
+            modules["modules"].push(EffectFade);
+        }
+
         if (slider.dataset.settings) {
             settings = JSON.parse(slider.dataset.settings);
         }
@@ -37,3 +41,22 @@ window.merge = function (modules, settings) {
     return modules;
 };
 initslider();
+
+
+
+// var swiper = new Swiper(".swiper-progress", {
+//     autoplay: {
+//         delay: 2500,
+//         disableOnInteraction: false,
+//     },
+//     on: {
+//         autoplayTimeLeft(s, time, progress) {
+//             const currentSlide = s.slides[s.activeIndex];
+//             const progressBar = currentSlide.querySelector(".progressBar");
+//             if (progressBar) {
+//                 const widthPercentage = parseFloat(progress) * 100;
+//                 progressBar.style.width = widthPercentage + "%";
+//             }
+//         },
+//     },
+// });

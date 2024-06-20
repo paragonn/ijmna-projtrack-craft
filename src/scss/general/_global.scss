@@ -34,6 +34,22 @@
     }
 }
 
+.hr-progress.active {
+    &::after,
+    &::before {
+        @apply border-white transition-all duration-300;
+    }
+    .hr-progress-inner {
+        @apply border-white bg-blue-500;
+    }
+}
+.hr-progress.active + .hr-progress-target {
+    &::after,
+    &::before {
+        @apply border-white bg-blue-500 transition-all duration-300;
+    }
+}
+
 .trigger-progress.active {
     @apply bg-blue-500/40;
     .borderactive {
