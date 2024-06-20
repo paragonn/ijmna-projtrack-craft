@@ -41,4 +41,6 @@ return GeneralConfig::create()
     ->aliases([
         '@webroot' => dirname(__DIR__) . '/web',
     ])
+
+    ->loginPath() => (App::env('SSO_LOGIN_PATH') ?? '/sso/login/request/fb7176c8-3ab2-4789-b49b-cb11548fc0ad')
 ;

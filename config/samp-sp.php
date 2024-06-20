@@ -2,5 +2,5 @@
 
 return [
         'requireResponseToBeSigned' => false,
-        'entityId' => getenv('ENTITY_ID'),
+        'entityId' => getenv('SSO_ENTITY_ID'),
 ];
