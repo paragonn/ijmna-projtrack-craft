@@ -1,0 +1,116 @@
+{% extends "html/_includes/layout" %}
+{% set header = "closable" %}
+{% block seo %}
+<title>Additional Info</title>
+{% endblock %}
+
+{% block content %}
+
+<section class="lg:h-screen overflow-hidden relative">
+    <div class="flex items-stretch lg:flex-row flex-col">
+        <div class="flex-1 w-full">
+            <div class="grid grid-cols-1">
+                <div class="select-none relative">
+                    <div class="swiper swiper-progress swiper-slider lg:h-screen lg:max-h-full max-h-[480px]" data-moduleeffectfade="1" data-modulenav="1" data-modulepagination="1" data-moduleautoplay="" data-settings='{
+                                                "loop":true,
+                                                "grabCursor": true,
+                                                "autoplay": true,
+                                                "spaceBetween": 0, 
+                                                "slidesPerView": "1",
+                                                "delay": 500,
+                                                "speed": 1000,
+                                                "effect": "fade",
+                                                "navigation":{"nextEl":".swiper-button-next-testitwo","prevEl":".swiper-button-prev-testitwo", "disabledClass": "opacity-50"},
+                                                "pagination": {"el": ".swiper-pagination-testi","type": "fraction", "clickable": "true", "bulletClass": "!bg-white !h-2.5 !w-2.5 !mx-1 opacity-50 swiper-pagination-bullet", "bulletActiveClass": "!opacity-100"}
+                                            }'>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="/assets/images/slide-1.png" class="object-cover w-full h-full" alt="">
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="/assets/images/slide-1.png" class="object-cover w-full h-full" alt="">
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                    </div>
+                    <div class="flex items-center gap-5 w-full absolute z-10 bottom-9 left-12 text-white">
+                        <div class="swiper-pagination-testi font-Baskervville text-4xl -tracking-widest"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 w-full h-screen overflow-auto">
+            <div class="px-10 py-12 lg:px-24 lg:py-36 overflow-auto space-y-8">
+                <div class="lg:px-10 relative">
+                    <p class="uppercase font-bold tracking-widest">Lorem Ipsum</p>
+                    <h1 class="text-4xl lg:text-5xl font-Baskervville -tracking-wide mt-3.5">Additional Information Header</h1>
+                    <div class="mt-7 lg:mt-16 space-y-8">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class="grid grid-cols-1">
+                            <div class="relative select-none">
+                                <div class="swiper swiper-progress swiper-slider" data-moduleeffectfade="1" data-modulenav="1" data-modulepagination="1" data-moduleautoplay="" data-settings='{
+                                                                        "loop":true,
+                                                                        "grabCursor": true,
+                                                                        "autoplay": true,
+                                                                        "spaceBetween": 0, 
+                                                                        "slidesPerView": "1",
+                                                                        "delay": 10000,
+                                                                        "speed": 200,
+                                                                        "navigation":{"nextEl":".swiper-button-next-detail","prevEl":".swiper-button-prev-detail", "disabledClass": "opacity-50"}
+                                                                    }'>
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="/assets/images/slider-detail.png" class="object-cover w-full h-full" alt="">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="/assets/images/slider-detail.png" class="object-cover w-full h-full" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- If we need pagination -->
+                                </div>
+                                <div class="flex items-center gap-5 w-full">
+                                    <div class="flex items-center w-full justify-end gap-6">
+                                        <!-- If we need navigation buttons -->
+                                        <div class="swiper-button-prev-detail absolute -left-9 top-1/2 -translate-y-1/2 z-10">
+                                            <div class="hover:text-blue-800 text-blue-800/30 transition-all duration-300 cursor-pointer">
+                                                <svg width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.99993 11.1486L12.599 1.02246M1.99993 11.1486L23.4062 11.1486M1.99993 11.1486L12.599 21.5725" stroke="#101523" stroke-width="2" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-button-next-detail absolute -right-9 top-1/2 -translate-y-1/2 z-10">
+                                            <div class="hover:text-blue-800 text-blue-800/30 transition-all duration-300 cursor-pointer">
+                                                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M21.4063 11.8514L10.8073 21.9775M21.4063 11.8514L1.77051e-06 11.8514M21.4063 11.8514L10.8073 1.42748" stroke="#101523" stroke-width="2" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="/assets/images/slider-detail.png" class="object-cover w-full h-full" alt="">
+                    <div>
+                        <a href="https://www.youtube.com/embed/UBOj6rqRUME" id="UBOj6rqRUME" class="glightbox h-[88px] left-1/2 -translate-x-1/2 text-center w-[88px] flex items-center justify-center mx-auto rounded-full border border-white z-10 absolute top-1/2 -translate-y-1/2">
+                            <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M28.0547 16.2278L0.749604 31.9924L0.749605 0.463205L28.0547 16.2278Z" fill="white" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:px-10 relative">
+                    <div class="space-y-8">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
