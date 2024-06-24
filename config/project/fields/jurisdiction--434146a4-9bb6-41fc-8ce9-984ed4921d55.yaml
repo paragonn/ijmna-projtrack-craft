@@ -7,12 +7,12 @@ settings:
   allowSelfRelations: false
   branchLimit: null
   localizeRelations: false
-  maintainHierarchy: true
-  maxRelations: null
+  maintainHierarchy: false
+  maxRelations: 1
   minRelations: null
   selectionLabel: null
   showCardsInGrid: false
-  showSiteMenu: false
+  showSiteMenu: true
   source: 'group:cf6c9928-e050-4212-a498-0618e38611b1' # Jurisdiction
   targetSiteId: null
   validateRelatedElements: false

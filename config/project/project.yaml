@@ -1,4 +1,4 @@
-dateModified: 1718704694
+dateModified: 1719221150
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -15,19 +15,32 @@ meta:
   __names__:
     4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Projects # Projects
+    7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?
     7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
+    8ee03cb6-c673-4aca-b24c-41391b451ecf: 'Number of Dots' # Number of Dots
+    08f0c8e2-e9c0-426a-aab3-861fbf413a1f: Heading # Heading
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
+    75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
+    571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
+    970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
+    395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Jurisdiction # Jurisdiction
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
     bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Projects # Projects
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
     cf6c9928-e050-4212-a498-0618e38611b1: Jurisdiction # Jurisdiction
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
+    dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
+    f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
     fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:
+  _ijm-project-tracker-custom-plugin:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   ckeditor:
     edition: standard
     enabled: true
@@ -65,7 +78,7 @@ plugins:
     licenseKey: K92IKU3RM8LPX6SIY0BGAD2Y
     schemaVersion: 1.2.3
   imager-x:
-    edition: lite
+    edition: pro
     enabled: true
     licenseKey: V5RA73U38PF7P7A7MKHI0A89
     schemaVersion: 4.0.0

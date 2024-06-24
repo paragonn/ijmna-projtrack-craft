@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: blankAt
+instructions: 'If dots are not filled in columns, there will be empty space. Define where that space will be'
+name: '1 Blank at?'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/blankAt.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

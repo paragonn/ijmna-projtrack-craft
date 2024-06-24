@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block seo %}{% endblock %}
+
+    <!-- Font Family -->
+    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+</head>
+
+<body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"  x-data="{ isOverflowHidden: false }" :class="{ 'overflow-hidden': isOverflowHidden }">
+    {#
+    ============================================
+    Include Header
+    ============================================
+    #}
+    {% include "_/includes/header" %}
+
+    {% block content %}{% endblock %}
+
+    {#
+    ============================================
+    Include Footer
+    ============================================
+    #}
+    {% include "_/includes/footer" %}
+
+    {# script #}
+    <script src="{{ mix('js/app.js') }}" defer=""></script>
+    {# <script src="{{ mix('js/glightbox.js') }}" defer=""></script> #}
+    {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
+
+</body>
+
+</html>

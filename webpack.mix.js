@@ -47,6 +47,7 @@ mix.setPublicPath("web/assets");
 mix.js("src/js/app.js", "js");
 mix.js("src/js/glightbox.js", "js");
 mix.js("src/js/swiper.js", "js");
+mix.js("src/js/projects-search.js", "js");
 
 /*mix.sass( 'src/scss/all.scss', 'css' ).purgeCss({
   enabled: (process.env.PURGE_CSS == "true" ? true : false),

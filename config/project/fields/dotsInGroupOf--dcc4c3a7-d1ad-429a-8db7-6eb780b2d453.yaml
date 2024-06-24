@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: dotsInGroupOf
+instructions: null
+name: 'Dots in group of'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/dotsInGroupOf.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

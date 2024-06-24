@@ -1,0 +1,7 @@
+[
+	{"value" : "", "label" : "Default"},
+	{"value" : "topLeft", "label" : "Top Left"},
+	{"value" : "topRight", "label" : "Top Right"},
+	{"value" : "bottomLeft", "label" : "Bottom Left"},
+	{"value" : "bottomRight", "label" : "Bottom Right"}
+]

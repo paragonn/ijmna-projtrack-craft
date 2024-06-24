@@ -1,4 +1,6 @@
 {
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "amici/craft-super-dynamic-fields": "^5.0.1",
         "craftcms/ckeditor": "4.1.0",
@@ -10,6 +12,7 @@
         "misterbk/mix": "^v1.7.1",
         "nystudio107/craft-minify": "^5.0.0",
         "nystudio107/craft-seomatic": "5.0.4",
+        "paragonn/craft-ijm-project-tracker-custom-plugin": "dev-main",
         "putyourlightson/craft-cloudflare": "^3.0.0",
         "spacecatninja/imager-x": "^5.0.0",
         "spacecatninja/imager-x-do-spaces-driver": "^4.0.0",
@@ -23,6 +26,7 @@
         "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
+        "craftcms/generator": "^2.0",
         "yiisoft/yii2-shell": "^2.0.3"
     },
     "autoload": {
@@ -64,6 +68,10 @@
             "type": "composer",
             "url": "https://composer.craftcms.com",
             "canonical": false
+        },
+        {
+            "type": "path",
+            "url": "plugins/ijm-project-tracker-custom-plugin"
         }
     ]
 }

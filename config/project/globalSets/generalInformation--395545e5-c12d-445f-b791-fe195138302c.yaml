@@ -1,0 +1,27 @@
+fieldLayouts:
+  f6510fca-257f-47a4-bada-c166d6901204:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 75f7ed78-7f7c-432f-a6f5-b028a8b82c52 # Stages
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 72002318-bd86-4a80-a1a2-98e58722e2c8
+            userCondition: null
+            warning: null
+            width: 100
+        name: Stages
+        uid: 1fb796c3-956e-463c-9ff3-d8d01dca2412
+        userCondition: null
+handle: generalInformation
+name: 'General Information'
+sortOrder: 1

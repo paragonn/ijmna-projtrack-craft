@@ -1,0 +1,33 @@
+headingLevels:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+name: Advanced
+options:
+  alignment:
+    options:
+      - left
+      - right
+toolbar:
+  - sourceEditing
+  - heading
+  - '|'
+  - alignment
+  - '|'
+  - bold
+  - italic
+  - underline
+  - strikethrough
+  - '|'
+  - bulletedList
+  - numberedList
+  - todoList
+  - '|'
+  - link
+  - insertImage
+  - mediaEmbed
+  - '|'
+  - insertTable
