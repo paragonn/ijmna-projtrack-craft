@@ -1,1 +1,9 @@
-{}
+{
+    "/js/app.js": "/js/app.js?id=cc5068a90b4abbe20eb472f753267fda",
+    "/js/glightbox.js": "/js/glightbox.js?id=4b9932da884eb8d202e183821d8a4d29",
+    "/js/swiper.js": "/js/swiper.js?id=1a5237a2e9b5414b7bc7d759a9c1d44c",
+    "/js/projects-search.js": "/js/projects-search.js?id=3003889993c90e9d8073698a5cb6c336",
+    "/css/swiper.css": "/css/swiper.css?id=3a856382a3561fda29be952832926b6f",
+    "/css/glightbox.css": "/css/glightbox.css?id=72122eccd8ff107ae13b29ed2d9dfe33",
+    "/css/app.css": "/css/app.css?id=b91a5a89910eeafad4abcc0100ef2f0d"
+}

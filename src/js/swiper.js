@@ -1,48 +1,81 @@
 import Swiper from "swiper";
-import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import {
+    Navigation,
+    Pagination,
+    Autoplay,
+    Thumbs,
+    EffectFade,
+} from "swiper/modules";
 
+Swiper.use([Navigation, Pagination, Autoplay, Thumbs, EffectFade]);
 window.Swiper = Swiper;
-window.initslider = function () {
-    let sliders = document.querySelectorAll(".swiper-slider");
-    sliders.forEach((slider) => {
-        let settings = {};
-        let modules = { modules: [] };
 
-        settings["modules"] = [];
-        if (slider.dataset.modulenav) {
-            modules["modules"].push(Navigation);
-        }
+let sliders = document.querySelectorAll(".swiper-slider");
+sliders.forEach((slider) => {
+    let settings = {};
+    let modules = { modules: [] };
 
-        if (slider.dataset.modulepagination) {
-            modules["modules"].push(Pagination);
-        }
+    settings["modules"] = [];
+    if (slider.dataset.modulenav) {
+        modules["modules"].push(Navigation);
+    }
 
-        if (slider.dataset.moduleautoplay) {
-            modules["modules"].push(Autoplay);
-        }
+    if (slider.dataset.modulepagination) {
+        modules["modules"].push(Pagination);
+    }
 
-        if (slider.dataset.moduleeffectfade) {
-            modules["modules"].push(EffectFade);
-        }
+    if (slider.dataset.moduleautoplay) {
+        modules["modules"].push(Autoplay);
+    }
 
-        if (slider.dataset.settings) {
-            settings = JSON.parse(slider.dataset.settings);
-        }
+    if (slider.dataset.moduleeffectfade) {
+        modules["modules"].push(EffectFade);
+    }
 
-        settings = merge(modules, settings);
-        let swiper = new Swiper(slider, settings);
-    });
-};
+    if (slider.dataset.settings) {
+        settings = JSON.parse(slider.dataset.settings);
+    }
 
-window.merge = function (modules, settings) {
+    settings = merge(modules, settings);
+    let swiper = new Swiper(slider, settings);
+});
+
+function merge(modules, settings) {
     for (var key in settings) {
         if (settings.hasOwnProperty(key)) modules[key] = settings[key];
     }
     return modules;
-};
-initslider();
+}
 
+let thumbSlider = document.querySelector(".thumbslider");
+if (thumbSlider) {
+    var thumbslider = new Swiper(".thumbslider", {
+        spaceBetween: 2,
+        slidesPerView: 1,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        allowTouchMove: false,
+    });
 
+    var productslider = new Swiper(".productslider", {
+        slidesPerView: 1,
+        centeredSlides: true,
+        speed: 500,
+        effect: "fade",
+        allowTouchMove: false,
+        navigation: {
+            nextEl: ".swiper-button-next-product-main",
+            prevEl: ".swiper-button-prev-product-main",
+        },
+        pagination: {
+            el: ".swiper-pagination-testi",
+            type: "fraction",
+        },
+        thumbs: {
+            swiper: thumbslider,
+        },
+    });
+}
 
 // var swiper = new Swiper(".swiper-progress", {
 //     autoplay: {
