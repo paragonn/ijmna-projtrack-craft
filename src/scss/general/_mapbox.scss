@@ -1,0 +1,18 @@
+.mapboxgl-popup-content {
+    padding: 0 !important;
+}
+
+.mapboxgl-popup-close-button {
+    background-color: transparent !important;
+    color: white !important;
+    font-size: 22px !important;
+    right: 5px !important;
+
+    &:hover {
+        @apply scale-105 opacity-80 transform transition-all duration-150;
+    }
+}
+
+.mapboxgl-popup-tip {
+    border-top-color: #101523 !important;
+}

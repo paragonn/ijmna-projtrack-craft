@@ -144,6 +144,7 @@
                 style="overflow-anchor: none;"
                 data-mapbox="{{ getenv('MAPBOX_ACCESS_TOKEN') }}"
                 data-lang="{{ currentSite.language }}"
+                data-token="{{ getenv('GQL_BEARER_TOKEN') }}"
             ></div>
 
             {# <div class="absolute w-full max-w-[420px] right-10 top-[30%]">
@@ -244,7 +245,7 @@
                                     {% for jurisdiction in jurisdictions %}
                                     <div>
                                         <label class="inline-flex cursor-pointer">
-                                            <input type="checkbox" name="jurisdiction[]" value="{{ jurisdiction.slug }}" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-3">
+                                            <input type="checkbox" name="jurisdiction[]" value="{{ jurisdiction.id }}" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-3">
                                             <span class="peer-disabled:opacity-30">{{ jurisdiction.title }}</span>
                                         </label>
                                     </div>
@@ -263,7 +264,7 @@
                                     {% for casework in caseworks %}
                                     <div>
                                         <label class="inline-flex cursor-pointer">
-                                            <input type="checkbox" name="casework[]" value="{{ casework.slug }}" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-1.5">
+                                            <input type="checkbox" name="casework[]" value="{{ casework.id }}" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-1.5">
                                             <span>{{ casework.title }}</span>
                                         </label>
                                     </div>

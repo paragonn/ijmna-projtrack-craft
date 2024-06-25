@@ -1,4 +1,4 @@
-dateModified: 1719221150
+dateModified: 1719330763
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -7,14 +7,20 @@ email:
   transportSettings:
     command: '/usr/sbin/sendmail -t -i'
   transportType: craft\mail\transportadapters\Sendmail
-graphql:
-  publicToken:
-    enabled: false
-    expiryDate: null
+fs:
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/uploads/images'
+    type: craft\fs\Local
+    url: '@web/uploads/images'
 meta:
   __names__:
+    0b15cab4-22ae-40f3-9612-204b951f30f0: Image # Image
     4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
-    5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Projects # Projects
+    5a2e4125-53c6-4343-b44e-970c058d6ba3: 'Projects Search Feature with MapBox' # Projects Search Feature with MapBox
+    5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
     7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?
     7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
     8ee03cb6-c673-4aca-b24c-41391b451ecf: 'Number of Dots' # Number of Dots
@@ -24,9 +30,11 @@ meta:
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
     571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
+    811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Jurisdiction # Jurisdiction
+    a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
     bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Projects # Projects
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root

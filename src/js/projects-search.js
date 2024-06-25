@@ -27,8 +27,9 @@ const genLimit = 100;
 const ajaxWrapper = document.querySelector(".ajax-items");
 const mobileMapOpenBtn = document.querySelector(".map-click");
 const markerFilter = ["in", "id"];
-const colorRed = "#aa192d";
+const colorMarker = "#006FAC";
 
+const gqlToken = $map_holder.dataset.token;
 let polygen = false;
 let regBound = false;
 let params = getQueryParams();
@@ -73,28 +74,164 @@ window.addEventListener("load", (event) => {
 
         // Set color of WATER to match with IJM
         // map.setPaintProperty("water", 'fill-color', "#e9edf0");
-
-        prepareQuery({
-            location: ["Andhra Pradesh, India"]
-        });
+        performMagic(params);
+    }).on("click", "markers", e => {
+        const marker = e.features[0]
+        let data = marker.properties;
+        let html = createMarkerPopup(data);
+        const popup = new instance.Popup()
+            .setLngLat(marker.geometry.coordinates.slice())
+            .setHTML(html)
+            .setMaxWidth("420px")
+            .addTo(map)
 
     });
 });
 
-function prepareQuery(meta)
+async function performMagic(params)
 {
+    showLoader();
+    startFreshMarkers();
     removeAllLayers();
 
-    for (let index = 0; index < meta.location.length; index++)
+    var queryString = new URLSearchParams();
+    let variables = {};
+    params.forEach(function (data) {
+        if (data.value) {
+            queryString.append(data.name, data.value);
+            variables[data.name] = data.value;
+        }
+    });
+
+    queryString = queryString.toString();
+    let url = window.location.pathname + (params.length ? '?' + queryString : '');
+    window.history.pushState({ path: url }, '', url);
+
+    var found = false;
+
+    const result = await fetch("/api", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+            Accept: "application/json",
+            Authorization: `Bearer ${gqlToken}`
+        },
+        cache: "force-cache",
+        body: JSON.stringify({
+            query: `query fetchProjectTrackingData($stage: [QueryArgument], $jurisdiction: [QueryArgument], $casework: [QueryArgument]) {
+                entries(section: "projects", stage: $stage, jurisdiction:$jurisdiction, casework: $casework) {
+                    ... on projects_Entry {
+                        id
+                        title
+                        uri
+                        stage(label: true)
+                        jurisdiction {
+                            ... on jurisdiction_Category {
+                                id,
+                                title,
+                                address {
+                                    lat
+                                    lng
+                                    parts {
+                                        state
+                                        country
+                                    }
+                                }
+                            }
+                        }
+                        casework {
+                            ... on casework_Category {
+                                id,
+                                title
+                            }
+                        }
+                        image {
+                            url @transform(width: 118, height: 138, mode: "crop")
+                        }
+                    }
+                }
+            }`,
+            variables: variables
+        })
+    })
+    .then(response => response.json());
+
+    handleDataFromGql(result.data);
+}
+
+function handleDataFromGql(data)
+{
+    if(data.entries.length == 0) {
+        console.log("No rows found")
+        return false;
+    }
+
+    let locations = [];
+    data.entries.forEach(function(item, key) {
+        locations.push(item.jurisdiction[0].address.parts.state ? item.jurisdiction[0].address.parts.state + ", " + item.jurisdiction[0].address.parts.country : item.jurisdiction[0].address.parts.country);
+
+        let marker = {
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [item.jurisdiction[0].address.lng, item.jurisdiction[0].address.lat]
+            },
+            properties: item
+        };
+
+        markers.features.push(marker);
+        markerFilter.push(marker.properties.id);
+    });
+
+    if(locations.length) {
+        hightlightAreaOnMap(locations);
+    }
+
+    if (map.getSource("markers")) {
+        map.removeLayer("markers");
+        map.removeLayer("markers-highlighted");
+        map.removeSource("markers");
+    }
+
+    console.log(markers)
+    map.addSource("markers", {
+        type: "geojson",
+        data: markers,
+    });
+
+    addMarkerLayer("markers", {
+        "circle-color": colorMarker,
+        "circle-radius": 6,
+        "circle-stroke-width": 1,
+        "circle-stroke-opacity": 0.4,
+    });
+
+    addMarkerLayer("markers-highlighted", {
+        "circle-color": colorMarker,
+        "circle-radius": 10,
+        "circle-stroke-color": colorMarker,
+        "circle-stroke-width": 7,
+        "circle-stroke-opacity": 0.6,
+    });
+
+    // Display only the dealer markers that are within the dealer list
+    console.log(markerFilter)
+    map.setFilter("markers", markerFilter);
+    hideLoader();
+}
+
+function hightlightAreaOnMap(locations)
+{
+    for (let index = 0; index < locations.length; index++)
     {
-        let id = convertToSlug(meta.location[index]);
+        let id = convertToSlug(locations[index]);
         layers.push(id);
 
         // removeLayerIfExists(map, "locationFill_" + id);
         // removeLayerIfExists(map, "locationOutline_" + id);
         // removeSourceIfExists(map, "location_" + id);
 
-        Promise.all([getBoundaries(meta.location[index], id)]).then(boundaryData => {
+        Promise.all([getBoundaries(locations[index], id)]).then(boundaryData => {
             if(boundaryData[0]) {
                 drawBoundaries(id);
             }
@@ -280,8 +417,59 @@ function getQueryParams() {
     return params;
 }
 
+function getFromParams(key) {
+    let ret = '';
+    params.forEach(function (val, index) {
+        if (val.name == key) {
+            ret = val.value;
+        }
+    });
+
+    return ret;
+}
+
+function showLoader() {
+    document.querySelectorAll(".ajax--loading").forEach(function (item) {
+        item.classList.remove("hidden")
+    });
+}
+
+function hideLoader() {
+    document.querySelectorAll(".ajax--loading").forEach(function (item) {
+        item.classList.add("hidden")
+    });
+}
+
 function convertToSlug(Text) {
     return Text.toLowerCase()
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, "");
+}
+
+function createMarkerPopup(item) {
+    let image = JSON.parse(item.image);
+    let jurisdiction = JSON.parse(item.jurisdiction);
+    let card = `<div class="flex sm:flex-row flex-col items-stretch bg-blue-800">`;
+        if(image.length) {
+            card += `<div class="flex-1 sm:max-w-[118px] max-h-[139px] sm:h-full overflow-hidden">
+                <img src="${image[0].url}" class="object-cover object-center w-full h-full" alt="${item.title}">
+            </div>`;
+        }
+
+        card += `<div class="py-5 pl-5 pr-12 text-white relative flex-1 w-full">
+            <p class="text-blue-500 text-base">Country: ${jurisdiction[0].address.parts.country}</p>
+            <h3 class="text-2xl md:text-3xl mt-2 font-Baskervville">${item.title}</h3>
+            <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
+            <div class="absolute right-4 bottom-4">
+                <button class="text-white hover:text-blue-500 transition-all duration-300">
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0.96875 12.5H24.2427" stroke="currentColor" stroke-width="2"></path>
+                        <path d="M12.6055 25L12.6055 0" stroke="currentColor" stroke-width="2"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>`;
+
+    return card;
 }
