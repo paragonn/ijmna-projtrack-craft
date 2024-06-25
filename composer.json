@@ -23,7 +23,8 @@
         "verbb/hyper": "2.0.2",
         "verbb/icon-picker": "^3.0.0",
         "verbb/navigation": "3.0.1",
-        "vlucas/phpdotenv": "^5.4.0"
+        "vlucas/phpdotenv": "^5.4.0",
+        "flipboxfactory/saml-sp": "^5.0.0"
     },
     "require-dev": {
         "craftcms/generator": "^2.0",

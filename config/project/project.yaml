@@ -1,4 +1,4 @@
-dateModified: 1719330763
+dateModified: 1719332017
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -94,6 +94,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  keychain:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   minify:
     edition: standard
     enabled: true
@@ -116,6 +120,11 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  saml-sp:
+    edition: standard
+    enabled: true
+    licenseKey: YTKZ506RHWUCO2P2AHUNP4O7
+    schemaVersion: 2.1.0
   seomatic:
     edition: standard
     enabled: true
