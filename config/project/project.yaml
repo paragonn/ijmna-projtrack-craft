@@ -1,4 +1,4 @@
-dateModified: 1719332017
+dateModified: 1719381244
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -33,12 +33,12 @@ meta:
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
-    434146a4-9bb6-41fc-8ce9-984ed4921d55: Jurisdiction # Jurisdiction
+    434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
-    bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Projects # Projects
+    bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Jurisdictions # Jurisdictions
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
-    cf6c9928-e050-4212-a498-0618e38611b1: Jurisdiction # Jurisdiction
+    cf6c9928-e050-4212-a498-0618e38611b1: Country # Country
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
@@ -148,7 +148,7 @@ system:
   live: true
   name: 'IJM Program Tracker'
   retryDuration: null
-  schemaVersion: 5.0.0.20
+  schemaVersion: 5.0.0.21
   timeZone: America/Los_Angeles
 users:
   allowPublicRegistration: false

@@ -51,7 +51,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 434146a4-9bb6-41fc-8ce9-984ed4921d55 # Jurisdiction
+            fieldUid: 434146a4-9bb6-41fc-8ce9-984ed4921d55 # Country
             handle: null
             includeInCards: false
             instructions: null
@@ -94,13 +94,28 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            fieldUid: 95b9f0e3-06b5-4fdf-add4-4d87ad204c7e # Address
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7dad6ab8-4e61-467d-a9a1-1c9c0b744508
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: ce7b5803-4685-40c3-b2e3-b9cfd246094d
         userCondition: null
-handle: projects
+handle: jurisdictions
 hasTitleField: true
 icon: globe
-name: Projects
+name: Jurisdictions
 showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null

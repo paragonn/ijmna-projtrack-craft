@@ -32,7 +32,7 @@ const colorMarker = "#006FAC";
 const gqlToken = $map_holder.dataset.token;
 let polygen = false;
 let regBound = false;
-let params = getQueryParams();
+let params = [];
 let defaultLat = 13.839994950862705;
 let defaultLng = 32.53248643419619;
 
@@ -74,7 +74,7 @@ window.addEventListener("load", (event) => {
 
         // Set color of WATER to match with IJM
         // map.setPaintProperty("water", 'fill-color', "#e9edf0");
-        performMagic(params);
+        performMagic();
     }).on("click", "markers", e => {
         const marker = e.features[0]
         let data = marker.properties;
@@ -85,27 +85,56 @@ window.addEventListener("load", (event) => {
             .setMaxWidth("420px")
             .addTo(map)
 
+    }).on("mouseenter", "markers", function (e) {
+        map.getCanvas().style.cursor = "pointer"
+    })
+    .on("mouseleave", "markers", function () {
+        map.getCanvas().style.cursor = ""
     });
 });
 
-async function performMagic(params)
+async function performMagic()
 {
     showLoader();
-    startFreshMarkers();
-    removeAllLayers();
+    params = getQueryParams();
+    flushMapBoxLayersAndData();
 
-    var queryString = new URLSearchParams();
+    // var queryString = new URLSearchParams();
     let variables = {};
-    params.forEach(function (data) {
-        if (data.value) {
-            queryString.append(data.name, data.value);
-            variables[data.name] = data.value;
-        }
-    });
 
-    queryString = queryString.toString();
+    let tmp = getFromParams("stage");
+    if(tmp) {
+        variables["stage"] = tmp;
+        // queryString.append("stage", tmp);
+    }
+
+    tmp = getFromParams("country[]");
+    if(tmp.length) {
+        /* for (let index = 0; index < tmp.length; index++) {
+            const element = tmp[index];
+            queryString.append("country[]", tmp[index]);
+        } */
+        variables["categories"] = [];
+        variables["categories"].push({"group": ["country"], "slug": tmp});
+    }
+
+    tmp = getFromParams("casework[]");
+    if(tmp.length) {
+        /* for (let index = 0; index < tmp.length; index++) {
+            const element = tmp[index];
+            queryString.append("casework[]", tmp[index]);
+        } */
+
+        if(typeof(variables["categories"]) === "undefined") {
+            variables["categories"] = [];
+        }
+
+        variables["categories"].push({"group": ["casework"], "slug": tmp});
+    }
+
+    /* queryString = queryString.toString();
     let url = window.location.pathname + (params.length ? '?' + queryString : '');
-    window.history.pushState({ path: url }, '', url);
+    window.history.pushState({ path: url }, '', url); */
 
     var found = false;
 
@@ -118,25 +147,26 @@ async function performMagic(params)
         },
         cache: "force-cache",
         body: JSON.stringify({
-            query: `query fetchProjectTrackingData($stage: [QueryArgument], $jurisdiction: [QueryArgument], $casework: [QueryArgument]) {
-                entries(section: "projects", stage: $stage, jurisdiction:$jurisdiction, casework: $casework) {
-                    ... on projects_Entry {
+            query: `query fetchJurisdictionsTrackingData($stage: [QueryArgument], $categories: [CategoryCriteriaInput]) {
+                entryCount(section: "jurisdictions", stage: $stage, relatedToCategories:$categories)
+                entries(section: "jurisdictions", stage: $stage, relatedToCategories: $categories) {
+                    ... on jurisdictions_Entry {
                         id
                         title
                         uri
                         stage(label: true)
-                        jurisdiction {
-                            ... on jurisdiction_Category {
+                        address {
+                            lat
+                            lng
+                            parts {
+                                state
+                                country
+                            }
+                        }
+                        country {
+                            ... on country_Category {
                                 id,
-                                title,
-                                address {
-                                    lat
-                                    lng
-                                    parts {
-                                        state
-                                        country
-                                    }
-                                }
+                                title
                             }
                         }
                         casework {
@@ -162,19 +192,25 @@ async function performMagic(params)
 function handleDataFromGql(data)
 {
     if(data.entries.length == 0) {
+        hideLoader();
+        handleNoResults();
         console.log("No rows found")
         return false;
     }
 
-    let locations = [];
+    let entryCounterDiv = document.querySelector(".js-entry-count");
+    entryCounterDiv.innerHTML = data.entryCount;
+    entryCounterDiv.parentElement.parentElement.classList.remove("hidden");
+
+    // let locations = [];
     data.entries.forEach(function(item, key) {
-        locations.push(item.jurisdiction[0].address.parts.state ? item.jurisdiction[0].address.parts.state + ", " + item.jurisdiction[0].address.parts.country : item.jurisdiction[0].address.parts.country);
+        // locations.push(item.address.parts.state ? item.address.parts.state + ", " + item.address.parts.country : item.address.parts.country);
 
         let marker = {
             type: 'Feature',
             geometry: {
                 type: 'Point',
-                coordinates: [item.jurisdiction[0].address.lng, item.jurisdiction[0].address.lat]
+                coordinates: [item.address.lng, item.address.lat]
             },
             properties: item
         };
@@ -183,17 +219,14 @@ function handleDataFromGql(data)
         markerFilter.push(marker.properties.id);
     });
 
-    if(locations.length) {
+    /* if(locations.length) {
         hightlightAreaOnMap(locations);
-    }
+    } */
 
-    if (map.getSource("markers")) {
-        map.removeLayer("markers");
-        map.removeLayer("markers-highlighted");
-        map.removeSource("markers");
-    }
+    /* if(getFromParams("country[]").length) {
+        hightlightAreaOnMap(getFromParams("country[]"));
+    } */
 
-    console.log(markers)
     map.addSource("markers", {
         type: "geojson",
         data: markers,
@@ -201,23 +234,29 @@ function handleDataFromGql(data)
 
     addMarkerLayer("markers", {
         "circle-color": colorMarker,
-        "circle-radius": 6,
+        "circle-radius": 7.5,
         "circle-stroke-width": 1,
         "circle-stroke-opacity": 0.4,
     });
 
-    addMarkerLayer("markers-highlighted", {
+    /* addMarkerLayer("markers-highlighted", {
         "circle-color": colorMarker,
-        "circle-radius": 10,
+        "circle-radius": 12,
         "circle-stroke-color": colorMarker,
         "circle-stroke-width": 7,
         "circle-stroke-opacity": 0.6,
-    });
+    }); */
 
     // Display only the dealer markers that are within the dealer list
-    console.log(markerFilter)
     map.setFilter("markers", markerFilter);
     hideLoader();
+
+    let bounds = bbox(markers);
+    map.fitBounds(bounds, {
+        padding: 150,
+        duration: 200,
+        maxZoom: 15
+    });
 }
 
 function hightlightAreaOnMap(locations)
@@ -239,13 +278,6 @@ function hightlightAreaOnMap(locations)
     }
 }
 
-function startFreshMarkers() {
-    markers = {
-        type: 'FeatureCollection',
-        features: []
-    };
-}
-
 function removeLayerIfExists(map, layer) {
     if (map.getLayer(layer)) {
         map.removeLayer(layer)
@@ -258,13 +290,26 @@ function removeSourceIfExists(map, source) {
     }
 }
 
-function removeAllLayers() {
+function flushMapBoxLayersAndData() {
     for (let index = 0; index < layers.length; index++)
     {
         removeLayerIfExists(map, "locationFill_" + layers[index]);
         removeLayerIfExists(map, "locationOutline_" + layers[index]);
         removeSourceIfExists(map, "location_" + layers[index]);
     }
+
+    if (map.getSource("markers")) {
+        map.removeLayer("markers");
+        // map.removeLayer("markers-highlighted");
+        map.removeSource("markers");
+    }
+
+    markers = {
+        type: 'FeatureCollection',
+        features: []
+    };
+
+
 }
 
 function getBoundaries(location, id) {
@@ -418,14 +463,25 @@ function getQueryParams() {
 }
 
 function getFromParams(key) {
-    let ret = '';
-    params.forEach(function (val, index) {
-        if (val.name == key) {
-            ret = val.value;
-        }
-    });
+    if(key.includes("[]")) {
+        let ret = [];
+        params.forEach(function (val, index) {
+            if (val.name == key) {
+                ret.push(val.value);
+            }
+        });
 
-    return ret;
+        return ret;
+    } else {
+        let ret = '';
+        params.forEach(function (val, index) {
+            if (val.name == key) {
+                ret = val.value;
+            }
+        });
+
+        return ret;
+    }
 }
 
 function showLoader() {
@@ -446,27 +502,34 @@ function convertToSlug(Text) {
         .replace(/[^\w-]+/g, "");
 }
 
+function handleNoResults()
+{
+    document.querySelector(".js-entry-count").parentElement.parentElement.classList.add("hidden");
+}
+
 function createMarkerPopup(item) {
     let image = JSON.parse(item.image);
-    let jurisdiction = JSON.parse(item.jurisdiction);
+    let country = JSON.parse(item.country);
+    // let address = JSON.parse(item.address);
+    // let casework = JSON.parse(item.casework);
     let card = `<div class="flex sm:flex-row flex-col items-stretch bg-blue-800">`;
         if(image.length) {
-            card += `<div class="flex-1 sm:max-w-[118px] max-h-[139px] sm:h-full overflow-hidden">
+            card += `<div class="flex-1 sm:max-w-[118px] overflow-hidden">
                 <img src="${image[0].url}" class="object-cover object-center w-full h-full" alt="${item.title}">
             </div>`;
         }
 
         card += `<div class="py-5 pl-5 pr-12 text-white relative flex-1 w-full">
-            <p class="text-blue-500 text-base">Country: ${jurisdiction[0].address.parts.country}</p>
+            <p class="text-blue-500 text-base">Country: ${country[0].title}</p>
             <h3 class="text-2xl md:text-3xl mt-2 font-Baskervville">${item.title}</h3>
             <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
             <div class="absolute right-4 bottom-4">
-                <button class="text-white hover:text-blue-500 transition-all duration-300">
+                <a href="/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.96875 12.5H24.2427" stroke="currentColor" stroke-width="2"></path>
                         <path d="M12.6055 25L12.6055 0" stroke="currentColor" stroke-width="2"></path>
                     </svg>
-                </button>
+                </a>
             </div>
         </div>
     </div>`;

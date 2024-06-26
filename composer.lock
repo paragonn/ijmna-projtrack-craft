@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe5f4263cdf2ddbdb5ae92707fa1c0dc",
+    "content-hash": "cf47df7d483c96fcc4e472af5d6b10f5",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -593,11 +593,11 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "5.2.1",
+            "version": "5.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/9beea769b1dfa4c9c4bff38f7af5da9f4e96cbe9",
-                "reference": "9beea769b1dfa4c9c4bff38f7af5da9f4e96cbe9",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/b024ed46ab876900feb4b85589ccddbe1c00658e",
+                "reference": "b024ed46ab876900feb4b85589ccddbe1c00658e",
                 "shasum": ""
             },
             "require": {
@@ -697,7 +697,7 @@
                 "docs": "https://craftcms.com/docs/5.x/",
                 "rss": "https://github.com/craftcms/cms/releases.atom"
             },
-            "time": "2024-06-17T20:10:48+00:00"
+            "time": "2024-06-20T21:17:40+00:00"
         },
         {
             "name": "craftcms/flysystem",

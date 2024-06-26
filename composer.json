@@ -4,9 +4,10 @@
     "require": {
         "amici/craft-super-dynamic-fields": "^5.0.1",
         "craftcms/ckeditor": "4.1.0",
-        "craftcms/cms": "5.2.1",
+        "craftcms/cms": "5.2.3",
         "craftpulse/craft-colour-swatches": "^5.0.0",
         "ether/simplemap": "^5.0.0",
+        "flipboxfactory/saml-sp": "^5.0.0",
         "lewisjenkins/craft-range-slider": "^5.0.0",
         "marionnewlevant/twig-perversion": "^5.0.0",
         "misterbk/mix": "^v1.7.1",
@@ -23,8 +24,7 @@
         "verbb/hyper": "2.0.2",
         "verbb/icon-picker": "^3.0.0",
         "verbb/navigation": "3.0.1",
-        "vlucas/phpdotenv": "^5.4.0",
-        "flipboxfactory/saml-sp": "^5.0.0"
+        "vlucas/phpdotenv": "^5.4.0"
     },
     "require-dev": {
         "craftcms/generator": "^2.0",

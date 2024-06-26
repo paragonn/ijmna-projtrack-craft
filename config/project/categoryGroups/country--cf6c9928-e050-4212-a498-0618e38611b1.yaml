@@ -34,26 +34,11 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            elementCondition: null
-            fieldUid: 95b9f0e3-06b5-4fdf-add4-4d87ad204c7e # Address
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b5555bdd-d2cc-41c6-8d38-4712a278ee6d
-            userCondition: null
-            warning: null
-            width: 100
         name: Content
         uid: d11acfd9-f81b-4595-9ec1-ce3554f29c83
         userCondition: null
-handle: jurisdiction
-name: Jurisdiction
+handle: country
+name: Country
 siteSettings:
   af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
     hasUrls: false

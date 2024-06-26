@@ -1,8 +1,8 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - bac5974c-f86b-4ef2-a13c-d4e61c2883b7 # Projects
-handle: projects
+  - bac5974c-f86b-4ef2-a13c-d4e61c2883b7 # Jurisdictions
+handle: jurisdictions
 maxAuthors: 1
 name: Jurisdictions
 previewTargets:
@@ -23,5 +23,5 @@ siteSettings:
     enabledByDefault: true
     hasUrls: true
     template: _pages/index.twig
-    uriFormat: 'projects/{slug}'
+    uriFormat: 'jurisdictions/{slug}'
 type: channel

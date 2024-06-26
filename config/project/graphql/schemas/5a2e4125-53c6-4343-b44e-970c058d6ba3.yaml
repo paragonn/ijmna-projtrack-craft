@@ -5,4 +5,4 @@ scope:
   - 'sections.5e460cf8-38e4-4ac9-8629-0c53ed9052c4:read' # Jurisdictions
   - 'volumes.811baf06-6695-4229-9067-1b2f8a49e13c:read' # Images
   - 'categorygroups.7be90189-1791-495b-a850-3bc340df0caf:read' # Casework
-  - 'categorygroups.cf6c9928-e050-4212-a498-0618e38611b1:read' # Jurisdiction
+  - 'categorygroups.cf6c9928-e050-4212-a498-0618e38611b1:read' # Country
