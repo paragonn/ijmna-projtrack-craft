@@ -1,50 +1,64 @@
+{% import "_/includes/macros" as render %}
+{% minify %}
 <!DOCTYPE html>
-<html lang="en">
+{% set htmlAttrs = {
+    lang: craft.app.language,
+    class: 'scroll-smooth'
+} %}
+<html {{ attr(htmlAttrs) }}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# Fav Icon #}
 
-    {% block seo %}{% endblock %}
+        {% block seo %}{% endblock %}
+        {# CSS #}
+        <script>supportWebp = e => document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;</script>
 
-    <!-- Font Family -->
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    </head>
 
-    <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-</head>
+    <body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"
+        x-data="{ isOverflowHidden: false }"
+        :class="{ 'overflow-hidden': isOverflowHidden }"
+    >
+        {#
+        ============================================
+            Include Header
+        ============================================
+        #}
+        {% block header %}
+            {% include "_/includes/header" %}
+        {% endblock %}
 
-<body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"  x-data="{ isOverflowHidden: false }" :class="{ 'overflow-hidden': isOverflowHidden }">
-    {#
-    ============================================
-    Include Header
-    ============================================
-    #}
-    {% block header %}
-        {% include "_/includes/header" %}
-    {% endblock %}
+        {% block content %}{% endblock %}
 
-    {% block content %}{% endblock %}
+        {#
+        ============================================
+            Include Footer
+        ============================================
+        #}
+        {% block footer %}
+            {% include "_/includes/footer" %}
+        {% endblock %}
 
-    {#
-    ============================================
-    Include Footer
-    ============================================
-    #}
-    {% block footer %}
-        {% include "_/includes/footer" %}
-    {% endblock %}
+        {# Font Family #}
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        </noscript>
 
-    {# script #}
-    {% block footerScriptBeforeApp %}{% endblock %}
+        {# script #}
+        {% block footerScriptBeforeApp %}{% endblock %}
 
-    <script src="{{ mix('js/app.js') }}" defer=""></script>
-    {# <script src="{{ mix('js/glightbox.js') }}" defer=""></script> #}
-    {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
+        <script src="{{ mix('js/app.js') }}" defer=""></script>
+        {# <script src="{{ mix('js/glightbox.js') }}" defer=""></script> #}
+        {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
 
-    {% block footerScriptAfterApp %}{% endblock %}
-
-</body>
-
+        {% block footerScriptAfterApp %}{% endblock %}
+    </body>
 </html>
+{% endminify %}

@@ -1,0 +1,57 @@
+fieldLayouts:
+  cd29d9ed-f98d-4eb7-95c2-53a02f7bf45c:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 4f72c1ee-9438-4229-aa23-ef809d4af047 # Logo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e46358e5-e5ce-4922-ae32-4ad4763e5608
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: dccbbef1-4f06-4d4c-ae48-1cf7043ddc36 # Alt Logo
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e1865e32-2194-4ce0-afbf-ca4e9d00e316
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e9322ff0-91a2-4b27-9c44-ac0b405460c2 # Nav Links
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a494f10-c219-4c0e-a407-f77df39b2c07
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: eae7bb86-b4da-446b-a90a-d46639dc367e
+        userCondition: null
+handle: header
+name: Header
+sortOrder: 1

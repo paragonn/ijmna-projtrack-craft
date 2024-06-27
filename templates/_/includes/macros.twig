@@ -1,0 +1,74 @@
+{% macro setImage(params) %}
+    {% set defaultsParams = {
+        image: null,
+        fill: null,
+        alt: null,
+        class: null,
+        id: "",
+        lazy: true,
+        addSrcSet: true,
+        plainImage: false,
+        pictureClass: null,
+        aspectRatio: null,
+        width: null,
+        height: null,
+        webp: true,
+        alpineClass:"",
+        attrs: null,
+        preset: ""
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/setImage" with options %}
+{% endmacro %}
+
+{% macro spacing(params) %}
+    {% set defaults = {
+        type: 'marginPadding',
+        first: false,
+        last: false,
+        section: null,
+        parent: null,
+
+        prev: null,
+        current: null,
+        next: null,
+
+        prevBgColor: null,
+        currentBgColor: null,
+        nextBgColor: null,
+
+        defaultSpacing: "medium",
+        marginTop: null,
+        marginBottom: null,
+        paddingTop: null,
+        paddingBottom: null,
+
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% set ret %}{% include "_/includes/macros/spacing" with options %}{% endset %}
+    {% return ret|replace({ "\n": '' })|trim %}
+{% endmacro %}
+
+{% macro replaceUnderscores(params) %}
+    {% set defaults = {
+        text: null,
+        tag: 'span',
+        class: null,
+        svg: ''
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% set textMd = options.text | markdown(inlineOnly = true) %}
+
+    {{ textMd | replace({
+        '<em>': '<' ~ options.tag ~ ' class="' ~ options.class ~ '">' ~ options.svg,
+        '</em>': '</' ~ options.tag ~ '>',
+        '<strong>': '<' ~ options.tag ~ ' class="' ~ options.class ~ '">' ~ options.svg,
+        '</strong>': '</' ~ options.tag ~ '>',
+    }) | raw }}
+{% endmacro %}
