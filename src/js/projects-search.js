@@ -31,7 +31,7 @@ let defaultLat = 13.839994950862705;
 let defaultLng = 32.53248643419619;
 
 window.addEventListener("load", (event) => {
-    selectFormFields(params);
+    // selectFormFields(params);
 
     mapboxgl.accessToken = $map_holder.dataset.mapbox;
     map = new mapboxgl.Map({
@@ -81,13 +81,13 @@ window.addEventListener("load", (event) => {
             .addTo(map)
 
     }).on("mouseenter", "markers", function (e) {
-        map.getCanvas().style.cursor = "pointer"
+        map.getCanvas().style.cursor = "pointer";
     })
     .on("mouseleave", "markers", function () {
         map.getCanvas().style.cursor = ""
     });
 
-    let stages = document.querySelectorAll(".stage-wrapper");
+    /* let stages = document.querySelectorAll(".stage-wrapper");
     stages.forEach(function(item) {
         item.addEventListener("click", function(e){
             e.preventDefault();
@@ -102,14 +102,14 @@ window.addEventListener("load", (event) => {
                 submitFormViaAjax();
             }
         });
-    });
+    }); */
 
-    searchForm.addEventListener("submit", function(e) {
+    /* searchForm.addEventListener("submit", function(e) {
         e.preventDefault();
         submitFormViaAjax();
-    });
+    }); */
 
-    let clearAll = document.querySelectorAll(".js-clear-all");
+    /* let clearAll = document.querySelectorAll(".js-clear-all");
     clearAll.forEach(function(item) {
         item.addEventListener("click", function() {
             searchForm.querySelector(`input[name='stage']`).value = "";
@@ -118,7 +118,7 @@ window.addEventListener("load", (event) => {
             });
             submitFormViaAjax();
         });
-    });
+    }); */
 });
 
 function submitFormViaAjax() {
@@ -130,15 +130,16 @@ function submitFormViaAjax() {
 
     performMagic(params);
 }
+window.submitFormViaAjax = submitFormViaAjax;
 
 async function performMagic(params)
 {
     showLoader();
     flushMapBoxLayersAndData();
 
-    let filterSummary = document.querySelector(".js-filter-summary");
+    /* let filterSummary = document.querySelector(".js-filter-summary");
     filterSummary.innerHTML = '';
-    filterSummary.parentElement.parentElement.classList.add("hidden");
+    filterSummary.parentElement.parentElement.classList.add("hidden"); */
     var queryString = new URLSearchParams();
     let variables = {};
 
@@ -147,7 +148,7 @@ async function performMagic(params)
         variables["stage"] = tmp;
         queryString.append("stage", tmp);
 
-        let stageLabel = document.querySelector(".stage-wrapper[data-stage='" + variables["stage"] + "']").querySelector(".js-stage-label").textContent;
+        /* let stageLabel = document.querySelector(".stage-wrapper[data-stage='" + variables["stage"] + "']").querySelector(".js-stage-label").textContent;
         let child = document.createElement("li");
         child.classList.add("text-xs", "border", "border-blue-800", "bg-white", "px-2", "py-1.5", "rounded-full", "flex", "gap-2", "items-center");
         child.innerHTML = `Stage: ${stageLabel}
@@ -161,30 +162,13 @@ async function performMagic(params)
             e.preventDefault();
             clearSpecificFilter(this);
         });
-        filterSummary.parentElement.parentElement.classList.remove("hidden");
+        filterSummary.parentElement.parentElement.classList.remove("hidden"); */
     }
 
     tmp = getFromParams("country[]");
     if(tmp.length) {
         for (let index = 0; index < tmp.length; index++) {
-            const element = tmp[index];
             queryString.append("country[]", tmp[index]);
-
-            let country = searchForm.querySelector(`input[name="country[]"][value="${tmp[index]}"]`).nextElementSibling.textContent;
-            let child = document.createElement("li");
-            child.classList.add("text-xs", "border", "border-blue-800", "bg-white", "px-2", "py-1.5", "rounded-full", "flex", "gap-2", "items-center");
-            child.innerHTML = `${country}
-                <a href="#" class="hover:text-blue-500 transition-all duration-300" data-target="country" data-value="${tmp[index]}">
-                    <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#icon-close"></use>
-                    </svg>
-                </a>`;
-            filterSummary.appendChild(child);
-            child.querySelector("a").addEventListener("click", function(e) {
-                e.preventDefault();
-                clearSpecificFilter(this);
-            });
-            filterSummary.parentElement.parentElement.classList.remove("hidden");
         }
 
         variables["categories"] = [];
@@ -196,22 +180,6 @@ async function performMagic(params)
         for (let index = 0; index < tmp.length; index++) {
             const element = tmp[index];
             queryString.append("casework[]", tmp[index]);
-
-            let casework = searchForm.querySelector(`input[name="casework[]"][value="${tmp[index]}"]`).nextElementSibling.textContent;
-            let child = document.createElement("li");
-            child.classList.add("text-xs", "border", "border-blue-800", "bg-white", "px-2", "py-1.5", "rounded-full", "flex", "gap-2", "items-center");
-            child.innerHTML = `${casework}
-                <a href="#" class="hover:text-blue-500 transition-all duration-300" data-target="casework" data-value="${tmp[index]}">
-                    <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
-                        <use xlink:href="#icon-close"></use>
-                    </svg>
-                </a>`;
-            filterSummary.appendChild(child);
-            child.querySelector("a").addEventListener("click", function(e) {
-                e.preventDefault();
-                clearSpecificFilter(this);
-            });
-            filterSummary.parentElement.parentElement.classList.remove("hidden");
         }
 
         if(typeof(variables["categories"]) === "undefined") {
@@ -224,8 +192,6 @@ async function performMagic(params)
     queryString = queryString.toString();
     let url = window.location.pathname + (params.length ? '?' + queryString : '');
     window.history.pushState({ path: url }, '', url);
-
-    var found = false;
 
     const result = await fetch("/api", {
         method: "POST",
@@ -550,6 +516,7 @@ function getQueryParams() {
 
     return params;
 }
+window.getQueryParams = getQueryParams;
 
 function getFromParams(key) {
     if(key.includes("[]")) {
@@ -572,6 +539,7 @@ function getFromParams(key) {
         return ret;
     }
 }
+window.getFromParams = getFromParams;
 
 function showLoader() {
     document.querySelectorAll(".ajax--loading").forEach(function (item) {
@@ -595,7 +563,7 @@ function handleNoResults() {
     document.querySelector(".js-entry-count").parentElement.parentElement.classList.add("hidden");
 }
 
-function selectFormFields(params) {
+/* function selectFormFields(params) {
     for (let index = 0; index < params.length; index++) {
         const element = params[index];
         if(element.name == "stage") {
@@ -604,7 +572,7 @@ function selectFormFields(params) {
             searchForm.querySelector(`input[name='${element.name}'][value='${element.value}']`).checked = true;
         }
     }
-}
+} */
 
 function clearSpecificFilter(target) {
     let key = target.dataset.target;
