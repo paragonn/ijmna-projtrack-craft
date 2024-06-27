@@ -1,0 +1,6 @@
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+<div class="{{ field.colClass|default('w-full') }}"
+{% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    {{ field.html|default()|raw }}
+</div>

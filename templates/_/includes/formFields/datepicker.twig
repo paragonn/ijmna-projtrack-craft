@@ -1,0 +1,194 @@
+{% set hideLabel = field.hideLabel ?? false %}
+{% set required = field.required ?? false %}
+{% set readonly = field.readonly ?? false %}
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+
+<div class="{{ field.colClass|default('w-full') }}" x-data='{
+        MONTH_NAMES: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        MONTH_SHORT_NAMES: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        DAYS: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        showDatepicker: false,
+        overrideName: typeof(overrideName) !== "undefined" ? overrideName : "{{ field.name }}",
+        overrideValue: typeof(overrideValue) !== "undefined" ? overrideValue : "{{ field.value | raw }}",
+        selectedDate: typeof(overrideValue) !== "undefined" ? overrideValue : "{{ field.value | raw }}",
+        dateFormat: "{{ field.dateFormat|default('MM-DD-YYYY') }}",
+        month: "",
+        year: "",
+        no_of_days: [],
+        blankdays: [],
+
+        init() {
+            this.initDate();
+            this.getNoOfDays();
+        },
+        initDate() {
+            let today;
+            if (this.selectedDate) {
+                today = new Date(Date.parse(this.selectedDate));
+            } else {
+                today = new Date();
+            }
+            this.month = today.getMonth();
+            this.year = today.getFullYear();
+            {# this.overrideValue = this.formatDateForDisplay(today); #}
+        },
+
+        formatDateForDisplay(date) {
+            let formattedDay = this.DAYS[date.getDay()];
+            {# appends 0 (zero) in single digit date #}
+            let formattedDate = ("0" + date.getDate()).slice(-2);
+            let formattedMonth = this.MONTH_NAMES[date.getMonth()];
+            let formattedMonthShortName =
+            this.MONTH_SHORT_NAMES[date.getMonth()];
+            let formattedMonthInNumber = ("0" + (parseInt(date.getMonth()) + 1)).slice(-2);
+            let formattedYear = date.getFullYear();
+
+            {# 20-04-2021 #}
+            if (this.dateFormat === "DD-MM-YYYY") {
+                return `${formattedDate}-${formattedMonthInNumber}-${formattedYear}`;
+            }
+
+            {# 02-20-2021 #}
+            if (this.dateFormat === "MM-DD-YYYY") {
+                return `${formattedMonthInNumber}-${formattedDate}-${formattedYear}`;
+            }
+
+            {# 2021-04-20 #}
+            if (this.dateFormat === "YYYY-MM-DD") {
+                return `${formattedYear}-${formattedMonthInNumber}-${formattedDate}`;
+            }
+
+            {# Tue 02 Mar 2021 #}
+            if (this.dateFormat === "D d M, Y") {
+                return `${formattedDay} ${formattedDate} ${formattedMonthShortName} ${formattedYear}`;
+            }
+            return `${formattedDay} ${formattedDate} ${formattedMonth} ${formattedYear}`;
+        },
+        isSelectedDate(date) {
+            const d = new Date(this.year, this.month, date);
+            return this.overrideValue === this.formatDateForDisplay(d) ? true : false;
+        },
+        isToday(date) {
+            const today = new Date();
+            const d = new Date(this.year, this.month, date);
+            return today.toDateString() === d.toDateString() ? true : false;
+        },
+        getDateValue(date) {
+            let selectedDate = new Date(this.year, this.month, date);
+            this.overrideValue = this.formatDateForDisplay(selectedDate);
+            {# this.$refs.date.value = selectedDate.getFullYear() + "-" + ("0" + formattedMonthInNumber).slice(-2) + "-" + ("0" + selectedDate.getDate()).slice(-2); #}
+            this.isSelectedDate(date);
+            this.showDatepicker = false;
+        },
+        getNoOfDays() {
+            let daysInMonth = new Date(this.year, this.month + 1, 0 ).getDate();
+            {# find where to start calendar day of week #}
+            let dayOfWeek = new Date(this.year, this.month ).getDay();
+            let blankdaysArray = [];
+            for (var i = 1; i <= dayOfWeek; i++) {
+                blankdaysArray.push(i);
+            }
+            let daysArray = [];
+            for (var i = 1; i <= daysInMonth; i++) {
+                daysArray.push(i);
+            }
+            this.blankdays = blankdaysArray;
+            this.no_of_days = daysArray;
+        },
+    }'
+    x-cloak
+
+    {% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    <label for="{{ field.label | kebab }}" class="{{ field.labelClass ?? 'text-sm block mb-2 text-gray-700' }}" {% if hideLabel %} style="display: none;" {% endif %}>
+        {{ field.label }} {{ required ? '<sup class="-mt-2 text-red-500">*</sup>' }}
+    </label>
+    <div class="{{ not hideLabel ? 'mt-1' }}">
+        <div class="relative">
+            <input type="text"
+                id="{{ field.label | kebab }}"
+                type="{{ field.type }}"
+                class="{{ field.class ?? 'form-input text-sm capitalize bg-white placeholder:text-gray-300 w-full border border-turkey-400 focus:ring-transparent focus:border-turkey-800 py-3 px-4' }}{{ readonly ? ' bg-gray-200' }}"
+                :name="overrideName"
+                x-model="overrideValue"
+                x-on:click="showDatepicker = !showDatepicker"
+                x-on:keydown.escape="showDatepicker = false"
+                {% if field.placeholder %}placeholder="{{ field.placeholder }}"{% endif %}
+                autocomplete="{{ field.autocomplete }}"
+                {{ required ? 'required' }}
+                {{ readonly ? 'readonly="readonly"' }}
+            >
+            <div class="absolute top-0 right-0 px-3 py-2">
+                <svg class="h-6 w-6 text-turkey-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </div>
+
+            <div class="bg-white mt-12 rounded-lg shadow p-4 absolute top-0 left-0 z-50"
+                x-show.transition="showDatepicker"
+                @click.away="showDatepicker = false"
+                style="width: 17rem; display: none;"
+            >
+                <div class="flex justify-between items-center mb-2">
+                    <div>
+                        <span x-text="MONTH_NAMES[month]" class="text-lg font-bold text-turkey-900"></span>
+                        <span x-text="year" class="ml-1 text-lg text-turkey-900 font-normal"></span>
+                    </div>
+                    <div>
+                        <button type="button" class="focus:outline-none focus:shadow-outline transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-turkey-500 p-1 rounded-full"
+                            @click="if (month == 0) {
+                                year--;
+                                month = 12;
+                            }
+                            month--;
+                            getNoOfDays()"
+                        >
+                            <svg class="h-6 w-6 text-turkey-900 inline-flex" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </button>
+                        <button type="button" class="focus:outline-none focus:shadow-outline transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-turkey-500 p-1 rounded-full"
+                            @click="if (month == 11) {
+                                month = 0;
+                                year++;
+                            } else {
+                                month++;
+                            } getNoOfDays()"
+                        >
+                            <svg class="h-6 w-6 text-turkey-900 inline-flex" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex flex-wrap mb-3 -mx-1">
+                    <template x-for="(day, index) in DAYS" :key="index">
+                        <div style="width: 14.26%" class="px-0.5">
+                            <div x-text="day" class="text-turkey-900 font-medium text-center text-xs"></div>
+                        </div>
+                    </template>
+                </div>
+
+                <div class="flex flex-wrap -mx-1">
+                    <template x-for="blankday in blankdays">
+                        <div style="width: 14.28%" class="text-center border p-1 border-transparent text-sm"></div>
+                    </template>
+                    <template x-for="(date, dateIndex) in no_of_days" :key="dateIndex">
+                        <div style="width: 14.28%" class="px-1 mb-1">
+                            <div class="cursor-pointer text-center text-sm rounded-full leading-loose transition ease-in-out duration-100"
+                                @click="getDateValue(date)" x-text="date"
+                                :class="{
+                                'bg-turkey-500 text-white': isToday(date) == true,
+                                'text-turkey-900 hover:text-white hover:bg-turkey-500': isToday(date) == false && isSelectedDate(date) == false,
+                                'bg-turkey-500 text-white hover:bg-opacity-75': isSelectedDate(date) == true
+                            }"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </div>
+        {{ field.error }}
+        {% if field.helpText %}<p class="mt-2 text-xs text-gray-500">{{ field.helpText }}</p>{% endif %}
+    </div>
+</div>

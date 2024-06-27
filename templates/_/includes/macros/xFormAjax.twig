@@ -1,0 +1,175 @@
+x-data="{
+    errorMessage: '{{ errorMessage }}',
+    errors: [],
+    submit: false,
+    success: '{{ success }}',
+    successMessage: '{{ options.successMessage }}',
+    contentId: 'inner-content',
+    formId: '{{ formId }}',
+    successBehaviour: '{{ successBehaviour }}',
+    defaultRedirect: '{{ defaultRedirect }}',
+    triggerEventOnSuccess: '{{ triggerEventOnSuccess }}',
+    triggerEventOnError: '{{ triggerEventOnError }}',
+    resetForm: {{ resetForm ? 'true' : 'false' }},
+    resetPassword: {{ resetPassword ? 'true' : 'false' }},
+
+    enableSuccess: {{ enableSuccess ? 'true' : 'false' }},
+    enableGlobalErrors: {{ enableGlobalErrors ? 'true' : 'false' }},
+    enableGlobalSuccess: {{ enableGlobalSuccess ? 'true' : 'false' }},
+    globalSuccessHeading: '{{ globalSuccessHeading }}',
+    globalSuccessText: '{{ globalSuccessText }}',
+    errorExtraHtml: '{{ errorExtraHtml }}',
+
+    confirm: {{ confirm ? "'" ~ confirm ~ "'" : 'false' }},
+
+    manageGlobalSuccessNotification() {
+        if(this.enableGlobalSuccess && (this.globalSuccessHeading != '' || this.globalSuccessText != '')) {
+            $dispatch('notifysuccess', {
+                heading: this.globalSuccessHeading,
+                text: this.globalSuccessText
+            });
+        }
+    },
+
+    handleFormSubmit() {
+        if(this.submit) return;
+
+        console.log(this.confirm);
+        console.log(this.globalSuccessHeading);
+        if(this.confirm) {
+            if(! window.confirm(this.confirm)) {
+                return false;
+            }
+        }
+        this.submit = true;
+        this.success = false;
+        this.errors = [];
+        this.errorMessage = '';
+
+        let form = document.getElementById(this.formId);
+        var data = new FormData(form);
+        let _this = this;
+
+        fetch('/', {
+            method: 'POST',
+            cache: 'no-cache',
+            redirect: 'follow',
+            credentials: 'same-origin',
+            body: data,
+            dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(function (data) {
+            if(typeof(data.errors) !== 'undefined' || typeof(data.error) !== 'undefined') {
+                let errorMessage = '';
+                let errors = '';
+                if(typeof(data.error) !== 'undefined') {
+                    errorMessage = 'There is an error with your submission.';
+                    errors = data.error;
+                } else {
+                    let errorKeys = Object.keys(data.errors);
+                    errorMessage = 'There were ' + (errorKeys.length) + ' error' + (errorKeys.length > 1 ? 's' : '') + ' with your submission.';
+                    errors = data.errors;
+                }
+
+                if(_this.enableGlobalErrors) {
+                    _this.errorMessage = '';
+                    $dispatch('notifyerror', {
+                        heading: errorMessage,
+                        text: errors,
+                        errorExtraHtml: errorExtraHtml
+                    });
+                } else {
+                    _this.errorMessage = errorMessage;
+                    _this.errors = errors;
+                    setTimeout(function() {
+                        let scrollDiv = document.getElementById(_this.formId + '_errors').offsetTop;
+                        window.scroll({
+                            top: scrollDiv - 30,
+                            behavior: 'smooth',
+                        })
+                    }, 50);
+                }
+
+                if(_this.triggerEventOnError != '') {
+                    $dispatch(_this.triggerEventOnError, {
+                        data: data,
+                    });
+                }
+                _this.submit = false;
+            } else if(typeof(data.errorCode) !== 'undefined') {
+                _this.errorMessage = data.message;
+                _this.submit = false;
+
+                if(_this.triggerEventOnError != '') {
+                    $dispatch(_this.triggerEventOnError, {
+                        data: data,
+                    });
+                }
+            } else if(typeof(data.cart) !== 'undefined' && typeof(data.cart.notices) !== 'undefined' && data.cart.notices.length) {
+                let notice = data.cart.notices[0];
+                if(_this.enableGlobalErrors) {
+                    $dispatch('notifyerror', {
+                        heading: notice.message,
+                        text: ''
+                    });
+                } else {
+                    _this.errorMessage = notice.message;
+                    _this.errors = '';
+                }
+
+                if(_this.triggerEventOnError != '') {
+                    $dispatch(_this.triggerEventOnError, {
+                        data: data,
+                    });
+                }
+
+                _this.submit = false;
+
+            } else {
+                console.log(data);
+                if(_this.enableGlobalSuccess) {
+                    if(! _this.globalSuccessHeading && typeof(data.message) !== 'undefined') {
+                        _this.globalSuccessHeading = data.message;
+                    }
+
+                    _this.manageGlobalSuccessNotification();
+                } else if(_this.enableSuccess && typeof(data.message) !== 'undefined') {
+                    _this.success = true;
+                    _this.successMessage = data.message;
+                }
+
+                if(_this.successBehaviour == 'redirect' ) {
+                    window.location.href = typeof(data.returnUrl) !== 'undefined' ? data.returnUrl : (typeof(data.redirect) !== 'undefined' ? data.redirect : _this.defaultRedirect);
+
+                } else {
+                    if(_this.resetForm) {
+                        form.reset();
+                    }
+
+                    if(_this.resetPassword) {
+                        form.querySelectorAll(`input[type='password']`).forEach(function(item, key) {
+                            item.value = '';
+                        });
+                    }
+
+                    if(_this.triggerEventOnSuccess != '') {
+                        $dispatch(_this.triggerEventOnSuccess, {
+                            data: data,
+                        });
+                    }
+
+                    _this.submit = false;
+                }
+            }
+            // console.log(data)
+        }).catch(function (error) {
+            _this.submit = false;
+            console.warn(error);
+        });
+    },
+}"

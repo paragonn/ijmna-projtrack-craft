@@ -72,3 +72,70 @@
         '</strong>': '</' ~ options.tag ~ '>',
     }) | raw }}
 {% endmacro %}
+
+{% macro form(params) %}
+    {% set defaultsParams = {
+        method: 'post',
+        action: null,
+        redirect: null,
+        id: null,
+        hidden: null,
+        fields: null,
+        loader: false,
+        loaderClass: null,
+        class: null,
+        xFormAjax: false,
+        xFormAjaxOptions: {},
+        buttons: [
+            {
+                label: null,
+                type: 'submit',
+                class: null
+            }
+        ]
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/form" with options %}
+{% endmacro %}
+
+{% macro formNotice(params) %}
+    {% set defaultsParams = {
+        var: null,
+        id: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = params|length ? defaultsParams|merge(params) : defaultsParams %}
+    {% include "_/includes/macros/formNotice" with options %}
+{% endmacro %}
+
+{% macro xFormAjax(params) %}
+    {% set defaultsParams = {
+        formId: '',
+        success: false,
+        successMessage: '',
+        errors: [],
+        errorMessage: '',
+        enableSuccess: true,
+        enableGlobalErrors: false,
+        enableGlobalSuccess: false,
+        confirm: false,
+        globalSuccessHeading: '',
+        globalSuccessText: '',
+
+        successBehaviour: 'redirect',
+        defaultRedirect: '/',
+        resetForm: false,
+        resetPassword: true,
+        triggerEventOnSuccess: '',
+        triggerEventOnError: '',
+
+        errorExtraHtml: ''
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/xFormAjax" with options %}
+{% endmacro %}

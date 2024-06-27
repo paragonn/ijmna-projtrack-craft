@@ -1,0 +1,30 @@
+{% set hideLabel = field.hideLabel ?? false %}
+{% set required = field.required ?? false %}
+{% set readonly = field.readonly ?? false %}
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+{% set attrs = field.attrs ?? null %}
+{% set helpText = field.helpText ?? null %}
+
+<div class="{{ field.colClass|default('w-full') }}" x-data="{
+        overrideName: typeof(overrideName) !== 'undefined' ? overrideName : '{{ field.name }}',
+    }"
+    {% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    <label for="{{ field.label | kebab }}" class="{{ field.labelClass ?? 'text-sm block mb-2 text-gray-700' }}" {% if hideLabel %} style="display: none;" {% endif %}>
+        {{ field.label }} {{ required ? '<sup class="-mt-2 text-red-500">*</sup>' }}
+    </label>
+    <div class="{{ not hideLabel ? 'mt-1' }}">
+        <textarea
+            class="{{ field.class ?? 'w-full bg-white rounded-sm shadow-sm border-0 ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-orange-500 placeholder:text-gray-950/60' }} {{ readonly ? ' bg-gray-200' }}"
+            id="{{ field.id ?? (field.label | kebab) }}"
+            :name="overrideName"
+            {% if field.placeholder %}placeholder="{{ field.placeholder }}"{% endif %}
+            autocomplete="{{ field.autocomplete }}"
+            {{ required ? 'required' }}
+            {{ readonly ? 'readonly="readonly"' }}
+            {% if attrs|length %} {{ attr(attrs) }}{% endif %}
+        >{{ field.value }}</textarea>
+        {{ field.error }}
+        {% if helpText %}<p class="mt-2 text-xs text-gray-400">{{ helpText|raw }}</p>{% endif %}
+    </div>
+</div>

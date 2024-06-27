@@ -6,3 +6,16 @@
 .ginlined-content {
     @apply overflow-auto w-full h-full;
 }
+
+.glightbox-popup-form-wrapper {
+    .gslide-inline {
+        padding: 0 !important;
+        height: auto !important;
+        @apply items-center bg-white overflow-hidden mx-auto max-w-[680px] w-full h-full;
+    }
+
+    .ginlined-content {
+        @apply overflow-auto max-w-[680px] w-full h-full;
+    }
+}
+

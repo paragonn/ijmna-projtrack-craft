@@ -1,0 +1,36 @@
+{% set required = field.required ?? false %}
+{% set columnClass = field.colClass is not null ? field.colClass %}
+{% set helpText = field.helpText ?? null %}
+{% set checked = field.checked ?? false %}
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+{% set attrs = field.attrs ?? null %}
+
+{% if columnClass|length %}
+<div class="{{ columnClass }}"
+    {% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+{% endif %}
+<div class="flex items-center gap-3 justify-between"
+    {% if not columnClass|length and wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    <label for="{{ field.label | kebab }}" class="{{ field.class ?? 'inline-flex items-center gap-2' }}">
+        <input
+            class="{{ field.labelClass ?? 'h-5 w-5 cursor-pointer border border-blue-800 bg-transparent text-blue-800 checked:border-blue-800 !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-1.5' }}"
+            id="{{ field.label | kebab }}"
+            name="{{ field.name }}"
+            type="checkbox"
+            value="{{ field.value }}"
+            {{ required ? 'required' }}
+            {{ checked ? 'checked' }}
+            {% if attrs|length %} {{ attr(attrs) }}{% endif %}
+        >
+        <span>
+            {{ field.label }} {{ required ? '<sup class="text-primary-500">*</sup>' }}
+        </span>
+        {% if helpText %}<p class="mt-1 text-xs text-gray-400">{{ helpText|raw }}</p>{% endif %}
+    </label>
+</div>
+
+{% if columnClass %}
+</div>
+{% endif %}

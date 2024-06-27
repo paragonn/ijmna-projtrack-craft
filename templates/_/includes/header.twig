@@ -94,13 +94,28 @@
                             </li>
                             {% endfor %}
 
-                            <li class="relative">
-                                <a href="javaScript:;" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
-                                    <span class="cursor-pointer font-medium">
-                                        {{ 'Sign In'|t }}
-                                    </span>
-                                </a>
-                            </li>
+                            {% if currentUser|length %}
+                                <li class="relative">
+                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign Out'|t }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="relative">
+                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300"
+                                        data-type="content"
+                                        data-event="{{ header.uid }}"
+                                        data-form="signin-form"
+                                        data-apiForm="signin-form"
+                                    >
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign In'|t }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="lg:hidden block">
@@ -131,13 +146,28 @@
                             </li>
                             {% endfor %}
 
-                            <li class="relative py-1.5 first:pt-0 last:pb-0">
-                                <a href="javaScript:;" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
-                                    <span class="cursor-pointer font-medium">
-                                        {{ 'Sign In'|t }}
-                                    </span>
-                                </a>
-                            </li>
+                            {% if currentUser|length %}
+                                <li class="relative">
+                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign Out'|t }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="relative py-1.5 first:pt-0 last:pb-0">
+                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300"
+                                        data-type="content"
+                                        data-event="{{ header.uid }}"
+                                        data-form="signin-form"
+                                        data-apiForm="signin-form"
+                                    >
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign In'|t }}
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
