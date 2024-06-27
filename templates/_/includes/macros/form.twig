@@ -41,7 +41,7 @@
     {% for field in fields %}
         {% if (field.col is defined and field.col == 'start') %}
             {% set colAttrs = field.colAttrs ?? null %}
-            <div class="{{ field.col is defined and field.col == 'start' ? 'flex flex-row flex-wrap sm:flex-nowrap space-y-4 sm:space-y-0 sm:gap-4 ' ~ (field.colStartAtTop|default(false) ? 'items-start' : 'items-center') ~ ' ' ~  (field.wrapperClass|default(false)) }}"
+            <div class="{{ field.col is defined and field.col == 'start' ? 'flex flex-row flex-wrap sm:flex-nowrap space-y-4 sm:space-y-0 sm:gap-4 ' ~ (field.justifyContent ? 'justify-between ') ~ (field.colStartAtTop|default(false) ? 'items-start' : 'items-center') ~ ' ' ~  (field.wrapperClass|default(false)) }}"
                 {% if colAttrs|length %} {{ attr(colAttrs) }}{% endif %}
             >
         {% endif %}
