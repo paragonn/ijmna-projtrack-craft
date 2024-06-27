@@ -5,8 +5,25 @@
 {% endblock %}
 
 {% block content %}
-<section class="mt-[79px]">
-    pathvdsf
+<section class="mt-[79px] lg:min-h-[900px] lg:flex relative">
+    <div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <img class="object-cover max-h-96 lg:max-h-none lg:!h-full w-full" src="/assets/images/home-bg.png" alt="">
+    </div>
+    <div class="container flex items-center lg:min-h-[900px] relative">
+        <div class="relative z-10 lg:w-full lg:max-w-[490px] xl:max-w-[550px]">
+            <div class="relative md:py-32 pt-12 pb-24">
+                <p class="uppercase tracking-widest text-lg md:text-xl font-bold text-blue-500">Lorem Ipsum</p>
+                <h1 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mt-6">Quick lorem ipsum about problem but also offering hope. IJM has a proven solution to make lasting change possible.</h1>
+            </div>
+        </div>
+        <div class="absolute bottom-2 lg:bottom-11 left-4">
+            <a href="#" class="hover:text-blue-500 transition-all duration-300">
+                <svg width="53" height="54" viewBox="0 0 53 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M25.8775 51.591L1.47266 26.0464M25.8775 51.591L25.8775 -2.91024e-07M25.8775 51.591L51 26.0464" stroke="currentColor" stroke-width="3" />
+                </svg>
+            </a>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

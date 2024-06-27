@@ -21,7 +21,9 @@
     Include Header
     ============================================
     #}
-    {% include "_/includes/header" %}
+    {% block header %}
+        {% include "_/includes/header" %}
+    {% endblock %}
 
     {% block content %}{% endblock %}
 
@@ -30,12 +32,18 @@
     Include Footer
     ============================================
     #}
-    {% include "_/includes/footer" %}
+    {% block footer %}
+        {% include "_/includes/footer" %}
+    {% endblock %}
 
     {# script #}
+    {% block footerScriptBeforeApp %}{% endblock %}
+
     <script src="{{ mix('js/app.js') }}" defer=""></script>
     {# <script src="{{ mix('js/glightbox.js') }}" defer=""></script> #}
     {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
+
+    {% block footerScriptAfterApp %}{% endblock %}
 
 </body>
 

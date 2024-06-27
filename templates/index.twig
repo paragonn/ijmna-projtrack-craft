@@ -1,14 +1,143 @@
 {% extends "_/layouts/main" %}
 
-{% do view.registerJsFile(mix('js/projects-search.js')) %}
+{% block footerScriptBeforeApp %}
+<script src="{{ mix('js/projects-search.js') }}" defer=""></script>
+{% endblock %}
 
 {% set stages = generalInformation.stages.all() %}
 {% set countries = craft.categories.group("country").all() %}
 {% set caseworks = craft.categories.group("casework").all() %}
 
+{% set filters %}
+<ul class="flex flex-wrap gap-1.5 max-w-[calc(100vw-100px)]">
+    <template x-for="(name, index) in Object.keys(filters)" :key="`filter-${name}`">
+        <template x-if="name == 'stage'">
+            <li class="text-xs border border-blue-800 bg-white px-2 py-1.5 rounded-full flex gap-2 items-center">
+                <span x-text="'Stage: ' + (typeof(filters[name]) !== 'undefined' ? filters[name].label : '')"></span>
+                <a href="#" class="hover:text-blue-500 transition-all duration-300" @click.prevent="handleStageChange('')">
+                    <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
+                        <use xlink:href="#icon-close"></use>
+                    </svg>
+                </a>
+            </li>
+        </template>
+    </template>
+
+    <template x-for="(name, index) in Object.keys(filters)" :key="`filter-${name}`">
+        <template x-if="name != 'stage'">
+            <template x-for="(item, i) in filters[name]" :key="`filter-${name}-${i}`">
+                <li class="text-xs border border-blue-800 bg-white px-2 py-1.5 rounded-full flex gap-2 items-center">
+                    <span x-text="item.label"></span>
+                    <a href="#" class="hover:text-blue-500 transition-all duration-300" @click.prevent="uncheckCheckbox(item.target, item.value)">
+                        <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </a>
+                </li>
+            </template>
+        </template>
+    </template>
+    <ul>
+        <button class="text-xs px-2 py-1.5 underline rounded-full transition-all duration-300 hover:text-blue-500"
+            @click.prevent="clearForm();"
+        >Clear all filters</button>
+    </ul>
+</ul>
+{% endset %}
+
 {% block content %}
 {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
-<section class="mt-[79px]">
+<section class="mt-[79px]" x-data="{
+    stage: '',
+    filters: {},
+
+    init() {
+        let _this = this;
+        let params = getQueryParams();
+        _this.stage = getFromParams('stage');
+
+        let country = getFromParams('country[]');
+        _this.selectCheckboxes('country[]', country);
+
+        let casework = getFromParams('casework[]');
+        _this.selectCheckboxes('casework[]', casework);
+
+        setTimeout(function() {
+            _this.setFiltersFromFormFields();
+        }, 10);
+    },
+
+    handleStageChange(stage) {
+        let _this = this;
+        if(_this.stage != stage) {
+            _this.stage = stage;
+
+            setTimeout(function() {
+                _this.setFiltersFromFormFields();
+                submitFormViaAjax();
+            }, 10);
+        }
+    },
+
+    setFiltersFromFormFields() {
+        let _this = this;
+        _this.filters = {};
+        if(_this.stage != '') {
+            let label = document.querySelector('.stage-wrapper.active').querySelector('.js-stage-label').textContent;
+            _this.filters['stage'] = {
+                target: 'stage',
+                label: label,
+                value: _this.stage
+            }
+        }
+
+        let names = ['country', 'casework'];
+        for (let index = 0; index < names.length; index++) {
+            let name = names[index];
+
+            if(document.querySelectorAll(`input[name='${name}[]']:checked`).length) {
+                _this.filters[name] = [];
+
+                document.querySelectorAll(`input[name='${name}[]']:checked`).forEach(function(item) {
+                    _this.filters[name].push({
+                        target: name,
+                        label: item.nextElementSibling.textContent,
+                        value: item.value
+                    });
+                });
+            }
+        }
+    },
+    clearForm() {
+        let _this = this;
+        _this.stage = '';
+        document.querySelector('form#js-search-form').reset();
+        setTimeout(function() {
+            _this.setFiltersFromFormFields();
+            submitFormViaAjax();
+        }, 10);
+    },
+    uncheckCheckbox(name, value) {
+        let _this = this;
+        let input = document.querySelector(`input[name='${name}[]'][value='${value}']`);
+        if(input) {
+            input.checked = false;
+
+            setTimeout(function() {
+                _this.setFiltersFromFormFields();
+                submitFormViaAjax();
+            }, 10);
+        }
+    },
+    selectCheckboxes(name, values) {
+        for (let index = 0; index < values.length; index++) {
+            let input = document.querySelector(`input[name='${name}'][value='${values[index]}']`);
+            if(input) {
+                input.checked = true;
+            }
+        }
+    }
+}">
     <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden" x-data="{ open: true }">
         <div class="relative z-20 shrink-0">
             <div class="bottom-0 top-0 absolute left-0 w-[336px] md:w-[407px] lg:w-[656px] transition-all duration-700 -translate-x-full" :class="open ? '-translate-x-full' : 'translate-x-0'" x-cloak>
@@ -37,7 +166,11 @@
                             {% set currentStage = stage.stage.getValue()|default() %}
                             {% set nextStage = stages[i+1].stage.getValue()|default() %}
 
-                            <a href="#" class="stage-wrapper flex items-stretch gap-6 md:gap-7 lg:gap-[68px] target-progress trigger-progress cursor-pointer" data-stage="{{ stage.stage.getValue() }}">
+                            <a href="#"
+                                class="stage-wrapper flex items-stretch gap-6 md:gap-7 lg:gap-[68px] target-progress trigger-progress cursor-pointer"
+                                :class="stage == '{{ stage.stage.getValue() }}' ? 'active' : ''"
+                                @click.prevent="open = !open, handleStageChange('{{ stage.stage.getValue() }}')"
+                            >
                                 <div class="md:w-10 sm:w-8 w-7 shrink-0">
                                     <div class="bg-blue-500 borderactive border-t border-x border-white/40 h-full flex items-center justify-center w-full">
                                         <div class="grid grid-cols-1 gap-1 content-progress">
@@ -106,7 +239,7 @@
             <div class="h-full border-l border-white bg-blue-800 duration-700 transition-transform" :class="open ? 'translate-x-0' : 'lg:translate-x-[656px] translate-x-[336px] md:translate-x-[407px]'">
                 <div class="w-[50px] md:w-[62px] h-full">
                     <div>
-                        <button class="flex items-center justify-center h-[87px] w-full" :class="open ? '' : 'bg-blue-500'" @click="open = !open" @keydown.escape="hamburger = false">
+                        <button class="flex items-center justify-center h-[87px] w-full" :class="open ? '' : 'bg-blue-500'" @click="open = !open" @keydown.escape="open = false">
                             <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all duration-300" :class="open ? 'rotate-180' : ''">
                                 <path d="M3.00004 16.5928L32.5911 16.5928" stroke="white" stroke-width="3" />
                                 <path d="M17.6516 2L3 15.9978L17.6516 30.4074" stroke="white" stroke-width="3" />
@@ -173,21 +306,8 @@
                     </button>
                 </div>
                 <div class="z-30 whitespace-nowrap duration-700 transition-transform relative md:pl-8 pl-6" :class="open ? 'translate-x-0' : 'lg:translate-x-[656px] translate-x-[336px] md:translate-x-[407px]'">
-                    <div class="mt-5 hidden">
-                        <div class="flex flex-wrap gap-1.5">
-                            <ul class="flex flex-wrap gap-1.5 js-filter-summary max-w-[calc(100vw-100px)]">
-                                {# <li class="text-xs border border-blue-800 bg-white px-2 py-1.5 rounded-full flex gap-2 items-center">
-                                    Stage: Successful
-                                    <a href="#" class="hover:text-blue-500 transition-all duration-300">
-                                        <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
-                                            <use xlink:href="#icon-close"></use>
-                                        </svg>
-                                    </a>
-                                </li> #}
-                            </ul>
-
-                            <button class="js-clear-all text-xs px-2 py-1.5 underline rounded-full transition-all duration-300 hover:text-blue-500">Clear all filters</button>
-                        </div>
+                    <div class="mt-5" x-show="Object.keys(filters).length" style="display: none;">
+                        {{ filters|raw }}
                     </div>
                 </div>
             </div>
@@ -197,6 +317,7 @@
                     <form method="get" action="/{{ craft.app.request.fullPath }}" style="display:none"
                         id="js-search-form"
                         class="space-y-8 duration-700 z-50 ease-in-out right-0 w-full md:w-[450px] lg:w-[631px] bg-white fixed top-0 h-screen overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-blue-500/50 scrollbar-track-transparent"
+                        @submit.prevent="drawer = false, setFiltersFromFormFields(), submitFormViaAjax();"
                         x-show="drawer"
                         x-transition:enter="transition-transform ease-in-out duration-1000"
                         x-transition:enter="transform transition ease-in-out duration-1000"
@@ -207,28 +328,18 @@
                         x-transition:leave-end="translate-x-full opacity-0"
                     >
                         <div style="display: none;">
-                            <input type="hidden" name="stage" value="">
+                            <input type="hidden" name="stage" x-model="stage">
                         </div>
                         <div class="flex bg-white items-start gap-8 justify-between w-full z-50 sticky py-8 px-8 md:px-16 top-0 border-b-2 border-blue-800">
                             <div>
                                 <div>
                                     <p class=""><span class="filter-counter"></span> Filter Selected</p>
-                                    <div class="mt-2">
-                                        <ul class="flex flex-wrap gap-1.5">
-                                            <li class="text-xs border bg-white border-blue-800 px-2 py-1.5 rounded-full flex gap-2 items-center">
-                                                Stage: Successful
-                                                <a href="#" class="hover:text-blue-500 transition-all duration-300">
-                                                    <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
-                                                        <use xlink:href="#icon-close"></use>
-                                                    </svg>
-                                                </a>
-                                            </li>
-                                            <button type="button" class="text-xs px-2 py-1.5 underline rounded-full hover:text-blue-500 transition-all duration-300">Clear all filters</button>
-                                        </ul>
+                                    <div class="mt-2" x-show="Object.keys(filters).length" style="display: none;">
+                                        {{ filters|raw }}
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="h-5 w-5 mt-3 flex items-center justify-center hover:text-turkey-800 transition-all duration-300"
+                            <button type="button" class="h-5 w-5 flex items-center justify-center hover:text-turkey-800 transition-all duration-300"
                                 x-show="drawer"
                                 @click="drawer = false;"
                                 x-transition:enter="transition-transform ease-in-out duration-300"
@@ -286,7 +397,9 @@
                             </div>
                         </div>
                         <div class="px-8 md:px-16 bottom-10 z-10 fixed w-full md:w-[450px] lg:w-[631px]">
-                            <button type="submit" class="bg-blue-800 block w-full font-bold text-base text-center hover:cursor-pointer hover:bg-turkey-900 transition-all duration-300 uppercase text-white py-5 px-6">View 5 Jurisdictions</button>
+                            <button type="submit" class="bg-blue-800 block w-full font-bold text-base text-center hover:cursor-pointer hover:bg-turkey-900 transition-all duration-300 uppercase text-white py-5 px-6">
+                                View Jurisdictions
+                            </button>
                         </div>
                     </form>
                 </div>
