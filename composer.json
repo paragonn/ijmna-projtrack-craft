@@ -20,11 +20,13 @@
         "spicyweb/craft-neo": "5.0.3",
         "ttempleton/craft-nocache": "^3.0.2",
         "vaersaagod/dospaces": "^3.0.0-beta.1",
+        "verbb/buttonbox": "^5.0.0",
         "verbb/formie": "3.0.0-beta.15",
         "verbb/hyper": "2.0.2",
         "verbb/icon-picker": "^3.0.0",
         "verbb/navigation": "3.0.1",
-        "vlucas/phpdotenv": "^5.4.0"
+        "vlucas/phpdotenv": "^5.4.0",
+        "wrav/oembed": "^3.0.8"
     },
     "require-dev": {
         "craftcms/generator": "^2.0",

@@ -1,0 +1,27 @@
+[
+    {
+        "label": "Default",
+        "value": "",
+        "default": "yes"
+    },
+    {
+        "label": "Normal",
+        "value": "normal"
+    },
+    {
+        "label": "Light",
+        "value": "light"
+    },
+    {
+        "label": "Medium",
+        "value": "medium"
+    },
+    {
+        "label": "Semibold",
+        "value": "semibold"
+    },
+    {
+        "label": "Bold",
+        "value": "bold"
+    }
+]

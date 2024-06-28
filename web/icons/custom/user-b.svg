@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="38px" viewBox="0 0 40 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 17</title>
+    <defs>
+        <polygon id="path-1" points="0 38 40 38 40 0 0 0"></polygon>
+    </defs>
+    <g id="VE-Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="VE---w02---Content-Partners---v5---ALT2" transform="translate(-780.000000, -9044.000000)">
+            <g id="Group-17" transform="translate(780.000000, 9044.000000)">
+                <path d="M24.9994532,10.4053184 C24.9994532,13.1526652 22.7627133,15.3810178 19.9998849,15.3810178 C17.2382076,15.3810178 14.9991654,13.1526652 14.9991654,10.4053184 C14.9991654,7.65682586 17.2382076,5.42961891 19.9998849,5.42961891 C22.7627133,5.42961891 24.9994532,7.65682586 24.9994532,10.4053184 Z" id="Stroke-1" stroke="currentColor" stroke-width="1.80457143"></path>
+                <path d="M10.9087979,30.762494 L10.9087979,28.0483719 C10.9087979,23.0509045 14.9793651,18.9997709 19.9996546,18.9997709 C25.0210953,18.9997709 29.0905114,23.0509045 29.0905114,28.0483719 L29.0905114,30.762494 L10.9087979,30.762494 Z" id="Stroke-3" stroke="currentColor" stroke-width="1.80457143"></path>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-6"></g>
+                <polygon id="Stroke-5" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)" points="0.90943103 37.0949108 39.0917201 37.0949108 39.0917201 0.90394356 0.90943103 0.90394356"></polygon>
+                <line x1="6.36371485" y1="0.905318379" x2="6.36371485" y2="37.0962856" id="Stroke-7" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="33.6367456" y1="0.905318379" x2="33.6367456" y2="37.0962856" id="Stroke-8" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="0.909085676" y1="8.14305355" x2="6.3633695" y2="8.14305355" id="Stroke-9" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="0.909085676" y1="15.3807887" x2="6.3633695" y2="15.3807887" id="Stroke-10" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="0.909085676" y1="22.619555" x2="6.3633695" y2="22.619555" id="Stroke-11" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="0.909085676" y1="29.8572902" x2="6.3633695" y2="29.8572902" id="Stroke-12" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="33.6367456" y1="8.14305355" x2="39.0898783" y2="8.14305355" id="Stroke-13" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="33.6367456" y1="15.3807887" x2="39.0898783" y2="15.3807887" id="Stroke-14" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="33.6367456" y1="22.619555" x2="39.0898783" y2="22.619555" id="Stroke-15" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+                <line x1="33.6367456" y1="29.8572902" x2="39.0898783" y2="29.8572902" id="Stroke-16" stroke="currentColor" stroke-width="1.80457143" mask="url(#mask-2)"></line>
+            </g>
+        </g>
+    </g>
+</svg>

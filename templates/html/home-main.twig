@@ -1,5 +1,4 @@
 {% extends "html/_includes/layout" %}
-{% set header = header ?? "navigation" %}
 
 {% block seo %}
 <title>Page Link</title>
@@ -180,7 +179,23 @@
                         <p class="uppercase tracking-widest font-bold text-blue-500">Lorem Ipsum</p>
                         <h2 class="text-3xl lg:text-4xl font-Baskervville -tracking-wide mt-5">Our plan to protect 500 million people within a decade</h2>
                         <p class="text-lg mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboria commodo consequat.</p>
-
+                        <div class="mt-9 md:mt-12">
+                            <h3 class="text-2xl lg:text-3xl font-Baskervville -tracking-wide">Change occurs through our three-step methodology</h3>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 mt-9 md:mt-12 gap-7 lg:gap-10">
+                        <div>
+                            <p class="font-bold">1. Collaborative Casework</p>
+                            <p class="mt-2.5 pl-3.5">We accompany hundreds of victims as their cases pass through the justice system pipeline. At the same time, we work directly with the authorities in the pipeline to secure justice in these cases. Together we learn the real-life experience of survivors through each part of the pipeline, we gain a real-word diagnosis of where the pipeline is weakest, and we gain the trust of the authorities working in the justice pipeline.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold">1. Collaborative Casework</p>
+                            <p class="mt-2.5 pl-3.5">We accompany hundreds of victims as their cases pass through the justice system pipeline. At the same time, we work directly with the authorities in the pipeline to secure justice in these cases. Together we learn the real-life experience of survivors through each part of the pipeline, we gain a real-word diagnosis of where the pipeline is weakest, and we gain the trust of the authorities working in the justice pipeline.</p>
+                        </div>
+                        <div>
+                            <p class="font-bold">1. Collaborative Casework</p>
+                            <p class="mt-2.5 pl-3.5">We accompany hundreds of victims as their cases pass through the justice system pipeline. At the same time, we work directly with the authorities in the pipeline to secure justice in these cases. Together we learn the real-life experience of survivors through each part of the pipeline, we gain a real-word diagnosis of where the pipeline is weakest, and we gain the trust of the authorities working in the justice pipeline.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="my-16 lg:my-24">
@@ -202,9 +217,24 @@
     </div>
 </section>
 
-<section>
-    <div class="container"></div>
-    <img src="/assets/images/footer-bg.png" class="object-cover w-full" alt="">
+<section class="mt-28 lg:mt-52">
+    <div class="container relative z-10">
+        <div class="grid grid-cols-1">
+            <div>
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="uppercase tracking-widest text-lg md:text-xl font-bold text-blue-500">Model Contextualization</p>
+                    <h2 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mt-6">Quick lorem ipsum about problem but also offering hope. IJM has a proven solution to make lasting change possible.</h2>
+                    <div class="flex gap-5 flex-wrap items-center w-full justify-center mt-10">
+                        <a href="#" class="py-3.5 px-6 md:w-auto w-full text-white inline-block uppercase font-bold bg-blue-800 tracking-widest border-2 border-blue-800 hover:bg-blue-950 hover:border-blue-950 transition-all duration-300">Track our Progress</a>
+                        <a href="#" class="py-3.5 px-6 md:w-auto w-full hover:text-white inline-block hover:bg-blue-800 transition-all duration-300 uppercase font-bold bg-transparent tracking-widest border-2 border-blue-800 box-border">Connect with IJM</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative -mt-4 lg:-mt-24">
+        <img src="/assets/images/footer-bg.jpg" class="object-cover w-full" alt="">
+    </div>
 </section>
 
 {% endblock %}

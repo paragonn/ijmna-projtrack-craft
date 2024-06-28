@@ -1,0 +1,7 @@
+enabled: true
+handle: solid
+name: Solid
+settings:
+  folder: /solid
+sortOrder: 4
+type: verbb\iconpicker\iconsets\SvgFolder

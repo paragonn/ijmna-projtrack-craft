@@ -1,0 +1,7 @@
+enabled: true
+handle: brands
+name: Brands
+settings:
+  folder: /brands
+sortOrder: 2
+type: verbb\iconpicker\iconsets\SvgFolder

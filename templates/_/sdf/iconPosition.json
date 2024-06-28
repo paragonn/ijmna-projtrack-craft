@@ -1,0 +1,15 @@
+[
+    {
+        "label": "Default",
+        "value": "",
+        "default": "yes"
+    },
+    {
+        "label": "Left",
+        "value": "left"
+    },
+    {
+        "label": "Right",
+        "value": "right"
+    }
+]

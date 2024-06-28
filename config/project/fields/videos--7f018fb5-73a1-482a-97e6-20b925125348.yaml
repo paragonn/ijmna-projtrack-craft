@@ -1,0 +1,37 @@
+columnSuffix: null
+handle: videos
+instructions: "You can add multiple files that will be used as sources. Some browser supports webm and others supports mp4.\r\nAllowed video types are \"mp4\", \"webm\" and \"ogv\"."
+name: Videos
+searchable: false
+settings:
+  allowSelfRelations: true
+  allowSubfolders: false
+  allowUploads: true
+  allowedKinds:
+    - video
+  branchLimit: null
+  defaultUploadLocationSource: 'volume:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  defaultUploadLocationSubpath: null
+  localizeRelations: false
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  previewMode: full
+  restrictFiles: true
+  restrictLocation: false
+  restrictedDefaultUploadSubpath: null
+  restrictedLocationSource: 'volume:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  restrictedLocationSubpath: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  sources:
+    - 'volume:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

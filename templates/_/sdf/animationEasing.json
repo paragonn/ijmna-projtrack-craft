@@ -1,0 +1,12 @@
+[
+    {"label" : "Default", "value" : "", "default" : "true"},
+    {"label" : "Ease In Cubic", "value" : "ease-in-cubic"},
+    {"label" : "Ease Out Cubic", "value" : "ease-out-cubic"},
+    {"label" : "Ease In Out Cubic", "value" : "ease-in-out-cubic"},
+    {"label" : "Ease In Sine", "value" : "ease-in-sine"},
+    {"label" : "Ease Out Sine", "value" : "ease-out-sine"},
+    {"label" : "Ease In Out Sine", "value" : "ease-in-out-sine"},
+    {"label" : "Ease In Quart", "value" : "ease-in-quart"},
+    {"label" : "Ease Out Quart", "value" : "ease-out-quart"},
+    {"label" : "Ease In Out Quart", "value" : "ease-in-out-quart"}
+]

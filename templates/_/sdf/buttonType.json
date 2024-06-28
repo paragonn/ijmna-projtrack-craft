@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Default",
+        "value": "",
+        "default": "yes"
+    },
+    {
+        "label": "Button",
+        "value": "button"
+    },
+    {
+        "label": "Outline",
+        "value": "outline"
+    },
+    {
+        "label": "Link",
+        "value": "link"
+    }
+]

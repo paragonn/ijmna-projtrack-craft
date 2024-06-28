@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52" height="52" viewBox="0 0 52 52">
+	<defs>
+		<path id="revenue-a" d="M0 0h52v1.513H0z"/>
+	</defs>
+	<g fill="none" fill-rule="evenodd">
+		<g transform="translate(0 50.487)">
+			<mask id="revenue-b" fill="#fff"><use xlink:href="#revenue-a"/></mask>
+			<path stroke="currentColor" stroke-width="2" d="M0 .757h52" mask="url(#revenue-b)"/>
+		</g>
+		<path stroke="currentColor" stroke-width="2" d="M8.274 45.268h7.091V26.146H8.274zM36.638 45.268h7.091V14.193h-7.091zM22.456 45.268h7.09V20.169h-7.09z"/>
+		<g stroke="currentColor" stroke-width="2">
+			<path d="m36.74 1 8.685 1.032a.24.24 0 0 1 .16.38l-5.224 7.09M39.282 4.966 9.76 17.78"/>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: animationDuration
+instructions: null
+name: 'Animation Duration'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/animationDuration.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

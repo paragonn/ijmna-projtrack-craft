@@ -1,0 +1,7 @@
+enabled: true
+handle: custom
+name: Custom
+settings:
+  folder: /custom
+sortOrder: 5
+type: verbb\iconpicker\iconsets\SvgFolder

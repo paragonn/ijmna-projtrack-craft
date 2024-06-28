@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: overlayOpacity
+instructions: null
+name: 'Overlay Opacity'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/overlayOpacity.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
