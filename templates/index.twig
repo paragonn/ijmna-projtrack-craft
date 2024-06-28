@@ -56,6 +56,13 @@
         let params = getQueryParams();
         _this.stage = getFromParams('stage');
 
+        if(_this.stage) {
+            let stage = document.querySelector(`.stage-wrapper[data-stage='${_this.stage}']`);
+            if(! stage) {
+                _this.stage = '';
+            }
+        }
+
         let country = getFromParams('country[]');
         _this.selectCheckboxes('country[]', country);
 
@@ -83,11 +90,14 @@
         let _this = this;
         _this.filters = {};
         if(_this.stage != '') {
-            let label = document.querySelector('.stage-wrapper.active').querySelector('.js-stage-label').textContent;
-            _this.filters['stage'] = {
-                target: 'stage',
-                label: label,
-                value: _this.stage
+            let stage = document.querySelector('.stage-wrapper.active');
+            if(stage) {
+                let label = stage.querySelector('.js-stage-label').textContent;
+                _this.filters['stage'] = {
+                    target: 'stage',
+                    label: label,
+                    value: _this.stage
+                }
             }
         }
 
@@ -168,6 +178,7 @@
 
                             <a href="#"
                                 class="stage-wrapper flex items-stretch gap-6 md:gap-7 lg:gap-[68px] target-progress trigger-progress cursor-pointer"
+                                data-stage="{{ stage.stage.getValue() }}"
                                 :class="stage == '{{ stage.stage.getValue() }}' ? 'active' : ''"
                                 @click.prevent="open = !open, handleStageChange('{{ stage.stage.getValue() }}')"
                             >

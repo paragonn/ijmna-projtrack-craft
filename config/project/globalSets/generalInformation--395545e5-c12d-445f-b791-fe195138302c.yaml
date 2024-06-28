@@ -24,4 +24,4 @@ fieldLayouts:
         userCondition: null
 handle: generalInformation
 name: 'General Information'
-sortOrder: 1
+sortOrder: 2

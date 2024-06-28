@@ -1,0 +1,108 @@
+{% import "_/includes/macros" as render %}
+{% set xFormAjaxOptions = xFormAjaxOptions ? xFormAjaxOptions : {} %}
+{% set xFormAjaxOptions = xFormAjaxOptions|merge({
+    formId: id
+}) %}
+
+<form class="{{ class }}" method="{{ method }}" accept-charset="UTF-8" {% if attrs is defined %}{{ attr(attrs) }}{% endif %}
+    {% if id|length %} id="{{ id }}"{% endif %}
+    {% if xFormAjax %}
+        {{ render.xFormAjax(xFormAjaxOptions) }}
+        @submit.prevent="handleFormSubmit"
+    {% endif %}
+>
+    {{ csrfInput() }}
+
+    {% if xFormAjax %}
+        {{ render.formNotice({
+            id: id ?? null
+        }) }}
+    {% endif %}
+
+    <input
+        type="hidden"
+        name="{{ craft.app.config.general.csrfTokenName }}"
+        value="{{ craft.app.request.csrfToken }}"
+        x-model="typeof xcsrf === 'undefined' ? '{{ craft.app.request.csrfToken }}' : xcsrf"
+    >
+
+    {% if action|length %}
+        {{ actionInput(action) }}
+    {% endif %}
+
+    {% if redirect|length %}
+        {{ redirectInput(redirect) }}
+    {% endif %}
+
+    {% for hidden in hidden %}
+        <input type="hidden" name="{{ hidden.name }}" value="{{ hidden.value }}" {% if hidden.attrs is defined %}{{ attr(hidden.attrs) }}{% endif %}>
+    {% endfor %}
+
+    {% for field in fields %}
+        {% if (field.col is defined and field.col == 'start') %}
+            {% set colAttrs = field.colAttrs ?? null %}
+            <div class="{{ field.col is defined and field.col == 'start' ? 'flex flex-row flex-wrap sm:flex-nowrap space-y-4 sm:space-y-0 sm:gap-4 ' ~ (field.justifyContent ? 'justify-between ') ~ (field.colStartAtTop|default(false) ? 'items-start' : 'items-center') ~ ' ' ~  (field.wrapperClass|default(false)) }}"
+                {% if colAttrs|length %} {{ attr(colAttrs) }}{% endif %}
+            >
+        {% endif %}
+        {# set defaults for every input #}
+        {% set field = {
+            colClass: null,
+            type: 'text',
+            file: 'text',
+            name: 'field',
+            id: null,
+            class: null,
+            labelClass: null,
+            value: null,
+            entryUid: null,
+            entryValue: null,
+            disabled: false,
+            placeholder: null,
+            required: false,
+            xFormAjax: xFormAjax,
+            fileType: null,
+            autocomplete: false,
+            maxLength: null,
+            minLength: null,
+            readonly: null,
+            accept: null,
+            helpText: null,
+            error: null,
+            html: null,
+            limit: null,
+            options: [],
+            select: [],
+            cap: 2
+        } | merge(field) %}
+        {% include "_/includes/formFields/" ~ field.file with { field: field } %}
+
+        {% if (field.col is defined and field.col == 'end') %}</div>{% endif %}
+    {% endfor %}
+
+    <div class="{{ loader ? ' flex flex-wrap items-center' }} {{ buttonsWrapperClass ?? null }}">
+        {% for button in buttons %}
+            <button type="{{ button.type }}" class="{{ button.class }}" {% if button.attrs is defined %}{{ attr(button.attrs) }}{% endif %}>
+                {% if button.icon|default(null)|length %}
+                    <span x-show="!submit">
+                        {{ svg("@webroot/icons/solid/trash-alt.svg") | attr({
+                            class: "currentColor size-6"
+                        }) }}
+                    </span>
+
+                    <span class="p-loader" x-show="submit" style="display: none;">
+                        <svg class="w-6 h-auto text-gray-950" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151 151" preserveAspectRatio="xMidYMid" style="margin:auto;background:0 0;display:block;shape-rendering:auto"><circle cx="60" cy="60" r="55" fill="none" stroke="currentColor" stroke-dasharray="207.34511513692632 71.11503837897544" stroke-width="7"><animateTransform attributeName="transform" dur="0.7407407407407407s" keyTimes="0;1" repeatCount="indefinite" type="rotate" values="0 60 60;360 60 60"></animateTransform></circle></svg>
+                    </span>
+                {% else %}
+                    {{ button.label }}
+
+                    {% if loader %}
+                        <span class="inline-block relative top-[7px] left-[8px] {% if loaderClass is defined %}{{ loaderClass }}{% endif %}" {% if loaderAttrs is defined %}{{ attr(loaderAttrs) }}{% endif %} x-show="submit">
+                            <svg class="w-5 h-auto" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 151 151" preserveAspectRatio="xMidYMid" style="margin:auto;background:0 0;display:block;shape-rendering:auto" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="#fff" stroke-dasharray="207.34511513692632 71.11503837897544" stroke-width="7"><animateTransform attributeName="transform" dur="0.7407407407407407s" keyTimes="0;1" repeatCount="indefinite" type="rotate" values="0 50 50;360 50 50"/></circle></svg>
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </button>
+        {% endfor %}
+    </div>
+</form>

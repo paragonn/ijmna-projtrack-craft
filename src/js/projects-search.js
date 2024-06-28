@@ -7,7 +7,6 @@ let mapboxContainer = "mapbox_map";
 let $map_holder = document.getElementById(mapboxContainer);
 let searchForm = document.getElementById("js-search-form");
 let layers = [];
-let forceSearch = true;
 const zoomLimit = {
     zoom: 1.8,
     min: 1,
@@ -31,7 +30,6 @@ let defaultLat = 13.839994950862705;
 let defaultLng = 32.53248643419619;
 
 window.addEventListener("load", (event) => {
-    // selectFormFields(params);
 
     mapboxgl.accessToken = $map_holder.dataset.mapbox;
     map = new mapboxgl.Map({
@@ -39,10 +37,6 @@ window.addEventListener("load", (event) => {
         // We can create custom style from MAPBOX Account.
         style: "mapbox://styles/mapbox/light-v10",
         center: [$map_holder.dataset.longitude ?? defaultLng, $map_holder.dataset.latitude ?? defaultLat],
-        // maxBounds: [
-        //     [33.75, 29.375],
-        //     [36.125, 33.5],
-        // ],
         zoom: zoomLimit.zoom,
         minZoom: zoomLimit.min,
         maxZoom: zoomLimit.max,
@@ -50,25 +44,6 @@ window.addEventListener("load", (event) => {
     }).addControl(new mapboxgl.NavigationControl(), "top-right");
 
     map.on("load", () => {
-        /* let labels = ['country-label', 'state-label',
-            'settlement-label', 'settlement-subdivision-label',
-            'airport-label', 'poi-label', 'water-point-label',
-            'water-line-label', 'natural-point-label',
-            'natural-line-label', 'waterway-label', 'road-label'];
-
-        labels.forEach(label => {
-            map.setLayoutProperty(label, 'text-field', ['get', `name_${document.ocumentElement.lang}`]);
-        }); */
-
-        // Remove all Labels
-        // map.style.stylesheet.layers.forEach(function(layer) {
-        //     if (layer.type === 'symbol') {
-        //         map.removeLayer(layer.id);
-        //     }
-        // });
-
-        // Set color of WATER to match with IJM
-        // map.setPaintProperty("water", 'fill-color', "#e9edf0");
         performMagic(params);
     }).on("click", "markers", e => {
         const marker = e.features[0]
@@ -86,39 +61,6 @@ window.addEventListener("load", (event) => {
     .on("mouseleave", "markers", function () {
         map.getCanvas().style.cursor = ""
     });
-
-    /* let stages = document.querySelectorAll(".stage-wrapper");
-    stages.forEach(function(item) {
-        item.addEventListener("click", function(e){
-            e.preventDefault();
-
-            if(! item.classList.contains("active")) {
-                document.querySelectorAll(".stage-wrapper").forEach(function(i) {
-                    i.classList.remove("active");
-                });
-
-                item.classList.add("active");
-                searchForm.querySelector("input[name='stage']").value = item.dataset.stage;
-                submitFormViaAjax();
-            }
-        });
-    }); */
-
-    /* searchForm.addEventListener("submit", function(e) {
-        e.preventDefault();
-        submitFormViaAjax();
-    }); */
-
-    /* let clearAll = document.querySelectorAll(".js-clear-all");
-    clearAll.forEach(function(item) {
-        item.addEventListener("click", function() {
-            searchForm.querySelector(`input[name='stage']`).value = "";
-            searchForm.querySelectorAll(`input[type='checkbox']:checked`).forEach(function(input){
-                input.checked = false;
-            });
-            submitFormViaAjax();
-        });
-    }); */
 });
 
 function submitFormViaAjax() {
@@ -137,32 +79,13 @@ async function performMagic(params)
     showLoader();
     flushMapBoxLayersAndData();
 
-    /* let filterSummary = document.querySelector(".js-filter-summary");
-    filterSummary.innerHTML = '';
-    filterSummary.parentElement.parentElement.classList.add("hidden"); */
     var queryString = new URLSearchParams();
     let variables = {};
 
     let tmp = getFromParams("stage");
-    if(tmp) {
+    if(tmp && document.querySelector(`.stage-wrapper[data-stage='${tmp}']`)) {
         variables["stage"] = tmp;
         queryString.append("stage", tmp);
-
-        /* let stageLabel = document.querySelector(".stage-wrapper[data-stage='" + variables["stage"] + "']").querySelector(".js-stage-label").textContent;
-        let child = document.createElement("li");
-        child.classList.add("text-xs", "border", "border-blue-800", "bg-white", "px-2", "py-1.5", "rounded-full", "flex", "gap-2", "items-center");
-        child.innerHTML = `Stage: ${stageLabel}
-            <a href="#" class="hover:text-blue-500 transition-all duration-300" data-target="stage" data-value="${variables["stage"]}">
-                <svg width="9" height="9" xmlns="http://www.w3.org/2000/svg">
-                    <use xlink:href="#icon-close"></use>
-                </svg>
-            </a>`;
-        filterSummary.appendChild(child);
-        child.querySelector("a").addEventListener("click", function(e) {
-            e.preventDefault();
-            clearSpecificFilter(this);
-        });
-        filterSummary.parentElement.parentElement.classList.remove("hidden"); */
     }
 
     tmp = getFromParams("country[]");
@@ -190,7 +113,7 @@ async function performMagic(params)
     }
 
     queryString = queryString.toString();
-    let url = window.location.pathname + (params.length ? '?' + queryString : '');
+    let url = window.location.pathname + (queryString != '' ? '?' + queryString : '');
     window.history.pushState({ path: url }, '', url);
 
     const result = await fetch("/api", {
@@ -246,16 +169,16 @@ async function performMagic(params)
 
 function handleDataFromGql(data)
 {
+    let entryCounterDiv = document.querySelector(".js-entry-count");
+    entryCounterDiv.innerHTML = data.entryCount;
+    entryCounterDiv.parentElement.parentElement.classList.remove("hidden");
+
     if(data.entries.length == 0) {
         hideLoader();
         handleNoResults();
         console.log("No rows found")
         return false;
     }
-
-    let entryCounterDiv = document.querySelector(".js-entry-count");
-    entryCounterDiv.innerHTML = data.entryCount;
-    entryCounterDiv.parentElement.parentElement.classList.remove("hidden");
 
     // let locations = [];
     data.entries.forEach(function(item, key) {
@@ -293,14 +216,6 @@ function handleDataFromGql(data)
         "circle-stroke-width": 1,
         "circle-stroke-opacity": 0.4,
     });
-
-    /* addMarkerLayer("markers-highlighted", {
-        "circle-color": colorMarker,
-        "circle-radius": 12,
-        "circle-stroke-color": colorMarker,
-        "circle-stroke-width": 7,
-        "circle-stroke-opacity": 0.6,
-    }); */
 
     // Display only the dealer markers that are within the dealer list
     map.setFilter("markers", markerFilter);
@@ -560,19 +475,8 @@ function convertToSlug(Text) {
 }
 
 function handleNoResults() {
-    document.querySelector(".js-entry-count").parentElement.parentElement.classList.add("hidden");
+    // document.querySelector(".js-entry-count").parentElement.parentElement.classList.add("hidden");
 }
-
-/* function selectFormFields(params) {
-    for (let index = 0; index < params.length; index++) {
-        const element = params[index];
-        if(element.name == "stage") {
-            searchForm.querySelector(`input[name='stage']`).value = element.value;
-        } else {
-            searchForm.querySelector(`input[name='${element.name}'][value='${element.value}']`).checked = true;
-        }
-    }
-} */
 
 function clearSpecificFilter(target) {
     let key = target.dataset.target;

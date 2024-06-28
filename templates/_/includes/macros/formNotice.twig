@@ -1,0 +1,51 @@
+{% set formId = id ?? null %}
+<div id="{{ formId }}_success" class="rounded-md bg-emerald-300 p-4 my-4 z-20"
+    x-show="success"
+    x-ref="formnoticesuccess"
+    style="display: none;"
+>
+    <div class="flex">
+        <div class="flex-shrink-0">
+            <svg class="h-5 w-5 text-emerald-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+        </div>
+        <div class="ml-3">
+            <p class="text-sm font-medium text-emerald-900" x-html="successMessage"></p>
+        </div>
+        <div class="ml-auto pl-3">
+            <div class="-mx-1.5 -my-1.5">
+                <button type="button" class="inline-flex bg-emerald-300 rounded-md p-1.5 text-emerald-600 hover:text-emerald-100 focus:outline-none focus:ring-2 focus:ring-offset-2" @click="success = false">
+                    <span class="sr-only">Dismiss</span>
+                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% set formId = id ?? null %}
+<div id="{{ formId }}_errors" class="rounded-md bg-red-50 p-4 my-4 z-20"
+    x-show="Object.keys(errors).length || errorMessage != ''"
+    x-ref="formnoticeerror"
+    style="display: none;"
+>
+    <div class="flex">
+        <div class="flex-shrink-0">
+            {{ svg('@webroot/icons/custom/x-circle.svg') | attr({ class: 'h-5 w-5 text-red-400', 'aria-hidden': 'true' }) }}
+        </div>
+        <div class="ml-3">
+            <h3 class="text-sm font-medium text-red-800" x-html="errorMessage + (errorExtraHtml ? ' ' + errorExtraHtml : '')" x-show="errorMessage != ''"></h3>
+            <p class="text-sm font-medium text-red-700" x-show="typeof(errors) === 'string' && errors != ''" x-text='errors'></p>
+            <div class="mt-2 text-sm text-red-700" x-show="typeof(errors) !== 'string' && Object.keys(errors).length">
+                <ul role="list" class="list-disc pl-5 space-y-1">
+                    <template x-for="(row, k1) in errors" :key="k1">
+                        <li x-text="row"></li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+{% set hideLabel = field.hideLabel ?? false %}
+{% set required = field.required ?? false %}
+{% set maskRequired = field.maskRequired ?? false %}
+{% set readonly = field.readonly ?? false %}
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+{% set attrs = field.attrs ?? null %}
+{% set helpText = field.helpText ?? null %}
+
+{% set hideOptGroup = false %} {# hide legacy fields on front end #}
+{% set optgroupCount = false %} {# force option groups w/json key #}
+<div class="mt-1 relative rounded-sm shadow-sm" x-data="{
+        overrideName: typeof(overrideName) !== 'undefined' ? overrideName : '{{ field.name }}',
+        overrideValue: typeof(overrideValue) !== 'undefined' ? overrideValue : '{{ field.value }}',
+    }"
+    {% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    <label for="{{ field.label | kebab }}" class="{{ field.labelClass ?? 'text-sm block mb-2 text-gray-700' }}" {% if hideLabel %} style="display: none;" {% endif %}>
+        {{ field.label }} {{ required or maskRequired ? '<sup class="text-turkey-800">*</sup>' }}
+    </label>
+
+    <div class="relative {{ not hideLabel ? 'mt-1' }}">
+        {# <select name="{{ field.name }}" class="field-{{ field.name }} {{ field.class ?? 'form-select appearance-none bg-none bg-white placeholder:text-gray-300 text-sm capitalize w-full border border-turkey-400 focus:ring-transparent focus:border-turkey-800 py-3 pl-4 pr-8' }}"
+            {{ required ? 'required' }}
+            {{ readonly ? 'readonly="readonly"' }}
+            {% if attrs|length %} {{ attr(attrs) }}{% endif %}
+        >
+            {% for option in field.options %}
+            {% if option.optgroup is defined and option.showGroup is not defined %}
+
+            {% set hideOptGroup = true %}
+
+            {% elseif not hideOptGroup and option.optgroup is not defined %}
+
+            {% if field.indexoptions is defined and field.indexoptions and not option.desktop is defined %}
+            <option value="{{ option.value }}" data-slug="{{ option.slug ?? '' }}" data-checkboxes="{{ option.checkboxes ?? '' }}" {% if field.value == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% elseif (field.indexoptions is defined and not field.indexoptions) or field.indexoptions is not defined %}
+            <option value="{{ option.value }}" data-slug="{{ option.slug ?? '' }}" data-parent="{{ option.parent  ?? '' }}" data-checkboxes="{{ option.checkboxes ?? '' }}" {% if field.value == option.value %}selected{% endif %}>{{ option.label }}</option>
+            {% endif %}
+
+            {% else %}
+
+            {{ optgroupCount > 0 ? '</optgroup>' }}
+            <optgroup label="{{ option.optgroup }}">
+                {% set optgroupCount = optgroupCount + 1 %}
+
+                {% endif %}
+                {% endfor %}
+            {{ optgroupCount ? '</optgroup>' }}
+        </select> #}
+
+        <select name="{{ field.name }}" class="field-{{ field.name }} {{ field.class ?? 'form-select appearance-none bg-none bg-white placeholder:text-gray-300 text-sm capitalize w-full border border-turkey-400 focus:ring-transparent focus:border-turkey-800 py-3 pl-4 pr-8' }}"
+            {{ required ? 'required' }}
+            {{ readonly ? 'readonly="readonly"' }}
+            {% if attrs|length %} {{ attr(attrs) }}{% endif %}
+        >
+            {% set showEmpty = field.showEmpty ?? true %}
+            {% set hashValues = field.hashValues ?? false %}
+            {% set emptyOptionDisabled = field.emptyOptionDisabled ?? true %}
+
+            {% for item in field.options %}
+                {% set group = item.group ?? false %}
+                {% set attrs = item.attrs ?? false %}
+                {% set selected = item.value == field.value ?? false %}
+                {% set value = item.value ?? null %}
+                {% if loop.first and showEmpty %}
+                    <option value="" {% if emptyOptionDisabled %} disabled{% endif %}>{{ showEmpty|length > 1 ? showEmpty : "Please Select" }}</option>
+                {% endif %}
+                <option value="{{ hashValues ? value|hash : value }}" {{ selected ? ' selected' }}>{{ item.label }}</option>
+            {% endfor %}
+        </select>
+
+        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-turkey-800">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"></path>
+            </svg>
+        </span>
+    </div>
+    {% if helpText %}<p class="mt-2 text-xs text-gray-400">{{ helpText|raw }}</p>{% endif %}
+</div>

@@ -1,50 +1,97 @@
+{% import "_/includes/macros" as render %}
+{% minify %}
 <!DOCTYPE html>
-<html lang="en">
+{% set htmlAttrs = {
+    lang: craft.app.language,
+    class: 'scroll-smooth'
+} %}
+<html {{ attr(htmlAttrs) }}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# Fav Icon #}
 
-    {% block seo %}{% endblock %}
+        {% block seo %}{% endblock %}
+        {# CSS #}
+        <script>supportWebp = e => document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;</script>
 
-    <!-- Font Family -->
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    </head>
 
-    <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-</head>
+    {% set successNotification = successNotification ?? false %}
+    {% set errorNotification = errorNotification ?? false %}
+    <body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"
+        x-data="{
+            isOverflowHidden: false,
+            timeout : null,
+            hideNotification: 5000,
+            pageLoaded: true,
+            success: {{ successNotification|length and not errorNotification|length ? 1 : 0 }},
+            error: {{ errorNotification|length ? 1 : 0 }},
+            successHeading: '{{ successNotification.heading ?? '' }}',
+            successText: '{{ successNotification.text ?? '' }}',
+            successUrl: '{{ successNotification.url ?? '' }}',
+            errorHeading: '{{ errorNotification.heading ?? '' }}',
+            errorText: '{{ errorNotification.text ?? '' }}',
+            errorExtraHtml: '',
 
-<body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"  x-data="{ isOverflowHidden: false }" :class="{ 'overflow-hidden': isOverflowHidden }">
-    {#
-    ============================================
-    Include Header
-    ============================================
-    #}
-    {% block header %}
-        {% include "_/includes/header" %}
-    {% endblock %}
+            init() {
+                if(this.success || this.error) {
+                    this.resetTimeout();
+                }
+            },
 
-    {% block content %}{% endblock %}
+            resetTimeout() {
+                let _this = this;
+                clearTimeout(_this.timeout)
+                _this.timeout = setTimeout(function() {
+                    _this.success = false;
+                    _this.error = false;
+                }, _this.hideNotification);
+            }
+        }"
 
-    {#
-    ============================================
-    Include Footer
-    ============================================
-    #}
-    {% block footer %}
-        {% include "_/includes/footer" %}
-    {% endblock %}
+        @notifysuccess="success=true,successHeading=(typeof($event.detail.heading) !== 'undefined' ? $event.detail.heading : ''),successText=(typeof($event.detail.text) !== 'undefined' ? $event.detail.text : ''),successUrl=(typeof($event.detail.url) !== 'undefined' ? $event.detail.url : ''),resetTimeout()"
+        @notifyerror="error=true,nError=true,errorHeading=(typeof($event.detail.heading) !== 'undefined' ? $event.detail.heading : ''),errorText=(typeof($event.detail.text) !== 'undefined' ? $event.detail.text : ''),resetTimeout()"
+        :class="{ 'overflow-hidden': isOverflowHidden }"
+    >
+        {#
+        ============================================
+            Include Header
+        ============================================
+        #}
+        {% block header %}
+            {% include "_/includes/header" %}
+        {% endblock %}
 
-    {# script #}
-    {% block footerScriptBeforeApp %}{% endblock %}
+        {% block content %}{% endblock %}
 
-    <script src="{{ mix('js/app.js') }}" defer=""></script>
-    {# <script src="{{ mix('js/glightbox.js') }}" defer=""></script> #}
-    {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
+        {#
+        ============================================
+            Include Footer
+        ============================================
+        #}
+        {% block footer %}
+            {% include "_/includes/footer" %}
+        {% endblock %}
 
-    {% block footerScriptAfterApp %}{% endblock %}
+        {# Font Family #}
+        <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" rel="stylesheet">
+        </noscript>
 
-</body>
+        {# script #}
+        {% block footerScriptBeforeApp %}{% endblock %}
 
+        <script src="{{ mix('js/app.js') }}" defer=""></script>
+        <script src="{{ mix('js/glightbox.js') }}" defer=""></script>
+        {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
+
+        {% block footerScriptAfterApp %}{% endblock %}
+    </body>
 </html>
+{% endminify %}

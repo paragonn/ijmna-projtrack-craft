@@ -1,0 +1,34 @@
+{% set hideLabel = field.hideLabel ?? false %}
+{% set required = field.required ?? false %}
+{% set maskRequired = field.maskRequired ?? false %}
+{% set readonly = field.readonly ?? false %}
+{% set wrapperAttrs = field.wrapperAttrs ?? null %}
+{% set attrs = field.attrs ?? null %}
+{% set helpText = field.helpText ?? null %}
+
+<div class="{{ field.colClass|default('w-full') }}" x-data="{
+        overrideName: typeof(overrideName) !== 'undefined' ? overrideName : '{{ field.name }}',
+        overrideValue: typeof(overrideValue) !== 'undefined' ? overrideValue : '{{ field.value }}',
+    }"
+    {% if wrapperAttrs|length %} {{ attr(wrapperAttrs) }}{% endif %}
+>
+    <label for="{{ field.label | kebab }}" class="{{ field.labelClass ?? 'text-sm block mb-2 text-gray-700' }}" {% if hideLabel %} style="display: none;" {% endif %}>
+        {{ field.label }} {{ required or maskRequired ? '<sup class="text-primary-500">*</sup>' }}
+    </label>
+    <div class="{{ not hideLabel ? 'mt-1' }}">
+        <input
+            class="{{ field.class ?? 'form-input text-sm h-14 px-3 bg-transparent border-2 w-full placeholder:text-blue-800/30 font-bold tracking-widest uppercase focus:ring-transparent focus:border-blue-500' }} {{ readonly ? ' bg-gray-200' }}"
+            id="{{ field.id ?? (field.label | kebab) }}"
+            :name="overrideName"
+            :value="overrideValue"
+            type="{{ field.type }}"
+            {% if field.placeholder %}placeholder="{{ field.placeholder }}"{% endif %}
+            autocomplete="{{ field.autocomplete }}"
+            {{ required ? 'required' }}
+            {{ readonly ? 'readonly="readonly"' }}
+            {% if attrs|length %} {{ attr(attrs) }}{% endif %}
+        >
+        {{ field.error }}
+        {% if helpText %}<p class="mt-2 text-xs text-gray-400">{{ helpText|raw }}</p>{% endif %}
+    </div>
+</div>

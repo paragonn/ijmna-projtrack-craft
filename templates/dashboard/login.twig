@@ -1,0 +1,89 @@
+{% import "_/includes/macros" as render %}
+
+{% set apiForm = apiForm ?? false %}
+
+{% block content %}
+<div class="items-center bg-white overflow-auto !max-w-[680px] w-full !h-full {{ apiForm ? 'p-8 lg:p-16' : 'mx-auto pb-16 pt-32 md:pt-40' }}">
+    <div class="text-center">
+        <p class="uppercase tracking-widest font-bold text-black">
+            {{ 'Teams Deployed TARGETS'|t }}
+        </p>
+        <h2 class="text-3xl lg:text-4xl font-Baskervville -tracking-wide mt-2.5">
+            {{ 'Sign in to explore the Global Program Tracker'|t }}
+        </h2>
+    </div>
+
+    {% set formSettings = {
+        action: 'users/login',
+        id: "login-menu-form",
+        class: 'space-y-7 mt-10',
+        redirect: '{url}',
+        xFormAjax: true,
+        loader: true,
+        xFormAjaxOptions: {
+            enableGlobalSuccess: true,
+            enableGlobalErrors: true,
+            globalSuccessHeading: "Login Successfully!",
+            successBehaviour: "redirect",
+            resetForm: true
+        },
+        attrs: {
+            enctype: 'multipart/form-data',
+            'accept-charset':'UTF-8',
+        },
+        fields: [
+            {
+                colClass: 'w-full',
+                label: 'Email Address',
+                name: 'loginName',
+                value: craft.app.user.rememberedUsername,
+                type: 'text',
+                required: true,
+                file: 'text',
+                hideLabel: true,
+                placeholder: 'Email Address',
+                autocomplete: 'loginName'
+            },
+            {
+                colClass: 'w-full',
+                label: 'Password',
+                name: 'password',
+                type: 'password',
+                required: true,
+                file: 'text',
+                hideLabel: true,
+                placeholder: 'Enter Password',
+                autocomplete: 'current-password',
+            },
+            {
+                col: 'start',
+                justifyContent: true,
+                label: 'Remember Me',
+                name: 'remember-me',
+                value: 1,
+                type: 'checkbox',
+                file: 'checkbox',
+            },
+            {
+                col: 'end',
+                colClass: 'w-auto',
+                label: "Forgot password",
+                file: 'html',
+                html: "<div><a href='" ~ siteUrl('dashboard/reset-password') ~ "' class='underline underline-offset-4 hover:text-blue-500 transition-all duration-300'>Forgot password?</a></div>",
+            }
+        ],
+        buttons: [
+            {
+                label: 'Sign In',
+                type: 'submit',
+                col: 'end',
+                class: 'bg-blue-800 tracking-widest block w-full font-bold text-base text-center hover:cursor-pointer transition-all duration-300 uppercase text-white py-5 px-6'
+            }
+        ]
+    } %}
+    {{ render.form(formSettings) }}
+    {% if errorMessage is defined %}
+        <p class="pt-3 text-red-500 text-sm">{{ errorMessage }}</p>
+    {% endif %}
+</div>
+{% endblock %}
