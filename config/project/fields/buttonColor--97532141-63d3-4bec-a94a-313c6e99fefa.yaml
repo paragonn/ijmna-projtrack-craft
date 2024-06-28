@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: buttonColor
+instructions: null
+name: 'Button Color'
+searchable: false
+settings:
+  default: null
+  palette: null
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

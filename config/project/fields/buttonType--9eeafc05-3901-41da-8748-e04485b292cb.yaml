@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: buttonType
+instructions: null
+name: 'Button Type'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/buttonType.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

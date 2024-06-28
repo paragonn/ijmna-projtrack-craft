@@ -80,7 +80,7 @@
 
                             {% for node in navLinks %}
                             <li class="relative">
-                                <a href="{{ node.button.getUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300 {{ node.button.classes }}"
+                                <a href="{{ node.button.getUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300 {{ node.button.classes }}"
                                     {% if node.button.target %}target="_blank" rel="noopener"{% endif %}
                                     {% for attribute in node.button.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}
                                 >
@@ -96,7 +96,7 @@
 
                             {% if currentUser|length %}
                                 <li class="relative">
-                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
+                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign Out'|t }}
                                         </span>
@@ -104,7 +104,7 @@
                                 </li>
                             {% else %}
                                 <li class="relative">
-                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300"
+                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
                                         data-type="content"
                                         data-event="{{ header.uid }}"
                                         data-form="signin-form"
@@ -132,7 +132,7 @@
                         >
                             {% for node in navLinks %}
                             <li class="relative py-1.5 first:pt-0 last:pb-0">
-                                <a href="{{ node.button.getUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300 {{ node.button.classes }}"
+                                <a href="{{ node.button.getUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300 {{ node.button.classes }}"
                                     {% if node.button.target %}target="_blank" rel="noopener"{% endif %}
                                     {% for attribute in node.button.customAttributes %}{{ attribute.attribute }}="{{ attribute.value }}"{% endfor %}
                                 >
@@ -148,7 +148,7 @@
 
                             {% if currentUser|length %}
                                 <li class="relative">
-                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300">
+                                    <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign Out'|t }}
                                         </span>
@@ -156,7 +156,7 @@
                                 </li>
                             {% else %}
                                 <li class="relative py-1.5 first:pt-0 last:pb-0">
-                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-green-500 transition-all duration-300"
+                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
                                         data-type="content"
                                         data-event="{{ header.uid }}"
                                         data-form="signin-form"

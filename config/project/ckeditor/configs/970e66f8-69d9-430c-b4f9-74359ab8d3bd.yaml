@@ -10,24 +10,48 @@ options:
   alignment:
     options:
       - left
+      - center
       - right
+  style:
+    definitions:
+      -
+        classes:
+          - red-heading
+        element: h2
+        name: 'Red heading'
+      -
+        classes:
+          - vibrant-code
+        element: pre
+        name: 'Vibrant code'
+      -
+        classes:
+          - marker
+        element: span
+        name: Marker
 toolbar:
+  - code
   - sourceEditing
   - heading
+  - style
   - '|'
   - alignment
   - '|'
+  - underline
+  - subscript
+  - strikethrough
   - bold
   - italic
-  - underline
-  - strikethrough
+  - insertImage
+  - mediaEmbed
+  - fontColor
+  - blockQuote
+  - insertTable
   - '|'
   - bulletedList
   - numberedList
   - todoList
+  - horizontalLine
+  - pageBreak
   - '|'
   - link
-  - insertImage
-  - mediaEmbed
-  - '|'
-  - insertTable
