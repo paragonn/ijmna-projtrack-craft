@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="43" viewBox="0 0 47 43">
+	<defs><path id="script-a" d="M0 43h47V0H0z"/></defs>
+	<g fill="none" fill-rule="evenodd">
+		<path stroke="currentColor" stroke-width="2" d="M11.749 41.806H6.46c-2.92 0-5.285-2.407-5.285-5.376V13.138h10.573"/>
+		<path stroke="currentColor" stroke-width="2" d="M11.749 1.194h34.076V36.43c0 2.968-2.367 5.374-5.287 5.374H6.461c2.92 0 5.288-2.406 5.288-5.374V1.194Z"/>
+		<mask id="script-b" fill="#fff">
+			<use xlink:href="#script-a"/>
+		</mask>
+		<path stroke="currentColor" stroke-width="2" d="M18.8 20.304h15.275V9.555H18.8zM17.625 27.472h22.326" mask="url(#script-b)"/>
+		<path stroke="currentColor" stroke-width="2.369" d="M17.625 33.445h22.326" mask="url(#script-b)"/>
+	</g>
+</svg>

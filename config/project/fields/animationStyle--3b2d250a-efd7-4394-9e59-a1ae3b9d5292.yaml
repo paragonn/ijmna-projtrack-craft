@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: animationStyle
+instructions: null
+name: 'Animation Style'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/animationStyle.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

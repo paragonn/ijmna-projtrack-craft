@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: headingSize
+instructions: null
+name: 'Heading Size'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/headingSize.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

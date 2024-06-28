@@ -1,0 +1,72 @@
+columnSuffix: null
+handle: contentAlignment
+instructions: null
+name: 'Content Alignment'
+searchable: false
+settings:
+  displayAsGraphic: true
+  displayFullwidth: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Left
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - left
+        -
+          - imageUrl
+          - /images/buttonBox/alignment/left.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Center
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - center
+        -
+          - imageUrl
+          - /images/buttonBox/alignment/center.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Right
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - right
+        -
+          - imageUrl
+          - /images/buttonBox/alignment/right.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: verbb\buttonbox\fields\Buttons

@@ -1,4 +1,4 @@
-dateModified: 1719559533
+dateModified: 1719573830
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -15,23 +15,46 @@ fs:
       path: '@webroot/uploads/images'
     type: craft\fs\Local
     url: '@web/uploads/images'
+  transforms:
+    hasUrls: true
+    name: Transforms
+    settings:
+      path: '@webroot/uploads/transforms'
+    type: craft\fs\Local
+    url: '@web/uploads/transforms'
+  videos:
+    hasUrls: true
+    name: Videos
+    settings:
+      path: '@webroot/uploads/videos'
+    type: craft\fs\Local
+    url: '@web/uploads/videos'
 meta:
   __names__:
     0b15cab4-22ae-40f3-9612-204b951f30f0: Image # Image
     0bb1f59a-bac9-4368-b972-bc346cf78bdb: Links # Links
+    0e13a17a-1829-4ccb-a64f-c39b6d62af82: 'Animation Offset' # Animation Offset
     1da620f4-95cb-4911-9332-8ef04cad860f: Button # Button
+    2e9cec4b-7c08-4594-a616-22bb4a04cba8: Brands # Brands
+    3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
     3bf73e53-2279-498c-9693-f24c6e498172: 'Page Builder' # Page Builder
     4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
     4f72c1ee-9438-4229-aa23-ef809d4af047: Logo # Logo
     5a2e4125-53c6-4343-b44e-970c058d6ba3: 'Projects Search Feature with MapBox' # Projects Search Feature with MapBox
+    5c6bb440-978c-4cab-8939-e7991f378b17: Custom # Custom
     5d2385da-c451-4d15-a8dc-9bf204cfb717: Eyebrow # Eyebrow
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
+    6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
     7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?
     7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
+    7f018fb5-73a1-482a-97e6-20b925125348: Videos # Videos
+    7fe9589b-0f2b-4c94-91b8-f1e030710e58: Regular # Regular
+    8df78e11-4ebe-4815-a6a8-a9a62e77b6d6: 'Animation Easing' # Animation Easing
     8ee03cb6-c673-4aca-b24c-41391b451ecf: 'Number of Dots' # Number of Dots
     08f0c8e2-e9c0-426a-aab3-861fbf413a1f: Heading # Heading
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     9eeafc05-3901-41da-8748-e04485b292cb: 'Button Type' # Button Type
+    021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
@@ -42,29 +65,44 @@ meta:
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
     5249fb26-5dbb-40d0-8d43-eaa65ad75be1: Header # Header
+    6065b222-611d-42ce-a1de-85a02891694c: 'Background Color' # Background Color
+    9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
+    31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
     948968bb-c8d8-4627-aaa9-aa1b20ada200: Hero # Hero
+    21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
     97532141-63d3-4bec-a94a-313c6e99fefa: 'Button Color' # Button Color
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
     bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Jurisdictions # Jurisdictions
     bc3b468e-cdba-4c0b-b35e-eec6078f0472: Root # Root
     cf6c9928-e050-4212-a498-0618e38611b1: Country # Country
+    cfc164dd-7161-4a3d-9407-1080228e7455: 'Content Alignment' # Content Alignment
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
     dccbbef1-4f06-4d4c-ae48-1cf7043ddc36: 'Alt Logo' # Alt Logo
+    e0e47b5e-62b4-4b02-aeca-99868e8625d9: 'Animation Duration' # Animation Duration
+    e05fb8e0-726b-4a55-b97f-aea98a58c8a1: 'Heading Size' # Heading Size
+    e671a976-5fd4-4e36-a257-592286dfcf78: 'Image Position' # Image Position
     e9322ff0-91a2-4b27-9c44-ac0b405460c2: 'Nav Links' # Nav Links
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
+    ef7dff82-7ddc-453d-b03e-6b90683f02bd: 'Font Weight' # Font Weight
+    f0cc5f70-7696-4267-8c7c-769e499ad9de: Videos # Videos
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
+    f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
     fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:
   _ijm-project-tracker-custom-plugin:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  buttonbox:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
   ckeditor:
     edition: standard
     enabled: true
@@ -101,6 +139,15 @@ plugins:
     enabled: true
     licenseKey: K92IKU3RM8LPX6SIY0BGAD2Y
     schemaVersion: 1.2.3
+    settings:
+      enableCache: true
+      iconItemSize: 32
+      iconItemSizeLarge: 40
+      iconItemWrapperSize: 56
+      iconItemWrapperSizeLarge: 72
+      iconSetsPath: '@webroot/icons/'
+      iconSetsUrl: '@web/icons/'
+      redactorFieldHandle: ''
   imager-x:
     edition: pro
     enabled: true
@@ -136,6 +183,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.0
+  oembed:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
   saml-sp:
     edition: standard
     enabled: true

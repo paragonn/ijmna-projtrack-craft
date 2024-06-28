@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf47df7d483c96fcc4e472af5d6b10f5",
+    "content-hash": "e31846ec857de1e76f4ead255e752810",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -8450,6 +8450,63 @@
             "time": "2024-06-10T09:02:06+00:00"
         },
         {
+            "name": "verbb/buttonbox",
+            "version": "5.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/verbb/buttonbox/zipball/d17c4f03719673a3d19b9e86291e69b6817a09ee",
+                "reference": "d17c4f03719673a3d19b9e86291e69b6817a09ee",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "php": "^8.2",
+                "verbb/base": "^3.0.0"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Button Box",
+                "handle": "buttonbox",
+                "documentationUrl": "https://github.com/verbb/buttonbox",
+                "changelogUrl": "https://raw.githubusercontent.com/verbb/buttonbox/craft-5/CHANGELOG.md",
+                "class": "verbb\\buttonbox\\ButtonBox"
+            },
+            "autoload": {
+                "psr-4": {
+                    "verbb\\buttonbox\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Verbb",
+                    "homepage": "https://verbb.io"
+                },
+                {
+                    "name": "Supercool",
+                    "homepage": "http://supercooldesign.co.uk"
+                }
+            ],
+            "description": "A collection of utility field types.",
+            "keywords": [
+                "buttonbox",
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms"
+            ],
+            "support": {
+                "email": "support@verbb.io",
+                "issues": "https://github.com/verbb/buttonbox/issues?state=open",
+                "source": "https://github.com/verbb/buttonbox",
+                "docs": "https://github.com/verbb/buttonbox",
+                "rss": "https://github.com/verbb/buttonbox/commits/v2.atom"
+            },
+            "time": "2024-05-10T14:48:17+00:00"
+        },
+        {
             "name": "verbb/formie",
             "version": "3.0.0-beta.15",
             "dist": {
@@ -9427,6 +9484,69 @@
                 "what3words"
             ],
             "time": "2024-05-30T17:18:58+00:00"
+        },
+        {
+            "name": "wrav/oembed",
+            "version": "3.0.8",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wrav/oembed/zipball/a1df39b6c03ba6a215476e12cfbf35519d128f78",
+                "reference": "a1df39b6c03ba6a215476e12cfbf35519d128f78",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0 | ^5.0",
+                "embed/embed": "^v4.4",
+                "ext-dom": "*"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "oEmbed",
+                "handle": "oembed",
+                "schemaVersion": "1.0.1",
+                "hasCpSettings": true,
+                "hasCpSection": false,
+                "changelogUrl": "https://raw.githubusercontent.com/wrav/oembed/master/CHANGELOG.md",
+                "components": {
+                    "oembedService": "wrav\\oembed\\services\\OembedService"
+                },
+                "class": "wrav\\oembed\\Oembed"
+            },
+            "autoload": {
+                "psr-4": {
+                    "wrav\\oembed\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "reganlawton",
+                    "homepage": "https://github.com/reganlawton"
+                }
+            ],
+            "description": "A simple plugin to extract media information from websites, like youtube videos, twitter statuses or blog articles.",
+            "keywords": [
+                "cms",
+                "craft",
+                "craft-plugin",
+                "craftcms",
+                "facebook",
+                "gdpr",
+                "graphql",
+                "iframe",
+                "instagram",
+                "oembed",
+                "twitter",
+                "vimeo",
+                "youtube"
+            ],
+            "support": {
+                "docs": "https://github.com/wrav/oembed/blob/master/README.md",
+                "issues": "https://github.com/wrav/oembed/issues"
+            },
+            "time": "2024-02-26T00:30:02+00:00"
         },
         {
             "name": "yiisoft/yii2",
