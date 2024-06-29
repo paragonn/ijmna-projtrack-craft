@@ -127,30 +127,46 @@ async function performMagic(params)
         body: JSON.stringify({
             query: `query fetchJurisdictionsTrackingData($stage: [QueryArgument], $categories: [CategoryCriteriaInput]) {
                 entryCount(section: "jurisdictions", stage: $stage, relatedToCategories:$categories)
+                categoriesForStage: entries(section: "jurisdictions", stage: $stage) {
+                    ... on jurisdictions_Entry {
+                        country {
+                            ... on country_Category {
+                            slug
+                            }
+                        }
+                        casework {
+                            ... on casework_Category {
+                            slug
+                            }
+                        }
+                    }
+                }
                 entries(section: "jurisdictions", stage: $stage, relatedToCategories: $categories) {
                     ... on jurisdictions_Entry {
-                        id
-                        title
-                        uri
-                        stage(label: true)
+                        id,
+                        title,
+                        uri,
+                        stage(label: true),
                         address {
-                            lat
-                            lng
+                            lat,
+                            lng,
                             parts {
-                                state
-                                country
+                                state,
+                                country,
                             }
                         }
                         country {
                             ... on country_Category {
                                 id,
-                                title
+                                slug,
+                                title,
                             }
                         }
                         casework {
                             ... on casework_Category {
                                 id,
-                                title
+                                slug,
+                                title,
                             }
                         }
                         image {
@@ -175,15 +191,12 @@ function handleDataFromGql(data)
 
     if(data.entries.length == 0) {
         hideLoader();
-        handleNoResults();
         console.log("No rows found")
         return false;
     }
 
-    // let locations = [];
     data.entries.forEach(function(item, key) {
-        // locations.push(item.address.parts.state ? item.address.parts.state + ", " + item.address.parts.country : item.address.parts.country);
-
+        // countries.push(item.address.parts.state ? item.address.parts.state + ", " + item.address.parts.country : item.address.parts.country);
         let marker = {
             type: 'Feature',
             geometry: {
@@ -196,6 +209,40 @@ function handleDataFromGql(data)
         markers.features.push(marker);
         markerFilter.push(marker.properties.id);
     });
+
+    searchForm.querySelectorAll("input[type='checkbox']").forEach(function(item) {
+        item.removeAttribute("disabled");
+    });
+
+    let stage = getFromParams("stage");
+    let country = getFromParams("country[]");
+    let casework = getFromParams("casework[]");
+
+    if(stage != '' && data.entryCount ){
+        let countries = [];
+        let caseworks = [];
+        data.categoriesForStage.forEach(function(item, key) {
+            if(typeof(item.country[0]) !== "undefined") {
+                countries.push(item.country[0].slug);
+            }
+
+            if(typeof(item.casework[0]) !== "undefined") {
+                caseworks.push(item.casework[0].slug);
+            }
+        });
+
+        searchForm.querySelectorAll(`input[name='country[]']`).forEach(function(item) {
+            if(countries.indexOf(item.value) === -1) {
+                item.setAttribute("disabled", "disabled");
+            }
+        });
+
+        searchForm.querySelectorAll(`input[name='casework[]']`).forEach(function(item) {
+            if(caseworks.indexOf(item.value) === -1) {
+                item.setAttribute("disabled", "disabled");
+            }
+        });
+    }
 
     /* if(locations.length) {
         hightlightAreaOnMap(locations);
@@ -472,23 +519,6 @@ function convertToSlug(Text) {
     return Text.toLowerCase()
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, "");
-}
-
-function handleNoResults() {
-    // document.querySelector(".js-entry-count").parentElement.parentElement.classList.add("hidden");
-}
-
-function clearSpecificFilter(target) {
-    let key = target.dataset.target;
-    let value = target.dataset.value;
-
-    if(key == "stage") {
-        searchForm.querySelector(`input[name='stage']`).value = "";
-    } else {
-        searchForm.querySelector(`input[name='${key}[]'][value='${value}']`).checked = false;
-    }
-
-    submitFormViaAjax();
 }
 
 function createMarkerPopup(item) {
