@@ -1,35 +1,52 @@
 {% set spacing = {
     "none" : {
+        'minusMarginTop' : "",
+        'minusMarginBottom' : "",
         'marginTop' : "",
         'marginBottom' : "",
         'paddingTop' : "",
         'paddingBottom' : ""
     },
     "extraSmall" : {
+        'minusMarginTop' : "",
+        'minusMarginBottom' : "",
+
         'marginTop' : "mt-5 md:mt-8 lg:mt-10",
         'marginBottom' : "mb-5 md:mb-8 lg:mb-10",
         'paddingTop' : "pt-5 md:pt-8 lg:pt-10",
         'paddingBottom' : "pb-5 md:pb-8 lg:pb-10"
     },
     "small" : {
+        'minusMarginTop' : "",
+        'minusMarginBottom' : "",
+
         'marginTop' : "mt-12 md:mt-14",
         'marginBottom' : "mb-12 md:mb-14",
         'paddingTop' : "pt-12 md:pt-14",
         'paddingBottom' : "pb-12 md:pb-14"
     },
     "medium" : {
+        'minusMarginTop' : "-mt-32",
+        'minusMarginBottom' : "",
+
         'marginTop' : "mt-16 md:mt-20 lg:mt-24",
         'marginBottom' : "mb-16 md:mb-20 lg:mb-24",
         'paddingTop' : "pt-16 md:pt-20 lg:pt-24",
         'paddingBottom' : "pb-16 md:pb-20 lg:pb-24"
     },
     "large" : {
+        'minusMarginTop' : "-mt-40",
+        'minusMarginBottom' : "",
+
         'marginTop' : "mt-24 md:mt-28 lg:mt-36",
         'marginBottom' : "mb-24 md:mb-28 lg:mb-36",
         'paddingTop' : "pt-24 md:pt-28 lg:pt-36",
         'paddingBottom' : "pb-24 md:pb-28 lg:pb-36"
     },
     "extraLarge" : {
+        'minusMarginTop' : "",
+        'minusMarginBottom' : "",
+
         'marginTop' : "mt-24 md:mt-32 lg:mt-48",
         'marginBottom' : "mb-24 md:mb-32 lg:mb-48",
         'paddingTop' : "pt-24 md:pt-32 lg:pt-48",
@@ -44,7 +61,7 @@
 {% set defaultPaddingTop = null %}
 {% set defaultPaddingBottom = null %}
 
-{% set staticSpacing = parent in ['twoColumns', 'macdonCareers', 'macdonStories'] ? 'extraSmall' : defaultSpacing %}
+{% set staticSpacing = parent in ['twoColumns'] ? 'extraSmall' : defaultSpacing %}
 {% if currentBgColor %}
     {% set defaultMarginTop = "none" %}
     {% set defaultPaddingTop = staticSpacing %}

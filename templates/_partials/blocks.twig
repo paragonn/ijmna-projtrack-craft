@@ -31,6 +31,9 @@
     {% set first = loop.first %}
     {% set last = loop.last %}
 
+    {% set defaultMinusMarginTop = defaults[current].spacing.minusMarginTop|default('none') %}
+    {% set defaultMinusMarginBottom = defaults[current].spacing.minusMarginBottom|default('none') %}
+
     {% set defaultMarginTop = defaults[current].spacing.marginTop|default(null) %}
     {% set defaultPaddingTop = defaults[current].spacing.paddingTop|default(null) %}
     {% set defaultMarginBottom = defaults[current].spacing.marginBottom|default(null) %}
@@ -87,6 +90,10 @@
             nextBgColor: nextBgColor,
 
             defaultSpacing: defaultSpacing,
+
+            minusMarginTop: block.minusMarginTop.value|default(defaultMinusMarginTop),
+            minusMarginBottom: block.minusMarginBottom.value|default(defaultMinusMarginBottom),
+
             marginTop: block.marginTop.value|default(defaultMarginTop),
             paddingTop: block.paddingTop.value|default(defaultPaddingTop),
             marginBottom: block.marginBottom.value|default(defaultMarginBottom),

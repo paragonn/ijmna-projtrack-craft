@@ -33,6 +33,7 @@
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set contentWidth = block.contentWidth|default('2;10') %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
@@ -48,9 +49,10 @@
 
 {% set buttons = block.buttons.all() %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+{% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div>
                 <div class="relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
                     {{ render.basicContents({
@@ -78,3 +80,4 @@
         </div>
     </div>
 </section>
+{% endif %}

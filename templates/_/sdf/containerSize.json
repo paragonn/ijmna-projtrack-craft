@@ -1,0 +1,15 @@
+[
+    {
+        "label" : "Default",
+        "value" : "",
+        "default": true
+    },
+    {
+        "label" : "Container",
+        "value" : "container"
+    },
+    {
+        "label" : "Full",
+        "value" : "full"
+    }
+]
