@@ -20,6 +20,16 @@
         'blue-700'   : 'text-blue-500',
         'blue-800'   : 'text-blue-500'
     },
+
+    'quote-border' : {
+        'none'      : 'border-blue-50/20 !border-l-blue-500',
+        'white'     : 'border-blue-50/20 !border-l-blue-500',
+        'blue-100'  : 'border-blue-50/20 !border-l-blue-500',
+        'blue'      : changeColorCon ? 'border-blue-50/20 !border-l-blue-500' : 'border-gray-100 !border-l-white',
+        'blue-600'  : changeColorCon ? 'border-blue-50/20 !border-l-blue-500' : 'border-gray-100 !border-l-white',
+        'blue-700'  : 'border-blue-50/20 !border-l-blue-500',
+        'blue-800'  : 'border-blue-50/20 !border-l-blue-500'
+    },
 } %}
 {% if type is iterable %}
     {% for item in type %}

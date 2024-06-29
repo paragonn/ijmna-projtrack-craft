@@ -49,11 +49,11 @@
     animationEasing: contentAnimationEasing,
     animationDelay: delay
 }) | raw %}
-<blockquote class="rounded-tr text-left rounded-br border border-l-4 p-5 pl-3.5 {{ text|length or buttons|length ? 'mb-4' }} {{ quoteExtraClasses }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.foregroundColors({background: changeImagePositionColor ? backgroundColorLabel : 'white', opacity: changeImagePositionColor ? opacity : 'none', changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ defaultBoxColor ? 'bg-white border-turkey-300' : 'bg-transparent border-transparent' }} {{ render.foregroundColors({
-    background: 'white',
-    opacity: 'none',
+<blockquote class="rounded-tr rounded-br border border-l-4 p-5 pl-3.5 bg-transparent {{ text|length or buttons|length ? 'mb-4' }} {{ quoteExtraClasses }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.foregroundColors({background: backgroundColorLabel, opacity: opacity, changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ render.foregroundColors({
+    background: backgroundColorLabel,
+    opacity: opacity,
     changeDefaultColor: changeDefaultColor,
-    type: 'eyebrow',
+    type: blockquoteType ?? 'heading',
 }) }}" {{ contentAnimation|raw }}>
     <div class="flex items-start">
         <p class="m-0 italic leading-relaxed">
@@ -64,8 +64,8 @@
             {{ render.replaceUnderscores(params) }}
         </p>
     </div>
-{% endif %}
 </blockquote>
+{% endif %}
 
 {% if text|length %}
 {% set delay = delay + 200 %}
