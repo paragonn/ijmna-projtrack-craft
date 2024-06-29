@@ -78,6 +78,17 @@
             {% include "_/includes/footer" %}
         {% endblock %}
 
+        {#
+        ================================================
+            CP Links
+        ================================================
+        #}
+        {% set entryId = entry.getId() ?? null %}
+        {% set categoryId = category.getId() ?? null %}
+        {% nocache with {entryId: entryId, categoryId: categoryId} %}
+            {% include "_/includes/cp-link" %}
+        {% endnocache %}
+
         {# Font Family #}
         <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
         <noscript>

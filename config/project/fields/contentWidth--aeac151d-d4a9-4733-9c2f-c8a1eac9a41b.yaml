@@ -1,0 +1,11 @@
+columnSuffix: null
+handle: contentWidth
+instructions: null
+name: 'Content Width'
+searchable: false
+settings:
+  initialRows: 8
+  options: "type: \"double\",\r\ngrid: true,\r\nmin: 0,\r\nmax: 12,\r\nfrom: 0,\r\nto: 12,\r\ngrid_num: 12,\r\nskin: \"modern\",\r\nhide_min_max: true,\r\nhide_from_to: true,\r\ndrag_interval: true,\r\nmin_interval: 3"
+translationKeyFormat: null
+translationMethod: none
+type: lewisjenkins\craftrangeslider\fields\RangeSlider

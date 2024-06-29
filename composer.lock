@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e31846ec857de1e76f4ead255e752810",
+    "content-hash": "2030f051bef4b108b35948714b547ef4",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -8377,6 +8377,52 @@
                 "rss": "https://github.com/vaersaagod/dospaces/commits/master.atom"
             },
             "time": "2024-02-21T12:29:29+00:00"
+        },
+        {
+            "name": "vandres/craft-matrix-extended",
+            "version": "v3.4.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vandres/craft-matrix-extended/zipball/52410b2ae265a8bec8f272861f5cc8f89480f761",
+                "reference": "52410b2ae265a8bec8f272861f5cc8f89480f761",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.1.0",
+                "nystudio107/craft-plugin-vite": "^5.0",
+                "php": ">=8.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "handle": "matrix-extended",
+                "name": "Matrix Extended",
+                "developer": "Volker Andres",
+                "documentationUrl": "https://github.com/vandres/craft-matrix-extended",
+                "class": "vandres\\matrixextended\\MatrixExtended"
+            },
+            "autoload": {
+                "psr-4": {
+                    "vandres\\matrixextended\\": "src/"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Volker Andres",
+                    "homepage": "https://www.voan.ch"
+                }
+            ],
+            "description": "Adds functionality to the native Matrix field type",
+            "support": {
+                "email": "andres@voan.ch",
+                "issues": "https://github.com/vandres/craft-matrix-extended/issues?state=open",
+                "source": "https://github.com/vandres/craft-matrix-extended",
+                "docs": "https://github.com/vandres/craft-matrix-extended",
+                "rss": "https://github.com/vandres/craft-matrix-extended/releases.atom"
+            },
+            "time": "2024-06-24T10:58:47+00:00"
         },
         {
             "name": "verbb/auth",

@@ -1,0 +1,81 @@
+{#
+===============================================================================
+    Basic Content (basicContent)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('left') %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set contentWidth = block.contentWidth|default('2;10') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set buttons = block.buttons.all() %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+            <div>
+                <div class="relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
+                    {{ render.basicContents({
+                        eyebrow: block.eyebrow,
+                        heading: block.heading,
+                        text: block.text,
+                        buttons: buttons,
+                        headingTag: headingTag,
+                        headingSize: headingTag,
+                        fontWeight: fontWeight,
+                        fontFamily: '',
+                        backgroundColorLabel: backgroundColorLabel,
+                        opacity: overlayOpacity,
+                        contentAlignment: contentAlignment,
+                        animation: block.animation,
+                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                        contentAnimationDuration: block.animationDuration.value|default(1500),
+                        contentAnimationOffset: block.animationOffset.value|default(200),
+                        contentAnimationEasing: block.animationEasing.value|default(null)
+                    }) }}
+                    {# <p class="uppercase tracking-widest font-bold text-blue-500">Overview</p>
+                    <h2 class="text-3xl lg:text-4xl font-Baskervville -tracking-wide mt-5">Lorem ipsum dolor sit amet consectetur adipiscing elit sed dong elit se eiusmod tempor incididunt.</h2>
+                    <p class="text-lg mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboria commodo consequat.&nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&nbsp;</p> #}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

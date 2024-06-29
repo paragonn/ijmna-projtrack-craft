@@ -1,15 +1,14 @@
 {% import "_/includes/macros" as render %}
-{% set headerNav = headerNav ?? "navigation" %}
 
 {% set headerLogo = header.logo.one() %}
 {% set alternateLogo = header.altLogo.one() %}
 {% set altLogo = alternateLogo|length ? alternateLogo : headerLogo %}
 {% set navLinks = header.navLinks.cache().all() %}
 
-{% if headerNav == "navigation" %}
+{# {% if headerNav == "navigation" %} #}
     {# Start Navbar #}
     <header class="main-menu">
-        <nav class="fixed py-[11px] w-full border-b border-blue-800/25 top-0 z-50 mobile-menu-bg transition-all duration-300"
+        <nav class="fixed py-[11px] w-full bg-white border-b border-blue-800/25 top-0 z-50 mobile-menu-bg transition-all duration-300"
             x-data="{
                 hamburger: false
             }"
@@ -175,8 +174,7 @@
         </nav>
     </header>
     {# End Navbar #}
-{% else %}
-    {# Start Navbar #}
+{# {% else %}
     <header class="main-menu">
         <nav class="py-[11px] absolute w-full top-0 z-50 mobile-menu-bg transition-all duration-300">
             <div class="flex items-center justify-between shrink-0 w-full px-5">
@@ -202,5 +200,4 @@
             </div>
         </nav>
     </header>
-    {# End Navbar #}
-{% endif %}
+{% endif %} #}

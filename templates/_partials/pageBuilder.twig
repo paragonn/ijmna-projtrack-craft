@@ -1,0 +1,6 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+
+{% set pageBuilder = entry.contentBuilder.type(null).all() %}
+{% include "_partials/blocks" with {
+    pageBuilder: pageBuilder
+} %}

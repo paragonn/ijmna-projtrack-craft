@@ -5,7 +5,7 @@ name: 'Button Color'
 searchable: false
 settings:
   default: null
-  palette: null
+  palette: Button
   setRandom: false
   useConfigFile: true
 translationKeyFormat: null

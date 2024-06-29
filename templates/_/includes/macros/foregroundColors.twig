@@ -1,0 +1,34 @@
+{% set changeColorCon = changeDefaultColor ? changeDefaultColor and opacity < 55 and opacity != 'none' : false %}
+
+{% set foregroundColors = {
+    'heading' : {
+        'none'       : 'text-cowboy-500',
+        'white'      : 'text-cowboy-500',
+        'turkey-200' : 'text-cowboy-500',
+        'turkey-500' : 'text-cowboy-500',
+        'turkey'     : changeColorCon ? 'text-cowboy-500' : 'text-white',
+        'cowboy-300' : changeColorCon ? 'text-cowboy-500' : 'text-white',
+        'cowboy-500' : changeColorCon ? 'text-cowboy-500' : 'text-white',
+        'gray-100'   : 'text-cowboy-500',
+        'black'      : changeColorCon ? 'text-cowboy-500' : 'text-white'
+    },
+
+    'eyebrow' : {
+        'none'       : 'text-gray-900',
+        'white'      : 'text-gray-900',
+        'turkey-200' : 'text-gray-900',
+        'turkey-500' : 'text-gray-900',
+        'turkey'     : changeColorCon ? 'text-gray-900' : 'text-white',
+        'cowboy-300' : changeColorCon ? 'text-gray-900' : 'text-white',
+        'cowboy-500' : changeColorCon ? 'text-gray-900' : 'text-white',
+        'gray-100'   : 'text-gray-900',
+        'black'      : changeColorCon ? 'text-gray-900' : 'text-white'
+    },
+} %}
+{% if type is iterable %}
+    {% for item in type %}
+        {{ foregroundColors[item][background] ?? null }}
+    {% endfor %}
+{% else %}
+    {{ foregroundColors[type][background] ?? null }}
+{% endif %}

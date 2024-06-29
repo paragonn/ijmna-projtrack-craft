@@ -2,9 +2,9 @@ defaultPlacement: end
 enableVersioning: true
 entryTypes:
   - 3bf73e53-2279-498c-9693-f24c6e498172 # Page Builder
-handle: home
+handle: pages
 maxAuthors: 1
-name: Home
+name: Pages
 previewTargets:
   -
     __assoc__:
@@ -22,6 +22,6 @@ siteSettings:
   af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
     enabledByDefault: true
     hasUrls: true
-    template: home/index.twig
-    uriFormat: __home__
-type: single
+    template: _pages/index.twig
+    uriFormat: '{parent.uri}/{slug}'
+type: channel

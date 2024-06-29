@@ -1,14 +1,14 @@
 columnSuffix: null
-handle: hero
+handle: contentBuilder
 instructions: null
-name: Hero
+name: 'Content Builder'
 searchable: false
 settings:
-  createButtonLabel: Hero
+  createButtonLabel: 'Content Builder'
   entryTypes:
-    - 29046eec-f132-4f06-8bc6-2289a453e2b9 # Split
+    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494 # Basic Content
   includeTableView: false
-  maxEntries: 1
+  maxEntries: null
   minEntries: null
   pageSize: null
   propagationKeyFormat: null

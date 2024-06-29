@@ -111,6 +111,160 @@
     {% include "_/includes/macros/formNotice" with options %}
 {% endmacro %}
 
+{% macro getHeadingSize(params) %}
+    {% set defaults = {
+        headingTag: "h1",
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getHeadingSize" with options %}
+{% endmacro %}
+
+{% macro getFontWeight(params) %}
+    {% set defaults = {
+        font: 'medium',
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getFontWeight" with options %}
+{% endmacro %}
+
+{% macro getAlignment(params) %}
+    {% set defaults = {
+        alignment: 'left',
+        type: 'text'
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getAlignment" with options %}
+{% endmacro %}
+
+{% macro foregroundColors(params) %}
+    {% set defaultsParams = {
+        background: null,
+        overrideColor: null,
+        opacity: 'none',
+        changeDefaultColor: false,
+        type: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/foregroundColors" with options %}
+{% endmacro %}
+
+{% macro color(params) %}
+    {% set defaultsParams = {
+        handle: null,
+        swatch: null,
+        gradient: null,
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/color" with options %}
+{% endmacro %}
+
+{% macro setOpacity(params) %}
+    {% set defaults = {
+        opacity: null,
+        opacityType: 'bg'
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/setOpacity" with options %}
+{% endmacro %}
+
+{% macro createButton(params) %}
+    {% set defaults = {
+        button: null,
+        buttonId: null,
+        buttonType: 'button',
+        buttonColor: null,
+        icon: null,
+        iconPosition: null,
+        class: null,
+        background: null,
+        playUrlAs: false,
+        extraClasses: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/createButton" with options %}
+{% endmacro %}
+
+{% macro setAnimation(params) %}
+    {% set defaults = {
+        setDuration: null,
+        animation: null,
+        animationStyle: null,
+        animationDuration: null,
+        animationOffset: null,
+        animationEasing: null,
+        animationDelay: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/setAnimation" with options %}
+{% endmacro %}
+
+{% macro contentWidth(params) %}
+    {% set defaultsParams = {
+        width: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/contentWidth" with options %}
+{% endmacro %}
+
+{% macro basicContents(params) %}
+    {% set defaults = {
+        eyebrow: null,
+        heading: null,
+        text: null,
+        quote: null,
+        buttons: null,
+        headingTag: null,
+        headingSize: null,
+        fontWeight: null,
+        fontFamily: null,
+        backgroundColorLabel: null,
+        opacity: null,
+        changeDefaultColor: true,
+        setAlignment: false,
+        contentAlignment: null,
+        animation: null,
+        capitalize: false,
+        textParentDivClass: null,
+        overrideParagraphFontSize: null,
+        eyebrowFontWeight: null,
+        eyebrowSpacing: null,
+        eyebrowExtraClasses: null,
+        headingExtraClasses: null,
+        quoteExtraClasses: null,
+        headingSpacing: null,
+        defaultButtonType: null,
+        contentAnimationStyle: null,
+        contentAnimationDuration: null,
+        contentAnimationOffset: null,
+        contentAnimationEasing: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/basicContents" with options %}
+{% endmacro %}
+
 {% macro xFormAjax(params) %}
     {% set defaultsParams = {
         formId: '',

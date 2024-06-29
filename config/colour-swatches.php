@@ -13,38 +13,56 @@ return [
                 ]
             ],
             [
-                'label'   => 'blue-dark',
+                'label'   => 'blue-50',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#896C67',
+                        'color' => '#65C8FF',
                     ]
                 ]
             ],
             [
-                'label'   => 'cowboy-300',
+                'label'   => 'blue-100',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#864D45',
+                        'color' => '#50C1FF',
                     ]
                 ]
             ],
             [
-                'label'   => 'cowboy-500',
+                'label'   => 'blue',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#502E29',
+                        'color' => '#006FAC',
                     ]
                 ]
             ],
             [
-                'label'   => 'gray-300',
+                'label'   => 'blue-600',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#80807F',
+                        'color' => '#004B74',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-700',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#00273C',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-800',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#101523',
                     ]
                 ]
             ],
@@ -69,56 +87,56 @@ return [
                 ]
             ],
             [
-                'label'   => 'turkey-200',
+                'label'   => 'blue-50',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#FBFAFA',
+                        'color' => '#65C8FF',
                     ]
                 ]
             ],
             [
-                'label'   => 'gray-100',
+                'label'   => 'blue-100',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#eeeeee',
+                        'color' => '#50C1FF',
                     ]
                 ]
             ],
             [
-                'label'   => 'turkey-500',
+                'label'   => 'blue',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#C7B7B4',
+                        'color' => '#006FAC',
                     ]
                 ]
             ],
             [
-                'label'   => 'turkey',      // turkey-800
+                'label'   => 'blue-600',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#896C67',
+                        'color' => '#004B74',
                     ]
                 ]
             ],
             [
-                'label'   => 'cowboy-300',
+                'label'   => 'blue-700',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#864D45',
+                        'color' => '#00273C',
                     ]
                 ]
             ],
             [
-                'label'   => 'cowboy-500',
+                'label'   => 'blue-800',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#502E29',
+                        'color' => '#101523',
                     ]
                 ]
             ],

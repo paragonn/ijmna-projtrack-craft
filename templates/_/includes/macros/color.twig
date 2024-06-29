@@ -1,0 +1,16 @@
+{% set colors = {
+    'background' : {
+        'none'       : 'bg-white',
+        'white'      : 'bg-white',
+        'blue-50'    : 'bg-blue-50',
+        'blue-100'   : 'bg-blue-100',
+        'blue'       : 'bg-blue-500',
+        'blue-600'   : 'bg-blue-600',
+        'blue-700'   : 'bg-blue-700',
+        'blue-800'   : 'bg-blue-800',
+        'black'      : 'bg-blue-950'
+    }
+} %}
+{% if handle|length %}
+    {{ colors[swatch][handle] }}
+{% endif %}

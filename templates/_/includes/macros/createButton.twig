@@ -1,0 +1,117 @@
+{% import "_/includes/macros" as render %}
+
+{% if (not buttonColor|length) or (background == buttonColor) or (background == 'none' and buttonColor == 'white') %}
+    {% set background = background|default("none") %}
+    {% switch background %}
+        {% case "white" %}
+            {% set buttonColor = 'turkey' %}
+
+        {% case "turkey" %}
+            {% set buttonColor = 'cowboy-500' %}
+
+        {% case "cowboy-300" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "cowboy-500" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "black" %}
+            {% set buttonColor = 'white' %}
+
+        {% default %}
+            {% set buttonColor = 'white' %}
+    {% endswitch %}
+{% endif %}
+
+{% set colors = {
+    button : {
+        'white'        : 'bg-white text-black hover:bg-turkey-200',
+        'turkey'       : 'bg-turkey-800 text-white hover:bg-turkey-900',
+        'cowboy-300'   : 'bg-cowboy-300 text-white hover:bg-cowboy-500',
+        'cowboy-500'   : 'bg-cowboy-500 text-white hover:bg-cowboy-300',
+        'gray-300'     : 'bg-gray-300 text-white hover:bg-gray-300/80',
+        'black'        : 'bg-black text-white hover:bg-cowboy-600'
+    },
+    outline : {
+        'white'        : 'bg-transparent border-white text-white hover:text-black hover:bg-white',
+        'turkey'       : 'bg-transparent border-turkey-800 text-turkey-800 hover:text-white hover:bg-turkey-800 hover:border-turkey-800',
+        'cowboy-300'   : 'bg-transparent border-cowboy-300 text-cowboy-300 hover:text-white hover:bg-cowboy-300 hover:border-cowboy-300',
+        'cowboy-500'   : 'bg-transparent border-cowboy-500 text-cowboy-500 hover:text-white hover:bg-cowboy-500 hover:border-cowboy-500',
+        'gray-300'     : 'bg-transparent border-gray-300 text-gray-300 hover:text-white hover:bg-gray-300 hover:border-gray-300',
+        'black'        : 'bg-transparent border-black text-black hover:text-white hover:bg-black hover:border-black'
+    },
+    link : {
+        'white'        : 'text-white hover:text-turkey-200',
+        'turkey'       : 'text-turkey-800 hover:text-turkey-900',
+        'cowboy-300'   : 'text-cowboy-300 hover:text-cowboy-500',
+        'cowboy-500'   : 'text-cowboy-500 hover:text-cowboy-300',
+        'gray-300'     : 'text-gray-300 hover:text-gray-300/80',
+        'black'        : 'text-black hover:text-cowboy-600'
+    }
+} %}
+
+{% set buttonClasses = buttonClasses ?? 'inline-flex' %}
+{% set attributes = collect({
+    href: button.getUrl(),
+    class: [
+        class,
+        button.classes,
+        colors[buttonType][buttonColor] ?? null,
+        extraClasses|length ? extraClasses : buttonType == 'link'
+            ? "underline transition-all duration-300 #{buttonClasses}"
+            : "transition-all duration-300 hover:scale-105 uppercase py-3 px-6 #{buttonClasses} " ~ (buttonType == 'outline' ? 'border'),
+        icon|length and iconPosition == 'left' ? 'flex-row-reverse' : null
+    ]
+}) %}
+
+{% if not button.isEmpty() and button.getType() == 'asset' and (button.getElement().extension == 'pdf' or button.getElement().extension == 'doc') %}
+    {% set attributes = attributes.merge({
+        target: "_blank",
+        rel: "noopener"
+    }) %}
+{% endif %}
+
+{% if button.target %}
+    {% set attributes = attributes.merge({
+        target: "_blank",
+        rel: "noopener"
+    }) %}
+{% endif %}
+
+{% if button.linkTitle %}
+    {% set attributes = attributes.merge({
+        title: button.linkTitle
+    }) %}
+{% endif %}
+
+{% if button.customAttributes %}
+    {% for attribute in button.customAttributes %}
+        {% set attributeName = attribute.attribute %}
+        {% set attributeValue = attribute.value %}
+        {% set attributes = attributes.merge({
+            (attributeName): attributeValue
+        }) %}
+    {% endfor %}
+{% endif %}
+
+{% if not button.isEmpty() %}
+    <a {{ attr(attributes.toArray()) }}>
+        {% if icon|length %}
+            <span class="{{ iconPosition == 'left' ? 'pl-2' : 'pr-2' }} flex-1">
+        {% endif %}
+            {{ button.getText() }}
+        {% if icon|length %}
+            </span>
+        {% endif %}
+
+        {% if icon|length %}
+            {{ svg(icon.path)|attr({
+                class: 'h-5 w-5'
+            }) }}
+        {% endif %}
+
+        {% if button.getText()|lower in ["read more", "see more", "learn more", "click here"] %}
+            <span class="sr-only"> {{ "about this"|t }}</span>
+        {% endif %}
+    </a>
+{% endif %}
