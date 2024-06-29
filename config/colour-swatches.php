@@ -13,15 +13,6 @@ return [
                 ]
             ],
             [
-                'label'   => 'blue-50',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#65C8FF',
-                    ]
-                ]
-            ],
-            [
                 'label'   => 'blue-100',
                 'default' => false,
                 'color'   =>  [
@@ -63,15 +54,6 @@ return [
                 'color'   =>  [
                     [
                         'color' => '#101523',
-                    ]
-                ]
-            ],
-            [
-                'label'   => 'black',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#000000',
                     ]
                 ]
             ]
@@ -87,15 +69,6 @@ return [
                 ]
             ],
             [
-                'label'   => 'blue-50',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#65C8FF',
-                    ]
-                ]
-            ],
-            [
                 'label'   => 'blue-100',
                 'default' => false,
                 'color'   =>  [
@@ -137,15 +110,6 @@ return [
                 'color'   =>  [
                     [
                         'color' => '#101523',
-                    ]
-                ]
-            ],
-            [
-                'label'   => 'black',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#000000',
                     ]
                 ]
             ]

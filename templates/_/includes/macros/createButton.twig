@@ -4,18 +4,21 @@
     {% set background = background|default("none") %}
     {% switch background %}
         {% case "white" %}
-            {% set buttonColor = 'turkey' %}
+            {% set buttonColor = 'blue' %}
 
-        {% case "turkey" %}
-            {% set buttonColor = 'cowboy-500' %}
-
-        {% case "cowboy-300" %}
+        {% case "blue-100" %}
             {% set buttonColor = 'white' %}
 
-        {% case "cowboy-500" %}
+        {% case "blue" %}
+            {% set buttonColor = 'blue-800' %}
+
+        {% case "blue-600" %}
             {% set buttonColor = 'white' %}
 
-        {% case "black" %}
+        {% case "blue-700" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "blue-800" %}
             {% set buttonColor = 'white' %}
 
         {% default %}
@@ -25,28 +28,31 @@
 
 {% set colors = {
     button : {
-        'white'        : 'bg-white text-black hover:bg-turkey-200',
-        'turkey'       : 'bg-turkey-800 text-white hover:bg-turkey-900',
-        'cowboy-300'   : 'bg-cowboy-300 text-white hover:bg-cowboy-500',
-        'cowboy-500'   : 'bg-cowboy-500 text-white hover:bg-cowboy-300',
-        'gray-300'     : 'bg-gray-300 text-white hover:bg-gray-300/80',
-        'black'        : 'bg-black text-white hover:bg-cowboy-600'
+        'none'         : 'bg-blue-800 text-white border-blue-800 hover:bg-blue-950 hover:border-blue-950',
+        'white'        : 'bg-white text-blue-950 border-white hover:bg-blue-500 hover:text-white hover:border-blue-500',
+        'blue-100'     : 'bg-blue-100 text-white border-blue-100 hover:bg-blue-500 hover:border-blue-500',
+        'blue'         : 'bg-blue-500 text-white border-blue-500 hover:bg-blue-600 hover:border-blue-600',
+        'blue-600'     : 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700 hover:border-blue-700',
+        'blue-700'     : 'bg-blue-700 text-white border-blue-700 hover:bg-blue-800 hover:border-blue-800',
+        'blue-800'     : 'bg-blue-800 text-white border-blue-800 hover:bg-blue-950 hover:border-blue-950'
     },
     outline : {
-        'white'        : 'bg-transparent border-white text-white hover:text-black hover:bg-white',
-        'turkey'       : 'bg-transparent border-turkey-800 text-turkey-800 hover:text-white hover:bg-turkey-800 hover:border-turkey-800',
-        'cowboy-300'   : 'bg-transparent border-cowboy-300 text-cowboy-300 hover:text-white hover:bg-cowboy-300 hover:border-cowboy-300',
-        'cowboy-500'   : 'bg-transparent border-cowboy-500 text-cowboy-500 hover:text-white hover:bg-cowboy-500 hover:border-cowboy-500',
-        'gray-300'     : 'bg-transparent border-gray-300 text-gray-300 hover:text-white hover:bg-gray-300 hover:border-gray-300',
-        'black'        : 'bg-transparent border-black text-black hover:text-white hover:bg-black hover:border-black'
+        'none'         : 'bg-transparent border-blue-800 hover:text-white hover:bg-blue-800',
+        'white'        : 'bg-transparent border-white text-white hover:text-blue-950 hover:bg-white',
+        'blue-100'     : 'bg-transparent border-blue-100 text-blue-100 hover:text-white hover:bg-blue-100',
+        'blue'         : 'bg-transparent border-blue-500 text-blue-500 hover:text-white hover:bg-blue-500',
+        'blue-600'     : 'bg-transparent border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600',
+        'blue-700'     : 'bg-transparent border-blue-700 text-blue-700 hover:text-white hover:bg-blue-700',
+        'blue-800'     : 'bg-transparent border-blue-800 text-blue-800 hover:text-white hover:bg-blue-800'
     },
     link : {
-        'white'        : 'text-white hover:text-turkey-200',
-        'turkey'       : 'text-turkey-800 hover:text-turkey-900',
-        'cowboy-300'   : 'text-cowboy-300 hover:text-cowboy-500',
-        'cowboy-500'   : 'text-cowboy-500 hover:text-cowboy-300',
-        'gray-300'     : 'text-gray-300 hover:text-gray-300/80',
-        'black'        : 'text-black hover:text-cowboy-600'
+        'none'         : 'text-white hover:text-blue-500',
+        'white'        : 'text-white hover:text-blue-500',
+        'blue-100'     : 'text-blue-100 hover:text-blue-500',
+        'blue'         : 'text-blue-500 hover:text-blue-600',
+        'blue-600'     : 'text-blue-600 hover:text-blue-700',
+        'blue-700'     : 'text-blue-700 hover:text-blue-800',
+        'blue-800'     : 'text-blue-800 hover:text-blue-950'
     }
 } %}
 
@@ -58,8 +64,8 @@
         button.classes,
         colors[buttonType][buttonColor] ?? null,
         extraClasses|length ? extraClasses : buttonType == 'link'
-            ? "underline transition-all duration-300 #{buttonClasses}"
-            : "transition-all duration-300 hover:scale-105 uppercase py-3 px-6 #{buttonClasses} " ~ (buttonType == 'outline' ? 'border'),
+            ? "underline underline-offset-1 text-lg transition-all duration-300 #{buttonClasses}"
+            : "py-3.5 px-6 md:w-auto w-full inline-block uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
         icon|length and iconPosition == 'left' ? 'flex-row-reverse' : null
     ]
 }) %}
