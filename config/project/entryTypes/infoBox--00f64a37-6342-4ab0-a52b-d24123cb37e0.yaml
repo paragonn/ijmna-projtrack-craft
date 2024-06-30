@@ -300,7 +300,7 @@ fieldLayouts:
             uid: ace562c4-9a53-43a7-95b6-3ff0bdc382cb
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
             fieldUid: 18de2689-3603-4c37-8473-396f9ce4f78c # Padding Bottom
@@ -315,7 +315,7 @@ fieldLayouts:
             uid: 92b21321-1dcb-4fbd-8c67-f64e2741a98a
             userCondition: null
             warning: null
-            width: 100
+            width: 50
         name: Spacing
         uid: 58dba885-ca9e-483f-a650-4b56929554bc
         userCondition: null

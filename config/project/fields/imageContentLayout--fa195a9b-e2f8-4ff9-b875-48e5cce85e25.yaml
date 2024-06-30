@@ -1,0 +1,52 @@
+columnSuffix: null
+handle: imageContentLayout
+instructions: null
+name: 'Image Content Layout'
+searchable: false
+settings:
+  displayAsGraphic: true
+  displayFullwidth: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Layout 1'
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - layout1
+        -
+          - imageUrl
+          - /images/buttonBox/imageContentLayout/layout1.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Layout 2'
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - layout2
+        -
+          - imageUrl
+          - /images/buttonBox/imageContentLayout/layout2.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: verbb\buttonbox\fields\Buttons

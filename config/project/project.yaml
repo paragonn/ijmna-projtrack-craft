@@ -1,4 +1,4 @@
-dateModified: 1719667575
+dateModified: 1719750522
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -61,7 +61,7 @@ meta:
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     9affc432-fe49-4e90-96ea-be5425095c2c: 'Margin Bottom' # Margin Bottom
     9ce08183-1391-4b24-8288-a39ac4f97186: 'Image Ratio' # Image Ratio
-    9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6: Slide # Slide
+    9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6: 'Image Content Slide' # Image Content Slide
     9eeafc05-3901-41da-8748-e04485b292cb: 'Button Type' # Button Type
     18de2689-3603-4c37-8473-396f9ce4f78c: 'Padding Bottom' # Padding Bottom
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
@@ -87,7 +87,7 @@ meta:
     13612fd6-fab3-4e45-9853-5634a3ef9d91: CTA # CTA
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
     31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
-    72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Contents' # Image Contents
+    72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
     948968bb-c8d8-4627-aaa9-aa1b20ada200: Hero # Hero
@@ -118,6 +118,7 @@ meta:
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
     f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
+    fa195a9b-e2f8-4ff9-b875-48e5cce85e25: 'Image Content Layout' # Image Content Layout
     fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:
   _ijm-project-tracker-custom-plugin:
