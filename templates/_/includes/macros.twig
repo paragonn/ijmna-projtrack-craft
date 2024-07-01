@@ -328,3 +328,41 @@
     {% set options = defaultsParams|merge(params) %}
     {% include "_/includes/macros/xFormAjax" with options %}
 {% endmacro %}
+
+{% macro renderVideo(params) %}
+    {% set defaultsParams = {
+        videos: null,
+        videoClass: null,
+        videoType: 'background',
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsinline: true,
+        showVideoOnRounded: true,
+        popupClass: null,
+        aspectRatio: null,
+        videoAttrs: null,
+        videoSvgUrl: null,
+        videoBgColor: null,
+        videoLazy: false,
+        singleVideo: false,
+        videoPoster: null,
+        svgColorClass: null,
+        videoWrapperSize: null,
+        extraWrapperClasses: null,
+        detailUrl: null,
+        svgSize: null,
+        videoSize: null,
+        preset: null,
+        videoId: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/renderVideo" with options %}
+
+    {# Call the 'setImage' macro from the same file using 'self' #}
+    {% if options.videoType != "background" or (not options.videos|length) %}
+        {{ _self.setImage(options) }}
+    {% endif %}
+{% endmacro %}

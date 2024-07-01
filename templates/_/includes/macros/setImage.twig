@@ -52,20 +52,6 @@
     {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
     <img src="{{ transformedImages[0].url }}" type="image/jpeg" {{ attr(attributes) }}/>
 {% else %}
-    {% set replace = {
-        " "         : "%20"
-    } %}
-
-    {% set secondReplace = {
-        ".webp%20"  : ".webp ",
-        ".png%20"   : ".png ",
-        ".jpg%20"   : ".jpg ",
-        ".jpeg%20"  : ".jpeg ",
-        ".JPG%20"   : ".JPG ",
-        ".JPEG%20"  : ".JPEG ",
-        ",%20"      : ", "
-    } %}
-
     {% set found = false %}
 
     <picture {% if pictureClass %} class="{{ pictureClass }}"{% endif %}>
@@ -74,7 +60,7 @@
             {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
             {% if addSrcSet %}
                 {% if transformedImages|length %}
-                <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages)|replace(replace|raw)|replace(secondReplace|raw) }}" type="image/webp">
+                <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/webp">
                 {% set found = true %}
                 {% endif %}
             {% else %}
@@ -87,7 +73,7 @@
         {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
         {% if addSrcSet %}
             {% if transformedImages|length %}
-            <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages)|replace(replace|raw)|replace(secondReplace|raw) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
+            <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
             {% set found = true %}
             {% endif %}
         {% else %}
