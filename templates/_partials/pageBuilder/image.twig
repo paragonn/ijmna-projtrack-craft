@@ -26,11 +26,19 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set captionAlignment = block.captionAlignment.value|default('left') %}
 {% set containerSize = block.containerSize.getValue()|default('container') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -69,8 +77,8 @@
 {% set video = block.videos.all() %}
 
 {% if image|length or video|length %}
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
-    <div class="{{ containerSize == 'container' ? 'container' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer and containerSize == 'container' ? 'container' }}">
         <div class="{{ render.contentWidth({width: contentWidth}) }}">
             <div class="relative {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
                 {{ render.renderVideo({
@@ -108,5 +116,5 @@
             {% endif %}
         </div>
     </div>
-</section>
+</{{ sectionTag }}>
 {% endif %}

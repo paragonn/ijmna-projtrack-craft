@@ -1,0 +1,129 @@
+{#
+===============================================================================
+    Two Columns (twoColumns)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            Child:
+                - Columns (columns)
+                    - Basic Content
+                    - Image
+
+        Auxiliary:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Column Layout (columnLayout)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+{% set columnsWidth = block.columnLayout.getValue()|default('6-6') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set buttons = block.buttons.all() %}
+{% set childrens = block.columns.all() %}
+
+{% set firstDiv = {
+    '3-9' : 'md:col-start-1 md:col-end-4',
+    '4-8' : 'md:col-start-1 md:col-end-5',
+    '5-7' : 'md:col-start-1 md:col-end-6',
+    '6-6' : 'md:col-start-1 md:col-end-7',
+    '7-5' : 'md:col-start-1 md:col-end-8',
+    '8-4' : 'md:col-start-1 md:col-end-9',
+    '9-3' : 'md:col-start-1 md:col-end-10'
+} %}
+
+{% set lastDiv = {
+    '3-9' : 'md:col-start-4 md:col-end-13',
+    '4-8' : 'md:col-start-5 md:col-end-13',
+    '5-7' : 'md:col-start-6 md:col-end-13',
+    '6-6' : 'md:col-start-7 md:col-end-13',
+    '7-5' : 'md:col-start-8 md:col-end-13',
+    '8-4' : 'md:col-start-9 md:col-end-13',
+    '9-3' : 'md:col-start-10 md:col-end-13'
+} %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+            {{ render.basicContents({
+                eyebrow: block.eyebrow,
+                heading: block.heading,
+                text: block.text,
+                buttons: buttons,
+                headingTag: headingTag,
+                headingSize: headingTag,
+                fontWeight: fontWeight,
+                eyebrowFontWeight: 'bold',
+                fontFamily: '',
+                overrideParagraphFontSize: 'text-lg',
+                backgroundColorLabel: backgroundColorLabel,
+                opacity: overlayOpacity,
+                contentAlignment: contentAlignment,
+                animation: block.animation,
+                contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                contentAnimationDuration: block.animationDuration.value|default(1500),
+                contentAnimationOffset: block.animationOffset.value|default(200),
+                contentAnimationEasing: block.animationEasing.value|default(null)
+            }) }}
+            {% endif %}
+
+            {% if childrens|length %}
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-12' }}">
+                {% for child in childrens %}
+                <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }}">
+                    {% include "_partials/blocks" with {
+                        pageBuilder: child.column.all(),
+                        parent: block.type.handle,
+                        conbackgroundColor: backgroundColorLabel,
+                        conOverlayOpacity: overlayOpacity,
+                        childContainer: true,
+                        firstBlockSpacing: {
+                            'defaultMarginTop' : 'none',
+                        },
+                        lastBlockSpacing: {
+                            'defaultMarginBottom' : 'none',
+                        },
+                    } %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

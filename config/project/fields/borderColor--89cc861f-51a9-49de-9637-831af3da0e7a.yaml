@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: borderColor
+instructions: null
+name: 'Border Color'
+searchable: false
+settings:
+  default: null
+  palette: 'Border Color'
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

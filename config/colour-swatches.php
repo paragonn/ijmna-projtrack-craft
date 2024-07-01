@@ -114,5 +114,43 @@ return [
                 ]
             ]
         ],
+        'Border Color' => [
+            [
+                'label'   => 'white',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ffffff',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#006FAC',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-600',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#004B74',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-800',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#101523',
+                    ]
+                ]
+            ]
+        ],
     ]
 ];
