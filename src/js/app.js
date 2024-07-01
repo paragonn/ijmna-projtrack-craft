@@ -13,4 +13,9 @@ Alpine.plugin(collapse);
 Alpine.start();
 
 // animation
-AOS.init();
+window.addEventListener("load", (event) => {
+    AOS.init({
+        once: "true",
+    });
+});
+
