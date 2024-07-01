@@ -3,10 +3,10 @@ return [
     "*" => [
         'allowUpscale' => false,
         'imagerSystemPath' => '@webroot/imager',
-        //'imagerUrl' => rtrim(getenv('PRIMARY_SITE_URL'), '/') . '/imager',
+        'imagerUrl' => rtrim(getenv('PRIMARY_SITE_URL'), '/') . '/imager',
         'addVolumeToPath' => false,
         'suppressExceptions' => true,
-        'imagerUrl' => rtrim(getenv('SPACES_BASE_URL'), '/') . '/' . (getenv('SPACES_SUBFOLDER') != '' ? getenv('SPACES_SUBFOLDER') . '/' : '') . 'imager',
+        /*'imagerUrl' => rtrim(getenv('SPACES_BASE_URL'), '/') . '/' . (getenv('SPACES_SUBFOLDER') != '' ? getenv('SPACES_SUBFOLDER') . '/' : '') . 'imager',
         'storages' => ['dospaces'],
         'storageConfig' => [
             'dospaces' => [
@@ -18,7 +18,7 @@ return [
                 'folder' => (getenv('SPACES_SUBFOLDER') != '' ? getenv('SPACES_SUBFOLDER') . '/' : '') . 'imager',
                 'requestHeaders' => array(),
             ]
-    ],
+        ],*/
         'transformer' => 'craft',
         'cacheEnabled' => true,
         'cacheRemoteFiles' => true,
