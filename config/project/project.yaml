@@ -1,4 +1,4 @@
-dateModified: 1719837372
+dateModified: 1719842226
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -63,6 +63,7 @@ meta:
     9ce08183-1391-4b24-8288-a39ac4f97186: 'Image Ratio' # Image Ratio
     9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6: 'Image Content Slide' # Image Content Slide
     9eeafc05-3901-41da-8748-e04485b292cb: 'Button Type' # Button Type
+    14cf885b-68f2-4ea2-8f07-4a707cc2677f: 'Info Box Layout' # Info Box Layout
     18de2689-3603-4c37-8473-396f9ce4f78c: 'Padding Bottom' # Padding Bottom
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
@@ -70,6 +71,7 @@ meta:
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
     71fa55a9-c465-4fe2-91f2-ee5a739774a9: 'Overlay Gradient' # Overlay Gradient
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
+    89cc861f-51a9-49de-9637-831af3da0e7a: 'Border Color' # Border Color
     089d8bf1-7cfe-4f80-bf8b-517fa9e233e0: 'Call to Action' # Call to Action
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
     383b8156-a3da-4bda-991a-7c9893a1c11c: Button # Button
