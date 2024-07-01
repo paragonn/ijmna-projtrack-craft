@@ -1,0 +1,82 @@
+{#
+===============================================================================
+    Info Box(infoBox)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set contentWidth = block.contentWidth|default('2;10') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set buttons = block.buttons.all() %}
+
+{% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+            <div class="text-center mx-auto relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
+                <div class="bg-transparent border-2 p-6 lg:p-12 mt-12 {{ backgroundColorLabel in ['white', 'blue-100'] ? 'border-blue-500' : 'white' }}">
+                    {{ render.basicContents({
+                        eyebrow: block.eyebrow,
+                        heading: block.heading,
+                        text: block.text,
+                        buttons: buttons,
+                        headingTag: headingTag,
+                        headingSize: headingTag,
+                        fontWeight: fontWeight,
+                        eyebrowFontWeight: 'bold',
+                        fontFamily: '',
+                        overrideParagraphFontSize: 'text-lg',
+                        backgroundColorLabel: backgroundColorLabel,
+                        opacity: overlayOpacity,
+                        contentAlignment: contentAlignment,
+                        animation: block.animation,
+                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                        contentAnimationDuration: block.animationDuration.value|default(1500),
+                        contentAnimationOffset: block.animationOffset.value|default(200),
+                        contentAnimationEasing: block.animationEasing.value|default(null)
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
