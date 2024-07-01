@@ -64,13 +64,6 @@
         {% endif %}
     {% endif %}
 
-    {% if current == 'image' %}
-        {% set defaultMarginTop = "none" %}
-        {% set defaultMarginBottom = "none" %}
-        {% set defaultPaddingTop = "none" %}
-        {% set defaultPaddingBottom = "none" %}
-    {% endif %}
-
     {% set spacing = collect({}) %}
     {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding'] %}
         {% set spacing = spacing.merge({ (item) : render.spacing({
