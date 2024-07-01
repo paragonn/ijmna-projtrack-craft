@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: iconCard
+instructions: null
+name: 'Icon Card'
+searchable: false
+settings:
+  createButtonLabel: 'Icon Card'
+  entryTypes:
+    - bc97ce21-40cf-43a2-991d-94585d8fb43a # Icon Card
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

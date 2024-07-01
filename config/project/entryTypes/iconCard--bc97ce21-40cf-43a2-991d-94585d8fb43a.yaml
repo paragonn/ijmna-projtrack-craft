@@ -1,0 +1,110 @@
+color: null
+fieldLayouts:
+  3ca601e6-adc4-4399-855c-de118ef30a2a:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 95fb89b9-6e4e-443f-a097-d0b4d39e9e02
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 6ae7d75d-cf9a-41db-b14d-a11c5a609f43 # Icon
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ed1bb3c-7b0e-418f-9793-99e0f088b069
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2bc0e149-349e-4701-b407-861b6e3fde9f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85 # Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d6608dce-afe5-4f7f-b778-1ad078c486b8
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f580a35b-307e-412a-b54b-f1a422fe0f5d
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 95aadfb9-d807-43be-990a-d5bff6a0bb9f
+        userCondition: null
+handle: iconCard
+hasTitleField: false
+icon: compact-disc
+name: 'Icon Card'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
