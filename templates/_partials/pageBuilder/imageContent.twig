@@ -51,7 +51,7 @@
 
 {% set headingTag = block.headingSize.getValue()|default('h3') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
-{% set contentAlignment = block.contentAlignment.value|default('left') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set overlayOpacity = block.overlayOpacity.getValue()|default('100') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
@@ -102,7 +102,7 @@
         <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
             <div>
                 {% if block.eyebrow|length or block.heading|length or block.text|length %}
-                <div class="relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
+                <div class="mb-10 relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
                     {{ render.basicContents({
                         eyebrow: block.eyebrow,
                         heading: block.heading,
