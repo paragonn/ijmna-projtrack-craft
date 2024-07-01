@@ -50,7 +50,7 @@
     opacityType: 'bg'
 }) %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="relative overflow-hidden {{ spacing.marginTop }} {{ spacing.marginBottom }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="relative {{ spacing.marginTop }} {{ spacing.marginBottom }}">
     {{ render.setImage({
         image: image,
         alt: image.title,
@@ -62,31 +62,27 @@
 
     {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
     <div class="container relative z-10 {{ spacing.paddingTop }} {{ spacing.paddingBottom }}">
-        <div class="grid grid-cols-1">
-            <div>
-                <div class="{{ render.contentWidth({width: contentWidth}) }}">
-                    {{ render.basicContents({
-                        eyebrow: block.eyebrow,
-                        heading: block.heading,
-                        text: block.text,
-                        buttons: buttons,
-                        headingTag: headingTag,
-                        headingSize: headingTag,
-                        fontWeight: fontWeight,
-                        eyebrowFontWeight: 'bold',
-                        fontFamily: '',
-                        overrideParagraphFontSize: 'text-lg',
-                        backgroundColorLabel: backgroundColorLabel,
-                        opacity: overlayOpacity,
-                        contentAlignment: contentAlignment,
-                        animation: block.animation,
-                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
-                        contentAnimationDuration: block.animationDuration.value|default(1500),
-                        contentAnimationOffset: block.animationOffset.value|default(200),
-                        contentAnimationEasing: block.animationEasing.value|default(null)
-                    }) }}
-                </div>
-            </div>
+        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+            {{ render.basicContents({
+                eyebrow: block.eyebrow,
+                heading: block.heading,
+                text: block.text,
+                buttons: buttons,
+                headingTag: headingTag,
+                headingSize: headingTag,
+                fontWeight: fontWeight,
+                eyebrowFontWeight: 'bold',
+                fontFamily: '',
+                overrideParagraphFontSize: 'text-lg',
+                backgroundColorLabel: backgroundColorLabel,
+                opacity: overlayOpacity,
+                contentAlignment: contentAlignment,
+                animation: block.animation,
+                contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                contentAnimationDuration: block.animationDuration.value|default(1500),
+                contentAnimationOffset: block.animationOffset.value|default(200),
+                contentAnimationEasing: block.animationEasing.value|default(null)
+            }) }}
         </div>
     </div>
     {% endif %}
