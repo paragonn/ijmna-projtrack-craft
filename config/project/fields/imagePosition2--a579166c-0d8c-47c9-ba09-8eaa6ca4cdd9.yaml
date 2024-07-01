@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: imagePosition2
+instructions: null
+name: 'Image Position 2'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/imagePosition2.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

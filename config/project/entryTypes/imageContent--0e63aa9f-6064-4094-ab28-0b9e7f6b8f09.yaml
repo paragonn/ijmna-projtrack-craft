@@ -201,7 +201,22 @@ fieldLayouts:
             uid: 3a0b65ef-4c82-49ab-92ee-5cccd9b7f0bd
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9 # Image Position 2
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1317663b-4a7c-4ab5-ac20-f1aa7be200bf
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             heading: 'Block Settings'
@@ -225,6 +240,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
+            handle: contentAlignment2
+            includeInCards: false
+            instructions: null
+            label: 'Slide Content Alignment'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a7a995c-5f6f-4faf-9238-1ae2248d28fa
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: e05fb8e0-726b-4a55-b97f-aea98a58c8a1 # Heading Size
             handle: null
             includeInCards: false
@@ -237,7 +267,7 @@ fieldLayouts:
             uid: e79ccaa5-7fc0-492b-b969-41e75a685758
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd # Font Weight
@@ -252,7 +282,7 @@ fieldLayouts:
             uid: 5c82bcf1-745b-4b80-8d66-81a3b4277e86
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule

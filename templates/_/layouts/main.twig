@@ -103,6 +103,10 @@
         {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
 
         {% block footerScriptAfterApp %}{% endblock %}
+
+        {% if currentUser|length and currentUser.can('accessCp') %}
+            <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=b0jzbj76kcohgf8t555y2w" async="true"></script>
+        {% endif %}
     </body>
 </html>
 {% endminify %}

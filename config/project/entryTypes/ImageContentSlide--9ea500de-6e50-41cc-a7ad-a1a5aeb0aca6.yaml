@@ -138,42 +138,6 @@ fieldLayouts:
         name: Auxiliary
         uid: c2a01ec3-4c2e-4aa1-b82c-9c5bb1052604
         userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            elementCondition: null
-            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: c174947e-d751-42f5-bb56-2703ac5031e4
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: e671a976-5fd4-4e36-a257-592286dfcf78 # Image Position
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 643821a2-af76-41bf-94a6-726e4e3182e0
-            userCondition: null
-            warning: null
-            width: 50
-        name: Settings
-        uid: fa7052b2-efaf-45aa-aeee-42d0bacc27d7
-        userCondition: null
 handle: ImageContentSlide
 hasTitleField: false
 icon: images
