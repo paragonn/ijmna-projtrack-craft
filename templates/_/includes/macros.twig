@@ -53,6 +53,39 @@
     {% return ret|replace({ "\n": '' })|trim %}
 {% endmacro %}
 
+{% macro replaceElements(text = null, params = {}) %}
+    {% set defaultsParams = {
+        text: text,
+        background: 'none',
+        forceTextColor: null,
+        paragraphFontSize: null,
+        spacingClass: null,
+        extraClasses: null,
+        contentAlignment: null,
+        opacity: null,
+        changeDefaultColor: false,
+        fontFamily: null,
+        h1: null,
+        h2: null,
+        h3: null,
+        h4: null,
+        h5: null,
+        h6: null,
+        a: null,
+        p: null,
+        ul: null,
+        ol: null,
+        li: null,
+        hr: null,
+        blockquote: null,
+        pre: null,
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/replaceElements" with options %}
+{% endmacro %}
+
 {% macro replaceUnderscores(params) %}
     {% set defaults = {
         text: null,
@@ -111,6 +144,162 @@
     {% include "_/includes/macros/formNotice" with options %}
 {% endmacro %}
 
+{% macro getHeadingSize(params) %}
+    {% set defaults = {
+        headingTag: "h1",
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getHeadingSize" with options %}
+{% endmacro %}
+
+{% macro getFontWeight(params) %}
+    {% set defaults = {
+        font: 'medium',
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getFontWeight" with options %}
+{% endmacro %}
+
+{% macro getAlignment(params) %}
+    {% set defaults = {
+        alignment: 'left',
+        type: 'text'
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+
+    {% include "_/includes/macros/getAlignment" with options %}
+{% endmacro %}
+
+{% macro foregroundColors(params) %}
+    {% set defaultsParams = {
+        background: null,
+        overrideColor: null,
+        opacity: 'none',
+        changeDefaultColor: false,
+        type: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/foregroundColors" with options %}
+{% endmacro %}
+
+{% macro color(params) %}
+    {% set defaultsParams = {
+        handle: null,
+        swatch: null,
+        gradient: null,
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/color" with options %}
+{% endmacro %}
+
+{% macro setOpacity(params) %}
+    {% set defaults = {
+        opacity: null,
+        opacityType: 'bg'
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/setOpacity" with options %}
+{% endmacro %}
+
+{% macro createButton(params) %}
+    {% set defaults = {
+        button: null,
+        buttonId: null,
+        buttonType: 'button',
+        buttonColor: null,
+        icon: null,
+        iconPosition: null,
+        class: null,
+        background: null,
+        playUrlAs: false,
+        extraClasses: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/createButton" with options %}
+{% endmacro %}
+
+{% macro setAnimation(params) %}
+    {% set defaults = {
+        setDuration: null,
+        animation: null,
+        animationStyle: null,
+        animationDuration: null,
+        animationOffset: null,
+        animationEasing: null,
+        animationDelay: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/setAnimation" with options %}
+{% endmacro %}
+
+{% macro contentWidth(params) %}
+    {% set defaultsParams = {
+        width: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/contentWidth" with options %}
+{% endmacro %}
+
+{% macro basicContents(params) %}
+    {% set defaults = {
+        eyebrow: null,
+        heading: null,
+        text: null,
+        quote: null,
+        buttons: null,
+        headingTag: null,
+        headingSize: null,
+        fontWeight: null,
+        fontFamily: null,
+        backgroundColorLabel: null,
+        opacity: null,
+        changeDefaultColor: true,
+        setAlignment: true,
+        contentAlignment: null,
+        animation: null,
+        capitalize: false,
+        eyebrowCapitalize: true,
+        textParentDivClass: null,
+        overrideParagraphFontSize: null,
+        eyebrowFontWeight: null,
+        eyebrowSpacing: null,
+        eyebrowExtraClasses: null,
+        headingExtraClasses: null,
+        quoteExtraClasses: null,
+        headingSpacing: null,
+        blockquoteType: null,
+        defaultButtonType: null,
+        contentAnimationStyle: null,
+        contentAnimationDuration: null,
+        contentAnimationOffset: null,
+        contentAnimationEasing: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/basicContents" with options %}
+{% endmacro %}
+
 {% macro xFormAjax(params) %}
     {% set defaultsParams = {
         formId: '',
@@ -138,4 +327,42 @@
     {# Override (overwrite) defaults with passed parameters #}
     {% set options = defaultsParams|merge(params) %}
     {% include "_/includes/macros/xFormAjax" with options %}
+{% endmacro %}
+
+{% macro renderVideo(params) %}
+    {% set defaultsParams = {
+        videos: null,
+        videoClass: null,
+        videoType: 'background',
+        autoplay: true,
+        loop: true,
+        muted: true,
+        playsinline: true,
+        showVideoOnRounded: true,
+        popupClass: null,
+        aspectRatio: null,
+        videoAttrs: null,
+        videoSvgUrl: null,
+        videoBgColor: null,
+        videoLazy: false,
+        singleVideo: false,
+        videoPoster: null,
+        svgColorClass: null,
+        videoWrapperSize: null,
+        extraWrapperClasses: null,
+        detailUrl: null,
+        svgSize: null,
+        videoSize: null,
+        preset: null,
+        videoId: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/renderVideo" with options %}
+
+    {# Call the 'setImage' macro from the same file using 'self' #}
+    {% if options.videoType != "background" or (not options.videos|length) %}
+        {{ _self.setImage(options) }}
+    {% endif %}
 {% endmacro %}

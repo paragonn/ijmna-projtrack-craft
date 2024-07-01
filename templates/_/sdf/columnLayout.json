@@ -1,0 +1,35 @@
+[
+    {
+        "label" : "Default",
+        "value" : "",
+        "default" : "true"
+    },
+    {
+        "label": "3 : 9",
+        "value": "3-9"
+    },
+    {
+        "label": "4 : 8",
+        "value": "4-8"
+    },
+    {
+        "label": "5 : 7",
+        "value": "5-7"
+    },
+    {
+        "label": "6 : 6",
+        "value": "6-6"
+    },
+    {
+        "label": "7 : 5",
+        "value": "7-5"
+    },
+    {
+        "label": "8 : 4",
+        "value": "8-4"
+    },
+    {
+        "label": "9 : 3",
+        "value": "9-3"
+    }
+]

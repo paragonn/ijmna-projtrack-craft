@@ -1,0 +1,99 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import '_/includes/macros' as render %}
+
+{% set parent = parent ?? null %}
+{% set hero = entry.hero.one() ?? null %}
+{% set heroExist = entry is defined and hero|length ? hero %}
+
+{% for i, block in pageBuilder %}
+    {% set defaults = {
+        'twoColumns' : {
+            'spacing' : {},
+            'bgColor' : 'white'
+        }
+    } %}
+
+    {% set prev = pageBuilder[i-1].type.handle|default(null) %}
+    {% set current = block.type.handle %}
+    {% set next = pageBuilder[i+1].type.handle|default(null) %}
+    {% set nextBlock = pageBuilder[i+1]|default(null) %}
+    {% set currentChild = block.children.one() ?? null %}
+    {% set childHandle = currentChild|length ? currentChild.type.handle : null %}
+
+    {% set prevBgColor = pageBuilder[i-1].backgroundColor.label|default(defaults[prev].bgColor|default(null)) %}
+    {% set currentBgColor = block.backgroundColor.label|default(defaults[current].bgColor|default(null)) %}
+    {% set nextBgColor = pageBuilder[i+1].backgroundColor.label|default(defaults[next].bgColor|default(null)) %}
+
+    {% set prevBgColor = prevBgColor != "white" ? prevBgColor : null %}
+    {% set currentBgColor = currentBgColor != "white" ? currentBgColor : null %}
+    {% set nextBgColor = nextBgColor != "white" ? nextBgColor : null %}
+
+    {% set first = loop.first %}
+    {% set last = loop.last %}
+
+    {% set defaultMinusMarginTop = defaults[current].spacing.minusMarginTop|default('none') %}
+    {% set defaultMinusMarginBottom = defaults[current].spacing.minusMarginBottom|default('none') %}
+
+    {% set defaultMarginTop = defaults[current].spacing.marginTop|default(null) %}
+    {% set defaultPaddingTop = defaults[current].spacing.paddingTop|default(null) %}
+    {% set defaultMarginBottom = defaults[current].spacing.marginBottom|default(null) %}
+    {% set defaultPaddingBottom = defaults[current].spacing.paddingBottom|default(null) %}
+
+    {% set defaultSpacing = defaultSpacing|default("medium") %}
+
+    {% if first %}
+        {% set defaultMarginTop = firstBlockSpacing.defaultMarginTop|default(defaultMarginTop) %}
+        {% set defaultPaddingTop = firstBlockSpacing.defaultPaddingTop|default(defaultPaddingTop) %}
+        {% set defaultMarginBottom = firstBlockSpacing.defaultMarginBottom|default(defaultMarginBottom) %}
+        {% set defaultPaddingBottom = firstBlockSpacing.defaultPaddingBottom|default(defaultPaddingBottom) %}
+    {% endif %}
+
+    {% if last %}
+        {% set defaultMarginTop = lastBlockSpacing.defaultMarginTop|default(defaultMarginTop) %}
+        {% set defaultPaddingTop = lastBlockSpacing.defaultPaddingTop|default(defaultPaddingTop) %}
+        {% set defaultMarginBottom = lastBlockSpacing.defaultMarginBottom|default(defaultMarginBottom) %}
+        {% set defaultPaddingBottom = lastBlockSpacing.defaultPaddingBottom|default(defaultPaddingBottom) %}
+    {% endif %}
+
+    {% if first and (not heroExist|length) and (parent not in ['cta', 'twoColumns']) %}
+        {% if currentBgColor %}
+            {% set defaultPaddingTop = "large" %}
+        {% else %}
+            {% set defaultPaddingTop = "small" %}
+            {% set defaultMarginTop = "large" %}
+        {% endif %}
+    {% endif %}
+
+    {% set spacing = collect({}) %}
+    {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding'] %}
+        {% set spacing = spacing.merge({ (item) : render.spacing({
+            type: item,
+
+            first: first,
+            last: last,
+            section: entry.section.handle|default(null),
+            parent: parent,
+
+            prev: prev,
+            current: current,
+            next: next,
+
+            prevBgColor: prevBgColor,
+            currentBgColor: currentBgColor,
+            nextBgColor: nextBgColor,
+
+            defaultSpacing: defaultSpacing,
+
+            minusMarginTop: block.minusMarginTop.value|default(defaultMinusMarginTop),
+            minusMarginBottom: block.minusMarginBottom.value|default(defaultMinusMarginBottom),
+
+            marginTop: block.marginTop.value|default(defaultMarginTop),
+            paddingTop: block.paddingTop.value|default(defaultPaddingTop),
+            marginBottom: block.marginBottom.value|default(defaultMarginBottom),
+            paddingBottom: block.paddingBottom.value|default(defaultPaddingBottom),
+        }) }) %}
+    {% endfor %}
+
+    {# ignore missing #}
+    {% include "_partials/pageBuilder/#{block.type.handle}" %}
+{% endfor %}

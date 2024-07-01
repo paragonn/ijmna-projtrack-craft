@@ -11,4 +11,6 @@
 
 return [
     'api' => 'graphql/api',
+
+    'map' => ["template" => "_home/map"]
 ];

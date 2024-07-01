@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: columnLayout
+instructions: null
+name: 'Column Layout'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/columnLayout.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

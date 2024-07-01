@@ -42,13 +42,18 @@ fieldLayouts:
             instructions: null
             label: null
             providesThumbs: false
-            required: false
+            required: true
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: ee77ee17-10fa-45b9-8dab-9766245a44a4
             userCondition: null
             warning: null
             width: 100
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 3637b5c4-7068-4702-9d75-b79b95d9e7a9
+            userCondition: null
           -
             elementCondition: null
             fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717 # Eyebrow

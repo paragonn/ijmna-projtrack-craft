@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+entryTypes:
+  - 089d8bf1-7cfe-4f80-bf8b-517fa9e233e0 # Call to Action
+handle: callToAction
+maxAuthors: 1
+name: 'Call to Action'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+type: channel

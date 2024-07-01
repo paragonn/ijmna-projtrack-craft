@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: overlayGradient
+instructions: null
+name: 'Overlay Gradient'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/ovarlayGradient.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicCheckboxesField

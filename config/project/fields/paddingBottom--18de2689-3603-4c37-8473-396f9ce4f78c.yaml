@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: paddingBottom
+instructions: null
+name: 'Padding Bottom'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/spacing.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: marginBottom
+instructions: null
+name: 'Margin Bottom'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/spacing.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

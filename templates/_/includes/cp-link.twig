@@ -1,0 +1,40 @@
+{% if currentUser %}
+<div class="cp-links fixed left-[5px] top-[calc(50%-36px)] flex flex-nowrap flex-col items-start z-[99]">
+    {% if currentUser.can('accessCp') %}
+    <a class="cp-links__link flex flex-nowrap flex-row items-center py-[5px] px-2.5 text-sm text-black rounded-2xl shadow-lg transition-all bg-white my-[5px] mx-0 whitespace-nowrap" target="_blank" href="{{ cpUrl() }}" title="Opens in a new tab">
+        <svg class="cp-links__icon h-4 w-4 align-text-bottom">
+            <use xlink:href="#icon-equalizer"></use>
+        </svg>
+        <span class="cp-links__text text-black overflow-hidden max-w-0 h-4 leading-4">
+            {{ 'Control Panel'|t }}
+        </span>
+    </a>
+    {% endif %}
+
+    {% if entryId is defined and entryId|length %}
+        {% set entry = craft.entries().id(entryId).one() %}
+        {% if entry|length and currentUser.can("editEntries:[#{entry.uid}]") %}
+            <a class="cp-links__link flex flex-nowrap flex-row items-center py-[5px] px-2.5 text-sm text-black rounded-2xl shadow-lg transition-all bg-white my-[5px] mx-0 whitespace-nowrap" target="_blank" href="{{ entry.cpEditUrl }}" title="Opens in a new tab">
+                <svg class="cp-links__icon h-4 w-4 align-text-bottom">
+                    <use xlink:href="#icon-edit"></use>
+                </svg>
+                <span class="cp-links__text text-black overflow-hidden max-w-0 h-4 leading-4">
+                    {{ 'Edit this page'|t }}
+                </span>
+            </a>
+        {% endif %}
+    {% endif %}
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="icon-edit" viewBox="0 0 32 32">
+        <title>edit</title>
+        <path d="M2.772 22.009l21.228-21.228 7.219 7.219-21.228 21.228-9.024 1.805 1.805-9.024zM4.366 27.634l4.31-0.862 18.772-18.772-3.448-3.448-18.772 18.772-0.862 4.31z"></path>
+        <path d="M26.276 11.057l-5.333-5.333-1.886 1.886 5.333 5.333z"></path>
+    </symbol>
+    <symbol id="icon-equalizer" viewBox="0 0 16 16">
+        <title>go to cp</title>
+        <path d="M7 2v-0.25c0-0.413-0.338-0.75-0.75-0.75h-2.5c-0.413 0-0.75 0.337-0.75 0.75v0.25h-3v2h3v0.25c0 0.412 0.337 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h9v-2h-9zM4 4v-2h2v2h-2zM13 6.75c0-0.412-0.338-0.75-0.75-0.75h-2.5c-0.412 0-0.75 0.338-0.75 0.75v0.25h-9v2h9v0.25c0 0.412 0.338 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h3v-2h-3v-0.25zM10 9v-2h2v2h-2zM7 11.75c0-0.412-0.338-0.75-0.75-0.75h-2.5c-0.413 0-0.75 0.338-0.75 0.75v0.25h-3v2h3v0.25c0 0.412 0.337 0.75 0.75 0.75h2.5c0.412 0 0.75-0.338 0.75-0.75v-0.25h9v-2h-9v-0.25zM4 14v-2h2v2h-2z"></path>
+    </symbol>
+</svg>
+{% endif %}

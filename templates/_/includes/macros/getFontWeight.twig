@@ -1,0 +1,8 @@
+{% set fontWeightClasses = {
+    normal: 'font-normal',
+    light: 'font-light',
+    medium: 'font-medium',
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+} %}
+{{ fontWeightClasses[font] ?? null }}

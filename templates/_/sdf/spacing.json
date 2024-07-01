@@ -1,0 +1,31 @@
+[
+    {
+        "label":"Default",
+        "value":"",
+        "default":"true"
+    },
+    {
+        "label":"None",
+        "value":"none"
+    },
+    {
+        "label":"Extra Small",
+        "value":"extraSmall"
+    },
+    {
+        "label":"Small",
+        "value":"small"
+    },
+    {
+        "label":"Medium",
+        "value":"medium"
+    },
+    {
+        "label":"Large",
+        "value":"large"
+    },
+    {
+        "label":"Extra Large",
+        "value":"extraLarge"
+    }
+]

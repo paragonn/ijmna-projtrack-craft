@@ -1,0 +1,8 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set block = entry.hero.one()|default(null) %}
+
+{% if block|length %}
+    {% include "_partials/hero/#{block.type.handle}" ignore missing %}
+{% endif %}

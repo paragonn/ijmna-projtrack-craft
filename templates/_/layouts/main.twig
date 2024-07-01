@@ -16,7 +16,7 @@
         {# CSS #}
         <script>supportWebp = e => document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;</script>
 
-        <link rel="stylesheet" href="{{ mix('css/swiper.css') }}">
+        {# <link rel="stylesheet" href="{{ mix('css/swiper.css') }}"> #}
         <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     </head>
@@ -78,6 +78,17 @@
             {% include "_/includes/footer" %}
         {% endblock %}
 
+        {#
+        ================================================
+            CP Links
+        ================================================
+        #}
+        {% set entryId = entry.getId() ?? null %}
+        {% set categoryId = category.getId() ?? null %}
+        {% nocache with {entryId: entryId, categoryId: categoryId} %}
+            {% include "_/includes/cp-link" %}
+        {% endnocache %}
+
         {# Font Family #}
         <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Inter:wght@100..900&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
         <noscript>
@@ -92,6 +103,10 @@
         {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
 
         {% block footerScriptAfterApp %}{% endblock %}
+
+        {% if currentUser|length and currentUser.can('accessCp') %}
+            <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=b0jzbj76kcohgf8t555y2w" async="true"></script>
+        {% endif %}
     </body>
 </html>
 {% endminify %}

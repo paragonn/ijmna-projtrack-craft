@@ -20,6 +20,7 @@
         "spicyweb/craft-neo": "5.0.3",
         "ttempleton/craft-nocache": "^3.0.2",
         "vaersaagod/dospaces": "^3.0.0-beta.1",
+        "vandres/craft-matrix-extended": "^v3.4.3",
         "verbb/buttonbox": "^5.0.0",
         "verbb/formie": "3.0.0-beta.15",
         "verbb/hyper": "2.0.2",

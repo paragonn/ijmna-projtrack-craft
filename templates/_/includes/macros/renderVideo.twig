@@ -1,0 +1,87 @@
+{% if videos|length %}
+    {% switch videoType %}
+        {% case "background" %}
+            {% set rand = "v-" ~ random(9999999, 99999999) %}
+            <video id="{{ rand }}" class="{{ videoClass }}{{ videoLazy ? ' lazy' }}" {% if autoplay %} autoplay{% endif %} {% if loop %} loop{% endif %} {% if muted %} muted{% endif %} {% if playsinline %} playsinline{% endif %} {% for key, val in videoAttrs %} {{ key }}="{% if val is iterable %}{{ val|json_encode|raw }}{% else %}{{ val|raw }}{% endif %}"{% endfor %}>
+                {% for video in videos %}
+                <source {{ videoLazy ? "data-src" : "src" }}="{{ video.getUrl() }}" type="{{ video.mimeType }}">
+                {% endfor %}
+            </video>
+
+            {% if videoPoster|length %}
+                {% set transform = 'webp' %}
+                {% if aspectRatio %}
+                    {% set transformedImages = craft.imagerx.transformImage(videoPoster, transform, {
+                        ratio: aspectRatio
+                    }) %}
+                {% else %}
+                    {% set transformedImages = craft.imagerx.transformImage(videoPoster, transform) %}
+                {% endif %}
+
+                {% set webpImageUrl = transformedImages|length ? transformedImages[0].url %}
+
+                {% set transform = 'jpg' %}
+                {% if aspectRatio %}
+                    {% set transformedImages = craft.imagerx.transformImage(image, transform, {
+                        ratio: aspectRatio
+                    }) %}
+                {% else %}
+                    {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+                {% endif %}
+
+                {% set imageUrl = transformedImages|length ? transformedImages[0].url %}
+
+                <script>
+                    if(supportWebp()) {
+                        document.getElementById('{{ rand }}').setAttribute("poster", '{{ webpImageUrl ? webpImageUrl : (imageUrl ? imageUrl : videoPoster.getUrl())  }}');
+                    } else {
+                        document.getElementById('{{ rand }}').setAttribute("poster", '{{ imageUrl ? imageUrl : videoPoster.getUrl() }}');
+                    }
+                </script>
+            {% endif %}
+
+        {% case "popup" %}
+            {% if videos|length and videos != '' %}
+            {% set videoBgColor = videoBgColor ?? 'bg-transprent' %}
+            {% set svgColorClass = svgColorClass ?? 'text-white group-hover:text-blue-500' %}
+            {% set svgSize = svgSize ?? 'w-7 h-8' %}
+            {% set videoSize = videoSize ?? 'w-20 h-20' %}
+            {% set videoWrapperSize = videoWrapperSize ?? 'w-20 h-20' %}
+            {% set extraWrapperClasses = extraWrapperClasses|length ? extraWrapperClasses : '' %}
+            {% set videoSvgUrl = videoSvgUrl ?? '@webroot/icons/solid/play.svg' %}
+            {% set popupClass = popupClass %}
+            {% set videoId = videoId|length ? 'glight-video-' ~ videoId : 'glight-video'|t %}
+
+            <a href="{{ videos }}" id="{{ videoId }}" class="glightbox transition-all group duration-300 absolute rounded-full flex items-center justify-center left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 {{ extraWrapperClasses }} {{ videoWrapperSize }}" aria-label="{{ videoId }}">
+                <span class="rounded-full flex items-center justify-center text-white border-2 border-white group-hover:border-blue-500 top-1/2 z-10 transition-all duration-300 {{ videoBgColor }} {{ popupClass }} {{ videoSize }}">
+                    {{ svg(videoSvgUrl) | attr({ class: "ml-1 duration-300 #{svgSize} #{svgColorClass}" }) }}
+                </span>
+            </a>
+            {% endif %}
+
+        {% case "iframe" %}
+            {% set embedCode = "" %}
+            {% set id = videos|split('/') %}
+            {% if id[2] == 'www.youtube.com' %}
+                {% if "/embed/" in videos %}
+                    {% set id = videos|split('/embed/') %}
+                {% elseif "?v=" in videos %}
+                    {% set id = videos|split('?v=') %}
+                {% endif %}
+                {% set id = id[1]|split('&') %}
+                {% set embedCode = id is iterable ? 'https://www.youtube.com/embed/' ~ id[0] ~ '?mute=1' : null %}
+            {% elseif id[2] ==  'youtu.be' %}
+                {% set id = '?v=' in videos ? videos|split('?v=') : videos|split('youtu.be/') %}
+                {% set embedCode = id is iterable ? 'https://www.youtube.com/embed/' ~ id[1] ~ '?mute=1' : null %}
+            {% elseif id[2] == 'vimeo.com' %}
+                {% set id = videos|split('/') %}
+                {% if id[4] is defined %}
+                    {% set embedCode = id is iterable ? 'https://player.vimeo.com/video/' ~ id[3] ~ '?h=' ~ id[4] ~ '&muted=1' : null %}
+                {% else %}
+                    {% set embedCode = id is iterable ? 'https://player.vimeo.com/video/' ~ id[3] : null %}
+                {% endif %}
+            {% endif %}
+            <iframe src="{{ embedCode }}" class="w-full h-full"></iframe>
+    {% endswitch %}
+{% endif %}
+

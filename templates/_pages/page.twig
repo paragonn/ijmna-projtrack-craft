@@ -1,0 +1,30 @@
+{% set isAjax = craft.app.request.isAjax and not craft.app.request.isLivePreview %}
+{% extends '_/layouts/' ~ (isAjax ? 'ajax' : 'main') %}
+{% import "_/includes/macros" as render %}
+
+{% block ajax %}
+    {% set blockId = craft.app.request.getParam("blockId") %}
+    {% set block = entry.contentBuilder.id(blockId).one() %}
+    {% include "_partials/pageBuilder/" ~ block.type.handle|default(null) with {
+        block: block,
+        isAjax: true
+    } %}
+{% endblock %}
+
+{% block content %}
+    {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
+
+    {#
+    =============================================
+        Include Hero
+    =============================================
+    #}
+    {% include "_partials/hero" %}
+
+    {#
+    =============================================
+        Include page Builder
+    =============================================
+    #}
+    {% include "_partials/pageBuilder" %}
+{% endblock %}

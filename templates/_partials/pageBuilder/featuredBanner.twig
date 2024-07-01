@@ -1,0 +1,93 @@
+{#
+===============================================================================
+    Featured Banner (featuredBanner)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Image (image)
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set image = block.image.one() %}
+{% set buttons = block.buttons.all() %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('60') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="relative overflow-hidden {{ spacing.marginTop }} {{ spacing.marginBottom }}">
+    {{ render.setImage({
+        image: image,
+        alt: image.title,
+        width: image.width,
+        height: image.height,
+        class: "object-cover w-full h-full absolute inset-0",
+    }) }}
+    <div class="inset-0 w-full h-full absolute {{ backgroundColor }} {{ bgOpacity }}"></div>
+
+    {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+    <div class="container relative z-10 {{ spacing.paddingTop }} {{ spacing.paddingBottom }}">
+        <div class="grid grid-cols-1">
+            <div>
+                <div class="{{ render.contentWidth({width: contentWidth}) }}">
+                    {{ render.basicContents({
+                        eyebrow: block.eyebrow,
+                        heading: block.heading,
+                        text: block.text,
+                        buttons: buttons,
+                        headingTag: headingTag,
+                        headingSize: headingTag,
+                        fontWeight: fontWeight,
+                        eyebrowFontWeight: 'bold',
+                        fontFamily: '',
+                        overrideParagraphFontSize: 'text-lg',
+                        backgroundColorLabel: backgroundColorLabel,
+                        opacity: overlayOpacity,
+                        contentAlignment: contentAlignment,
+                        animation: block.animation,
+                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                        contentAnimationDuration: block.animationDuration.value|default(1500),
+                        contentAnimationOffset: block.animationOffset.value|default(200),
+                        contentAnimationEasing: block.animationEasing.value|default(null)
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</section>

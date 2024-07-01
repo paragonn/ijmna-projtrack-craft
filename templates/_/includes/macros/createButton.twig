@@ -1,0 +1,123 @@
+{% import "_/includes/macros" as render %}
+
+{% if (not buttonColor|length) or (background == buttonColor) or (background == 'none' and buttonColor == 'white') %}
+    {% set background = background|default("none") %}
+    {% switch background %}
+        {% case "white" %}
+            {% set buttonColor = 'blue' %}
+
+        {% case "blue-100" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "blue" %}
+            {% set buttonColor = 'blue-800' %}
+
+        {% case "blue-600" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "blue-700" %}
+            {% set buttonColor = 'white' %}
+
+        {% case "blue-800" %}
+            {% set buttonColor = 'white' %}
+
+        {% default %}
+            {% set buttonColor = 'white' %}
+    {% endswitch %}
+{% endif %}
+
+{% set colors = {
+    button : {
+        'none'         : 'bg-blue-800 text-white border-blue-800 hover:bg-blue-950 hover:border-blue-950',
+        'white'        : 'bg-white text-blue-950 border-white hover:bg-blue-500 hover:text-white hover:border-blue-500',
+        'blue-100'     : 'bg-blue-100 text-white border-blue-100 hover:bg-blue-500 hover:border-blue-500',
+        'blue'         : 'bg-blue-500 text-white border-blue-500 hover:bg-blue-600 hover:border-blue-600',
+        'blue-600'     : 'bg-blue-600 text-white border-blue-600 hover:bg-blue-700 hover:border-blue-700',
+        'blue-700'     : 'bg-blue-700 text-white border-blue-700 hover:bg-blue-800 hover:border-blue-800',
+        'blue-800'     : 'bg-blue-800 text-white border-blue-800 hover:bg-blue-950 hover:border-blue-950'
+    },
+    outline : {
+        'none'         : 'bg-transparent border-blue-800 hover:text-white hover:bg-blue-800',
+        'white'        : 'bg-transparent border-white text-white hover:text-blue-950 hover:bg-white',
+        'blue-100'     : 'bg-transparent border-blue-100 text-blue-100 hover:text-white hover:bg-blue-100',
+        'blue'         : 'bg-transparent border-blue-500 text-blue-500 hover:text-white hover:bg-blue-500',
+        'blue-600'     : 'bg-transparent border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600',
+        'blue-700'     : 'bg-transparent border-blue-700 text-blue-700 hover:text-white hover:bg-blue-700',
+        'blue-800'     : 'bg-transparent border-blue-800 text-blue-800 hover:text-white hover:bg-blue-800'
+    },
+    link : {
+        'none'         : 'text-white hover:text-blue-500',
+        'white'        : 'text-white hover:text-blue-500',
+        'blue-100'     : 'text-blue-100 hover:text-blue-500',
+        'blue'         : 'text-blue-500 hover:text-blue-600',
+        'blue-600'     : 'text-blue-600 hover:text-blue-700',
+        'blue-700'     : 'text-blue-700 hover:text-blue-800',
+        'blue-800'     : 'text-blue-800 hover:text-blue-950'
+    }
+} %}
+
+{% set buttonClasses = buttonClasses ?? 'inline-flex' %}
+{% set attributes = collect({
+    href: button.getUrl(),
+    class: [
+        class,
+        button.classes,
+        colors[buttonType][buttonColor] ?? null,
+        extraClasses|length ? extraClasses : buttonType == 'link'
+            ? "underline underline-offset-1 text-lg transition-all duration-300 #{buttonClasses}"
+            : "py-3.5 px-6 md:w-auto w-full inline-block uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
+        icon|length and iconPosition == 'left' ? 'flex-row-reverse' : null
+    ]
+}) %}
+
+{% if not button.isEmpty() and button.getType() == 'asset' and (button.getElement().extension == 'pdf' or button.getElement().extension == 'doc') %}
+    {% set attributes = attributes.merge({
+        target: "_blank",
+        rel: "noopener"
+    }) %}
+{% endif %}
+
+{% if button.target %}
+    {% set attributes = attributes.merge({
+        target: "_blank",
+        rel: "noopener"
+    }) %}
+{% endif %}
+
+{% if button.linkTitle %}
+    {% set attributes = attributes.merge({
+        title: button.linkTitle
+    }) %}
+{% endif %}
+
+{% if button.customAttributes %}
+    {% for attribute in button.customAttributes %}
+        {% set attributeName = attribute.attribute %}
+        {% set attributeValue = attribute.value %}
+        {% set attributes = attributes.merge({
+            (attributeName): attributeValue
+        }) %}
+    {% endfor %}
+{% endif %}
+
+{% if not button.isEmpty() %}
+    <a {{ attr(attributes.toArray()) }}>
+        {% if icon|length %}
+            <span class="{{ iconPosition == 'left' ? 'pl-2' : 'pr-2' }} flex-1">
+        {% endif %}
+            {{ button.getText() }}
+        {% if icon|length %}
+            </span>
+        {% endif %}
+
+        {% if icon|length %}
+            {{ svg(icon.path)|attr({
+                class: 'h-5 w-5'
+            }) }}
+        {% endif %}
+
+        {% if button.getText()|lower in ["read more", "see more", "learn more", "click here"] %}
+            <span class="sr-only"> {{ "about this"|t }}</span>
+        {% endif %}
+    </a>
+{% endif %}

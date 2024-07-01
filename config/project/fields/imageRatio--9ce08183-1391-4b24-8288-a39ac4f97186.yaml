@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: imageRatio
+instructions: null
+name: 'Image Ratio'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/imageRatio.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

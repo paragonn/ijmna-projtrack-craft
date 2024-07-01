@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: minusMarginTop
+instructions: null
+name: 'Minus Margin Top'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/spacing.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
