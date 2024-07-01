@@ -61,26 +61,29 @@
 
 {% set buttons = block.buttons.all() %}
 {% set image = block.image.one() %}
-{% set embedVideo = block.embedVideo %}
+{% set embedVideoMedia = block.embedVideo.media ?? null %}
 
 <section class="mt-[79px] lg:min-h-[900px] lg:flex relative {{ backgroundColor }} {{ bgOpacity }}">
-
-    {# {% if image|length or embedVideo|length %}
-    <div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2" {{ imageAnimation|raw }}>
-        {{ render.setImage({
-            image: image,
-            alt: image.title,
-            width: image.width,
-            height: image.height,
-            class: 'object-cover max-h-96 lg:max-h-none lg:!h-full w-full'
+    {% if image|length or embedVideoMedia|length %}
+    <div class="lg:absolute lg:inset-y-0 z-10 {{ imagePosition == 'left' ? 'lg:left-0' : 'lg:right-0' }} {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'lg:w-1/2' : 'w-full' }} " {{ imageAnimation|raw }}>
+        {{ render.renderVideo({
+            image: image|length ? image,
+            alt: image|length ? image.title,
+            width: image|length ? image.width,
+            height: image|length ? image.height,
+            class: "object-cover max-h-96 lg:max-h-none lg:!h-full w-full",
+            lazy: false,
+            videos: embedVideoMedia,
+            videoType: 'popup',
+            videoId: block.getId()
         }) }}
     </div>
-    {% endif %} #}
+    {% endif %}
 
-    <div class="container flex items-center lg:min-h-[900px] relative">
+    <div class="container flex items-center lg:min-h-[900px] relative {{ imagePosition == 'left' ? 'flex-row-reverse' }}">
         {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
-        <div class="relative z-10 lg:w-full lg:max-w-[490px] xl:max-w-[550px]">
-            <div class="relative md:py-32 pt-12 pb-24">
+        <div class="relative z-10 lg:w-full lg:max-w-[490px] xl:max-w-[557px]">
+            <div class="relative md:py-32 pt-12 pb-24 {{ imagePosition == 'left' ? 'pl-8' : 'pr-8' }}">
                 {{ render.basicContents({
                     eyebrow: block.eyebrow,
                     heading: block.heading,
@@ -105,34 +108,31 @@
         </div>
         {% endif %}
 
-        <div class="absolute bottom-2 lg:bottom-11 left-4">
-            <a href="#" class="hover:text-blue-500 transition-all duration-300">
+        {% if entry is defined and entry.isHomepage %}
+        <div class="absolute bottom-2 lg:bottom-11 z-10"
+            x-data='{
+                nextBlockId  : "page-content",
+
+                scrollToNextSection() {
+                    let _this = this;
+                    let selector = document.querySelector("#" + _this.nextBlockId);
+
+                    window.scroll({
+                        behavior: "smooth",
+                        top: selector.offsetTop - 79
+                    });
+                }
+            }'
+        >
+            <a href="javascript:;" class="hover:text-blue-500 transition-all duration-300 {{ backgroundColorLabel == 'blue-800' ? 'text-white' }}"
+                x-on:click="scrollToNextSection();"
+                aria-label="Go to next Section"
+            >
                 <svg width="53" height="54" viewBox="0 0 53 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M25.8775 51.591L1.47266 26.0464M25.8775 51.591L25.8775 -2.91024e-07M25.8775 51.591L51 26.0464" stroke="currentColor" stroke-width="3" />
                 </svg>
             </a>
         </div>
+        {% endif %}
     </div>
 </section>
-
-
-{# <section class="mt-[79px] lg:min-h-[900px] lg:flex relative">
-    <div class="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img class="object-cover max-h-96 lg:max-h-none lg:!h-full w-full" src="/assets/images/home-bg.png" alt="">
-    </div>
-    <div class="container flex items-center lg:min-h-[900px] relative">
-        <div class="relative z-10 lg:w-full lg:max-w-[490px] xl:max-w-[550px]">
-            <div class="relative md:py-32 pt-12 pb-24">
-                <p class="uppercase tracking-widest text-lg md:text-xl font-bold text-blue-500">Lorem Ipsum</p>
-                <h1 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mt-6">Quick lorem ipsum about problem but also offering hope. IJM has a proven solution to make lasting change possible.</h1>
-            </div>
-        </div>
-        <div class="absolute bottom-2 lg:bottom-11 left-4">
-            <a href="#" class="hover:text-blue-500 transition-all duration-300">
-                <svg width="53" height="54" viewBox="0 0 53 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25.8775 51.591L1.47266 26.0464M25.8775 51.591L25.8775 -2.91024e-07M25.8775 51.591L51 26.0464" stroke="currentColor" stroke-width="3" />
-                </svg>
-            </a>
-        </div>
-    </div>
-</section> #}
