@@ -13,6 +13,7 @@
         }
     } %}
 
+    {% set prevBlock = pageBuilder[i-1]|default(null) %}
     {% set prev = pageBuilder[i-1].type.handle|default(null) %}
     {% set current = block.type.handle %}
     {% set next = pageBuilder[i+1].type.handle|default(null) %}
@@ -64,8 +65,20 @@
         {% endif %}
     {% endif %}
 
+    {# {% set currentMinusMarginTop = block.minusMarginTop.value|default(defaultMinusMarginTop) %}
+    {% set currentMinusMarginBottom = block.minusMarginBottom.value|default(defaultMinusMarginBottom) %} #}
+
+    {# {% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginTop) != 'none' %}
+        {% set currentBlockSpacing = block.paddingTop.value|default('medium') %}
+        {% set defaultPaddingTop = spacing[currentBlockSpacing].paddingTopForMinusMargin %}
+    {% endif %} #}
+
+    {# {% if prevBlock.minusMarginBottom.value|default(defaultMinusMarginTop) != 'none' %}
+        {% set defaultPaddingTop =  %}
+    {% endif %} #}
+
     {% set spacing = collect({}) %}
-    {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding'] %}
+    {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding', 'minusMarginTop', 'minusMarginBottom'] %}
         {% set spacing = spacing.merge({ (item) : render.spacing({
             type: item,
 
@@ -75,6 +88,7 @@
             parent: parent,
 
             prev: prev,
+            prevBlock: prevBlock,
             current: current,
             next: next,
 

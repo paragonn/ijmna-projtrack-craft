@@ -15,8 +15,8 @@
         'minusMarginTop' : "-mt-14 lg:-mt-28",
         'minusMarginBottom' : "-mb-14 lg:-mb-28",
 
-        'paddingTopForMinusMargin' : "",
-        'paddingBottomForMinusMargin' : "",
+        'paddingTopForMinusMargin' : "pt-10 md:pt-16 lg:pt-20",
+        'paddingBottomForMinusMargin' : "pb-10 md:pb-16 lg:pb-20",
 
         'marginTop' : "mt-5 md:mt-8 lg:mt-10",
         'marginBottom' : "mb-5 md:mb-8 lg:mb-10",
@@ -27,8 +27,8 @@
         'minusMarginTop' : "-mt-4 lg:-mt-24",
         'minusMarginBottom' : "-mb-4 lg:-mb-24",
 
-        'paddingTopForMinusMargin' : "",
-        'paddingBottomForMinusMargin' : "",
+        'paddingTopForMinusMargin' : "pt-24 md:pt-28",
+        'paddingBottomForMinusMargin' : "pb-24 md:pb-28",
 
         'marginTop' : "mt-12 md:mt-14",
         'marginBottom' : "mb-12 md:mb-14",
@@ -39,8 +39,8 @@
         'minusMarginTop' : "-mt-32",
         'minusMarginBottom' : "-mb-32",
 
-        'paddingTopForMinusMargin' : "",
-        'paddingBottomForMinusMargin' : "",
+        'paddingTopForMinusMargin' : "pt-32 md:pt-40",
+        'paddingBottomForMinusMargin' : "pb-32 md:pb-40 lg:pb-48",
 
         'marginTop' : "mt-16 md:mt-20 lg:mt-24",
         'marginBottom' : "mb-16 md:mb-20 lg:mb-24",
@@ -51,8 +51,8 @@
         'minusMarginTop' : "-mt-40",
         'minusMarginBottom' : "-mb-40",
 
-        'paddingTopForMinusMargin' : "",
-        'paddingBottomForMinusMargin' : "",
+        'paddingTopForMinusMargin' : "pt-48 md:pt-56 lg:pt-72",
+        'paddingBottomForMinusMargin' : "pb-48 md:pb-56 lg:pb-72",
 
         'marginTop' : "mt-24 md:mt-28 lg:mt-36",
         'marginBottom' : "mb-24 md:mb-28 lg:mb-36",
@@ -61,10 +61,10 @@
     },
     "extraLarge" : {
         'minusMarginTop' : "-mt-72 md:-mt-36",
-        'minusMarginBottom' : "",
+        'minusMarginBottom' : "-mt-72 md:-mt-36",
 
-        'paddingTopForMinusMargin' : "",
-        'paddingBottomForMinusMargin' : "",
+        'paddingTopForMinusMargin' : "pt-48 md:pt-64 lg:pt-96",
+        'paddingBottomForMinusMargin' : "pb-48 md:pb-64 lg:pb-96",
 
         'marginTop' : "mt-24 md:mt-32 lg:mt-48",
         'marginBottom' : "mb-24 md:mb-32 lg:mb-48",
@@ -80,6 +80,10 @@
 {% set defaultPaddingTop = null %}
 {% set defaultPaddingBottom = null %}
 
+{% set defaultMinusMarginTop = null %}
+{% set defaultMinusMarginBottom = null %}
+
+{# {% set defaultSpacing = currentBgColor ?  : defaultSpacing %} #}
 {% set staticSpacing = parent in ['twoColumns'] ? 'extraSmall' : defaultSpacing %}
 {% if currentBgColor %}
     {% set defaultMarginTop = "none" %}
@@ -109,6 +113,22 @@
     {% set defaultPaddingTop = "none" %}
     {% set defaultMarginBottom = staticSpacing %}
     {% set defaultPaddingBottom = "none" %}
+{% endif %}
+
+{% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginTop) != 'none' %}
+    {% set currentBlockSpacing = block.paddingTop.value|default('medium') %}
+    {% set spacingCurrentBlock = spacing[currentBlockSpacing] %}
+    {# {% set defaultPaddingTop = spacingCurrentBlock.paddingTopForMinusMargin %} #}
+{% endif %}
+
+{% if type in ['marginPadding', 'margin', 'minusMarginTop'] %}
+    {# {{ craft.app.config.general.devMode ? ("<!--(minusMarginTop: #{minusMarginTop|default(defaultMarginTop)})-->") | raw }} #}
+    {% set space = space.merge(spacing[minusMarginTop|default(defaultMinusMarginTop)].minusMarginTop) %}
+{% endif %}
+
+{% if type in ['marginPadding', 'margin', 'minusMarginBottom'] %}
+    {# {{ craft.app.config.general.devMode ? ("<!--(minusMarginBottom: #{minusMarginBottom|default(defaultMarginTop)})-->") | raw }} #}
+    {% set space = space.merge(spacing[minusMarginBottom|default(defaultMinusMarginBottom)].minusMarginBottom) %}
 {% endif %}
 
 {% if type in ['marginPadding', 'margin', 'marginTop'] %}
