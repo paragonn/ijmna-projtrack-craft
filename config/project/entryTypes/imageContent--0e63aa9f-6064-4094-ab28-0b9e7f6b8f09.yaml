@@ -189,6 +189,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: 9ce08183-1391-4b24-8288-a39ac4f97186 # Image Ratio
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3a0b65ef-4c82-49ab-92ee-5cccd9b7f0bd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             heading: 'Block Settings'
             type: craft\fieldlayoutelements\Heading
             uid: fe4f453c-0982-4e8e-b4f4-87955a1cadd5
