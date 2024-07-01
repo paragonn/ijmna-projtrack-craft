@@ -1,0 +1,116 @@
+{#
+===============================================================================
+    Image (image)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Image (image)
+            - Videos (videos)
+
+        Auxiliary:
+            - Embed Video (embedVideo)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Container Size (headingSize)
+            - Image Ratio (imageRatio)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Overlay Gradient (overlayGradient)
+            - Caption Alignment (captionAlignment)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set captionAlignment = block.captionAlignment.value|default('left') %}
+{% set containerSize = block.containerSize.getValue()|default('container') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set gradientColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'gradient'
+}) %}
+
+{% set imageRatio = block.imageRatio.getValue()|default('auto') %}
+{% set ratio = {
+    'auto'    : 'aspect-auto',
+    '1_1'     : 'lg:aspect-w-1 lg:aspect-h-1',
+    '16_9'    : 'lg:aspect-w-16 lg:aspect-h-9',
+    '4_3'     : 'lg:aspect-w-4 lg:aspect-h-3',
+    '3_4'     : 'lg:aspect-w-3 lg:aspect-h-4',
+    '7_2'     : 'lg:aspect-w-7 lg:aspect-h-2'
+} %}
+
+{% set imageAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle.value|default('fade-up'),
+    animationDuration: block.animationDuration.value|default(1500),
+    animationOffset: block.animationOffset.value|default(200),
+    animationEasing: block.animationEasing.value|default(null)
+}) | raw %}
+
+{% set image = block.image.one() %}
+{% set video = block.videos.all() %}
+
+{% if image|length or video|length %}
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="{{ containerSize == 'container' ? 'container' }}">
+        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+            <div class="relative {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
+                {{ render.renderVideo({
+                    image: image|length ? image,
+                    alt: image|length ? image.title,
+                    width: image|length ? image.width,
+                    height: image|length ? image.height,
+                    class: "w-full h-full object-cover",
+                    lazy: false,
+                    videoLazy: false,
+                    videos: video,
+                    videoClass: "w-full h-full object-cover",
+                    videoType: 'background',
+                    videoPoster: image,
+                    videoId: block.getId(),
+                    videoAttrs: {
+                        preload: "none",
+                    }
+                }) }}
+
+                {% for item in block.overlayGradient %}
+                    {% if item.getValue() == 'left' %}
+                        <div class="bg-gradient-to-r {{ gradientColor }} to-transparent absolute h-full left-0 top-0 w-1/5"></div>
+                    {% endif %}
+
+                    {% if item.getValue() == 'right' %}
+                        <div class="bg-gradient-to-l {{ gradientColor }} to-transparent absolute h-full right-0 top-0 w-1/5"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+            {% if block.caption|length %}
+            <p class="text-lg mt-2 {{ render.getAlignment({alignment: captionAlignment, type: 'text'}) }} {{ render.foregroundColors({
+                background: backgroundColorLabel,
+                opacity: overlayOpacity,
+                changeDefaultColor: true,
+                type: 'heading',
+            }) }}" {{ imageAnimation|raw }}>{{ block.caption }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endif %}

@@ -1,0 +1,10 @@
+[
+    {
+        "value" : "left",
+        "label" : "Left"
+    },
+    {
+        "value" : "right",
+        "label" : "Right"
+    }
+]

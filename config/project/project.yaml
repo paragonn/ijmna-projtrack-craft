@@ -1,4 +1,4 @@
-dateModified: 1719817907
+dateModified: 1719825144
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -68,6 +68,7 @@ meta:
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
+    71fa55a9-c465-4fe2-91f2-ee5a739774a9: 'Overlay Gradient' # Overlay Gradient
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
     089d8bf1-7cfe-4f80-bf8b-517fa9e233e0: 'Call to Action' # Call to Action
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address

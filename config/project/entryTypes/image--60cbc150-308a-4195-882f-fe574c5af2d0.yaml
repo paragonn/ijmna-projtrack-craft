@@ -189,6 +189,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: 71fa55a9-c465-4fe2-91f2-ee5a739774a9 # Overlay Gradient
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 17b53dfb-48fd-4f8a-b69d-c0010a2e950a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             heading: 'Content Settings'
             type: craft\fieldlayoutelements\Heading
             uid: ca585044-84a5-43a4-a30b-e547facc6f77
