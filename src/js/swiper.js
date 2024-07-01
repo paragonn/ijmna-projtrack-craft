@@ -77,6 +77,36 @@ if (thumbSlider) {
     });
 }
 
+let thumbcreativeSlider = document.querySelector(".thumb-creativelider");
+if (thumbcreativeSlider) {
+    var thumbslider = new Swiper(".thumb-creativelider", {
+        spaceBetween: 2,
+        slidesPerView: 1,
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        allowTouchMove: false,
+    });
+
+    var productslider = new Swiper(".creative-slider", {
+        slidesPerView: 1,
+        centeredSlides: true,
+        speed: 500,
+        effect: "fade",
+        allowTouchMove: false,
+        navigation: {
+            nextEl: ".swiper-button-next-creative-main",
+            prevEl: ".swiper-button-prev-creative-main",
+        },
+        pagination: {
+            el: ".swiper-pagination-creative",
+            type: "fraction",
+        },
+        thumbs: {
+            swiper: thumbcreativeSlider,
+        },
+    });
+}
+
 // var swiper = new Swiper(".swiper-progress", {
 //     autoplay: {
 //         delay: 2500,
