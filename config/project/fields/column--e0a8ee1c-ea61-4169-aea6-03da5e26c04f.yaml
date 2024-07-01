@@ -1,18 +1,13 @@
 columnSuffix: null
-handle: contentBuilder
+handle: column
 instructions: null
-name: 'Content Builder'
+name: Column
 searchable: false
 settings:
-  createButtonLabel: 'Content Builder'
+  createButtonLabel: Column
   entryTypes:
     - 982eeecd-95ad-43d1-8cc2-f6b3d80be494 # Basic Content
     - 60cbc150-308a-4195-882f-fe574c5af2d0 # Image
-    - 8078a4c8-2881-4519-9e4a-e50fbd74a5eb # Featured Banner
-    - 13612fd6-fab3-4e45-9853-5634a3ef9d91 # CTA
-    - 00f64a37-6342-4ab0-a52b-d24123cb37e0 # Info Box
-    - 0e63aa9f-6064-4094-ab28-0b9e7f6b8f09 # Image + Content
-    - ec8cf3c5-a3d4-4c87-9c99-6807bee72059 # Two Columns
   includeTableView: false
   maxEntries: null
   minEntries: null

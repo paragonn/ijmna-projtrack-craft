@@ -1,0 +1,20 @@
+columnSuffix: null
+handle: columns
+instructions: null
+name: Columns
+searchable: false
+settings:
+  createButtonLabel: Columns
+  entryTypes:
+    - e434669f-dd5f-4232-88ef-7a3b8c37b4dc # Column
+  includeTableView: false
+  maxEntries: 2
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
