@@ -1,9 +1,10 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-<div class="flex items-stretch lg:flex-row flex-col-reverse {{ contentBoxColor }}">
+<div class="flex items-stretch {{ imagePosition == 'left' ? 'lg:flex-row-reverse flex-col-reverse' : 'lg:flex-row flex-col-reverse' }} {{ contentBoxColor }}">
     <div class="flex-1 w-full flex items-center">
-        <div class="grid grid-cols-1 py-11 lg:py-16 {{ (contentBoxColorLabel == 'transparent' or backgroundColorLabel == 'white') ? 'pr-10 lg:pr-24' : 'px-10 lg:px-24' }}">
+        {% set spacingClasses = imagePosition == 'left' ? 'pl-10 lg:pl-24' : 'pr-10 lg:pr-24' %}
+        <div class="grid grid-cols-1 py-11 lg:py-16 {{ (contentBoxColorLabel == 'transparent' or backgroundColorLabel == 'white') ? spacingClasses : 'px-10 lg:px-24' }}">
             <div class="relative">
                 <div class="swiper productslider">
                     <div class="swiper-wrapper pb-10">

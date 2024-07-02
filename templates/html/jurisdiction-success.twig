@@ -471,13 +471,21 @@
                         "loop": true,
                         "grabCursor": true,
                         "autoplay": true,
-                        "spaceBetween": 0, 
+                        "spaceBetween": 0,
                         "slidesPerView": "1",
                         "effect": "fade",
                         "delay": 10000,
                         "speed": 200,
-                        "pagination": {"el": ".swiper-pagination-hero", "clickable": "true", "type": "fraction", "bulletClass": "bg-white !w-4 !h-4 !mx-1 opacity-30 swiper-pagination-bullet swiper-bullet-white", "bulletActiveClass": "!bg-primary-500 !opacity-100"},
-                        "navigation":{"nextEl":".swiper-button-next-creative","prevEl":".swiper-button-prev-creative", "disabledClass": "opacity-50"}
+                        "pagination": {
+                            "el": ".swiper-pagination-creative",
+                            "clickable": "true",
+                            "type": "fraction"
+                        },
+                        "navigation":{
+                            "nextEl":".swiper-button-next-creative",
+                            "prevEl":".swiper-button-prev-creative",
+                            "disabledClass": "opacity-50"
+                        }
                     }'>
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
@@ -524,9 +532,32 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="swiper-slide">
+                            <div class="flex w-full relative lg:flex-row flex-col gap-8">
+                                <div class="lg:max-w-[800px] w-full relative">
+                                    <div class="aspect-w-8 aspect-h-5">
+                                        <img src="/assets/images/images-1.png" class="w-full h-full object-cover" alt="">
+                                    </div>
+                                    <div>
+                                        <a href="https://www.youtube.com/embed/UBOj6rqRUME" id="UBOj6rqRUME" class="glightbox h-[88px] left-1/2 text-white hover:text-blue-500 hover:border-blue-500 transition-all duration-300 -translate-x-1/2 text-center w-[88px] flex items-center justify-center mx-auto rounded-full border-2 border-white z-10 absolute top-1/2 -translate-y-1/2">
+                                            <svg width="29" height="32" viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M28.0547 16.2278L0.749604 31.9924L0.749605 0.463205L28.0547 16.2278Z" fill="currentColor"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="relative lg:absolute lg:-bottom-10 lg:right-0 lg:max-w-[452px] p-7 lg:p-16 bg-white border-2 border-blue-800">
+                                    <div class="relative">
+                                        <h3 class="text-2xl lg:text-3xl font-Baskervville -tracking-wide"><span class="absolute -left-5">“</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua.”</h3>
+                                        <p class="mt-3">- Second Last</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination-creative bottom-16 absolute left-7 text-white z-50 font-Baskervville text-4xl -tracking-widest">1/2</div>
+                    {# <div class="swiper-pagination-creative bottom-16 absolute left-7 text-white z-50 font-Baskervville text-4xl -tracking-widest"><span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">2</span></div> #}
+                    <div class="swiper-pagination-creative bottom-16 absolute left-7 text-white z-50 font-Baskervville text-4xl -tracking-widest"></div>
                 </div>
                 <div class="flex items-center w-full justify-end gap-6 mt-5 min-[1280px]:mt-0">
                     <!-- If we need navigation buttons -->

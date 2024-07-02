@@ -52,37 +52,36 @@ if (thumbSlider) {
     let thumbslider = new Swiper(".thumbslider", {
         spaceBetween: 2,
         slidesPerView: 1,
+        freeMode: true,
         centeredSlides: true,
         slideToClickedSlide: true,
-        allowTouchMove: false,
+        allowTouchMove: false
     });
 
     let productslider = new Swiper(".productslider", {
         slidesPerView: 1,
         centeredSlides: true,
-        speed: 500,
-        effect: "fade",
         allowTouchMove: false,
-        navigation: {
-            nextEl: ".swiper-button-next-product-main",
-            prevEl: ".swiper-button-prev-product-main",
-        },
         pagination: {
             el: ".swiper-pagination-imageContent",
-            type: "fraction",
+            type: "fraction"
+        },
+        navigation: {
+            nextEl: ".swiper-button-next-product-main",
+            prevEl: ".swiper-button-prev-product-main"
         },
         thumbs: {
-            swiper: thumbslider,
+            swiper: thumbslider
         },
-        /*on: {
+        on: {
             slideChange: function () {
                 console.log('Slide changed to: ', this.activeIndex);
             }
-        }*/
+        }
     });
 }
 
-let thumbcreativeSlider = document.querySelector(".thumb-creativelider");
+/*let thumbcreativeSlider = document.querySelector(".thumb-creativelider");
 if (thumbcreativeSlider) {
     let thumbslider = new Swiper(".thumb-creativelider", {
         spaceBetween: 2,
@@ -91,26 +90,7 @@ if (thumbcreativeSlider) {
         slideToClickedSlide: true,
         allowTouchMove: false,
     });
-
-    let productslider = new Swiper(".creative-slider", {
-        slidesPerView: 1,
-        centeredSlides: true,
-        speed: 500,
-        effect: "fade",
-        allowTouchMove: false,
-        navigation: {
-            nextEl: ".swiper-button-next-creative-main",
-            prevEl: ".swiper-button-prev-creative-main",
-        },
-        pagination: {
-            el: ".swiper-pagination-creative",
-            type: "fraction",
-        },
-        thumbs: {
-            swiper: thumbcreativeSlider,
-        },
-    });
-}
+}*/
 
 // var swiper = new Swiper(".swiper-progress", {
 //     autoplay: {
