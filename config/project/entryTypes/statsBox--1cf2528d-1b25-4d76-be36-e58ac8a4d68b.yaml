@@ -1,6 +1,6 @@
 color: null
 fieldLayouts:
-  05fec1d2-c3ec-43e3-be51-d8f47c3d8a41:
+  82955d0e-aea8-4f8f-8936-be4b71a60a4f:
     tabs:
       -
         elementCondition: null
@@ -30,13 +30,13 @@ fieldLayouts:
             tip: null
             title: null
             type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 75589642-2fc3-4248-ada4-77f1c946b245
+            uid: b692cac0-8d65-4e4a-942a-6696c218bc86
             userCondition: null
             warning: null
             width: 100
           -
             elementCondition: null
-            fieldUid: 59f089df-32db-4da9-aa07-7b501b160aa4 # Card
+            fieldUid: f53d3737-57cc-49ff-b173-17376ae0c1bf # Stat Box
             handle: null
             includeInCards: false
             instructions: null
@@ -45,12 +45,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 178b54e0-62d2-4075-aefe-58f6fbff59e3
+            uid: a4ee83a8-6d15-4be6-881e-3e47735a49ab
             userCondition: null
             warning: null
             width: 100
         name: Content
-        uid: 36b26331-d169-4be1-be3f-6442d2bd63ce
+        uid: 0e725ca5-eaf8-484f-9ec6-5834b753ceb6
         userCondition: null
       -
         elementCondition: null
@@ -66,7 +66,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: f7cfd02b-add0-4c71-a888-e09fe62e67fc
+            uid: a49ef44a-bb24-4696-b44a-06a6b9f64e1c
             userCondition: null
             warning: null
             width: 100
@@ -81,7 +81,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c995eee6-b550-4bf6-9a7d-dc5808455150
+            uid: fe7582d4-e03d-4b38-a676-e28b265dfbcc
             userCondition: null
             warning: null
             width: 100
@@ -96,7 +96,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 16aaaccd-9cf3-4e3f-a767-d6971e411155
+            uid: 567ed313-b4ab-4ea8-a4e0-07e7c4b7ea5f
             userCondition: null
             warning: null
             width: 100
@@ -111,21 +111,21 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: dbb2ff73-fe90-4285-a0f4-a362b2d02a94
+            uid: d6544363-2d8d-4905-81d9-6bdb1cd3cde5
             userCondition: null
             warning: null
             width: 100
         name: Auxiliary
-        uid: 7dc13906-f0ee-40ce-bc0b-2bc39a9128d0
+        uid: 160f6458-320d-4537-9292-a15bf83fd80b
         userCondition: null
       -
         elementCondition: null
         elements:
           -
             elementCondition: null
-            heading: 'Block Settings'
+            heading: 'Content Settings'
             type: craft\fieldlayoutelements\Heading
-            uid: 9a6ebc62-7857-4fd4-a839-3bd1c20bf9cf
+            uid: d0704ade-1f58-49d4-8cdd-a981e25840eb
             userCondition: null
           -
             elementCondition: null
@@ -138,7 +138,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 0e3d9ffe-0b68-4a4d-84ab-f6cc7b20800c
+            uid: 6cc4e32a-cb0c-49b3-96a7-b2873d18c2ea
             userCondition: null
             warning: null
             width: 100
@@ -153,7 +153,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 8dec8a54-cf1f-4bd8-bdba-9b8c06db63c2
+            uid: 8690fbe7-b02b-4574-96d8-0a40bab06b10
             userCondition: null
             warning: null
             width: 50
@@ -168,7 +168,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9e77a78b-ff86-42c2-9269-a41b3df13d22
+            uid: 3cbc931e-6e5f-4f21-be6a-ae1b629c0d3e
             userCondition: null
             warning: null
             width: 50
@@ -183,15 +183,80 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 16ae41a4-7e30-474f-8ac5-20b5a3858760
+            uid: 2c623bfe-dea5-4141-bf3b-f4ebb390f14c
             userCondition: null
             warning: null
-            width: 100
+            width: 50
           -
             elementCondition: null
-            heading: 'Content Settings'
+            fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d0cc5dfe-b41a-4fb2-b512-f0aed9c3cfd4
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+                  layoutElementUid: d0cc5dfe-b41a-4fb2-b512-f0aed9c3cfd4
+                  uid: 9ad9dfe0-292e-4d7a-9650-63a2f2a51fe6
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 89cc861f-51a9-49de-9637-831af3da0e7a # Border Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 994350a4-5fd1-462d-a286-dff14428c5df
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+                  layoutElementUid: d0cc5dfe-b41a-4fb2-b512-f0aed9c3cfd4
+                  uid: cf081e29-934c-4d54-85c6-b3023e3c0b0b
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8 # Content Box Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Stat Box Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ed18941b-20a6-440f-ad23-45ef6f19081f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            heading: 'Block Settings'
             type: craft\fieldlayoutelements\Heading
-            uid: 52c43ade-cd0c-4956-87df-e555ceb78d53
+            uid: 9fb1a82f-493f-4e1d-bd5b-64c96d3146a8
             userCondition: null
           -
             elementCondition: null
@@ -204,25 +269,10 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c449cbb1-f7e5-4fd2-a911-f4f3e1e1946c
+            uid: 050ea881-caf5-4b20-9a34-d16a1fdf2b47
             userCondition: null
             warning: null
             width: 50
-          -
-            elementCondition: null
-            fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd # Font Weight
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 7ae67dcf-6ca6-4485-abc8-229d031f9bf8
-            userCondition: null
-            warning: null
-            width: 25
           -
             elementCondition: null
             fieldUid: e05fb8e0-726b-4a55-b97f-aea98a58c8a1 # Heading Size
@@ -234,14 +284,29 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: c134dd7e-d187-4539-9afc-766b78ade164
+            uid: f6911357-4a34-4adf-9107-a988cc3f5bcd
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition: null
+            fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd # Font Weight
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d6fc6f3f-d693-44ef-97fe-84d5ef9dbd88
             userCondition: null
             warning: null
             width: 25
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
-            uid: 34602f36-c475-4662-8f96-0198cc78379a
+            uid: 05d7bfc3-b4b3-4960-87f3-b9e3287b2b49
             userCondition: null
           -
             elementCondition: null
@@ -254,12 +319,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3b260fe3-adc0-485f-a278-d7e48a78d120
+            uid: 7a22b24f-6243-43f7-a46b-e0a45abc8a2a
             userCondition: null
             warning: null
             width: 100
         name: Settings
-        uid: a0317c3a-3cc2-4d39-ad9e-6ff1eb7bfd94
+        uid: 2f8040e8-1d33-4134-871a-5b2724d13426
         userCondition: null
       -
         elementCondition: null
@@ -275,7 +340,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 61346a63-64d2-41d7-956c-ca0a915650df
+            uid: cd5a84ec-6490-4bb8-b7dc-56622b7c2657
             userCondition: null
             warning: null
             width: 50
@@ -290,14 +355,14 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2210fbc1-c59b-4f1c-b30d-84819f5cd000
+            uid: 1e5b791a-f2c4-45aa-a09f-5b7db8f8e8db
             userCondition: null
             warning: null
             width: 50
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
-            uid: 7b9e0b17-0313-4489-bae7-8e8d9c7aeaa5
+            uid: 5940980d-baa5-4769-9444-264acedf0a13
             userCondition: null
           -
             elementCondition: null
@@ -310,7 +375,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 8a601ed0-d171-49d4-9070-27557bdfbe23
+            uid: 2653dade-323b-4db8-ba5b-781827d6c674
             userCondition: null
             warning: null
             width: 50
@@ -325,7 +390,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 268c70fd-dc3f-4a85-809a-04eeab10ea60
+            uid: e0a6eee1-684c-4365-8755-e2ce926ddf39
             userCondition: null
             warning: null
             width: 50
@@ -340,7 +405,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e6a1a217-1b69-45ba-a531-8c30124205e7
+            uid: 7ac3db86-def3-4272-a634-fcf975b47416
             userCondition: null
             warning: null
             width: 50
@@ -355,12 +420,12 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 1934096d-39cf-47b4-9a84-fa4e5bffe6b3
+            uid: cc1ef130-eb9d-428a-97fa-67c777b941b6
             userCondition: null
             warning: null
             width: 50
         name: Spacing
-        uid: 3ef2cbe5-6d2c-4fa6-bf5b-d73aeffa559c
+        uid: 8f675bc9-0d0c-4ee1-85ab-e2a8cce75b53
         userCondition: null
       -
         elementCondition: null
@@ -376,7 +441,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 317bba9a-de5b-4f8e-acf6-5b5d0e9f202e
+            uid: e5d9a8ba-5c4b-479f-ae05-8399b70f7888
             userCondition: null
             warning: null
             width: 100
@@ -384,7 +449,7 @@ fieldLayouts:
             elementCondition: null
             heading: 'Content Animation'
             type: craft\fieldlayoutelements\Heading
-            uid: 99caf1a3-1462-48ab-b0f4-01b6e6516208
+            uid: c3223a2a-ad14-4bc7-b95f-ec7bf3d9c65c
             userCondition: null
           -
             elementCondition: null
@@ -397,7 +462,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: bf606a76-4dbb-4fae-b0e6-641ce5d010aa
+            uid: 0a9d6666-d9b9-4ca5-ad94-906dfdd2a32b
             userCondition: null
             warning: null
             width: 50
@@ -412,7 +477,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: db17a5fd-6c29-4bf5-8c51-53c2c25d5da5
+            uid: 17c69b46-eeb9-47a0-a3d2-55d1a42089bd
             userCondition: null
             warning: null
             width: 50
@@ -427,7 +492,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 90f66de3-db59-4a8d-aa3d-ef7f9061a44b
+            uid: cb5e2339-1bd1-43a1-a8c7-7998f393cfef
             userCondition: null
             warning: null
             width: 50
@@ -442,15 +507,15 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 192d02f1-85e3-45c5-ad4d-cd854a78ef8e
+            uid: bca16b32-3c3a-4c56-8568-b148c2ecc6e4
             userCondition: null
             warning: null
             width: 50
           -
             elementCondition: null
-            heading: 'Card Animation'
+            heading: 'Stat Box Animation '
             type: craft\fieldlayoutelements\Heading
-            uid: 809b5461-26d3-4479-ab43-e41d919507ab
+            uid: f4ed55fe-2096-424a-b0b4-ea26385ca0f9
             userCondition: null
           -
             elementCondition: null
@@ -463,22 +528,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 406e9ec8-9de9-492a-9a0a-9dabaf0c6c39
-            userCondition: null
-            warning: null
-            width: 50
-          -
-            elementCondition: null
-            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
-            handle: animationOffset2
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: d1218c0e-f07f-412d-9390-1f74aa005ec3
+            uid: 4ade12fa-7d5c-48f6-8f13-531ebbf01d8f
             userCondition: null
             warning: null
             width: 50
@@ -493,7 +543,7 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: e6a3f5c8-711e-42b1-a29e-a92ea2ea777a
+            uid: 35c41279-79fa-4315-bad4-aabcc946304d
             userCondition: null
             warning: null
             width: 50
@@ -508,18 +558,33 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 2224e462-d28a-48b3-bb1e-84d727838b61
+            uid: b45392e4-b411-42b8-a36d-b2e2bc8806a7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
+            handle: animationOffset2
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 66849ac9-cb43-4a4d-a892-de4f1fafcc8e
             userCondition: null
             warning: null
             width: 50
         name: Animation
-        uid: 95a52729-474a-4585-9b85-f33a86e501b4
+        uid: ac3d3716-d0e1-40ee-a25d-57301e68a42f
         userCondition: null
-handle: cards
+handle: statsBox
 hasTitleField: false
 icon: ''
-name: Cards
-showSlugField: true
+name: 'Stats Box'
+showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site

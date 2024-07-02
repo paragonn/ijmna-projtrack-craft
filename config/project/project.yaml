@@ -1,4 +1,4 @@
-dateModified: 1719904028
+dateModified: 1719906063
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -36,7 +36,9 @@ meta:
     0e13a17a-1829-4ccb-a64f-c39b6d62af82: 'Animation Offset' # Animation Offset
     0e63aa9f-6064-4094-ab28-0b9e7f6b8f09: 'Image + Content' # Image + Content
     00f64a37-6342-4ab0-a52b-d24123cb37e0: 'Info Box' # Info Box
+    1cf2528d-1b25-4d76-be36-e58ac8a4d68b: 'Stats Box' # Stats Box
     1da620f4-95cb-4911-9332-8ef04cad860f: Button # Button
+    02c1f367-dcb0-49f9-af0b-e255d2928b19: 'Show Border?' # Show Border?
     2e9cec4b-7c08-4594-a616-22bb4a04cba8: Brands # Brands
     3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
     3bf73e53-2279-498c-9693-f24c6e498172: 'Page Builder' # Page Builder
@@ -93,6 +95,7 @@ meta:
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
     9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
+    10939aae-e10b-4be1-8d12-358d50ce590d: 'Stat Box' # Stat Box
     13612fd6-fab3-4e45-9853-5634a3ef9d91: CTA # CTA
     23661aee-cd9b-46df-9aa0-3f931f87ba19: card # card
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
@@ -135,6 +138,7 @@ meta:
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
     f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
+    f53d3737-57cc-49ff-b173-17376ae0c1bf: 'Stat Box' # Stat Box
     fa195a9b-e2f8-4ff9-b875-48e5cce85e25: 'Image Content Layout' # Image Content Layout
     fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:
