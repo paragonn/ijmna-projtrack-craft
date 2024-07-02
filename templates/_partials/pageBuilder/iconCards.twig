@@ -35,6 +35,13 @@
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
+{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
+{% set rowLimit = {
+    '2' : 'grid-cols-1 md:grid-cols-2',
+    '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    '4' : 'grid-cols-1 md:grid-cols-2 md:grid-cols-2 lg:grid-cols-4',
+} %}
+
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
@@ -86,11 +93,13 @@
 
             {% if iconCards|length %}
             <div class="{{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-10' }}">
-                <div class="max-w-2xl items-start mx-auto w-full flex gap-5">
+                <div class="grid gap-5 {{ rowLimit[perRowLimit] }}">
                     {% for card in iconCards %}
-                        <div class="flex-1 w-full text-center" {{ cardAnimation|raw }}>
+                        {% set cardButtons = card.buttons.all() %}
+
+                        <div class="text-center" {{ cardAnimation|raw }}>
                             {% if card.icon|length %}
-                            <div class="mx-auto flex justify-center items-center h-28 {{ render.foregroundColors({ background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'heading' }) }}">
+                            <div class="mx-auto grid justify-center items-center h-28 {{ render.foregroundColors({ background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'heading' }) }}">
                                 {{ svg(card.icon.path)|attr({
                                     class: 'w-24 h-24',
                                 }) }}
@@ -113,6 +122,23 @@
                                 }) }}
                             </div>
                             {% endif %}
+
+                            {% for button in cardButtons %}
+                                {% if loop.first %}
+                                <div class="flex flex-wrap items-center justify-center {{ card.icon|length or card.heading|length or card.text|length ? 'mt-8' }}">
+                                {% endif %}
+                                    {{ render.createButton({
+                                        button: button.button,
+                                        buttonType: button.buttonType.getValue()|default("button"),
+                                        buttonColor: button.buttonColor.label|default('blue-800'),
+                                        icon: button.icon,
+                                        iconPosition: button.iconPosition.getValue()|default('right'),
+                                        background: backgroundColorLabel
+                                    }) }}
+                                {% if loop.last %}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     {% endfor %}
                 </div>

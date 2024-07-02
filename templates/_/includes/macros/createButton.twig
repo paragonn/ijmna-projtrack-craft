@@ -65,7 +65,7 @@
         colors[buttonType][buttonColor] ?? null,
         extraClasses|length ? extraClasses : buttonType == 'link'
             ? "underline underline-offset-1 text-lg transition-all duration-300 #{buttonClasses}"
-            : "py-3.5 px-6 md:w-auto w-full inline-block uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
+            : "py-3.5 px-6 inline-block uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
         icon|length and iconPosition == 'left' ? 'flex-row-reverse' : null
     ]
 }) %}
