@@ -47,37 +47,69 @@ function merge(modules, settings) {
     return modules;
 }
 
+// let thumbSlider = document.querySelector(".thumbslider");
+// if (thumbSlider) {
+//     let thumbslider = new Swiper(".thumbslider", {
+//         spaceBetween: 2,
+//         slidesPerView: 1,
+//         freeMode: true,
+//         centeredSlides: true,
+//         slideToClickedSlide: true,
+//         allowTouchMove: false
+//     });
+
+//     let productslider = new Swiper(".productslider", {
+//         slidesPerView: 1,
+//         centeredSlides: true,
+//         allowTouchMove: false,
+//         pagination: {
+//             el: ".swiper-pagination-imageContent",
+//             type: "fraction"
+//         },
+//         navigation: {
+//             nextEl: ".swiper-button-next-product-main",
+//             prevEl: ".swiper-button-prev-product-main"
+//         },
+//         thumbs: {
+//             swiper: thumbslider
+//         },
+//         on: {
+//             slideChange: function () {
+//                 console.log('Slide changed to: ', this.activeIndex);
+//             }
+//         }
+//     });
+// }
+
 let thumbSlider = document.querySelector(".thumbslider");
 if (thumbSlider) {
-    let thumbslider = new Swiper(".thumbslider", {
-        spaceBetween: 2,
+    var thumbslider = new Swiper(".thumbslider", {
+        spaceBetween: 10,
         slidesPerView: 1,
         freeMode: true,
-        centeredSlides: true,
-        slideToClickedSlide: true,
-        allowTouchMove: false
+        watchSlidesProgress: true,
+        allowTouchMove: false,
+        navigation: {
+            nextEl: ".swiper-button-next-thumbs",
+            prevEl: ".swiper-button-prev-thumbs",
+        },
     });
 
-    let productslider = new Swiper(".productslider", {
+    var productslider = new Swiper(".productslider", {
+        spaceBetween: 10,
         slidesPerView: 1,
-        centeredSlides: true,
-        allowTouchMove: false,
+        autoHeight: true,
+        navigation: {
+            nextEl: ".swiper-button-next-thumbs",
+            prevEl: ".swiper-button-prev-thumbs",
+        },
         pagination: {
             el: ".swiper-pagination-imageContent",
-            type: "fraction"
-        },
-        navigation: {
-            nextEl: ".swiper-button-next-product-main",
-            prevEl: ".swiper-button-prev-product-main"
+            type: "fraction",
         },
         thumbs: {
-            swiper: thumbslider
+            swiper: thumbslider,
         },
-        on: {
-            slideChange: function () {
-                console.log('Slide changed to: ', this.activeIndex);
-            }
-        }
     });
 }
 
