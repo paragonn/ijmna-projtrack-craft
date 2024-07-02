@@ -1,0 +1,123 @@
+{#
+===============================================================================
+    Featured Banner (featuredBanner)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Image (image)
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set cardAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle2.value|default('fade-up'),
+    animationDuration: block.animationDuration2.value|default(1500),
+    animationOffset: block.animationOffset2.value|default(200),
+    animationEasing: block.animationEasing2.value|default(null)
+}) | raw %}
+
+{% set buttons = block.buttons.all() %}
+{% set iconCards = block.iconCard.all() %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+    <div class="container">
+        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+            {{ render.basicContents({
+                eyebrow: block.eyebrow,
+                heading: block.heading,
+                text: block.text,
+                buttons: buttons,
+                headingTag: headingTag,
+                headingSize: headingTag,
+                fontWeight: fontWeight,
+                eyebrowFontWeight: 'bold',
+                fontFamily: '',
+                overrideParagraphFontSize: 'text-lg',
+                backgroundColorLabel: backgroundColorLabel,
+                opacity: overlayOpacity,
+                contentAlignment: contentAlignment,
+                animation: block.animation,
+                contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                contentAnimationDuration: block.animationDuration.value|default(1500),
+                contentAnimationOffset: block.animationOffset.value|default(200),
+                contentAnimationEasing: block.animationEasing.value|default(null)
+            }) }}
+            {% endif %}
+
+            {% if iconCards|length %}
+            <div class="{{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-10' }}">
+                <div class="max-w-2xl items-start mx-auto w-full flex gap-5">
+                    {% for card in iconCards %}
+                        <div class="flex-1 w-full text-center" {{ cardAnimation|raw }}>
+                            {% if card.icon|length %}
+                            <div class="mx-auto flex justify-center items-center h-28 {{ render.foregroundColors({ background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'heading' }) }}">
+                                {{ svg(card.icon.path)|attr({
+                                    class: 'w-24 h-24',
+                                }) }}
+                            </div>
+                            {% endif %}
+
+                            {% if card.heading|length %}
+                            <h2 class="text-3xl lg:text-4xl font-bold {{ card.icon|length ? 'mt-4' }} {{ render.foregroundColors({ background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'heading' }) }}">
+                                {{ card.heading|nl2br }}
+                            </h2>
+                            {% endif %}
+
+                            {% if card.text|length %}
+                            <div class="{{ card.icon|length or card.heading|length ? 'mt-3' }}">
+                                {{ render.replaceElements(card.text, {
+                                    background: backgroundColorLabel,
+                                    opacity: overlayOpacity,
+                                    changeDefaultColor: true,
+                                    paragraphFontSize: 'text-lg',
+                                }) }}
+                            </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
