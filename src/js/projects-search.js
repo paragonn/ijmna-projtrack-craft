@@ -9,7 +9,7 @@ let searchForm = document.getElementById("js-search-form");
 let layers = [];
 const zoomLimit = {
     zoom: 1.8,
-    min: 1,
+    min: 2,
     max: 20,
     markerZoom: 15,
 };
@@ -45,7 +45,25 @@ window.addEventListener("load", (event) => {
 
     map.on("load", () => {
         performMagic(params);
-    }).on("click", "markers", e => {
+    })
+    .on('click', 'clusters', (e) => {
+        const features = map.queryRenderedFeatures(e.point, {
+            layers: ['clusters']
+        });
+        const clusterId = features[0].properties.cluster_id;
+        map.getSource('markers').getClusterExpansionZoom(
+            clusterId,
+            (err, zoom) => {
+                if (err) return;
+
+                map.easeTo({
+                    center: features[0].geometry.coordinates,
+                    zoom: zoom
+                });
+            }
+        );
+    })
+    .on("click", "markers", e => {
         const marker = e.features[0]
         let data = marker.properties;
         let html = createMarkerPopup(data);
@@ -55,10 +73,17 @@ window.addEventListener("load", (event) => {
             .setMaxWidth("420px")
             .addTo(map)
 
-    }).on("mouseenter", "markers", function (e) {
+    })
+    .on("mouseenter", "markers", function (e) {
+        map.getCanvas().style.cursor = "pointer";
+    })
+    .on("mouseenter", "clusters", function (e) {
         map.getCanvas().style.cursor = "pointer";
     })
     .on("mouseleave", "markers", function () {
+        map.getCanvas().style.cursor = ""
+    })
+    .on("mouseleave", "clusters", function () {
         map.getCanvas().style.cursor = ""
     });
 });
@@ -252,17 +277,13 @@ function handleDataFromGql(data)
         hightlightAreaOnMap(getFromParams("country[]"));
     } */
 
-    map.addSource("markers", {
-        type: "geojson",
-        data: markers,
-    });
-
-    addMarkerLayer("markers", {
+    /* addMarkerLayer("markers", {
         "circle-color": colorMarker,
         "circle-radius": 7.5,
         "circle-stroke-width": 1,
         "circle-stroke-opacity": 0.4,
-    });
+    }); */
+    addMarkerLayers(markers);
 
     // Display only the dealer markers that are within the dealer list
     map.setFilter("markers", markerFilter);
@@ -317,6 +338,8 @@ function flushMapBoxLayersAndData() {
 
     if (map.getSource("markers")) {
         map.removeLayer("markers");
+        map.removeLayer("clusters");
+        map.removeLayer("cluster-count");
         // map.removeLayer("markers-highlighted");
         map.removeSource("markers");
     }
@@ -444,13 +467,67 @@ function getPolygon(data) {
     return value
 }
 
-function addMarkerLayer(layerId, layerPaint) {
+function addMarkerLayers(markers)
+{
+    map.addSource("markers", {
+        type: "geojson",
+        data: markers,
+        cluster: true,
+        clusterMaxZoom: 14, // Max zoom to cluster points on
+        clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    });
+
     map.addLayer({
-        id: layerId,
-        source: "markers",
+        id: 'clusters',
+        type: 'circle',
+        source: 'markers',
+        filter: ['has', 'point_count'],
+        paint: {
+            // Use step expressions (https://docs.mapbox.com/style-spec/reference/expressions/#step)
+            // with three steps to implement three types of circles:
+            //   * Blue, 20px circles when point count is less than 100
+            //   * Yellow, 30px circles when point count is between 100 and 750
+            //   * Pink, 40px circles when point count is greater than or equal to 750
+            'circle-color': [
+                'step',
+                ['get', 'point_count'],
+                '#51bbd6', 100,
+                '#f1f075', 750,
+                '#f28cb1'
+            ],
+            'circle-radius': [
+                'step',
+                ['get', 'point_count'],
+                20, 100,
+                30, 750,
+                40
+            ]
+        }
+    });
+
+    map.addLayer({
+        id: 'cluster-count',
+        type: 'symbol',
+        source: 'markers',
+        filter: ['has', 'point_count'],
+        layout: {
+            'text-field': ['get', 'point_count_abbreviated'],
+            'text-size': 12
+        }
+    });
+
+    map.addLayer({
+        id: "markers",
         type: "circle",
-        paint: layerPaint,
-        filter: ["in", "id", ""],
+        source: "markers",
+        // filter: ["in", "id", ""],
+        filter: ['!', ['has', 'point_count']],
+        paint: {
+            "circle-color": colorMarker,
+            "circle-radius": 7.5,
+            "circle-stroke-width": 1,
+            "circle-stroke-opacity": 0.4,
+        }
     });
 }
 
