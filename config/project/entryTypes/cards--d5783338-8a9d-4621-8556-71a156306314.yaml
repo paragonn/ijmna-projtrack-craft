@@ -144,6 +144,36 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3f5e0cbd-512b-43e1-9390-475a21dde7fa
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd # Per Row Limit
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 16ae41a4-7e30-474f-8ac5-20b5a3858760
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
             handle: null
             includeInCards: false
@@ -172,21 +202,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
-          -
-            elementCondition: null
-            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd # Per Row Limit
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 16ae41a4-7e30-474f-8ac5-20b5a3858760
-            userCondition: null
-            warning: null
-            width: 100
           -
             elementCondition: null
             heading: 'Content Settings'
@@ -517,7 +532,7 @@ fieldLayouts:
         userCondition: null
 handle: cards
 hasTitleField: false
-icon: ''
+icon: cards
 name: Cards
 showSlugField: true
 showStatusField: true

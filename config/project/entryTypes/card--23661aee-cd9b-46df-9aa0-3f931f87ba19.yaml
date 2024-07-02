@@ -114,7 +114,7 @@ fieldLayouts:
         userCondition: null
 handle: card
 hasTitleField: false
-icon: ''
+icon: cards
 name: card
 showSlugField: true
 showStatusField: true

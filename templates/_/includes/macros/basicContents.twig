@@ -118,10 +118,12 @@
         button: button.button,
         buttonId: button.getId(),
         buttonType: button.buttonType.getValue()|default(defaultButtonType|length ? defaultButtonType : "button"),
-        buttonColor: button.buttonColor.label|default('blue-800'),
+        buttonColor: button.buttonColor.label|default(backgroundColorLabel == 'blue' ? 'blue-800' : 'blue-800'),
         icon: button.icon,
         iconPosition: button.iconPosition.getValue()|default('right'),
-        background: backgroundColorLabel
+        background: backgroundColorLabel,
+        changeDefaultColor: changeDefaultColor,
+        opacity: opacity
     }) }}
 {% if loop.last %}
 </div>

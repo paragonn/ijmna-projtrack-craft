@@ -52,7 +52,7 @@
         'blue'         : 'text-blue-500 hover:text-blue-600',
         'blue-600'     : 'text-blue-600 hover:text-blue-700',
         'blue-700'     : 'text-blue-700 hover:text-blue-800',
-        'blue-800'     : 'text-blue-800 hover:text-blue-950'
+        'blue-800'     : 'text-blue-800 hover:text-blue-500'
     }
 } %}
 
@@ -64,8 +64,8 @@
         button.classes,
         colors[buttonType][buttonColor] ?? null,
         extraClasses|length ? extraClasses : buttonType == 'link'
-            ? "underline underline-offset-1 text-lg transition-all duration-300 #{buttonClasses}"
-            : "py-3.5 px-6 inline-block uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
+            ? "group text-lg font-bold items-center transition-all duration-300 #{buttonClasses}"
+            : "py-3.5 px-6 inline-block items-center uppercase font-bold tracking-widest border-2 transition-all duration-300 #{buttonClasses} " ~ (buttonType == 'outline' ? 'box-border'),
         icon|length and iconPosition == 'left' ? 'flex-row-reverse' : null
     ]
 }) %}
@@ -111,8 +111,9 @@
         {% endif %}
 
         {% if icon|length %}
+            {% set iconClass = buttonColor == 'blue-800' and buttonType == 'link' ? 'text-blue-500' %}
             {{ svg(icon.path)|attr({
-                class: 'h-5 w-5'
+                class: 'h-5 w-5 ' ~ iconClass
             }) }}
         {% endif %}
 
