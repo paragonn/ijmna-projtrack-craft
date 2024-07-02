@@ -141,7 +141,22 @@ fieldLayouts:
             uid: 21000ee6-4812-4d8c-a677-d350a2582fb0
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 947500cc-5444-4168-b8e0-4737f05e8823
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
@@ -186,7 +201,22 @@ fieldLayouts:
             uid: 1230f884-729d-44ad-b847-09da7a6c88d7
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: f9be8226-8b11-4ea4-8950-2dbcb61beec5 # Column Alignment
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b139a38f-8d6b-423f-a2fb-be5a157ea7db
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             heading: 'Content Settings'

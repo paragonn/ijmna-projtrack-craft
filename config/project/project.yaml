@@ -1,4 +1,4 @@
-dateModified: 1719926950
+dateModified: 1719933442
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -139,6 +139,7 @@ meta:
     f0cc5f70-7696-4267-8c7c-769e499ad9de: Videos # Videos
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
+    f9be8226-8b11-4ea4-8950-2dbcb61beec5: 'Column Alignment' # Column Alignment
     f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
     f53d3737-57cc-49ff-b173-17376ae0c1bf: 'Stat Box' # Stat Box
     fa195a9b-e2f8-4ff9-b875-48e5cce85e25: 'Image Content Layout' # Image Content Layout

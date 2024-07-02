@@ -582,7 +582,7 @@ fieldLayouts:
         userCondition: null
 handle: statsBox
 hasTitleField: false
-icon: ''
+icon: signal
 name: 'Stats Box'
 showSlugField: false
 showStatusField: true

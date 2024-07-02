@@ -55,7 +55,7 @@
     swatch: 'gradient'
 }) %}
 
-{% set imageRatio = block.imageRatio.getValue()|default('16_9') %}
+{% set imageRatio = block.imageRatio.getValue()|default(parent == 'twoColumns' ? 'auto' : '16_9') %}
 {% set ratio = {
     'auto'    : 'aspect-auto',
     '1_1'     : 'aspect-w-1 aspect-h-1',
