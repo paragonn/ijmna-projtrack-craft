@@ -1,0 +1,13 @@
+columnSuffix: null
+handle: contentBoxColor
+instructions: null
+name: 'Content Box Color'
+searchable: false
+settings:
+  default: null
+  palette: 'Box Color'
+  setRandom: false
+  useConfigFile: true
+translationKeyFormat: null
+translationMethod: none
+type: percipiolondon\colourswatches\fields\ColourSwatches

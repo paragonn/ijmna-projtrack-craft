@@ -1,4 +1,4 @@
-dateModified: 1719843385
+dateModified: 1719894046
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -68,6 +68,7 @@ meta:
     16c21eca-a8b2-4b44-bd82-463fac26b779: 'Icon Cards' # Icon Cards
     18de2689-3603-4c37-8473-396f9ce4f78c: 'Padding Bottom' # Padding Bottom
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
+    26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker

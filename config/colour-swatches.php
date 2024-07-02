@@ -152,5 +152,25 @@ return [
                 ]
             ]
         ],
+        'Box Color' => [
+            [
+                'label'   => 'white',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ffffff',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'transparent',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => 'transparent',
+                    ]
+                ]
+            ]
+        ],
     ]
 ];

@@ -49,7 +49,7 @@ function merge(modules, settings) {
 
 let thumbSlider = document.querySelector(".thumbslider");
 if (thumbSlider) {
-    var thumbslider = new Swiper(".thumbslider", {
+    let thumbslider = new Swiper(".thumbslider", {
         spaceBetween: 2,
         slidesPerView: 1,
         centeredSlides: true,
@@ -57,7 +57,7 @@ if (thumbSlider) {
         allowTouchMove: false,
     });
 
-    var productslider = new Swiper(".productslider", {
+    let productslider = new Swiper(".productslider", {
         slidesPerView: 1,
         centeredSlides: true,
         speed: 500,
@@ -68,18 +68,23 @@ if (thumbSlider) {
             prevEl: ".swiper-button-prev-product-main",
         },
         pagination: {
-            el: ".swiper-pagination-testi",
+            el: ".swiper-pagination-imageContent",
             type: "fraction",
         },
         thumbs: {
             swiper: thumbslider,
         },
+        /*on: {
+            slideChange: function () {
+                console.log('Slide changed to: ', this.activeIndex);
+            }
+        }*/
     });
 }
 
 let thumbcreativeSlider = document.querySelector(".thumb-creativelider");
 if (thumbcreativeSlider) {
-    var thumbslider = new Swiper(".thumb-creativelider", {
+    let thumbslider = new Swiper(".thumb-creativelider", {
         spaceBetween: 2,
         slidesPerView: 1,
         centeredSlides: true,
@@ -87,7 +92,7 @@ if (thumbcreativeSlider) {
         allowTouchMove: false,
     });
 
-    var productslider = new Swiper(".creative-slider", {
+    let productslider = new Swiper(".creative-slider", {
         slidesPerView: 1,
         centeredSlides: true,
         speed: 500,
