@@ -74,10 +74,10 @@
 }) | raw %}
 
 {% set image = block.image.one() %}
-{% set video = block.videos.all() %}
+{% set videos = block.videos.all() %}
 {% set embedVideo = block.embedVideo %}
 
-{% if image|length or video|length %}
+{% if image|length or videos|length or embedVideo|length %}
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer and containerSize == 'container' ? 'container' }}">
         <div class="{{ render.contentWidth({width: contentWidth}) }}">
@@ -90,7 +90,7 @@
                     class: "w-full h-full object-cover",
                     lazy: false,
                     videoLazy: false,
-                    videos: video,
+                    videos: videos,
                     embedVideos: embedVideo,
                     videoClass: "w-full h-full object-cover",
                     extraWrapperClasses: "z-10",
