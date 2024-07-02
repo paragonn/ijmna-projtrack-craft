@@ -75,6 +75,7 @@
 
 {% set image = block.image.one() %}
 {% set video = block.videos.all() %}
+{% set embedVideo = block.embedVideo %}
 
 {% if image|length or video|length %}
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
@@ -90,8 +91,10 @@
                     lazy: false,
                     videoLazy: false,
                     videos: video,
+                    embedVideos: embedVideo,
                     videoClass: "w-full h-full object-cover",
-                    videoType: 'background',
+                    extraWrapperClasses: "z-10",
+                    videoType: 'bgPopup',
                     videoPoster: image,
                     videoId: block.getId(),
                     videoAttrs: {

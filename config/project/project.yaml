@@ -1,4 +1,4 @@
-dateModified: 1719906063
+dateModified: 1719906064
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -80,6 +80,7 @@ meta:
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
     89cc861f-51a9-49de-9637-831af3da0e7a: 'Border Color' # Border Color
     089d8bf1-7cfe-4f80-bf8b-517fa9e233e0: 'Call to Action' # Call to Action
+    90a810f2-de87-4697-8abf-8e6e2c825c72: Quote # Quote
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
     383b8156-a3da-4bda-991a-7c9893a1c11c: Button # Button
     423bb166-71e5-4c7c-9d8c-71db99966b0b: SEO # SEO
@@ -100,6 +101,7 @@ meta:
     23661aee-cd9b-46df-9aa0-3f931f87ba19: card # card
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
     31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
+    56196e9b-e1c4-44b3-817a-0f471121ed32: 'Quote Attribution' # Quote Attribution
     72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country

@@ -58,7 +58,7 @@
 
 {% set imageContentLayout = block.imageContentLayout.value|default('layout1') %}
 {% set imagePositionLayou1 = block.imagePosition.getValue()|default('right') %}
-{% set imagePositionLayou2 = block.imagePosition2.getValue()|default('right') %}
+{% set imagePositionLayou2 = block.imagePosition2.getValue()|default('left') %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({

@@ -266,6 +266,7 @@
         heading: null,
         text: null,
         quote: null,
+        quoteAttribution: null,
         buttons: null,
         headingTag: null,
         headingSize: null,
@@ -279,6 +280,7 @@
         animation: null,
         capitalize: false,
         eyebrowCapitalize: true,
+        quoteBorder: true,
         textParentDivClass: null,
         overrideParagraphFontSize: null,
         eyebrowFontWeight: null,
@@ -332,6 +334,7 @@
 {% macro renderVideo(params) %}
     {% set defaultsParams = {
         videos: null,
+        embedVideos: null,
         videoClass: null,
         videoType: 'background',
         autoplay: true,
@@ -362,7 +365,7 @@
     {% include "_/includes/macros/renderVideo" with options %}
 
     {# Call the 'setImage' macro from the same file using 'self' #}
-    {% if options.videoType != "background" or (not options.videos|length) %}
+    {% if options.videoType not in ["background", "bgPopup"] or (not options.videos|length) %}
         {{ _self.setImage(options) }}
     {% endif %}
 {% endmacro %}

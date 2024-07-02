@@ -101,6 +101,36 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72 # Quote
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 02d36092-09e2-4d66-ad7f-1242ca54c05f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32 # Quote Attribution
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25977bf3-2f5d-4c99-8e06-84ef8b136565
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85 # Text
             handle: null
             includeInCards: false

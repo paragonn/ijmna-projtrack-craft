@@ -40,33 +40,6 @@
 </{{ headingTag }}>
 {% endif %}
 
-{% if quote|length %}
-{% set contentAnimation = render.setAnimation({
-    animation: animation,
-    animationStyle: contentAnimationStyle,
-    animationDuration: contentAnimationDuration,
-    animationOffset: contentAnimationOffset,
-    animationEasing: contentAnimationEasing,
-    animationDelay: delay
-}) | raw %}
-<blockquote class="rounded-tr rounded-br border border-l-4 p-5 pl-3.5 bg-transparent {{ text|length or buttons|length ? 'mb-4' }} {{ quoteExtraClasses }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.foregroundColors({background: backgroundColorLabel, opacity: opacity, changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ render.foregroundColors({
-    background: backgroundColorLabel,
-    opacity: opacity,
-    changeDefaultColor: changeDefaultColor,
-    type: blockquoteType ?? 'heading',
-}) }}" {{ contentAnimation|raw }}>
-    <div class="flex items-start">
-        <p class="m-0 italic leading-relaxed">
-            {% set params = {
-                text: '"' ~ quote ~ '"',
-                class: 'font-bold'
-            } %}
-            {{ render.replaceUnderscores(params) }}
-        </p>
-    </div>
-</blockquote>
-{% endif %}
-
 {% if text|length %}
 {% set delay = delay + 200 %}
 {% set contentAnimation = render.setAnimation({
@@ -78,7 +51,7 @@
     animationDelay: delay
 }) | raw %}
 
-<div class="space-y-3 {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
+<div class="space-y-3 {{ quote|length ? 'mb-4' }} {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
     {{ render.replaceElements(text, {
         background: backgroundColorLabel,
         contentAlignment: contentAlignment,
@@ -88,6 +61,37 @@
         paragraphFontSize: overrideParagraphFontSize|length ? overrideParagraphFontSize
     }) }}
 </div>
+{% endif %}
+
+{% if quote|length %}
+{% set contentAnimation = render.setAnimation({
+    animation: animation,
+    animationStyle: contentAnimationStyle,
+    animationDuration: contentAnimationDuration,
+    animationOffset: contentAnimationOffset,
+    animationEasing: contentAnimationEasing,
+    animationDelay: delay
+}) | raw %}
+<blockquote class="font-Baskervville -tracking-wide {{ quoteBorder ? 'rounded-tr rounded-br border border-l-4 p-5 pl-3.5 bg-transparent' }} {{ quoteExtraClasses ?? 'text-2xl lg:text-3xl' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ quoteBorder ? render.foregroundColors({background: backgroundColorLabel, opacity: opacity, changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ render.foregroundColors({
+    background: backgroundColorLabel,
+    opacity: opacity,
+    changeDefaultColor: changeDefaultColor,
+    type: blockquoteType ?? 'heading',
+}) }}" {{ contentAnimation|raw }}>
+    <div>
+        <span>
+            {% set params = {
+                text: '"' ~ quote ~ '"',
+                class: 'font-bold'
+            } %}
+            {{ render.replaceUnderscores(params) }}
+        </span>
+
+        {% if quoteAttribution|length %}
+        <p class="mt-3">{{ '- ' ~ quoteAttribution }}</p>
+        {% endif %}
+    </div>
+</blockquote>
 {% endif %}
 
 {% for button in buttons %}

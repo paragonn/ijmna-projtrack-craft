@@ -188,7 +188,19 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: fa195a9b-e2f8-4ff9-b875-48e5cce85e25 # Image Content Layout
+                  layoutElementUid: 75292ca9-143e-4bf6-8c28-920b700981bf
+                  operator: ni
+                  uid: 6c3a26de-78bf-4283-85a8-27b6319184dd
+                  values:
+                    - layout2
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8 # Content Box Color
             handle: null
             includeInCards: false
