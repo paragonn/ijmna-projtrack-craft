@@ -1,4 +1,4 @@
-dateModified: 1719901315
+dateModified: 1719904028
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -70,6 +70,8 @@ meta:
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
     26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
+    51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
+    59f089df-32db-4da9-aa07-7b501b160aa4: Card # Card
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
     71fa55a9-c465-4fe2-91f2-ee5a739774a9: 'Overlay Gradient' # Overlay Gradient
@@ -92,6 +94,7 @@ meta:
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
     9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
     13612fd6-fab3-4e45-9853-5634a3ef9d91: CTA # CTA
+    23661aee-cd9b-46df-9aa0-3f931f87ba19: card # card
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
     31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
     72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
@@ -115,6 +118,7 @@ meta:
     d07b837d-c20e-48d9-ac52-34b7a29fbfcb: 'Container Id' # Container Id
     d3ab5ad8-585b-43bc-b8ad-c093a04c787f: 'Minus Margin Top' # Minus Margin Top
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
+    d5783338-8a9d-4621-8556-71a156306314: Cards # Cards
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
     dccbbef1-4f06-4d4c-ae48-1cf7043ddc36: 'Alt Logo' # Alt Logo
     e0a8ee1c-ea61-4169-aea6-03da5e26c04f: Column # Column
