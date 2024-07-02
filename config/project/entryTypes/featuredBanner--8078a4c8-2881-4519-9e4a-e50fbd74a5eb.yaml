@@ -48,7 +48,22 @@ fieldLayouts:
             uid: 1761bd7e-bbf5-466e-b210-4cb94a40a6ea
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c8bca20c-24c4-48ab-acda-82491963378f
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule

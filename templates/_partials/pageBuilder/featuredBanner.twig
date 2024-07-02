@@ -30,9 +30,6 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% set image = block.image.one() %}
-{% set buttons = block.buttons.all() %}
-
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
@@ -44,24 +41,40 @@
     swatch: 'background'
 }) %}
 
-{% set overlayOpacity = block.overlayOpacity.getValue()|default('60') %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('40') %}
 {% set bgOpacity = render.setOpacity({
     opacity: overlayOpacity,
     opacityType: 'bg'
 }) %}
 
+{% set image = block.image.one() %}
+{% set videos = block.videos.all() %}
+{% set buttons = block.buttons.all() %}
+
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="relative {{ spacing.marginTop }} {{ spacing.marginBottom }}">
-    {{ render.setImage({
-        image: image,
-        alt: image.title,
-        width: image.width,
-        height: image.height,
-        class: "object-cover w-full h-full absolute inset-0",
-    }) }}
+    {% if image|length or videos|length %}
+        {{ render.renderVideo({
+            image: image|length ? image,
+            alt: image|length ? image.title,
+            width: image|length ? image.width,
+            height: image|length ? image.height,
+            class: "object-cover w-full h-full absolute inset-0",
+            lazy: false,
+            videoLazy: false,
+            videos: videos,
+            videoClass: "object-cover w-full h-full absolute inset-0",
+            videoType: 'background',
+            videoPoster: image,
+            videoId: block.getId(),
+            videoAttrs: {
+                preload: "none",
+            }
+        }) }}
+    {% endif %}
     <div class="inset-0 w-full h-full absolute {{ backgroundColor }} {{ bgOpacity }}"></div>
 
     {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
-    <div class="container relative z-10 {{ spacing.paddingTop }} {{ spacing.paddingBottom }}">
+    <div class="container relative z-10 {{ backgroundColorLabel == 'white' ? 'lg:py-28 py-16' }} {{ spacing.paddingTop }} {{ spacing.paddingBottom }}">
         <div class="{{ render.contentWidth({width: contentWidth}) }}">
             {{ render.basicContents({
                 eyebrow: block.eyebrow,
@@ -76,6 +89,7 @@
                 overrideParagraphFontSize: 'text-lg',
                 backgroundColorLabel: backgroundColorLabel,
                 opacity: overlayOpacity,
+                changeDefaultColor: false,
                 contentAlignment: contentAlignment,
                 animation: block.animation,
                 contentAnimationStyle: block.animationStyle.value|default('fade-up'),
