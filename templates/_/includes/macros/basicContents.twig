@@ -10,7 +10,7 @@
 {% set delay = 0 %}
 
 {% if eyebrow|length %}
-<h6 class="{{ heading|length or text|length or buttons|length ? 'mb-5' }} {{ eyebrowExtraClasses|length ? eyebrowExtraClasses : 'text-base tracking-widest' }} {{ eyebrowSpacing|length ? eyebrowSpacing }} {{ render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getFontWeight({font: eyebrowFontWeight}) }} {{ eyebrowCapitalize ? 'uppercase' }} {{ render.foregroundColors({
+<h6 class="{{ cardContentSpacing|length and (heading|length or text|length or buttons|length) ? cardContentSpacing : (heading|length or text|length or buttons|length ? 'mb-5') }} {{ eyebrowExtraClasses|length ? eyebrowExtraClasses : 'text-base tracking-widest' }} {{ eyebrowSpacing|length ? eyebrowSpacing }} {{ render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getFontWeight({font: eyebrowFontWeight}) }} {{ eyebrowCapitalize ? 'uppercase' }} {{ render.foregroundColors({
     background: backgroundColorLabel,
     opacity: opacity,
     changeDefaultColor: changeDefaultColor,
@@ -30,7 +30,7 @@
     animationDelay: delay
 }) | raw %}
 
-<{{ headingTag }} class="{{ headingSpacing }} {{ text|length or buttons|length or quote|length ? 'mb-5' }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
+<{{ headingTag }} class="{{ headingSpacing }} {{ cardContentSpacing|length and (text|length or buttons|length or quote|length) ? cardContentSpacing : (text|length or buttons|length or quote|length ? 'mb-5') }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
     background: backgroundColorLabel,
     opacity: opacity,
     changeDefaultColor: changeDefaultColor,
@@ -51,7 +51,7 @@
     animationDelay: delay
 }) | raw %}
 
-<div class="space-y-3 {{ quote|length ? 'mb-4' }} {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
+<div class="space-y-3 {{ cardContentSpacing|length and quote|length ? cardContentSpacing : (quote|length ? 'mb-4') }} {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
     {{ render.replaceElements(text, {
         background: backgroundColorLabel,
         contentAlignment: contentAlignment,
@@ -105,7 +105,7 @@
     animationDelay: delay
 }) | raw %}
 {% if loop.first %}
-<div class="flex flex-wrap gap-8 {{ eyebrow|length or heading|length or text|length ? 'mt-6' }} {{ render.getAlignment({
+<div class="flex flex-wrap gap-8 {{ buttonSpacing and (eyebrow|length or heading|length or text|length) ? buttonSpacing : (eyebrow|length or heading|length or text|length ? 'mt-6') }} {{ render.getAlignment({
     alignment: contentAlignment,
     type: 'justify'
 }) }}" {{ contentAnimation|raw }}>
