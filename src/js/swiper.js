@@ -89,6 +89,7 @@ if (thumbSlider) {
         freeMode: true,
         watchSlidesProgress: true,
         allowTouchMove: false,
+        effect: "fade",
         navigation: {
             nextEl: ".swiper-button-next-thumbs",
             prevEl: ".swiper-button-prev-thumbs",
