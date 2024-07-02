@@ -80,12 +80,11 @@
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">
         <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
-            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+            {% if block.eyebrow|length or block.heading|length or block.text|length %}
             {{ render.basicContents({
                 eyebrow: block.eyebrow,
                 heading: block.heading,
                 text: block.text,
-                buttons: buttons,
                 headingTag: headingTag,
                 headingSize: headingTag,
                 fontWeight: fontWeight,
@@ -104,7 +103,7 @@
             {% endif %}
 
             {% if childrens|length %}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-12' }}">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
                 {% for child in childrens %}
                 <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }}">
                     {% include "_partials/blocks" with {
@@ -122,6 +121,22 @@
                     } %}
                 </div>
                 {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if buttons|length %}
+            <div class="mt-10">
+                {{ render.basicContents({
+                    buttons: buttons,
+                    backgroundColorLabel: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    contentAlignment: contentAlignment,
+                    animation: block.animation,
+                    contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                    contentAnimationDuration: block.animationDuration.value|default(1500),
+                    contentAnimationOffset: block.animationOffset.value|default(200),
+                    contentAnimationEasing: block.animationEasing.value|default(null)
+                }) }}
             </div>
             {% endif %}
         </div>
