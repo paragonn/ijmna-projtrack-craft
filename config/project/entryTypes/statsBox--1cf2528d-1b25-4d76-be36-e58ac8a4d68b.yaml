@@ -141,7 +141,22 @@ fieldLayouts:
             uid: 6cc4e32a-cb0c-49b3-96a7-b2873d18c2ea
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 746de469-f6e6-4610-842e-ab7badde7335
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
@@ -275,6 +290,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
+            handle: contentAlignment2
+            includeInCards: false
+            instructions: null
+            label: 'Card Alignment'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d70f39f0-7de2-40ac-a2fd-d9664a42a593
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
             fieldUid: e05fb8e0-726b-4a55-b97f-aea98a58c8a1 # Heading Size
             handle: null
             includeInCards: false
@@ -287,7 +317,7 @@ fieldLayouts:
             uid: f6911357-4a34-4adf-9107-a988cc3f5bcd
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd # Font Weight
@@ -302,7 +332,7 @@ fieldLayouts:
             uid: d6fc6f3f-d693-44ef-97fe-84d5ef9dbd88
             userCondition: null
             warning: null
-            width: 25
+            width: 50
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
