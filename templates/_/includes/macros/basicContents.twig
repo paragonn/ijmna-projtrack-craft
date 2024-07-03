@@ -109,7 +109,7 @@
     animationDelay: delay
 }) | raw %}
 {% if loop.first %}
-<div class="flex flex-wrap gap-8 {{ eyebrow|length or heading|length or text|length ? buttonSpacing }} {{ render.getAlignment({
+<div class="flex flex-wrap {{ buttonGap ?? 'gap-8' }} {{ eyebrow|length or heading|length or text|length ? buttonSpacing }} {{ render.getAlignment({
     alignment: contentAlignment,
     type: 'justify'
 }) }}" {{ contentAnimation|raw }}>

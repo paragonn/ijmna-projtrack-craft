@@ -1,17 +1,31 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+{% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length or block.icon|length %}
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
     <div class="container">
         <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
-            <div class="{{ block.showBorder ? 'border-2 p-6 lg:p-12 ' ~ contentBoxColor ~ render.foregroundColors({
+            {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
+            <div class="{{ showBorder and borderColor != null ? 'border-2 p-6 lg:p-12 ' ~ contentBoxColor ~ render.foregroundColors({
+                background: borderLabel,
+                opacity: overlayOpacity,
+                changeDefaultColor: true,
+                type: 'borderColor'
+            }) }}">
+                {% if block.icon|length %}
+                <div class="mb-4 {{ render.foregroundColors({
                     background: backgroundColorLabel,
-                    overrideColor: borderColor,
                     opacity: overlayOpacity,
                     changeDefaultColor: true,
-                    type: 'borderColor'
+                    type: 'info-icon-color'
                 }) }}">
+                    {{ svg(block.icon.path)|attr({
+                        fill: 'currentColor',
+                        class: 'w-28 h-28 ' ~ render.getAlignment({alignment: contentAlignment, type: 'margin'})
+                    }) }}
+                </div>
+                {% endif %}
+
                 {{ render.basicContents({
                     eyebrow: block.eyebrow,
                     heading: block.heading,
@@ -23,6 +37,7 @@
                     eyebrowFontWeight: 'bold',
                     fontFamily: '',
                     overrideParagraphFontSize: 'text-lg',
+                    cardContentSpacing: 'mb-3',
                     backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
                     opacity: overlayOpacity,
                     contentAlignment: contentAlignment,

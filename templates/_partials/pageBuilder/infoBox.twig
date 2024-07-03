@@ -37,6 +37,8 @@
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 {% set borderColor = block.borderColor.label|default(null) %}
+{% set infoBoxLayout = block.infoBoxLayout.value|default('layout1') %}
+{% set showBorder = block.showBorder %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
@@ -44,7 +46,7 @@
     swatch: 'background'
 }) %}
 
-{% set contentBoxColorLabel = block.contentBoxColor.label|default('white') %}
+{% set contentBoxColorLabel = block.contentBoxColor.label|default(infoBoxLayout == 'layout1' ? 'white' : 'transparent') %}
 {% set contentBoxColor = render.color({
     handle: contentBoxColorLabel,
     swatch: 'box-color'
@@ -57,7 +59,6 @@
 }) %}
 
 {% set buttons = block.buttons.all() %}
-{% set infoBoxLayout = block.infoBoxLayout.value|default('layout1') %}
 
 {# Include Info Box #}
 {% include "_partials/pageBuilder/infoBox/#{infoBoxLayout}" %}
