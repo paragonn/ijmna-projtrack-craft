@@ -18,7 +18,7 @@
                     opacity: overlayOpacity,
                     changeDefaultColor: true,
                     type: 'info-icon-color'
-                }) }}">
+                }) }}" {{ contentAnimation|raw }}>
                     {{ svg(block.icon.path)|attr({
                         fill: 'currentColor',
                         class: 'w-28 h-28 ' ~ render.getAlignment({alignment: contentAlignment, type: 'margin'})

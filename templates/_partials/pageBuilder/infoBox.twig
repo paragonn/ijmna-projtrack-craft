@@ -63,6 +63,14 @@
 
 {% set buttons = block.buttons.all() %}
 
+{% set contentAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle.value|default('fade-up'),
+    animationDuration: block.animationDuration.value|default(1500),
+    animationOffset: block.animationOffset.value|default(200),
+    animationEasing: block.animationEasing.value|default(null)
+}) | raw %}
+
 {# Include Info Box #}
 {% include "_partials/pageBuilder/infoBox/#{infoBoxLayout}" %}
 
