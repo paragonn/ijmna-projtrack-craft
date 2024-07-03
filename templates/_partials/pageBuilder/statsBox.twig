@@ -42,6 +42,12 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set showBorder = block.showBorder %}
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
@@ -51,14 +57,16 @@
 {% set contentWidth = block.contentWidth|default('0;12') %}
 {% set borderColor = block.borderColor.label|default(showBorder ? 'blue-800' : null) %}
 
-{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
+{% set perRowLimit = block.perRowLimit.getValue()|default(parent == 'twoColumns' ? '2' : '3') %}
 {% set rowLimit = {
     '2' : 'grid-cols-1 md:grid-cols-2',
     '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
     '4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
 } %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -79,8 +87,8 @@
 {% set buttons = block.buttons.all() %}
 {% set statsBox = block.statBox.all() %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
-    <div class="container">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
         <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div class="grid grid-cols-1">
                 {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
@@ -132,7 +140,7 @@
                                 fontFamily: '',
                                 overrideHeadingSize: 'text-6xl lg:text-7xl',
                                 overrideParagraphFontSize: 'md:text-lg',
-                                backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                                backgroundColorLabel: block.showBorder and contentBoxColorLabel == 'white' ? contentBoxColorLabel : backgroundColorLabel,
                                 opacity: overlayOpacity,
                                 contentAlignment: cardAlignment,
                                 animation: block.animation,
@@ -149,4 +157,4 @@
             </div>
         </div>
     </div>
-</section>
+</{{ sectionTag }}>
