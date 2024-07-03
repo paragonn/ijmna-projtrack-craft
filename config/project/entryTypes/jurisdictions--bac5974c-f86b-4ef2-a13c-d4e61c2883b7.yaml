@@ -109,8 +109,203 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Content
+        name: Filter
         uid: ce7b5803-4685-40c3-b2e3-b9cfd246094d
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: c14150f6-d51e-480d-9575-1091c8b07cb1 # Content Builder
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8c489406-84ef-45ec-955f-a089fa0f6eb7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 2bc4a234-df5b-412b-87ab-e0a64dd2e9b7
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            heading: Content
+            type: craft\fieldlayoutelements\Heading
+            uid: f42bb9b6-ac17-4e26-ae5f-99b1f85a770c
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 887e8c04-ed78-4f44-afb0-408021c88446 # Background Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4875f344-c216-4617-8e8d-4af0ab4a3738
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Background Vides'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bf12b7e2-2c22-49ff-9ebd-972d99794cf3
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 6a8efaa8-2ed0-497f-a528-78203c0632ab # Hero Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 3d16a99a-95c9-49b0-9e8e-1658f5448045
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 68a24557-cc86-4045-b642-754749ccf485 # Stage Byline
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f4d7bcb0-e65d-47fe-ac99-84fea10ad310
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 6553bc6c-dfc2-465a-a5ba-e218ea8c0778 # Jurisdictions Case Types
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fcd6d501-43cf-4b1f-bff9-be48718e7524
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72 # Quote
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f2cd0488-27e3-4e92-bb1a-817c7f3f897c
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32 # Quote Attribution
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4a23f80b-be80-456e-8adf-0fd59b28e217
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            heading: Settings
+            type: craft\fieldlayoutelements\Heading
+            uid: 4a52b390-8c10-49a0-9396-48f442f2ab7b
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: e671a976-5fd4-4e36-a257-592286dfcf78 # Image Position
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Hero Image Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c063d9c7-89b9-4efe-9a50-15299a9afe80
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd # Per Row Limit
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Types Per Row Limit'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4c1c5bb7-d3ba-4bf3-837b-e79a0ddcda43
+            userCondition: null
+            warning: null
+            width: 50
+        name: Hero
+        uid: e32db86e-8a10-42dd-a30a-22a16fa17bca
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 423bb166-71e5-4c7c-9d8c-71db99966b0b # SEO
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2a70a359-8a44-4c87-87dd-8a4ab943cd1c
+            userCondition: null
+            warning: null
+            width: 100
+        name: SEO
+        uid: b7dd03d1-9746-4304-b2bf-88739a2ef5bc
         userCondition: null
 handle: jurisdictions
 hasTitleField: true
