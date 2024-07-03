@@ -32,7 +32,7 @@
     animationDelay: delay
 }) | raw %}
 
-<{{ headingTag }} class="{{ headingSpacing }} {{ text|length or buttons|length or quote|length ? headingCardContentSpacing }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
+<{{ headingTag }} class="{{ headingSpacing }} {{ text|length or buttons|length or quote|length ? headingCardContentSpacing }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ overrideHeadingSize ?? render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
     background: backgroundColorLabel,
     opacity: opacity,
     changeDefaultColor: changeDefaultColor,

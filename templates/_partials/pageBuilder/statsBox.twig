@@ -1,0 +1,150 @@
+{#
+===============================================================================
+    Stats Box (statsBox)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Stat Box (statBox)
+                - Heading (heading)
+                - Text (text)
+                - Buttons (button)
+                    - Button Type (buttonType)
+                    - Button Color (buttonColor)
+                    - Icon (icon)
+                    - Icon Position (iconPosition)
+                    - Button (button)
+
+        Auxiliary:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Per Row Limit (perRowLimit)
+            - Show Border? (showBorder)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('left') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+{% set borderColor = block.borderColor.label|default(null) %}
+
+{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
+{% set rowLimit = {
+    '2' : 'grid-cols-1 md:grid-cols-2',
+    '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    '4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+} %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set contentBoxColorLabel = block.contentBoxColor.label|default('white') %}
+{% set contentBoxColor = render.color({
+    handle: contentBoxColorLabel,
+    swatch: 'box-color'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set buttons = block.buttons.all() %}
+{% set statsBox = block.statBox.all() %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class=" {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+    <div class="container">
+        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+            {{ render.basicContents({
+                eyebrow: block.eyebrow,
+                heading: block.heading,
+                text: block.text,
+                buttons: buttons,
+                headingTag: headingTag,
+                headingSize: headingTag,
+                fontWeight: fontWeight,
+                eyebrowFontWeight: 'bold',
+                fontFamily: '',
+                overrideParagraphFontSize: 'text-lg',
+                eyebrowExtraClasses: 'text-lg md:text-xl tracking-widest',
+                backgroundColorLabel: backgroundColorLabel,
+                opacity: overlayOpacity,
+                contentAlignment: contentAlignment,
+                animation: block.animation,
+                contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                contentAnimationDuration: block.animationDuration.value|default(1500),
+                contentAnimationOffset: block.animationOffset.value|default(200),
+                contentAnimationEasing: block.animationEasing.value|default(null)
+            }) }}
+            {% endif %}
+
+            {% if statsBox|length %}
+            <div class="grid grid-cols-1 {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-9' }}">
+                <div class="text-center {{ block.showBorder ? 'border-2 px-8 py-14 ' ~ contentBoxColor ~  render.foregroundColors({
+                        background: backgroundColorLabel,
+                        overrideColor: borderColor,
+                        opacity: overlayOpacity,
+                        changeDefaultColor: true,
+                        type: 'borderColor'
+                    }) }}"
+                >
+                    <div class="grid gap-5 {{ rowLimit[perRowLimit] }}">
+                        {% for statBox in statsBox %}
+                            {% set statBoxButton = statBox.buttons.all() %}
+                            {% if statBox.heading|length or statBox.text|length or statBoxButton|length %}
+                            <div>
+                                {{ render.basicContents({
+                                    eyebrow: statBox.eyebrow,
+                                    heading: statBox.heading,
+                                    text: statBox.text,
+                                    buttons: statBoxButton,
+                                    headingTag: 'h2',
+                                    headingSize: 'h2',
+                                    eyebrowFontWeight: 'bold',
+                                    fontFamily: '',
+                                    overrideHeadingSize: 'text-6xl lg:text-7xl',
+                                    overrideParagraphFontSize: 'md:text-lg',
+                                    backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                                    opacity: overlayOpacity,
+                                    contentAlignment: contentAlignment,
+                                    animation: block.animation,
+                                    contentAnimationStyle: block.animationStyle2.value|default('fade-right'),
+                                    contentAnimationDuration: block.animationDuration2.value|default(1500),
+                                    contentAnimationOffset: block.animationOffset2.value|default(200),
+                                    contentAnimationEasing: block.animationEasing2.value|default(null)
+                                }) }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
