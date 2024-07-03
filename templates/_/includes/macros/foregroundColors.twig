@@ -80,6 +80,16 @@
         'blue-700'   : changeColorCon ? 'hover:text-blue-800 text-blue-800/30' : 'text-blue-500 hover:text-blue-500/50',
         'blue-800'   : changeColorCon ? 'hover:text-blue-800 text-blue-800/30' : 'text-blue-500 hover:text-blue-500/50'
     },
+
+    'check-list' : {
+        'none'       : 'border-blue-800 text-blue-800 checked:border-blue-800',
+        'white'      : 'border-blue-800 text-blue-800 checked:border-blue-800',
+        'blue-100'   : 'border-blue-800 text-blue-800 checked:border-blue-800',
+        'blue'       : changeColorCon ? 'border-blue-800 text-blue-800 checked:border-blue-800' : 'border-white text-blue-100 checked:border-blue-100',
+        'blue-600'   : changeColorCon ? 'border-blue-800 text-blue-800 checked:border-blue-800' : 'border-white text-blue-100 checked:border-blue-100',
+        'blue-700'   : changeColorCon ? 'border-blue-800 text-blue-800 checked:border-blue-800' : 'border-white text-blue-100 checked:border-blue-100',
+        'blue-800'   : changeColorCon ? 'border-blue-800 text-blue-800 checked:border-blue-800' : 'border-white text-blue-100 checked:border-blue-100'
+    },
 } %}
 {% if type is iterable %}
     {% for item in type %}
