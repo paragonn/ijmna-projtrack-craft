@@ -2,9 +2,9 @@
 {% import "_/includes/macros" as render %}
 
 {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length or block.icon|length %}
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
     <div class="container">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
             <div class="{{ showBorder and borderColor != null ? 'border-2 p-6 lg:p-12 ' ~ contentBoxColor ~ render.foregroundColors({
                 background: borderLabel,

@@ -144,7 +144,22 @@ fieldLayouts:
             uid: d729de66-437b-45b9-b468-59586fbfe276
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c82581ed-da7a-4521-9a3a-f9edcae1d4b3
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color

@@ -32,13 +32,16 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% set headingTag = block.headingSize.getValue()|default('h2') %}
-{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
-{% set contentAlignment = block.contentAlignment.value|default('center') %}
-{% set contentWidth = block.contentWidth|default('0;12') %}
-{% set borderColor = block.borderColor.label|default(null) %}
 {% set infoBoxLayout = block.infoBoxLayout.value|default('layout1') %}
 {% set showBorder = block.showBorder %}
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default(infoBoxLayout == 'layout1' ? 'center' : 'left') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set borderDefaultColor = infoBoxLayout == 'layout1' ? 'blue' : 'blue-800' %}
+{% set borderColor = block.borderColor.label|default(showBorder ? borderDefaultColor : null) %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({

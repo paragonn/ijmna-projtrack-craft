@@ -1,23 +1,29 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class=" {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
     <div class="container">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
             <div class="flex-1 w-full flex gap-3 px-2 py-4 {{ contentBoxColor }} {{ block.showBorder ? 'border-2' : '' }} {{ render.foregroundColors({
-                background: backgroundColorLabel,
-                overrideColor:borderColor,
+                background: borderLabel,
                 opacity: overlayOpacity,
                 changeDefaultColor: true,
-                type: 'borderColor',
+                type: 'borderColor'
             }) }}">
-                <div>
-                    {% if block.icon|length %}
+                {% if block.icon|length %}
+                <div class="{{ render.foregroundColors({
+                    background: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    changeDefaultColor: true,
+                    type: 'info-icon-color'
+                }) }}">
                     {{ svg(block.icon.path)|attr({
-                        class: 'w-28 h-28'
+                        fill: 'currentColor',
+                        class: 'w-28 h-28 ' ~ render.getAlignment({alignment: contentAlignment, type: 'margin'})
                     }) }}
-                    {% endif %}
                 </div>
+                {% endif %}
 
                 {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
                 <div>
