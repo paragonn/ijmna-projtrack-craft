@@ -76,6 +76,7 @@
                     <div class="swiper-wrapper flex !items-stretch !h-full">
                         {% for item in imageContents %}
                         {% set image = item.image.one() %}
+                        {% set videos = item.videos.all() %}
                         {% set embedVideo = item.embedVideo %}
                         <div class="swiper-slide h-full">
                             <div class="relative h-full">
@@ -88,10 +89,11 @@
                                     pictureClass: "w-full h-full object-cover",
                                     lazy: false,
                                     videoLazy: true,
-                                    videos: embedVideo,
+                                    videos: videos,
+                                    embedVideos: embedVideo,
                                     videoClass: "w-full h-full object-cover",
                                     extraWrapperClasses: "z-10",
-                                    videoType: not image|length ? 'iframe' : 'popup',
+                                    videoType: not image|length ? 'iframe' : 'bgPopup',
                                     videoPoster: image,
                                     videoId: item.getId(),
                                     videoAttrs: {
