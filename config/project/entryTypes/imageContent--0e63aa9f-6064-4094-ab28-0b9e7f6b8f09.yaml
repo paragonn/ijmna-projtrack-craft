@@ -188,8 +188,20 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            elementCondition: null
-            fieldUid: 9ce08183-1391-4b24-8288-a39ac4f97186 # Image Ratio
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: fa195a9b-e2f8-4ff9-b875-48e5cce85e25 # Image Content Layout
+                  layoutElementUid: 75292ca9-143e-4bf6-8c28-920b700981bf
+                  operator: ni
+                  uid: 6c3a26de-78bf-4283-85a8-27b6319184dd
+                  values:
+                    - layout2
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8 # Content Box Color
             handle: null
             includeInCards: false
             instructions: null
@@ -198,12 +210,51 @@ fieldLayouts:
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 3a0b65ef-4c82-49ab-92ee-5cccd9b7f0bd
+            uid: f3ae09a4-a4ee-4f70-91a7-6b821f75da04
             userCondition: null
             warning: null
             width: 50
           -
-            elementCondition: null
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: fa195a9b-e2f8-4ff9-b875-48e5cce85e25 # Image Content Layout
+                  layoutElementUid: 75292ca9-143e-4bf6-8c28-920b700981bf
+                  operator: ni
+                  uid: 193fb887-658e-4bc7-9e48-a01711933e8f
+                  values:
+                    - layout2
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: e671a976-5fd4-4e36-a257-592286dfcf78 # Image Position
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 19552f9f-7cfc-425d-8242-16508ad41c7a
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: fa195a9b-e2f8-4ff9-b875-48e5cce85e25 # Image Content Layout
+                  layoutElementUid: 75292ca9-143e-4bf6-8c28-920b700981bf
+                  operator: ni
+                  uid: 7f78d786-8d2d-4cad-a3df-8774d117bb90
+                  values:
+                    - layout1
+              elementType: craft\elements\Entry
+              fieldContext: global
             fieldUid: a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9 # Image Position 2
             handle: null
             includeInCards: false

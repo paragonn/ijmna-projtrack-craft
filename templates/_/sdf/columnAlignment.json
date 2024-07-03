@@ -1,0 +1,19 @@
+[
+    {
+        "label": "Default",
+        "value": "",
+        "default": "yes"
+    },
+    {
+        "label": "Start",
+        "value": "left"
+    },
+    {
+        "label": "Center",
+        "value": "center"
+    },
+    {
+        "label": "End",
+        "value": "right"
+    }
+]

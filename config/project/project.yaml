@@ -1,4 +1,4 @@
-dateModified: 1719843385
+dateModified: 1719986244
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -36,7 +36,9 @@ meta:
     0e13a17a-1829-4ccb-a64f-c39b6d62af82: 'Animation Offset' # Animation Offset
     0e63aa9f-6064-4094-ab28-0b9e7f6b8f09: 'Image + Content' # Image + Content
     00f64a37-6342-4ab0-a52b-d24123cb37e0: 'Info Box' # Info Box
+    1cf2528d-1b25-4d76-be36-e58ac8a4d68b: 'Stats Box' # Stats Box
     1da620f4-95cb-4911-9332-8ef04cad860f: Button # Button
+    02c1f367-dcb0-49f9-af0b-e255d2928b19: 'Show Border?' # Show Border?
     2e9cec4b-7c08-4594-a616-22bb4a04cba8: Brands # Brands
     3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
     3bf73e53-2279-498c-9693-f24c6e498172: 'Page Builder' # Page Builder
@@ -61,6 +63,7 @@ meta:
     08f0c8e2-e9c0-426a-aab3-861fbf413a1f: Heading # Heading
     8fe9110f-04ca-4e39-bd2e-0bce67301c39: Simple # Simple
     9affc432-fe49-4e90-96ea-be5425095c2c: 'Margin Bottom' # Margin Bottom
+    9b1a133a-4d4f-4a24-bb40-e59834fea921: Container # Container
     9ce08183-1391-4b24-8288-a39ac4f97186: 'Image Ratio' # Image Ratio
     9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6: 'Image Content Slide' # Image Content Slide
     9eeafc05-3901-41da-8748-e04485b292cb: 'Button Type' # Button Type
@@ -68,13 +71,17 @@ meta:
     16c21eca-a8b2-4b44-bd82-463fac26b779: 'Icon Cards' # Icon Cards
     18de2689-3603-4c37-8473-396f9ce4f78c: 'Padding Bottom' # Padding Bottom
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
+    26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
+    51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
+    59f089df-32db-4da9-aa07-7b501b160aa4: Card # Card
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
     061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
     71fa55a9-c465-4fe2-91f2-ee5a739774a9: 'Overlay Gradient' # Overlay Gradient
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
     89cc861f-51a9-49de-9637-831af3da0e7a: 'Border Color' # Border Color
     089d8bf1-7cfe-4f80-bf8b-517fa9e233e0: 'Call to Action' # Call to Action
+    90a810f2-de87-4697-8abf-8e6e2c825c72: Quote # Quote
     95b9f0e3-06b5-4fdf-add4-4d87ad204c7e: Address # Address
     383b8156-a3da-4bda-991a-7c9893a1c11c: Button # Button
     423bb166-71e5-4c7c-9d8c-71db99966b0b: SEO # SEO
@@ -90,9 +97,12 @@ meta:
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
     9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
+    10939aae-e10b-4be1-8d12-358d50ce590d: 'Stat Box' # Stat Box
     13612fd6-fab3-4e45-9853-5634a3ef9d91: CTA # CTA
+    23661aee-cd9b-46df-9aa0-3f931f87ba19: card # card
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
     31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
+    56196e9b-e1c4-44b3-817a-0f471121ed32: 'Quote Attribution' # Quote Attribution
     72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
@@ -100,6 +110,7 @@ meta:
     21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
     97532141-63d3-4bec-a94a-313c6e99fefa: 'Button Color' # Button Color
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
+    a134d66d-e5d8-439a-bc68-e947c91e759b: Container # Container
     a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9: 'Image Position 2' # Image Position 2
     aeac151d-d4a9-4733-9c2f-c8a1eac9a41b: 'Content Width' # Content Width
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
@@ -114,6 +125,7 @@ meta:
     d07b837d-c20e-48d9-ac52-34b7a29fbfcb: 'Container Id' # Container Id
     d3ab5ad8-585b-43bc-b8ad-c093a04c787f: 'Minus Margin Top' # Minus Margin Top
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
+    d5783338-8a9d-4621-8556-71a156306314: Cards # Cards
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
     dccbbef1-4f06-4d4c-ae48-1cf7043ddc36: 'Alt Logo' # Alt Logo
     e0a8ee1c-ea61-4169-aea6-03da5e26c04f: Column # Column
@@ -129,7 +141,9 @@ meta:
     f0cc5f70-7696-4267-8c7c-769e499ad9de: Videos # Videos
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
+    f9be8226-8b11-4ea4-8950-2dbcb61beec5: 'Column Alignment' # Column Alignment
     f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
+    f53d3737-57cc-49ff-b173-17376ae0c1bf: 'Stat Box' # Stat Box
     fa195a9b-e2f8-4ff9-b875-48e5cce85e25: 'Image Content Layout' # Image Content Layout
     fd3064ce-7808-4f58-bc09-64a40469022d: Casework # Casework
 plugins:

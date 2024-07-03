@@ -289,7 +289,7 @@
         </div>
         <div class="" x-data="{drawer: false }">
             <div id="mapbox_map"
-                class="w-screen h-full !absolute z-10"
+                class="h-full !absolute z-10 w-[calc(100vw-50px)] md:w-[calc(100vw-62px)]"
                 style="overflow-anchor: none;"
                 data-mapbox="{{ getenv('MAPBOX_ACCESS_TOKEN') }}"
                 data-lang="{{ currentSite.language }}"

@@ -52,11 +52,13 @@
 {% set headingTag = block.headingSize.getValue()|default('h3') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set contentSlideAlignment = block.contentAlignment2.value|default('left') %}
 {% set overlayOpacity = block.overlayOpacity.getValue()|default('100') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
 {% set imageContentLayout = block.imageContentLayout.value|default('layout1') %}
-{% set imageRatio = block.imageContentRatio.getValue()|default('16_9') %}
+{% set imagePositionLayou1 = block.imagePosition.getValue()|default('right') %}
+{% set imagePositionLayou2 = block.imagePosition2.getValue()|default('left') %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
@@ -64,22 +66,16 @@
     swatch: 'background'
 }) %}
 
+{% set contentBoxColorLabel = block.contentBoxColor.label|default('white') %}
+{% set contentBoxColor = render.color({
+    handle: contentBoxColorLabel,
+    swatch: 'box-color'
+}) %}
+
 {% set bgOpacity = render.setOpacity({
     opacity: overlayOpacity,
     opacityType: 'bg'
 }) %}
-
-{% set ratio = {
-    'auto'    : 'aspect-auto',
-    '1_1'     : 'aspect-w-1 aspect-h-1',
-    '16_9'    : 'aspect-w-16 aspect-h-9',
-    '4_3'     : 'aspect-w-4 aspect-h-3',
-    '3_4'     : 'aspect-w-3 aspect-h-4',
-    '7_2'     : 'aspect-w-7 aspect-h-2',
-    '7_5'     : 'aspect-w-7 aspect-h-5'
-} %}
-
-{% set buttons = block.buttons.all() %}
 
 {% set contentAnimation = render.setAnimation({
     animation: block.animation,
@@ -96,6 +92,9 @@
     animationOffset: block.animationOffset2.value|default(200),
     animationEasing: block.animationEasing2.value|default(null)
 }) | raw %}
+
+{% set buttons = block.buttons.all() %}
+{% set imageContents = block.imageContent.all() %}
 
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">

@@ -147,21 +147,6 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 89cc861f-51a9-49de-9637-831af3da0e7a # Border Color
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: a2d5346c-70e3-4e0f-ab9c-5cacbb5087bc
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
             handle: null
             includeInCards: false
@@ -190,6 +175,71 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
+          -
+            elementCondition: null
+            fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b8a891f4-5fa1-45ac-8124-c36c967dca94
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+                  layoutElementUid: b8a891f4-5fa1-45ac-8124-c36c967dca94
+                  uid: 6f129205-a6be-471f-b0bb-68a0b8b0a521
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 89cc861f-51a9-49de-9637-831af3da0e7a # Border Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a2d5346c-70e3-4e0f-ab9c-5cacbb5087bc
+            userCondition: null
+            warning: null
+            width: 25
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\LightswitchFieldConditionRule
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
+                  layoutElementUid: b8a891f4-5fa1-45ac-8124-c36c967dca94
+                  uid: 5d54f915-3da6-4cae-a75e-9660e63b133d
+                  value: true
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8 # Content Box Color
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f7889ab0-d6ff-450a-a0cb-64b0f2eaf2ed
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule

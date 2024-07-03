@@ -8,6 +8,10 @@ import Alpine from 'alpinejs';
 import collapse from "@alpinejs/collapse";
 import AOS from 'aos';
 
+import { lazyLoadVideo } from "./components/lazyLoadVideo.js";
+
+lazyLoadVideo();
+
 window.Alpine = Alpine;
 Alpine.plugin(collapse);
 Alpine.start();

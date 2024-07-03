@@ -1,0 +1,176 @@
+{#
+===============================================================================
+    Cards (cards)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Auxiliary:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Content:
+            Child:
+                - Card (card)
+                    - Image (image)
+                    - Eyebrow (eyebrow)
+                    - Heading (heading)
+                    - Text (text)
+                    - Buttons (buttons) [Matrix]
+                        - Button Type (buttonType)
+                        - Button Color (buttonColor)
+                        - Icon (icon)
+                        - Icon Position (iconPosition)
+                        - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Per Row Limit (perRowLimit)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h3') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
+{% set rowLimit = {
+    2: 'grid-cols-1 md:grid-cols-2',
+    3: 'grid-cols-1 md:grid-cols-3',
+    4: 'grid-cols-1 md:grid-cols-3 lg:grid-cols-4'
+} %}
+
+{% set cardAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle2.value|default('fade-up'),
+    animationDuration: block.animationDuration2.value|default(1500),
+    animationOffset: block.animationOffset2.value|default(200),
+    animationEasing: block.animationEasing2.value|default(null)
+}) | raw %}
+
+{% set buttons = block.buttons.all() %}
+{% set cards = block.card.all() %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length %}
+            <div class="{{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
+                {{ render.basicContents({
+                    eyebrow: block.eyebrow,
+                    heading: block.heading,
+                    text: block.text,
+                    headingTag: headingTag,
+                    headingSize: headingTag,
+                    fontWeight: fontWeight,
+                    eyebrowFontWeight: 'bold',
+                    fontFamily: '',
+                    overrideParagraphFontSize: 'text-lg',
+                    backgroundColorLabel: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    contentAlignment: contentAlignment,
+                    animation: block.animation,
+                    contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                    contentAnimationDuration: block.animationDuration.value|default(1500),
+                    contentAnimationOffset: block.animationOffset.value|default(200),
+                    contentAnimationEasing: block.animationEasing.value|default(null)
+                }) }}
+            </div>
+            {% endif %}
+
+            {% if cards|length %}
+            <div class="grid gap-10 {{ rowLimit[perRowLimit] }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-9 md:mt-12' }}">
+            {% for card in cards %}
+                {% set image = card.image.one() %}
+                {% set cardButtons = card.buttons.all() %}
+
+                <div>
+                    {% if image|length %}
+                    <div class="aspect-w-16 aspect-h-9 {{ card.eyebrow|length or card.heading|length or card.text|length or buttons|length ? 'mb-4' }}" {{ cardAnimation|raw }}>
+                        {{ render.setImage({
+                            image: image,
+                            alt: image.title,
+                            width: image.width,
+                            height: image.height,
+                            class: "w-full h-full object-cover",
+                        }) }}
+                    </div>
+                    {% endif %}
+
+                    {% if card.eyebrow|length or card.heading|length or card.text|length or buttons|length %}
+                        {{ render.basicContents({
+                            eyebrow: card.eyebrow,
+                            heading: card.heading,
+                            text: card.text,
+                            buttons: cardButtons,
+                            headingTag: 'h3',
+                            headingSize: card.eyebrow|length ? 'h3' : 'h5',
+                            backgroundColorLabel: backgroundColorLabel,
+                            opacity: overlayOpacity,
+                            fontWeight: 'bold',
+                            eyebrowFontWeight: 'bold',
+                            fontFamily: '',
+                            defaultButtonType: 'link',
+                            contentAlignment: 'left',
+                            cardContentSpacing: 'mb-3',
+                            buttonSpacing: 'mt-4',
+                            headingExtraClasses: '',
+                            animation: block.animation,
+                            contentAnimationStyle: block.animationStyle2.value|default('fade-up'),
+                            contentAnimationDuration: block.animationDuration2.value|default(1500),
+                            contentAnimationOffset: block.animationOffset2.value|default(200),
+                            contentAnimationEasing: block.animationEasing2.value|default(null)
+                        }) }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if buttons|length %}
+            <div class="mt-10">
+                {{ render.basicContents({
+                    buttons: buttons,
+                    backgroundColorLabel: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    contentAlignment: contentAlignment,
+                    animation: block.animation,
+                    contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                    contentAnimationDuration: block.animationDuration.value|default(1500),
+                    contentAnimationOffset: block.animationOffset.value|default(200),
+                    contentAnimationEasing: block.animationEasing.value|default(null)
+                }) }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

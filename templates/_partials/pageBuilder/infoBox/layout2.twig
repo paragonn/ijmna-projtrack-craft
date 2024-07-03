@@ -1,0 +1,51 @@
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class=" {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+            <div class="flex-1 w-full flex gap-3 px-2 py-4 {{ contentBoxColor }} {{ block.showBorder ? 'border-2' : '' }} {{ render.foregroundColors({
+                background: backgroundColorLabel,
+                overrideColor:borderColor,
+                opacity: overlayOpacity,
+                changeDefaultColor: true,
+                type: 'borderColor',
+            }) }}">
+                <div>
+                    {% if block.icon|length %}
+                    {{ svg(block.icon.path)|attr({
+                        class: 'w-28 h-28'
+                    }) }}
+                    {% endif %}
+                </div>
+
+                {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+                <div>
+                    {{ render.basicContents({
+                        eyebrow: block.eyebrow,
+                        heading: block.heading,
+                        text: block.text,
+                        buttons: buttons,
+                        headingTag: headingTag,
+                        headingSize: headingTag,
+                        fontWeight: fontWeight,
+                        eyebrowFontWeight: 'bold',
+                        fontFamily: '',
+                        overrideParagraphFontSize: 'text-lg',
+                        cardContentSpacing: 'mb-3',
+                        backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                        opacity: overlayOpacity,
+                        contentAlignment: contentAlignment,
+                        animation: block.animation,
+                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                        contentAnimationDuration: block.animationDuration.value|default(1500),
+                        contentAnimationOffset: block.animationOffset.value|default(200),
+                        contentAnimationEasing: block.animationEasing.value|default(null)
+                    }) }}
+                </div>
+                {% endif %}
+            </div>
+            <div>
+        </div>
+    </div>
+</section>

@@ -55,14 +55,14 @@
     swatch: 'gradient'
 }) %}
 
-{% set imageRatio = block.imageRatio.getValue()|default('auto') %}
+{% set imageRatio = block.imageRatio.getValue()|default(parent == 'twoColumns' ? 'auto' : '16_9') %}
 {% set ratio = {
     'auto'    : 'aspect-auto',
-    '1_1'     : 'lg:aspect-w-1 lg:aspect-h-1',
-    '16_9'    : 'lg:aspect-w-16 lg:aspect-h-9',
-    '4_3'     : 'lg:aspect-w-4 lg:aspect-h-3',
-    '3_4'     : 'lg:aspect-w-3 lg:aspect-h-4',
-    '7_2'     : 'lg:aspect-w-7 lg:aspect-h-2'
+    '1_1'     : 'aspect-w-1 aspect-h-1',
+    '16_9'    : 'aspect-w-16 aspect-h-9',
+    '4_3'     : 'aspect-w-4 aspect-h-3',
+    '3_4'     : 'aspect-w-3 aspect-h-4',
+    '7_2'     : 'aspect-w-7 aspect-h-2'
 } %}
 
 {% set imageAnimation = render.setAnimation({
@@ -74,30 +74,35 @@
 }) | raw %}
 
 {% set image = block.image.one() %}
-{% set video = block.videos.all() %}
+{% set videos = block.videos.all() %}
+{% set embedVideo = block.embedVideo %}
 
-{% if image|length or video|length %}
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+{% if image|length or videos|length or embedVideo|length %}
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer and containerSize == 'container' ? 'container' }}">
-        <div class="{{ render.contentWidth({width: contentWidth}) }}">
-            <div class="relative {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
-                {{ render.renderVideo({
-                    image: image|length ? image,
-                    alt: image|length ? image.title,
-                    width: image|length ? image.width,
-                    height: image|length ? image.height,
-                    class: "w-full h-full object-cover",
-                    lazy: false,
-                    videoLazy: false,
-                    videos: video,
-                    videoClass: "w-full h-full object-cover",
-                    videoType: 'background',
-                    videoPoster: image,
-                    videoId: block.getId(),
-                    videoAttrs: {
-                        preload: "none",
-                    }
-                }) }}
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            <div class="relative">
+                <div class="h-full {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
+                    {{ render.renderVideo({
+                        image: image|length ? image,
+                        alt: image|length ? image.title,
+                        width: image|length ? image.width,
+                        height: image|length ? image.height,
+                        class: "w-full h-full object-cover",
+                        lazy: false,
+                        videoLazy: false,
+                        videos: videos,
+                        embedVideos: embedVideo,
+                        videoClass: "w-full h-full object-cover",
+                        extraWrapperClasses: "z-10",
+                        videoType: 'bgPopup',
+                        videoPoster: image,
+                        videoId: block.getId(),
+                        videoAttrs: {
+                            preload: "none",
+                        }
+                    }) }}
+                </div>
 
                 {% for item in block.overlayGradient %}
                     {% if item.getValue() == 'left' or item.getValue() == 'right' %}
@@ -107,12 +112,14 @@
             </div>
 
             {% if block.caption|length %}
-            <p class="text-lg mt-2 {{ render.getAlignment({alignment: captionAlignment, type: 'text'}) }} {{ render.foregroundColors({
+            <p class="text-lg mt-2 {{ containerSize == 'full' ? 'container' }} {{ render.getAlignment({alignment: captionAlignment, type: 'text'}) }} {{ render.foregroundColors({
                 background: backgroundColorLabel,
                 opacity: overlayOpacity,
                 changeDefaultColor: true,
                 type: 'heading',
-            }) }}" {{ imageAnimation|raw }}>{{ block.caption }}</p>
+            }) }}" {{ imageAnimation|raw }}>
+                {{ block.caption }}
+            </p>
             {% endif %}
         </div>
     </div>

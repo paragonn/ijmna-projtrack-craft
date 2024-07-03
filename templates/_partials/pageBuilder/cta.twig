@@ -1,0 +1,24 @@
+{#
+===============================================================================
+    CTA (cta)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - CTA (cta)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set cta = block.cta.one() %}
+
+{% if cta|length %}
+    {% set ctaBuilder = cta.contentBuilder.type(null).all() %}
+    {% include "_partials/blocks" with {
+        pageBuilder: ctaBuilder,
+        parent: block.type.handle
+    } %}
+{% endif %}

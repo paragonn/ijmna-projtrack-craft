@@ -40,7 +40,9 @@
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set columnsWidth = block.columnLayout.getValue()|default('6-6') %}
+{% set columnAlignment = block.columnAlignment.getValue()|default('left') %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
@@ -77,15 +79,27 @@
     '9-3' : 'md:col-start-10 md:col-end-13'
 } %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+{% set spacing = render.spacing({
+    prevBlock: prevBlock,
+    currentBgColor: 'white',
+
+    minusMarginTop: block.minusMarginTop.getValue()|default(null),
+    minusMarginBottom: block.minusMarginBottom.getValue()|default(null),
+
+    marginTop: block.marginTop.getValue()|default(null),
+    paddingTop: block.paddingTop.getValue()|default(backgroundColorLabel != 'white' ? 'small' : null),
+    marginBottom: block.marginBottom.getValue()|default(null),
+    paddingBottom: block.paddingBottom.getValue()|default(backgroundColorLabel != 'white' ? 'small' : null),
+}) %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
-            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length %}
             {{ render.basicContents({
                 eyebrow: block.eyebrow,
                 heading: block.heading,
                 text: block.text,
-                buttons: buttons,
                 headingTag: headingTag,
                 headingSize: headingTag,
                 fontWeight: fontWeight,
@@ -104,7 +118,7 @@
             {% endif %}
 
             {% if childrens|length %}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-12' }}">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
                 {% for child in childrens %}
                 <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }}">
                     {% include "_partials/blocks" with {
@@ -122,6 +136,22 @@
                     } %}
                 </div>
                 {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if buttons|length %}
+            <div class="mt-10">
+                {{ render.basicContents({
+                    buttons: buttons,
+                    backgroundColorLabel: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    contentAlignment: contentAlignment,
+                    animation: block.animation,
+                    contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                    contentAnimationDuration: block.animationDuration.value|default(1500),
+                    contentAnimationOffset: block.animationOffset.value|default(200),
+                    contentAnimationEasing: block.animationEasing.value|default(null)
+                }) }}
             </div>
             {% endif %}
         </div>

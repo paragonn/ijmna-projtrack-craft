@@ -10,7 +10,8 @@
 {% set delay = 0 %}
 
 {% if eyebrow|length %}
-<h6 class="{{ heading|length or text|length or buttons|length ? 'mb-5' }} {{ eyebrowExtraClasses|length ? eyebrowExtraClasses : 'text-base tracking-widest' }} {{ eyebrowSpacing|length ? eyebrowSpacing }} {{ render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getFontWeight({font: eyebrowFontWeight}) }} {{ eyebrowCapitalize ? 'uppercase' }} {{ render.foregroundColors({
+{% set eyebrowCardContentSpacing = cardContentSpacing ?? 'mb-5' %}
+<h6 class="{{ heading|length or text|length or buttons|length ? eyebrowCardContentSpacing }} {{ eyebrowExtraClasses|length ? eyebrowExtraClasses : 'text-base tracking-widest' }} {{ eyebrowSpacing|length ? eyebrowSpacing }} {{ render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getFontWeight({font: eyebrowFontWeight}) }} {{ eyebrowCapitalize ? 'uppercase' }} {{ render.foregroundColors({
     background: backgroundColorLabel,
     opacity: opacity,
     changeDefaultColor: changeDefaultColor,
@@ -21,6 +22,7 @@
 {% endif %}
 
 {% if heading|length %}
+{% set headingCardContentSpacing = cardContentSpacing ?? 'mb-5' %}
 {% set contentAnimation = render.setAnimation({
     animation: animation,
     animationStyle: contentAnimationStyle,
@@ -30,7 +32,7 @@
     animationDelay: delay
 }) | raw %}
 
-<{{ headingTag }} class="{{ headingSpacing }} {{ text|length or buttons|length or quote|length ? 'mb-5' }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
+<{{ headingTag }} class="{{ headingSpacing }} {{ text|length or buttons|length or quote|length ? headingCardContentSpacing }} {{ headingExtraClasses ?? 'font-Baskervville -tracking-wide' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ overrideHeadingSize ?? render.getHeadingSize({headingTag: headingSize}) }} {{ render.getFontWeight({font: fontWeight}) }} {{ render.foregroundColors({
     background: backgroundColorLabel,
     opacity: opacity,
     changeDefaultColor: changeDefaultColor,
@@ -40,34 +42,8 @@
 </{{ headingTag }}>
 {% endif %}
 
-{% if quote|length %}
-{% set contentAnimation = render.setAnimation({
-    animation: animation,
-    animationStyle: contentAnimationStyle,
-    animationDuration: contentAnimationDuration,
-    animationOffset: contentAnimationOffset,
-    animationEasing: contentAnimationEasing,
-    animationDelay: delay
-}) | raw %}
-<blockquote class="rounded-tr rounded-br border border-l-4 p-5 pl-3.5 bg-transparent {{ text|length or buttons|length ? 'mb-4' }} {{ quoteExtraClasses }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ render.foregroundColors({background: backgroundColorLabel, opacity: opacity, changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ render.foregroundColors({
-    background: backgroundColorLabel,
-    opacity: opacity,
-    changeDefaultColor: changeDefaultColor,
-    type: blockquoteType ?? 'heading',
-}) }}" {{ contentAnimation|raw }}>
-    <div class="flex items-start">
-        <p class="m-0 italic leading-relaxed">
-            {% set params = {
-                text: '"' ~ quote ~ '"',
-                class: 'font-bold'
-            } %}
-            {{ render.replaceUnderscores(params) }}
-        </p>
-    </div>
-</blockquote>
-{% endif %}
-
 {% if text|length %}
+{% set textCardContentSpacing = cardContentSpacing ?? 'mb-4' %}
 {% set delay = delay + 200 %}
 {% set contentAnimation = render.setAnimation({
     animation: animation,
@@ -78,7 +54,7 @@
     animationDelay: delay
 }) | raw %}
 
-<div class="space-y-3 {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
+<div class="space-y-3 {{ quote|length ? textCardContentSpacing }} {{ textParentDivClass|length ? textParentDivClass }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }}" {{ contentAnimation|raw }}>
     {{ render.replaceElements(text, {
         background: backgroundColorLabel,
         contentAlignment: contentAlignment,
@@ -90,7 +66,39 @@
 </div>
 {% endif %}
 
+{% if quote|length %}
+{% set contentAnimation = render.setAnimation({
+    animation: animation,
+    animationStyle: contentAnimationStyle,
+    animationDuration: contentAnimationDuration,
+    animationOffset: contentAnimationOffset,
+    animationEasing: contentAnimationEasing,
+    animationDelay: delay
+}) | raw %}
+<blockquote class="font-Baskervville -tracking-wide {{ quoteBorder ? 'rounded-tr rounded-br border border-l-4 p-5 pl-3.5 bg-transparent' }} {{ quoteExtraClasses ?? 'text-2xl lg:text-3xl' }} {{ setAlignment ? render.getAlignment({alignment: contentAlignment, type: ['text']}) }} {{ quoteBorder ? render.foregroundColors({background: backgroundColorLabel, opacity: opacity, changeDefaultColor: changeDefaultColor, type: 'quote-border' }) }} {{ render.foregroundColors({
+    background: backgroundColorLabel,
+    opacity: opacity,
+    changeDefaultColor: changeDefaultColor,
+    type: blockquoteType ?? 'heading',
+}) }}" {{ contentAnimation|raw }}>
+    <div>
+        <span>
+            {% set params = {
+                text: '"' ~ quote ~ '"',
+                class: 'font-bold'
+            } %}
+            {{ render.replaceUnderscores(params) }}
+        </span>
+
+        {% if quoteAttribution|length %}
+        <p class="mt-3">{{ '- ' ~ quoteAttribution }}</p>
+        {% endif %}
+    </div>
+</blockquote>
+{% endif %}
+
 {% for button in buttons %}
+{% set buttonSpacing = buttonSpacing ?? 'mt-6' %}
 {% set delay = delay + 200 %}
 {% set contentAnimation = render.setAnimation({
     animation: animation,
@@ -101,7 +109,7 @@
     animationDelay: delay
 }) | raw %}
 {% if loop.first %}
-<div class="flex flex-wrap gap-8 {{ eyebrow|length or heading|length or text|length ? 'mt-6' }} {{ render.getAlignment({
+<div class="flex flex-wrap {{ buttonGap ?? 'gap-8' }} {{ eyebrow|length or heading|length or text|length ? buttonSpacing }} {{ render.getAlignment({
     alignment: contentAlignment,
     type: 'justify'
 }) }}" {{ contentAnimation|raw }}>
@@ -110,10 +118,12 @@
         button: button.button,
         buttonId: button.getId(),
         buttonType: button.buttonType.getValue()|default(defaultButtonType|length ? defaultButtonType : "button"),
-        buttonColor: button.buttonColor.label|default('blue-800'),
+        buttonColor: button.buttonColor.label|default(backgroundColorLabel == 'blue' ? 'blue-800' : 'blue-800'),
         icon: button.icon,
         iconPosition: button.iconPosition.getValue()|default('right'),
-        background: backgroundColorLabel
+        background: backgroundColorLabel,
+        changeDefaultColor: changeDefaultColor,
+        opacity: opacity
     }) }}
 {% if loop.last %}
 </div>

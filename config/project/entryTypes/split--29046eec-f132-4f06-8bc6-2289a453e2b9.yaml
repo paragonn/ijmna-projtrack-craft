@@ -48,7 +48,22 @@ fieldLayouts:
             uid: ee77ee17-10fa-45b9-8dab-9766245a44a4
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a14b8604-7eb4-4914-a753-a06be734f7e7
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
@@ -407,7 +422,7 @@ fieldLayouts:
         userCondition: null
 handle: split
 hasTitleField: false
-icon: ''
+icon: table-columns
 name: Split
 showSlugField: false
 showStatusField: true

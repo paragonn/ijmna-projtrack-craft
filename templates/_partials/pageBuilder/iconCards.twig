@@ -1,0 +1,154 @@
+{#
+===============================================================================
+    icon Cards (iconCards)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Icon Card (iconCard)
+                - Icon (icon)
+                - Eyebrow (eyebrow)
+                - Heading (heading)
+                - Text (text)
+                - Buttons (buttons) [Matrix]
+                    - Button Type (buttonType)
+                    - Button Color (buttonColor)
+                    - Icon (icon)
+                    - Icon Position (iconPosition)
+                    - Button (button)
+
+        Auxiliary:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default('center') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
+
+{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
+{% set rowLimit = {
+    '2' : 'grid-cols-1 md:grid-cols-2',
+    '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    '4' : 'grid-cols-1 md:grid-cols-2 md:grid-cols-2 lg:grid-cols-4',
+} %}
+
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    swatch: 'background'
+}) %}
+
+{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set cardAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle2.value|default('fade-up'),
+    animationDuration: block.animationDuration2.value|default(1500),
+    animationOffset: block.animationOffset2.value|default(200),
+    animationEasing: block.animationEasing2.value|default(null)
+}) | raw %}
+
+{% set buttons = block.buttons.all() %}
+{% set iconCards = block.iconCard.all() %}
+
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+    <div class="container">
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+                {{ render.basicContents({
+                    eyebrow: block.eyebrow,
+                    heading: block.heading,
+                    text: block.text,
+                    buttons: buttons,
+                    headingTag: headingTag,
+                    headingSize: headingTag,
+                    fontWeight: fontWeight,
+                    eyebrowFontWeight: 'bold',
+                    fontFamily: '',
+                    overrideParagraphFontSize: 'text-lg',
+                    backgroundColorLabel: backgroundColorLabel,
+                    opacity: overlayOpacity,
+                    contentAlignment: contentAlignment,
+                    animation: block.animation,
+                    contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                    contentAnimationDuration: block.animationDuration.value|default(1500),
+                    contentAnimationOffset: block.animationOffset.value|default(200),
+                    contentAnimationEasing: block.animationEasing.value|default(null)
+                }) }}
+            {% endif %}
+
+            {% if iconCards|length %}
+            <div class="{{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-10' }}">
+                <div class="grid gap-5 {{ rowLimit[perRowLimit] }}">
+                    {% for card in iconCards %}
+                        {% set cardButtons = card.buttons.all() %}
+                        <div class="text-center" {{ cardAnimation|raw }}>
+                            {% if card.icon|length %}
+                            <div class="mx-auto grid justify-center items-center h-28 mb-3 {{ render.foregroundColors({
+                                background: backgroundColorLabel,
+                                opacity: overlayOpacity,
+                                changeDefaultColor: true,
+                                type: 'icon-color'
+                            }) }}">
+                                {{ svg(card.icon.path)|attr({
+                                    class: 'w-24 h-24',
+                                }) }}
+                            </div>
+                            {% endif %}
+
+                            {{ render.basicContents({
+                                eyebrow: card.eyebrow,
+                                heading: card.heading,
+                                text: card.text,
+                                buttons: cardButtons,
+                                headingTag: 'h2',
+                                headingSize: 'h2',
+                                fontWeight: 'bold',
+                                fontFamily: '',
+                                eyebrowFontWeight: 'bold',
+                                overrideParagraphFontSize: 'text-lg',
+                                cardContentSpacing: 'mb-2',
+                                backgroundColorLabel: backgroundColorLabel,
+                                opacity: overlayOpacity,
+                                contentAlignment: contentAlignment,
+                                animation: block.animation,
+                                contentAnimationStyle: block.animationStyle2.value|default('fade-up'),
+                                contentAnimationDuration: block.animationDuration2.value|default(1500),
+                                contentAnimationOffset: block.animationOffset2.value|default(200),
+                                contentAnimationEasing: block.animationEasing2.value|default(null)
+                            }) }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
