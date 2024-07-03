@@ -5,7 +5,7 @@
     <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
-            <div class="flex-1 w-full flex gap-3 px-2 py-4 {{ contentBoxColor }} {{ block.showBorder ? 'border-2' : '' }} {{ render.foregroundColors({
+            <div class="flex-1 w-full flex gap-3 px-2 py-4 {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ contentBoxColor }} {{ block.showBorder ? 'border-2' : '' }} {{ render.foregroundColors({
                 background: borderLabel,
                 opacity: overlayOpacity,
                 changeDefaultColor: true,

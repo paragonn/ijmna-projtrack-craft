@@ -99,7 +99,7 @@ fieldLayouts:
         userCondition: null
 handle: statBox
 hasTitleField: false
-icon: ''
+icon: signal
 name: 'Stat Box'
 showSlugField: false
 showStatusField: true

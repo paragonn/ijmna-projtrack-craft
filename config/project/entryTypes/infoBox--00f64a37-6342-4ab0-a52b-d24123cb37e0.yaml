@@ -129,7 +129,34 @@ fieldLayouts:
             uid: 4b7a009a-1d28-4ca8-8480-d46bf95e3ff7
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 14cf885b-68f2-4ea2-8f07-4a707cc2677f # Info Box Layout
+                  layoutElementUid: 4b7a009a-1d28-4ca8-8480-d46bf95e3ff7
+                  operator: ni
+                  uid: f8785786-7aa6-4594-b8ec-a22fac0049b1
+                  values:
+                    - layout1
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: f9be8226-8b11-4ea4-8950-2dbcb61beec5 # Column Alignment
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 2e218f9c-9797-4551-b6e6-9d42538bc2ad
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: aeac151d-d4a9-4733-9c2f-c8a1eac9a41b # Content Width
