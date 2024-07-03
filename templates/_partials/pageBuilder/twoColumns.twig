@@ -87,19 +87,9 @@
     '9-3' : 'md:col-start-10 md:col-end-13'
 } %}
 
-{% set spacing = render.spacing({
-    prevBlock: prevBlock,
-
-    minusMarginTop: block.minusMarginTop.getValue()|default(null),
-    minusMarginBottom: block.minusMarginBottom.getValue()|default(null),
-
-    marginTop: block.marginTop.getValue()|default(childContainer and loop.first ? 'none' : (childContainer ? 'extraSmall' : null)),
-    paddingTop: block.paddingTop.getValue()|default(containerBgExist and backgroundColorLabel != 'white' ? 'small' : null),
-    marginBottom: block.marginBottom.getValue()|default(childContainer and loop.last ? 'none' : (childContainer ? 'extraSmall' : null)),
-    paddingBottom: block.paddingBottom.getValue()|default(containerBgExist and backgroundColorLabel != 'white' ? 'small' : null),
-}) %}
-
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ getMinusMarginBottom != null or getMinusMarginBottom != 'none' ? 'z-[5] relative' }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}

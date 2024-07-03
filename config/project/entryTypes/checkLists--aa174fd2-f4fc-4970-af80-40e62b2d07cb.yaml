@@ -1,0 +1,65 @@
+color: null
+fieldLayouts:
+  c74f54da-0a6d-4aa6-bf17-d47fcfbd74a4:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 402b5898-26eb-43e5-90c3-f84d74696763
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: d1abafe9-7def-492a-8370-693e6103efe8 # Check List Table
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b901e533-456a-49d3-b4ec-59cf004530e4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: bd522bec-9701-476d-87b4-7e8907303a1f
+        userCondition: null
+handle: checkLists
+hasTitleField: false
+icon: check
+name: 'Check List'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

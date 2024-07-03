@@ -16,7 +16,7 @@ return [
                 ],
                 [
                     'label' => \Craft::t('app', 'Components'),
-                    'types' => ['featuredBanner', 'cta', 'infoBox', 'iconCards', 'cards', 'statsBox', 'imageContent'],
+                    'types' => ['imageContent', 'infoBox', 'iconCards', 'cards', 'statsBox', 'checklist', 'featuredBanner', 'cta'],
                 ],
                 [
                     'label' => \Craft::t('app', 'Layout'),

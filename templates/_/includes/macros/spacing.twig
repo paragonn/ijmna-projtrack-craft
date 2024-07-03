@@ -122,6 +122,13 @@
     {# {% set space = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %} #}
 {% endif %}
 
+{% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none' %}
+    {% set currentBlockSpacing = prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
+    {% set spacingCurrentBlock = spacing[currentBlockSpacing] %}
+    {% set defaultSpacePaddingTop = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %}
+    {# {% set space = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %} #}
+{% endif %}
+
 {% if type in ['marginPadding', 'margin', 'minusMarginTop'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(minusMarginTop: #{minusMarginTop|default(defaultMarginTop)})-->") | raw }} #}
     {% set space = space.merge(spacing[minusMarginTop|default(defaultMinusMarginTop)].minusMarginTop) %}
