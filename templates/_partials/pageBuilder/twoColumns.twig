@@ -36,6 +36,12 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
@@ -44,7 +50,9 @@
 {% set columnsWidth = block.columnLayout.getValue()|default('6-6') %}
 {% set columnAlignment = block.columnAlignment.getValue()|default('left') %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -85,14 +93,14 @@
     minusMarginTop: block.minusMarginTop.getValue()|default(null),
     minusMarginBottom: block.minusMarginBottom.getValue()|default(null),
 
-    marginTop: block.marginTop.getValue()|default(null),
-    paddingTop: block.paddingTop.getValue()|default(backgroundColorLabel != 'white' ? 'small' : null),
-    marginBottom: block.marginBottom.getValue()|default(null),
-    paddingBottom: block.paddingBottom.getValue()|default(backgroundColorLabel != 'white' ? 'small' : null),
+    marginTop: block.marginTop.getValue()|default(childContainer and loop.first ? 'none' : (childContainer ? 'extraSmall' : null)),
+    paddingTop: block.paddingTop.getValue()|default(containerBgExist and backgroundColorLabel != 'white' ? 'small' : null),
+    marginBottom: block.marginBottom.getValue()|default(childContainer and loop.last ? 'none' : (childContainer ? 'extraSmall' : null)),
+    paddingBottom: block.paddingBottom.getValue()|default(containerBgExist and backgroundColorLabel != 'white' ? 'small' : null),
 }) %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing }} {{ backgroundColor }} {{ bgOpacity }}">
-    <div class="container">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
             {{ render.basicContents({
@@ -155,4 +163,4 @@
             {% endif %}
         </div>
     </div>
-</section>
+</{{ sectionTag }}>

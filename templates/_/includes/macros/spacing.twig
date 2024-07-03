@@ -84,7 +84,7 @@
 {% set defaultMinusMarginBottom = 'none' %}
 
 {# {% set defaultSpacing = currentBgColor ?  : defaultSpacing %} #}
-{% set staticSpacing = parent in ['twoColumns'] ? 'extraSmall' : defaultSpacing %}
+{% set staticSpacing = parent in ['twoColumns', 'container'] ? 'extraSmall' : defaultSpacing %}
 {% if currentBgColor %}
     {% set defaultMarginTop = "none" %}
     {% set defaultPaddingTop = staticSpacing %}

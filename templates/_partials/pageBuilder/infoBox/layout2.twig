@@ -1,8 +1,8 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
-    <div class="container">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
             <div class="flex-1 w-full flex gap-3 px-2 py-4 {{ contentBoxColor }} {{ block.showBorder ? 'border-2' : '' }} {{ render.foregroundColors({
@@ -39,7 +39,7 @@
                         fontFamily: '',
                         overrideParagraphFontSize: 'text-lg',
                         cardContentSpacing: 'mb-3',
-                        backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                        backgroundColorLabel: block.showBorder and contentBoxColorLabel == 'white' ? contentBoxColorLabel : backgroundColorLabel,
                         opacity: overlayOpacity,
                         contentAlignment: contentAlignment,
                         animation: block.animation,
@@ -54,4 +54,4 @@
             <div>
         </div>
     </div>
-</section>
+</{{ sectionTag }}>

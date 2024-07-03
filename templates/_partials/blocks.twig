@@ -56,7 +56,7 @@
         {% set defaultPaddingBottom = lastBlockSpacing.defaultPaddingBottom|default(defaultPaddingBottom) %}
     {% endif %}
 
-    {% if first and (not heroExist|length) and (parent not in ['cta', 'twoColumns']) %}
+    {% if first and (not heroExist|length) and (parent not in ['cta', 'twoColumns', 'container']) %}
         {% if currentBgColor %}
             {% set defaultPaddingTop = "large" %}
         {% else %}

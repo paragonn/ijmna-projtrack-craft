@@ -32,6 +32,12 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set infoBoxLayout = block.infoBoxLayout.value|default('layout1') %}
 {% set showBorder = block.showBorder %}
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
@@ -43,7 +49,9 @@
 {% set borderDefaultColor = infoBoxLayout == 'layout1' ? 'blue' : 'blue-800' %}
 {% set borderColor = block.borderColor.label|default(showBorder ? borderDefaultColor : null) %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
