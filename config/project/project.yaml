@@ -1,4 +1,4 @@
-dateModified: 1720002701
+dateModified: 1720004228
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -113,7 +113,6 @@ meta:
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
     a134d66d-e5d8-439a-bc68-e947c91e759b: Container # Container
     a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9: 'Image Position 2' # Image Position 2
-    aa174fd2-f4fc-4970-af80-40e62b2d07cb: 'Check List' # Check List
     ab7328c2-0ac9-4a96-8ed5-054ee9e45cbf: 'Per Row Limit' # Per Row Limit
     aeac151d-d4a9-4733-9c2f-c8a1eac9a41b: 'Content Width' # Content Width
     af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
@@ -138,7 +137,6 @@ meta:
     e671a976-5fd4-4e36-a257-592286dfcf78: 'Image Position' # Image Position
     e9322ff0-91a2-4b27-9c44-ac0b405460c2: 'Nav Links' # Nav Links
     e434669f-dd5f-4232-88ef-7a3b8c37b4dc: Column # Column
-    e3398061-2f21-4e33-9dec-04cb79d4a8e9: 'Check List' # Check List
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
     ec8cf3c5-a3d4-4c87-9c99-6807bee72059: 'Two Columns' # Two Columns
     ef7dff82-7ddc-453d-b03e-6b90683f02bd: 'Font Weight' # Font Weight
