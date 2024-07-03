@@ -3,7 +3,8 @@
 
 {% set parent = parent ?? null %}
 {% set hero = entry.hero.one() ?? null %}
-{% set heroExist = entry is defined and hero|length ? hero %}
+{% set heroExist = heroExist ?? false %}
+{% set heroExist = heroExist ? true : (entry is defined and hero|length ? hero) %}
 
 {% for i, block in pageBuilder %}
     {% set defaults = {
