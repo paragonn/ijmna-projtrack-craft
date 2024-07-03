@@ -47,6 +47,7 @@
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('left') %}
 {% set cardAlignment = block.contentAlignment2.value|default('left') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 {% set borderColor = block.borderColor.label|default(showBorder ? 'blue-800' : null) %}
 
@@ -78,9 +79,9 @@
 {% set buttons = block.buttons.all() %}
 {% set statsBox = block.statBox.all() %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class=" {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
     <div class="container">
-        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div class="grid grid-cols-1">
                 {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
                 <div class="text-center {{ showBorder and borderColor != null ? 'border-2 px-8 py-14 ' ~ contentBoxColor ~  render.foregroundColors({
