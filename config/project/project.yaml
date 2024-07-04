@@ -1,4 +1,4 @@
-dateModified: 1720019597
+dateModified: 1720073454
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -54,6 +54,7 @@ meta:
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
     6a8efaa8-2ed0-497f-a528-78203c0632ab: 'Hero Image' # Hero Image
     6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
+    7b26f9bb-9eda-45e3-878a-0530263e4d2b: 'Stacked Cards' # Stacked Cards
     7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?
     7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
     7d09c5e7-e849-465a-9e4f-087bdef82bb4: Caption # Caption
@@ -98,6 +99,7 @@ meta:
     982eeecd-95ad-43d1-8cc2-f6b3d80be494: 'Basic Content' # Basic Content
     5249fb26-5dbb-40d0-8d43-eaa65ad75be1: Header # Header
     6065b222-611d-42ce-a1de-85a02891694c: 'Background Color' # Background Color
+    6352b785-b04c-4d99-befd-2f5f5308c36b: 'Stacked Card' # Stacked Card
     6553bc6c-dfc2-465a-a5ba-e218ea8c0778: 'Jurisdictions Case Types' # Jurisdictions Case Types
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
@@ -115,6 +117,7 @@ meta:
     21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
     97532141-63d3-4bec-a94a-313c6e99fefa: 'Button Color' # Button Color
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
+    a32f779d-1477-4234-a85c-8cf2b02d2d83: 'Stacked Card' # Stacked Card
     a134d66d-e5d8-439a-bc68-e947c91e759b: Container # Container
     a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9: 'Image Position 2' # Image Position 2
     ab7328c2-0ac9-4a96-8ed5-054ee9e45cbf: 'Per Row Limit' # Per Row Limit
