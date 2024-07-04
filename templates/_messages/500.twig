@@ -1,0 +1,43 @@
+{% extends '_/layouts/main' %}
+{% import "_/includes/macros" as render %}
+
+{% header "X-Robots-Tag: none" %}
+{% do seomatic.meta.seoTitle('500') %}
+
+{% set image = header.logo.one() %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+    {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
+
+    <section class="h-screen flex items-center justify-center">
+        <div class="text-center mx-auto container">
+            <div class="max-w-3xl mx-auto">
+                {% if image|length %}
+                <div class="mb-8">
+                    {{ render.setImage({
+                        image: image,
+                        alt: image.title,
+                        fill: "currentColor",
+                        class: "h-16 mx-auto text-blue-500"
+                    }) }}
+                </div>
+                {% endif %}
+
+                <h2 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mt-3.5">
+                    {{ "Woops! Something went wrong!"|t }}
+                </h2>
+
+                <p class="my-5 font-eurostile font-medium text-lg">
+                    {{ "We're unable to find out what's happening! We suggest you to go back or visit here later."|t }}
+                </p>
+                <div class="flex flex-wrap justify-center mt-6">
+                    <a href="{{ siteUrl }}" class="py-3.5 px-6 md:w-auto w-full text-white inline-block uppercase font-bold bg-blue-800 tracking-widest border-2 border-blue-800 hover:bg-blue-950 hover:border-blue-950 transition-all duration-300">
+                        {{ "RETURN TO HOMEPAGE"|t }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

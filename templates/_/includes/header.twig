@@ -94,6 +94,13 @@
                             {% endfor %}
 
                             {% if currentUser|length %}
+                                {# <li class="relative">
+                                    <a href="{{ samlSpLogoutUrl(getenv('SSO_ENTITY_ID')) }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign Out'|t }}
+                                        </span>
+                                    </a>
+                                </li> #}
                                 <li class="relative">
                                     <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
@@ -103,12 +110,17 @@
                                 </li>
                             {% else %}
                                 <li class="relative">
-                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
+                                    {# <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
                                         data-type="content"
                                         data-event="{{ header.uid }}"
                                         data-form="signin-form"
                                         data-apiForm="signin-form"
                                     >
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign In'|t }}
+                                        </span>
+                                    </a> #}
+                                    <a href="/sso/login/request/fb7176c8-3ab2-4789-b49b-cb11548fc0ad?RelayState={{ craft.app.request.absoluteUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign In'|t }}
                                         </span>

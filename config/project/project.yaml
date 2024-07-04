@@ -1,4 +1,4 @@
-dateModified: 1720092850
+dateModified: 1720096545
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -258,6 +258,46 @@ plugins:
     enabled: true
     licenseKey: YTKZ506RHWUCO2P2AHUNP4O7
     schemaVersion: 2.1.0
+    settings:
+      autoCreateGroups: true
+      createUser: true
+      enableCpLoginButtons: true
+      enableUsers: true
+      encodeRelayState: true
+      endpointPrefix: sso
+      entityId: $SSO_ENTITY_ID
+      groupAttributeNames:
+        - groups
+      mergeExistingGroups: true
+      mergeLocalUsers: true
+      nameIdAttributeOverride: null
+      relayStateOverrideParam: RelayState
+      requireAssertionToBeSigned: true
+      requireResponseToBeSigned: false
+      responseAttributeMap:
+        __assoc__:
+          -
+            - 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'
+            - email
+          -
+            - 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname'
+            - firstName
+          -
+            - 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname'
+            - lastName
+          -
+            - email
+            - email
+          -
+            - firstName
+            - firstName
+          -
+            - lastName
+            - lastName
+      signAuthnRequest: true
+      sloDestroySpecifiedSessions: false
+      syncGroups: true
+      wantsSignedAssertions: true
   seomatic:
     edition: standard
     enabled: true

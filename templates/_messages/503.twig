@@ -1,0 +1,47 @@
+{% extends '_/layouts/main' %}
+{% import "_/includes/macros" as render %}
+
+{% header "X-Robots-Tag: none" %}
+{% do seomatic.meta.seoTitle('503') %}
+
+{% set image = header.logo.one() %}
+
+{% block header %}{% endblock %}
+{% block footer %}{% endblock %}
+
+{% block content %}
+    {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
+
+    <section class="h-screen flex items-center justify-center">
+        <div class="text-center mx-auto container">
+            <div class="max-w-3xl mx-auto">
+                {% if image|length %}
+                <div class="mb-8">
+                    {{ render.setImage({
+                        image: image,
+                        alt: image.title,
+                        fill: "currentColor",
+                        class: "h-16 mx-auto text-blue-500"
+                    }) }}
+                </div>
+                {% endif %}
+
+                <h2 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mb-4">
+                    {{ "We'll be back soon"|t }}
+                </h2>
+
+                <p class="mb-5 font-eurostile font-medium text-lg text-gray-500">
+                    {{ "Sorry for the inconvenience."|t }}
+                </p>
+
+                <p class="font-eurostile tracking-[1px] text-lg text-gray-500">
+                    {{ "Our website is currently undergoing scheduled maintenance."|t }}
+                </p>
+
+                <p class="mt-16 font-bold font-eurostile tracking-[1px] text-xl text-gray-500">
+                    {{ "Thank you for your understanding."|t }}
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
