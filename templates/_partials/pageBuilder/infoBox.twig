@@ -32,15 +32,27 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% set headingTag = block.headingSize.getValue()|default('h2') %}
-{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
-{% set contentAlignment = block.contentAlignment.value|default('center') %}
-{% set contentWidth = block.contentWidth|default('0;12') %}
-{% set borderColor = block.borderColor.label|default(null) %}
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set infoBoxLayout = block.infoBoxLayout.value|default('layout1') %}
 {% set showBorder = block.showBorder %}
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default(infoBoxLayout == 'layout1' ? 'center' : 'left') %}
+{% set columnAlignment = block.columnAlignment.value|default('left') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set contentWidth = block.contentWidth|default('0;12') %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set borderDefaultColor = infoBoxLayout == 'layout1' ? 'blue' : 'blue-800' %}
+{% set borderColor = block.borderColor.label|default(showBorder ? borderDefaultColor : null) %}
+
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -59,6 +71,14 @@
 }) %}
 
 {% set buttons = block.buttons.all() %}
+
+{% set contentAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle.value|default('fade-up'),
+    animationDuration: block.animationDuration.value|default(1500),
+    animationOffset: block.animationOffset.value|default(200),
+    animationEasing: block.animationEasing.value|default(null)
+}) | raw %}
 
 {# Include Info Box #}
 {% include "_partials/pageBuilder/infoBox/#{infoBoxLayout}" %}

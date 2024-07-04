@@ -49,6 +49,12 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
 {% set headingTag = block.headingSize.getValue()|default('h3') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
@@ -60,7 +66,9 @@
 {% set imagePositionLayou1 = block.imagePosition.getValue()|default('right') %}
 {% set imagePositionLayou2 = block.imagePosition2.getValue()|default('left') %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -96,8 +104,8 @@
 {% set buttons = block.buttons.all() %}
 {% set imageContents = block.imageContent.all() %}
 
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
-    <div class="container">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
             <div>
                 {% if block.eyebrow|length or block.heading|length or block.text|length %}
@@ -145,5 +153,4 @@
             </div>
         </div>
     </div>
-</section>
-
+</{{ sectionTag }}>

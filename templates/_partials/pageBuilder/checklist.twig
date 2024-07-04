@@ -1,23 +1,13 @@
 {#
 ===============================================================================
-    icon Cards (iconCards)
+    Checklist (checklist)
 
     Variables
         - Block (block)
 
     Fields:
         Content:
-            - Icon Card (iconCard)
-                - Icon (icon)
-                - Eyebrow (eyebrow)
-                - Heading (heading)
-                - Text (text)
-                - Buttons (buttons) [Matrix]
-                    - Button Type (buttonType)
-                    - Button Color (buttonColor)
-                    - Icon (icon)
-                    - Icon Position (iconPosition)
-                    - Button (button)
+            - Check List Table (checkListTable)
 
         Auxiliary:
             - Eyebrow (eyebrow)
@@ -32,8 +22,10 @@
 
         Settings:
             - Content Width (contentWidth)
+            - Container Size (containerSize)
             - Background Color (backgroundColor)
             - Overlay Opacity (overlayOpacity)
+            - Per Row Limit (listPerRowLimit)
             - Content Alignment (contentAlignment)
             - Heading Size (headingSize)
             - Font Weight (fontWeight)
@@ -42,28 +34,13 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{# Parent Block Fields Start #}
-{% set parent = parent ?? null %}
-{% set childContainer = childContainer ?? false %}
-{% set sectionTag = childContainer ? 'div' : 'section' %}
-{# Parent Block Fields End #}
-
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
-{% set perRowLimit = block.perRowLimit.getValue()|default('3') %}
-{% set rowLimit = {
-    '2' : 'grid-cols-1 md:grid-cols-2',
-    '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-    '4' : 'grid-cols-1 md:grid-cols-2 md:grid-cols-2 lg:grid-cols-4',
-} %}
-
-{% set conbackgroundColor = conbackgroundColor ?? null %}
-{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
-{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -75,7 +52,15 @@
     opacityType: 'bg'
 }) %}
 
-{% set cardAnimation = render.setAnimation({
+{% set perRowLimit = block.listPerRowLimit.getValue()|default('2') %}
+{% set rowLimit = {
+    1: 'grid-cols-1',
+    2: 'grid-cols-1 md:grid-cols-2',
+    3: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
+    4: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4'
+} %}
+
+{% set checkListAnimation = render.setAnimation({
     animation: block.animation,
     animationStyle: block.animationStyle2.value|default('fade-up'),
     animationDuration: block.animationDuration2.value|default(1500),
@@ -84,12 +69,13 @@
 }) | raw %}
 
 {% set buttons = block.buttons.all() %}
-{% set iconCards = block.iconCard.all() %}
+{% set checkListTable = block.checkListTable %}
 
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
-    <div class="{{ not childContainer ? 'container' }}">
-        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
+            <div>
                 {{ render.basicContents({
                     eyebrow: block.eyebrow,
                     heading: block.heading,
@@ -109,49 +95,29 @@
                     contentAnimationOffset: block.animationOffset.value|default(200),
                     contentAnimationEasing: block.animationEasing.value|default(null)
                 }) }}
+            </div>
             {% endif %}
 
-            {% if iconCards|length %}
-            <div class="{{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'mt-10' }}">
+            {% if checkListTable|length %}
+            <div class="{{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-10' }}">
                 <div class="grid gap-5 {{ rowLimit[perRowLimit] }}">
-                    {% for card in iconCards %}
-                        {% set cardButtons = card.buttons.all() %}
-                        <div class="text-center" {{ cardAnimation|raw }}>
-                            {% if card.icon|length %}
-                            <div class="mx-auto grid justify-center items-center h-28 mb-3 {{ render.foregroundColors({
+                    {% for checkList in checkListTable %}
+                        {% if checkList.key|length %}
+                        <label class="inline-flex cursor-pointer" {{ checkListAnimation|raw }}>
+                            <input type="checkbox" class="peer disabled:opacity-30 h-[18px] w-[18px] cursor-pointer mt-1 border bg-transparent !shadow-none !outline-none !ring-0 !ring-offset-0 checked:bg-[length:90%_90%] mr-3 {{ render.foregroundColors({
                                 background: backgroundColorLabel,
                                 opacity: overlayOpacity,
                                 changeDefaultColor: true,
-                                type: 'icon-color'
-                            }) }}">
-                                {{ svg(card.icon.path)|attr({
-                                    class: 'w-24 h-24',
-                                }) }}
-                            </div>
-                            {% endif %}
-
-                            {{ render.basicContents({
-                                eyebrow: card.eyebrow,
-                                heading: card.heading,
-                                text: card.text,
-                                buttons: cardButtons,
-                                headingTag: 'h2',
-                                headingSize: 'h2',
-                                fontWeight: 'bold',
-                                fontFamily: '',
-                                eyebrowFontWeight: 'bold',
-                                overrideParagraphFontSize: 'text-lg',
-                                cardContentSpacing: 'mb-2',
-                                backgroundColorLabel: backgroundColorLabel,
+                                type: 'check-list'
+                            }) }}" {% if checkList.value %}checked{% endif %}>
+                            <span class="peer-disabled:opacity-30 {{ render.foregroundColors({
+                                background: backgroundColorLabel,
                                 opacity: overlayOpacity,
-                                contentAlignment: contentAlignment,
-                                animation: block.animation,
-                                contentAnimationStyle: block.animationStyle2.value|default('fade-up'),
-                                contentAnimationDuration: block.animationDuration2.value|default(1500),
-                                contentAnimationOffset: block.animationOffset2.value|default(200),
-                                contentAnimationEasing: block.animationEasing2.value|default(null)
-                            }) }}
-                        </div>
+                                changeDefaultColor: true,
+                                type: 'heading'
+                            }) }}">{{ checkList.key }}</span>
+                        </label>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -174,4 +140,4 @@
             {% endif %}
         </div>
     </div>
-</{{ sectionTag }}>
+</section>

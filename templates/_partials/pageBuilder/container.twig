@@ -1,16 +1,21 @@
 {#
 ===============================================================================
-    Two Columns (twoColumns)
+    Container (container)
 
     Variables
         - Block (block)
 
     Fields:
-        Content:
+     Content:
             Child:
-                - Columns (columns)
-                    - Basic Content
-                    - Image
+                - Basic Content
+                - Image
+                - Info Box
+                - Icon Cards
+                - Cards
+                - Stats Box
+                - Image + Content
+                - Two Columns
 
         Auxiliary:
             - Eyebrow (eyebrow)
@@ -25,9 +30,9 @@
 
         Settings:
             - Content Width (contentWidth)
+            - Container Size (containerSize)
             - Background Color (backgroundColor)
             - Overlay Opacity (overlayOpacity)
-            - Column Layout (columnLayout)
             - Content Alignment (contentAlignment)
             - Heading Size (headingSize)
             - Font Weight (fontWeight)
@@ -36,23 +41,13 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{# Parent Block Fields Start #}
-{% set parent = parent ?? null %}
-{% set childContainer = childContainer ?? false %}
-{% set sectionTag = childContainer ? 'div' : 'section' %}
-{# Parent Block Fields End #}
-
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
-{% set containerSize = block.containerSize.getValue()|default('full') %}
-{% set columnsWidth = block.columnLayout.getValue()|default('6-6') %}
-{% set columnAlignment = block.columnAlignment.getValue()|default('left') %}
+{% set containerSize = block.containerSize.getValue()|default('container') %}
 
-{% set conbackgroundColor = conbackgroundColor ?? null %}
-{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
-{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
@@ -65,32 +60,10 @@
 }) %}
 
 {% set buttons = block.buttons.all() %}
-{% set childrens = block.columns.all() %}
+{% set container = block.container.all() %}
 
-{% set firstDiv = {
-    '3-9' : 'md:col-start-1 md:col-end-4',
-    '4-8' : 'md:col-start-1 md:col-end-5',
-    '5-7' : 'md:col-start-1 md:col-end-6',
-    '6-6' : 'md:col-start-1 md:col-end-7',
-    '7-5' : 'md:col-start-1 md:col-end-8',
-    '8-4' : 'md:col-start-1 md:col-end-9',
-    '9-3' : 'md:col-start-1 md:col-end-10'
-} %}
-
-{% set lastDiv = {
-    '3-9' : 'md:col-start-4 md:col-end-13',
-    '4-8' : 'md:col-start-5 md:col-end-13',
-    '5-7' : 'md:col-start-6 md:col-end-13',
-    '6-6' : 'md:col-start-7 md:col-end-13',
-    '7-5' : 'md:col-start-8 md:col-end-13',
-    '8-4' : 'md:col-start-9 md:col-end-13',
-    '9-3' : 'md:col-start-10 md:col-end-13'
-} %}
-
-{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ getMinusMarginBottom != null or getMinusMarginBottom != 'none' ? 'z-[5] relative' }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
-    <div class="{{ not childContainer ? 'container' }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+    <div class="container">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
             {{ render.basicContents({
@@ -114,25 +87,21 @@
             }) }}
             {% endif %}
 
-            {% if childrens|length %}
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
-                {% for child in childrens %}
-                <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }}">
-                    {% include "_partials/blocks" with {
-                        pageBuilder: child.column.all(),
-                        parent: block.type.handle,
-                        conbackgroundColor: backgroundColorLabel,
-                        conOverlayOpacity: overlayOpacity,
-                        childContainer: true,
-                        firstBlockSpacing: {
-                            'defaultMarginTop' : 'none',
-                        },
-                        lastBlockSpacing: {
-                            'defaultMarginBottom' : 'none',
-                        },
-                    } %}
-                </div>
-                {% endfor %}
+            {% if container|length %}
+            <div class="{{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
+                {% include "_partials/blocks" with {
+                    pageBuilder: container,
+                    parent: block.type.handle,
+                    conbackgroundColor: backgroundColorLabel,
+                    conOverlayOpacity: overlayOpacity,
+                    childContainer: true,
+                    firstBlockSpacing: {
+                        'defaultMarginTop' : 'none',
+                    },
+                    lastBlockSpacing: {
+                        'defaultMarginBottom' : 'none',
+                    },
+                } %}
             </div>
             {% endif %}
 
@@ -153,4 +122,4 @@
             {% endif %}
         </div>
     </div>
-</{{ sectionTag }}>
+</section>

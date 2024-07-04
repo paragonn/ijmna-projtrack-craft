@@ -2,9 +2,9 @@
 {% import "_/includes/macros" as render %}
 
 {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length or block.icon|length %}
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }}">
-    <div class="container">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
             <div class="{{ showBorder and borderColor != null ? 'border-2 p-6 lg:p-12 ' ~ contentBoxColor ~ render.foregroundColors({
                 background: borderLabel,
@@ -18,7 +18,7 @@
                     opacity: overlayOpacity,
                     changeDefaultColor: true,
                     type: 'info-icon-color'
-                }) }}">
+                }) }}" {{ contentAnimation|raw }}>
                     {{ svg(block.icon.path)|attr({
                         fill: 'currentColor',
                         class: 'w-28 h-28 ' ~ render.getAlignment({alignment: contentAlignment, type: 'margin'})
@@ -38,7 +38,7 @@
                     fontFamily: '',
                     overrideParagraphFontSize: 'text-lg',
                     cardContentSpacing: 'mb-3',
-                    backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                    backgroundColorLabel: block.showBorder and contentBoxColorLabel == 'white' ? contentBoxColorLabel : backgroundColorLabel,
                     opacity: overlayOpacity,
                     contentAlignment: contentAlignment,
                     animation: block.animation,
@@ -50,5 +50,5 @@
             </div>
         </div>
     </div>
-</section>
+</{{ sectionTag }}>
 {% endif %}

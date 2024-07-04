@@ -28,7 +28,7 @@
         'minusMarginBottom' : "-mb-14 lg:-mb-28",
 
         'paddingTopForMinusMargin' : "pt-20 md:pt-32",
-        'paddingBottomForMinusMargin' : "pb-20 md:pb-32",
+        'paddingBottomForMinusMargin' : "pb-24 md:pb-36",
 
         'marginTop' : "mt-12 md:mt-14",
         'marginBottom' : "mb-12 md:mb-14",
@@ -63,8 +63,8 @@
         'minusMarginTop' : "-mt-72 md:-mt-36",
         'minusMarginBottom' : "-mb-72 md:-mb-36",
 
-        'paddingTopForMinusMargin' : "pt-48 md:pt-56 lg:pt-72",
-        'paddingBottomForMinusMargin' : "pb-48 md:pb-56 lg:pb-72",
+        'paddingTopForMinusMargin' : "pt-32 md:pt-40 lg:pt-48",
+        'paddingBottomForMinusMargin' : "pb-32 md:pb-40 lg:pb-48",
 
         'marginTop' : "mt-24 md:mt-32 lg:mt-48",
         'marginBottom' : "mb-24 md:mb-32 lg:mb-48",
@@ -84,7 +84,7 @@
 {% set defaultMinusMarginBottom = 'none' %}
 
 {# {% set defaultSpacing = currentBgColor ?  : defaultSpacing %} #}
-{% set staticSpacing = parent in ['twoColumns'] ? 'extraSmall' : defaultSpacing %}
+{% set staticSpacing = parent in ['twoColumns', 'container'] ? 'extraSmall' : defaultSpacing %}
 {% if currentBgColor %}
     {% set defaultMarginTop = "none" %}
     {% set defaultPaddingTop = staticSpacing %}
@@ -115,9 +115,15 @@
     {% set defaultPaddingBottom = "none" %}
 {% endif %}
 
+{% if nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none' %}
+    {% set ncurrentBlockSpacing = nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) %}
+    {% set spacingCurrentBlock = spacing[ncurrentBlockSpacing] %}
+    {% set defaultSpacePaddingBottom = space.merge(spacingCurrentBlock.paddingBottomForMinusMargin) %}
+{% endif %}
+
 {% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none' %}
-    {% set currentBlockSpacing = prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
-    {% set spacingCurrentBlock = spacing[currentBlockSpacing] %}
+    {% set pcurrentBlockSpacing = prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
+    {% set spacingCurrentBlock = spacing[pcurrentBlockSpacing] %}
     {% set defaultSpacePaddingTop = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %}
     {# {% set space = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %} #}
 {% endif %}
@@ -150,7 +156,8 @@
 
 {% if type in ['marginPadding', 'padding', 'paddingBottom'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(paddingBottom: #{paddingBottom|default(defaultPaddingBottom)})-->") | raw }} #}
-    {% set space = space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
+    {# {% set space = space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %} #}
+    {% set space = (nextBlock and (nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none')) ? defaultSpacePaddingBottom : space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
 {% endif %}
 
 {{ space.implode(" ") }}

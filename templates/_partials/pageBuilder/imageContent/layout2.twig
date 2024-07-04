@@ -33,7 +33,7 @@
                 <div class="swiper-slide">
                     {% set oddEventClass = loop.index % 2 == 0 ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col' %}
                     {% set oddEventPositionClass = loop.index % 2 == 0 ? 'lg:left-0' : 'lg:right-0' %}
-                    <div class="flex w-full relative {{ imagePositionLayou2 == 'oddEven' ? oddEventClass : (imagePositionLayou2 == 'right' ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col') }} gap-8">
+                    <div class="flex w-full relative gap-8 {{ imagePositionLayou2 == 'oddEven' ? oddEventClass : (imagePositionLayou2 == 'right' ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col') }}">
                         <div class="lg:max-w-[800px] w-full relative">
                             <div class="aspect-w-8 aspect-h-5">
                                 {{ render.renderVideo({
@@ -74,7 +74,7 @@
                                     fontFamily: '',
                                     eyebrowExtraClasses: 'tracking-widest text-lg md:text-xl',
                                     overrideParagraphFontSize: 'text-lg',
-                                    backgroundColorLabel: contentBoxColorLabel == 'transparent' ? backgroundColorLabel : contentBoxColorLabel,
+                                    backgroundColorLabel: 'white',
                                     opacity: overlayOpacity,
                                     quoteBorder: false,
                                     contentAlignment: contentSlideAlignment,
@@ -90,24 +90,29 @@
                 </div>
                 {% endfor %}
             </div>
-            <div class="!bottom-16 !absolute !left-7 !text-white !z-50 font-Baskervville text-4xl -tracking-widest {{ swiperPagination }}"></div>
+            {# <div class="lg:block hidden !bottom-16 !absolute !left-7 !text-white !z-50 font-Baskervville text-4xl -tracking-widest {{ swiperPagination }}"></div> #}
         </div>
 
         {% if imageContents|length > 1 %}
-        <div class="flex items-center w-full justify-end gap-6 mt-5 min-[1280px]:mt-0">
+        {% set arrowColor = render.foregroundColors({background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'swiper-icon'}) %}
+        {% set paginationColor = render.foregroundColors({background: backgroundColorLabel, opacity: overlayOpacity, changeDefaultColor: true, type: 'swiper-pagination'}) %}
+        <div class="flex items-center w-full gap-5 mt-5 min-[1280px]:mt-0">
+            <div class="font-Baskervville text-4xl !z-20 !bottom-16 min-[1279px]:absolute !left-7 min-[1279px]:!text-white -tracking-widest {{ paginationColor }} {{ swiperPagination }}"></div>
             {# If we need navigation buttons #}
-            <div class="min-[1280px]:absolute left-0 min-[1280px]:-left-16 min-[1280px]:top-1/2 min-[1280px]:-translate-y-1/2 z-20 {{ swiperPrev }}">
-                <div class="hover:text-blue-800 text-blue-800/30 transition-all duration-300 cursor-pointer">
-                    <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 21.2029L23.2909 0.999998M2 21.2029L45 21.2029M2 21.2029L23.2909 42" stroke="currentColor" stroke-width="2" />
-                    </svg>
+            <div class="flex items-center w-full justify-end gap-6">
+                <div class="min-[1280px]:absolute left-0 min-[1280px]:-left-16 min-[1280px]:top-1/2 min-[1280px]:-translate-y-1/2 z-20 {{ swiperPrev }}">
+                    <div class="transition-all duration-300 cursor-pointer {{ arrowColor }}">
+                        <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 21.2029L23.2909 0.999998M2 21.2029L45 21.2029M2 21.2029L23.2909 42" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
                 </div>
-            </div>
-            <div class="min-[1280px]:absolute right-0 min-[1280px]:-right-16 min-[1280px]:top-1/2 min-[1280px]:-translate-y-1/2 z-20 {{ swiperNext }}">
-                <div class="hover:text-blue-800 text-blue-800/30 transition-all duration-300 cursor-pointer">
-                    <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M43 21.7971L21.7091 42M43 21.7971L3.53239e-06 21.7971M43 21.7971L21.7091 0.999998" stroke="currentColor" stroke-width="2" />
-                    </svg>
+                <div class="min-[1280px]:absolute right-0 min-[1280px]:-right-16 min-[1280px]:top-1/2 min-[1280px]:-translate-y-1/2 z-20 {{ swiperNext }}">
+                    <div class="transition-all duration-300 cursor-pointer {{ arrowColor }}">
+                        <svg width="45" height="43" viewBox="0 0 45 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43 21.7971L21.7091 42M43 21.7971L3.53239e-06 21.7971M43 21.7971L21.7091 0.999998" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>

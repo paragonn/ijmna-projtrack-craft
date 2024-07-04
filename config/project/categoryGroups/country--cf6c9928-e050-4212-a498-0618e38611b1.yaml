@@ -45,5 +45,5 @@ siteSettings:
     template: null
     uriFormat: null
 structure:
-  maxLevels: 1
+  maxLevels: 2
   uid: 68870d14-a530-4982-985f-a39821dc0e65

@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: listPerRowLimit
+instructions: null
+name: 'Per Row Limit'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/listPerRowLimit.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

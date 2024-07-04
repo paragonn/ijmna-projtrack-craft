@@ -1,20 +1,20 @@
 columnSuffix: null
-handle: videos
-instructions: "You can add multiple files that will be used as sources. Some browser supports webm and others supports mp4.\r\nAllowed video types are \"mp4\", \"webm\" and \"ogv\"."
-name: Videos
+handle: heroImage
+instructions: null
+name: 'Hero Image'
 searchable: false
 settings:
-  allowSelfRelations: true
+  allowSelfRelations: false
   allowSubfolders: false
   allowUploads: true
   allowedKinds:
-    - video
+    - image
   branchLimit: null
-  defaultUploadLocationSource: 'volume:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  defaultUploadLocationSource: 'volume:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
   defaultUploadLocationSubpath: null
   localizeRelations: false
   maintainHierarchy: false
-  maxRelations: null
+  maxRelations: 1
   minRelations: null
   previewMode: full
   restrictFiles: true
@@ -28,7 +28,7 @@ settings:
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   sources:
-    - 'volume:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+    - 'volume:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
   targetSiteId: null
   validateRelatedElements: false
   viewMode: large
