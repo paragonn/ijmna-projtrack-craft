@@ -1,0 +1,65 @@
+color: null
+fieldLayouts:
+  5e36fbee-da15-46da-a912-53e1f3915664:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: f4ff5933-d8fb-40bb-b786-f9ff52d3f09a
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: a08b46e9-7b38-45d1-98d4-7b4a827012ac # Accordion
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bc9947e6-e751-4598-a11a-db459b4fc49b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 968e89ca-3541-4ed4-a8f4-682f0291808e
+        userCondition: null
+handle: accordion
+hasTitleField: false
+icon: circle-question
+name: Accordion
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

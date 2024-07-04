@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: accordion
+instructions: null
+name: Accordion
+searchable: false
+settings:
+  createButtonLabel: Accordion
+  entryTypes:
+    - d5783338-8a9d-4621-8556-71a156306314 # Cards
+    - 16c21eca-a8b2-4b44-bd82-463fac26b779 # Icon Cards
+  includeTableView: false
+  maxEntries: 1
+  minEntries: null
+  pageSize: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: blocks
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
