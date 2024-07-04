@@ -1,0 +1,28 @@
+{% extends '_/layouts/main' %}
+
+{% header "X-Robots-Tag: none" %}
+{% do seomatic.meta.seoTitle('404') %}
+
+{% block content %}
+    {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
+
+    <section class="h-screen flex items-center justify-center">
+        <div class="text-center mx-auto container">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl/tight lg:text-5xl/tight font-Baskervville -tracking-wide mt-3.5">
+                    {{ "Page Not Found"|t }}
+                </h1>
+
+                <p class="my-6 font-eurostile font-medium text-lg">
+                    {{ "The Page You Requested Cannot Be Found. The Page You Are Looking For Might Have Been Removed, Had Its Name Changed, Or Is Temporarily Unavailable."|t }}
+                </p>
+
+                <div class="flex flex-wrap justify-center mt-5">
+                    <a href="{{ siteUrl }}" class="py-3.5 px-6 md:w-auto w-full text-white inline-block uppercase font-bold bg-blue-800 tracking-widest border-2 border-blue-800 hover:bg-blue-950 hover:border-blue-950 transition-all duration-300">
+                        {{ "RETURN TO HOMEPAGE"|t }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

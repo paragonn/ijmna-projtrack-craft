@@ -37,6 +37,8 @@ return GeneralConfig::create()
     // Prevent user enumeration attacks
     ->preventUserEnumeration()
 
+    ->errorTemplatePrefix("_messages/")
+
     // Login SSO entityId
     // ->entityId(App::env('SSO_ENTITY_ID') ?? false)
 
