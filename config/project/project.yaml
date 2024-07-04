@@ -1,4 +1,4 @@
-dateModified: 1720096545
+dateModified: 1720104082
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -43,6 +43,7 @@ meta:
     3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
     3bf73e53-2279-498c-9693-f24c6e498172: 'Page Builder' # Page Builder
     3c44034a-42a6-4e12-a863-4f3cc325f1a4: 'Padding Top' # Padding Top
+    3d2181fb-3192-45b5-8817-c25be592f8e2: Accordion # Accordion
     3d6985d0-6c25-467d-8334-100bb6a30cce: 'Call to Action' # Call to Action
     3fc2d296-ed56-4d93-a0e3-435f9f12a54c: CTA # CTA
     4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
@@ -116,6 +117,7 @@ meta:
     948968bb-c8d8-4627-aaa9-aa1b20ada200: Hero # Hero
     21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
     97532141-63d3-4bec-a94a-313c6e99fefa: 'Button Color' # Button Color
+    a08b46e9-7b38-45d1-98d4-7b4a827012ac: Accordion # Accordion
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
     a32f779d-1477-4234-a85c-8cf2b02d2d83: 'Stacked Card' # Stacked Card
     a134d66d-e5d8-439a-bc68-e947c91e759b: Container # Container

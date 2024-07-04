@@ -63,7 +63,8 @@
     swatch: 'background'
 }) %}
 
-{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
+{% set conOverlayOpacity = conOverlayOpacity ?? null %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default(conOverlayOpacity ?? 'none') %}
 {% set bgOpacity = render.setOpacity({
     opacity: overlayOpacity,
     opacityType: 'bg'
