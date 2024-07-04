@@ -69,7 +69,7 @@ fieldLayouts:
         userCondition: null
 handle: stackedCard
 hasTitleField: false
-icon: ''
+icon: layer-group
 name: 'Stacked Card'
 showSlugField: false
 showStatusField: true

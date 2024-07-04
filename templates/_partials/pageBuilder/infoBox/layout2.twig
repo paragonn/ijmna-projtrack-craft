@@ -1,7 +1,7 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}

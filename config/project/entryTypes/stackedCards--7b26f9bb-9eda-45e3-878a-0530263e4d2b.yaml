@@ -532,7 +532,7 @@ fieldLayouts:
         userCondition: null
 handle: stackedCards
 hasTitleField: false
-icon: ''
+icon: layer-group
 name: 'Stacked Cards'
 showSlugField: false
 showStatusField: true
