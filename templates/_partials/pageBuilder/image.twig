@@ -77,9 +77,13 @@
 {% set videos = block.videos.all() %}
 {% set embedVideo = block.embedVideo %}
 
+{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
+
 {% if image|length or videos|length or embedVideo|length %}
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
-    <div class="{{ not childContainer and containerSize == 'container' ? 'container' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
         <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div class="relative">
                 <div class="h-full {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>

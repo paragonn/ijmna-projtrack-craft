@@ -66,17 +66,22 @@
         {% endif %}
     {% endif %}
 
-    {# {% set currentMinusMarginTop = block.minusMarginTop.value|default(defaultMinusMarginTop) %}
-    {% set currentMinusMarginBottom = block.minusMarginBottom.value|default(defaultMinusMarginBottom) %} #}
+    {% set minusMarginTop = block.minusMarginTop.value|default(defaultMinusMarginTop) %}
+    {% set minusMarginBottom = block.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
 
-    {# {% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginTop) != 'none' %}
-        {% set currentBlockSpacing = block.paddingTop.value|default('medium') %}
-        {% set defaultPaddingTop = spacing[currentBlockSpacing].paddingTopForMinusMargin %}
-    {% endif %} #}
+    {% if minusMarginTop|length and minusMarginTop != 'none' %}
+        {% if not currentBgColor %}
+            {% set defaultMarginTop = "none" %}
+            {% set defaultPaddingTop = "small" %}
+        {% endif %}
+    {% endif %}
 
-    {# {% if prevBlock.minusMarginBottom.value|default(defaultMinusMarginTop) != 'none' %}
-        {% set defaultPaddingTop =  %}
-    {% endif %} #}
+    {% if minusMarginBottom|length and minusMarginBottom != 'none' %}
+        {% if not currentBgColor %}
+            {% set defaultMarginBottom = "none" %}
+            {% set defaultPaddingTop = "small" %}
+        {% endif %}
+    {% endif %}
 
     {% set spacing = collect({}) %}
     {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding', 'minusMarginTop', 'minusMarginBottom'] %}
@@ -100,8 +105,8 @@
 
             defaultSpacing: defaultSpacing,
 
-            minusMarginTop: block.minusMarginTop.value|default(defaultMinusMarginTop),
-            minusMarginBottom: block.minusMarginBottom.value|default(defaultMinusMarginBottom),
+            minusMarginTop: minusMarginTop,
+            minusMarginBottom: minusMarginBottom,
 
             marginTop: block.marginTop.value|default(defaultMarginTop),
             paddingTop: block.paddingTop.value|default(defaultPaddingTop),
