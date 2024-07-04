@@ -141,7 +141,22 @@ fieldLayouts:
             uid: 5aad8592-78b4-4cbf-a775-c7bbdee29049
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 02b1b82e-76bc-4b6d-860f-5f656bec3676
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: fa195a9b-e2f8-4ff9-b875-48e5cce85e25 # Image Content Layout

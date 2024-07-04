@@ -60,6 +60,7 @@
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentSlideAlignment = block.contentAlignment2.value|default('left') %}
 {% set overlayOpacity = block.overlayOpacity.getValue()|default('100') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
 
 {% set imageContentLayout = block.imageContentLayout.value|default('layout1') %}
@@ -104,9 +105,9 @@
 {% set buttons = block.buttons.all() %}
 {% set imageContents = block.imageContent.all() %}
 
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer ? 'container' }}">
-        <div class="grid grid-cols-1 {{ render.contentWidth({width: contentWidth}) }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div>
                 {% if block.eyebrow|length or block.heading|length or block.text|length %}
                 <div class="mb-10 relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">

@@ -45,7 +45,7 @@
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
 {% set contentWidth = block.contentWidth|default('0;12') %}
-{% set containerSize = block.containerSize.getValue()|default('container') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({

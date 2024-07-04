@@ -36,6 +36,9 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+
 {# Parent Block Fields Start #}
 {% set parent = parent ?? null %}
 {% set childContainer = childContainer ?? false %}
@@ -55,6 +58,8 @@
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
+    minusMarginTop: getMinusMarginTop,
+    minusMarginBottom: getMinusMarginBottom,
     swatch: 'background'
 }) %}
 
@@ -87,9 +92,9 @@
     '9-3' : 'md:col-start-10 md:col-end-13'
 } %}
 
-{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ getMinusMarginBottom != null or getMinusMarginBottom != 'none' ? 'z-[5] relative' }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
+
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}

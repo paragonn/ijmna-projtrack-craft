@@ -26,6 +26,9 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
+{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+
 {# Parent Block Fields Start #}
 {% set parent = parent ?? null %}
 {% set childContainer = childContainer ?? false %}
@@ -41,6 +44,8 @@
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
+    minusMarginTop: getMinusMarginTop,
+    minusMarginBottom: getMinusMarginBottom,
     swatch: 'background'
 }) %}
 
@@ -77,8 +82,6 @@
 {% set videos = block.videos.all() %}
 {% set embedVideo = block.embedVideo %}
 
-{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
 {% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
 
 {% if image|length or videos|length or embedVideo|length %}

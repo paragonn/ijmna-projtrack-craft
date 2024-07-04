@@ -111,7 +111,7 @@
         {% endif %}
 
         {% if icon|length %}
-            {% set iconClass = buttonColor == 'blue-800' and buttonType == 'link' ? 'text-blue-500' %}
+            {% set iconClass = buttonColor in ['blue-800', 'white'] and buttonType == 'link' ? 'text-blue-500' %}
             {{ svg(icon.path)|attr({
                 class: 'h-5 w-5 ' ~ iconClass
             }) }}

@@ -72,7 +72,7 @@
     {% if minusMarginTop|length and minusMarginTop != 'none' %}
         {% if not currentBgColor %}
             {% set defaultMarginTop = "none" %}
-            {% set defaultPaddingTop = "small" %}
+            {# {% set defaultPaddingTop = "small" %} #}
         {% endif %}
     {% endif %}
 
@@ -81,6 +81,10 @@
             {% set defaultMarginBottom = "none" %}
             {% set defaultPaddingTop = "small" %}
         {% endif %}
+    {% endif %}
+
+    {% if nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none' and (not currentBgColor) %}
+        {% set defaultMarginBottom = "none" %}
     {% endif %}
 
     {% set spacing = collect({}) %}

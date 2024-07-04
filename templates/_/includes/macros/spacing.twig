@@ -24,8 +24,8 @@
         'paddingBottom' : "pb-5 md:pb-8 lg:pb-10"
     },
     "small" : {
-        'minusMarginTop' : "-mt-14 lg:-mt-28",
-        'minusMarginBottom' : "-mb-14 lg:-mb-28",
+        'minusMarginTop' : "sm:-mt-14 lg:-mt-28",
+        'minusMarginBottom' : "sm:-mb-14 lg:-mb-28",
 
         'paddingTopForMinusMargin' : "pt-20 md:pt-32",
         'paddingBottomForMinusMargin' : "pb-24 md:pb-36",
@@ -36,11 +36,11 @@
         'paddingBottom' : "pb-12 md:pb-14"
     },
     "medium" : {
-        'minusMarginTop' : "-mt-32",
-        'minusMarginBottom' : "-mb-32",
+        'minusMarginTop' : "sm:-mt-20 md:-mt-24 lg:-mt-32",
+        'minusMarginBottom' : "sm:-mb-20 md:-mb-24 lg:-mb-32",
 
-        'paddingTopForMinusMargin' : "pt-32 md:pt-40",
-        'paddingBottomForMinusMargin' : "pb-32 md:pb-40",
+        'paddingTopForMinusMargin' : "pt-36 md:pt-44",
+        'paddingBottomForMinusMargin' : "pb-36 md:pb-44",
 
         'marginTop' : "mt-16 md:mt-20 lg:mt-24",
         'marginBottom' : "mb-16 md:mb-20 lg:mb-24",
@@ -48,11 +48,11 @@
         'paddingBottom' : "pb-16 md:pb-20 lg:pb-24"
     },
     "large" : {
-        'minusMarginTop' : "-mt-40",
-        'minusMarginBottom' : "-mb-40",
+        'minusMarginTop' : "sm:-mt-28 md:-mt-36",
+        'minusMarginBottom' : "sm:-mb-28 md:-mb-36",
 
-        'paddingTopForMinusMargin' : "pt-32 md:pt-40 lg:pt-48",
-        'paddingBottomForMinusMargin' : "pb-32 md:pb-40 lg:pb-48",
+        'paddingTopForMinusMargin' : "pt-36 md:pt-44 lg:pt-48",
+        'paddingBottomForMinusMargin' : "pb-36 md:pb-44 lg:pb-48",
 
         'marginTop' : "mt-24 md:mt-28 lg:mt-36",
         'marginBottom' : "mb-24 md:mb-28 lg:mb-36",
@@ -60,11 +60,11 @@
         'paddingBottom' : "pb-24 md:pb-28 lg:pb-36"
     },
     "extraLarge" : {
-        'minusMarginTop' : "-mt-72 md:-mt-36",
-        'minusMarginBottom' : "-mb-72 md:-mb-36",
+        'minusMarginTop' : "sm:-mt-28 md:-mt-32 lg:-mt-40",
+        'minusMarginBottom' : "sm:-mb-28 md:-mb-32 lg:-mb-40",
 
-        'paddingTopForMinusMargin' : "pt-32 md:pt-40 lg:pt-48",
-        'paddingBottomForMinusMargin' : "pb-32 md:pb-40 lg:pb-48",
+        'paddingTopForMinusMargin' : "pt-36 md:pt-44 lg:pt-48",
+        'paddingBottomForMinusMargin' : "pb-36 md:pb-44 lg:pb-48",
 
         'marginTop' : "mt-24 md:mt-32 lg:mt-48",
         'marginBottom' : "mb-24 md:mb-32 lg:mb-48",
@@ -115,13 +115,16 @@
     {% set defaultPaddingBottom = "none" %}
 {% endif %}
 
-{% if nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none' %}
+{% set minusMarginTopCondition = (nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none') and currentBgColor %}
+{% set minusMarginBottomCondition = prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none' and currentBgColor %}
+
+{% if minusMarginTopCondition %}
     {% set ncurrentBlockSpacing = nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) %}
     {% set spacingCurrentBlock = spacing[ncurrentBlockSpacing] %}
     {% set defaultSpacePaddingBottom = space.merge(spacingCurrentBlock.paddingBottomForMinusMargin) %}
 {% endif %}
 
-{% if prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none' %}
+{% if minusMarginBottomCondition %}
     {% set pcurrentBlockSpacing = prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
     {% set spacingCurrentBlock = spacing[pcurrentBlockSpacing] %}
     {% set defaultSpacePaddingTop = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %}
@@ -151,13 +154,13 @@
 {% if type in ['marginPadding', 'padding', 'paddingTop'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(paddingTop: #{paddingTop|default(defaultPaddingTop)})-->") | raw }} #}
     {# {% set space = space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %} #}
-    {% set space = (prevBlock and (prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none')) ? defaultSpacePaddingTop : space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %}
+    {% set space = minusMarginBottomCondition ? defaultSpacePaddingTop : space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %}
 {% endif %}
 
 {% if type in ['marginPadding', 'padding', 'paddingBottom'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(paddingBottom: #{paddingBottom|default(defaultPaddingBottom)})-->") | raw }} #}
     {# {% set space = space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %} #}
-    {% set space = (nextBlock and (nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none')) ? defaultSpacePaddingBottom : space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
+    {% set space = minusMarginTopCondition ? defaultSpacePaddingBottom : space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
 {% endif %}
 
 {{ space.implode(" ") }}
