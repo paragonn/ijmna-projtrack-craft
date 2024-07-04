@@ -41,7 +41,6 @@
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default(childContainer ? 'left' : 'center') %}
-{% set overlayOpacity = block.overlayOpacity.getValue()|default('none') %}
 {% set containerSize = block.containerSize.getValue()|default('full') %}
 {% set contentWidth = block.contentWidth|default('2;10') %}
 
@@ -55,6 +54,8 @@
     swatch: 'background'
 }) %}
 
+{% set conOverlayOpacity = conOverlayOpacity ?? null %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default(conOverlayOpacity ?? 'none') %}
 {% set bgOpacity = render.setOpacity({
     opacity: overlayOpacity,
     opacityType: 'bg'
