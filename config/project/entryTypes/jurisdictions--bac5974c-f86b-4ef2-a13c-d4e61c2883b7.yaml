@@ -249,6 +249,21 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
+            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 87ab7838-69ae-4cbe-9f7b-0f73acaa556d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             heading: Settings
             type: craft\fieldlayoutelements\Heading
             uid: 4a52b390-8c10-49a0-9396-48f442f2ab7b
