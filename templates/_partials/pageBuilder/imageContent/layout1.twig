@@ -79,7 +79,7 @@
                         {% set videos = item.videos.all() %}
                         {% set embedVideo = item.embedVideo %}
                         <div class="swiper-slide h-full">
-                            <div class="relative h-full">
+                            <div class="relative h-full" {{ imageAnimation|raw }}>
                                 {{ render.renderVideo({
                                     image: image|length ? image,
                                     alt: image|length ? image.title,

@@ -30,7 +30,7 @@
                 {% set image = item.image.one() %}
                 {% set videos = item.videos.all() %}
                 {% set embedVideo = item.embedVideo %}
-                <div class="swiper-slide">
+                <div class="swiper-slide" {{ imageAnimation|raw }}>
                     {% set oddEventClass = loop.index % 2 == 0 ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col' %}
                     {% set oddEventPositionClass = loop.index % 2 == 0 ? 'lg:left-0' : 'lg:right-0' %}
                     <div class="flex w-full relative gap-8 {{ imagePositionLayou2 == 'oddEven' ? oddEventClass : (imagePositionLayou2 == 'right' ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col') }}">

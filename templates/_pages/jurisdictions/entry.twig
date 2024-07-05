@@ -213,4 +213,48 @@
     parent: entry.section.handle,
     heroExist: true
 } %}
+
+{# Footer CTA #}
+{% set numberOfBlocks = entry.contentBuilder | length %}
+{% set lastBlock = numberOfBlocks ? entry.contentBuilder[numberOfBlocks - 1] %}
+{% set getLastBgColorLabel = 'white' %}
+{% set getLastBgColor = null %}
+{% set lastBgOpacity = null %}
+
+{% if getLastBgColorLabel and lastBlock %}
+    {% set getLastBgColorLabel = lastBlock.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+    {% set getLastBgColor = render.color({
+        handle: getLastBgColorLabel,
+        swatch: 'background'
+    }) %}
+
+    {% set lastOverlayOpacity = lastBlock.overlayOpacity.getValue()|default('none') %}
+    {% set lastBgOpacity = render.setOpacity({
+        opacity: lastOverlayOpacity,
+        opacityType: 'bg'
+    }) %}
+{% endif %}
+
+<section class="{{ getLastBgColorLabel != 'white' ? 'py-14 lg:py-20' : 'my-16 lg:my-24' }} {{ getLastBgColor }} {{ lastBgOpacity }}">
+    <div class="container">
+        <div class="max-w-xl mx-auto bg-white border-2 border-blue-800 p-6 lg:p-12 text-center">
+            <div>
+                <p class="uppercase text-blue-500 tracking-widest text-base lg:text-lg">
+                    Close CUrrent Jurisdiction
+                </p>
+                <h3 class="text-2xl lg:text-3xl font-Baskervville mt-3.5 mb-8">
+                    Go back to Global Program Tracker
+                </h3>
+                <a href="{{ siteUrl }}">
+                    <button class="text-blue-800 hover:text-blue-500 transition-all duration-300">
+                        <svg width="39" height="37" viewBox="0 0 39 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L35.4762 35.4762" stroke="currentColor" stroke-width="3" />
+                            <path d="M37.1494 2L3.67323 35.4762" stroke="currentColor" stroke-width="3" />
+                        </svg>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
