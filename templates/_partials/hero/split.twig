@@ -90,9 +90,8 @@
     </div>
     {% endif %}
 
-    {% if contentExist or (entry is defined and entry.isHomepage) %}
+    {% if contentExist or entry is defined %}
     <div class="container flex items-center lg:min-h-[900px] relative {{ imagePosition == 'left' ? 'flex-row-reverse' }}">
-        {% if contentExist %}
         <div class="relative z-10 lg:w-full lg:max-w-[490px] xl:max-w-[557px]">
             <div class="relative md:py-32 pt-12 pb-24 {{ imagePosition == 'left' ? 'pl-8' : 'pr-8' }}">
                 {{ render.basicContents({
@@ -118,9 +117,8 @@
                 }) }}
             </div>
         </div>
-        {% endif %}
 
-        {% if entry is defined and entry.isHomepage %}
+        {% if entry is defined %}
         <div class="absolute bottom-2 lg:bottom-11 z-10"
             x-data='{
                 nextBlockId  : "page-content",
