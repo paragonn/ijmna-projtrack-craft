@@ -17,10 +17,12 @@
                 <div class="lg:flex items-center justify-between gap-6">
                     <div class="flex items-center justify-between shrink-0 w-full lg:w-auto">
                         {% if headerLogo|length %}
-                        <a href="{{ siteUrl }}" class="logo text-blue-500">
+                        <a href="{{ siteUrl }}" class="logo text-blue-500" aria-label="{{ siteName }}">
                             {{ render.setImage({
                                 image: headerLogo,
                                 alt: headerLogo.title,
+                                width: 149,
+                                height: 56,
                                 fill: "currentColor",
                                 class: "h-14 text-blue-500"
                             }) }}
@@ -28,7 +30,7 @@
                         {% endif %}
 
                         <div class="lg:hidden block">
-                            <button class="w-10 h-8 relative z-30 shrink-0"
+                            <button class="w-10 h-8 relative z-30 shrink-0" aria-label="Hamburger"
                                 x-on:click="hamburger = ! hamburger;isOverflowHidden = !isOverflowHidden"
                                 @keydown.escape="hamburger = false"
                                 :class="{'!w-10 !h-5 md:!h-[26px]' : hamburger , '' : !hamburger}"
