@@ -221,11 +221,17 @@
     Include page Builder
 =============================================
 #}
-{% include "_partials/blocks" with {
-    pageBuilder: entry.contentBuilder.all(),
-    parent: entry.section.handle,
-    heroExist: true
-} %}
+{% if heroImage|length %}
+<div class="md:mt-0 mt-36">
+{% endif %}
+    {% include "_partials/blocks" with {
+        pageBuilder: entry.contentBuilder.all(),
+        parent: entry.section.handle,
+        heroExist: true
+    } %}
+{% if heroImage|length %}
+</div>
+{% endif %}
 
 {# Footer CTA #}
 {% set numberOfBlocks = entry.contentBuilder | length %}
