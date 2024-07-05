@@ -89,7 +89,7 @@
     <div class="inset-0 w-full h-full absolute {{ backgroundColor }} {{ bgOpacity }}"></div>
 
     <div class="container relative z-10 pt-[72px] md:pt-[168px] {{ (getFirstBlockMinusMargin != null or getFirstBlockMinusMargin != 'none') and getFirstBlockMinusMargin in ['large', 'extraLarge'] ? 'lg:pb-[180px] md:pb-[76px]' : 'lg:pb-[120px] md:pb-[76px]' }}">
-        <div class="flex items-start flex-col gap-9 relative top-24 md:top-0 {{ imagePosition == 'left' ? 'md:flex-row-reverse' : 'md:flex-row' }}">
+        <div class="flex items-start flex-col gap-9 relative {{ not heroImage|length ? 'top-0 pb-16' : 'top-24 md:top-0' }} {{ imagePosition == 'left' ? 'md:flex-row-reverse' : 'md:flex-row' }}">
             <div class="w-full flex-1 {{ backgroundColorLabel == 'white' ? 'text-blue-800' : 'text-white' }}">
                 {% if country|length %}
                 <p class="uppercase tracking-widest {{ render.foregroundColors({
@@ -175,7 +175,7 @@
                 <div class="relative mt-12">
                     {% if entry.quote|length %}
                     <h3 class="text-2xl lg:text-3xl font-Baskervville -tracking-wide">
-                        <span class="absolute -left-5">“</span>
+                        <span class="xl:absolute -left-5">“</span>
                         {{ entry.quote|nl2br ~ '”' }}
                     </h3>
                     {% endif %}
