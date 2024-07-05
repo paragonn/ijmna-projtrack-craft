@@ -1,4 +1,4 @@
-dateModified: 1720105415
+dateModified: 1720155567
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -77,6 +77,7 @@ meta:
     26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28ccf5ae-cf72-492b-94c0-edbbbd1f411e: Checklist # Checklist
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
+    39a76ad9-6746-4fb7-be42-bd92bcd72610: Answers # Answers
     51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
     59f089df-32db-4da9-aa07-7b501b160aa4: Card # Card
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
@@ -92,6 +93,7 @@ meta:
     423bb166-71e5-4c7c-9d8c-71db99966b0b: SEO # SEO
     451e39c8-4f34-47b0-9a76-9fae1d662c17: Columns # Columns
     571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
+    677ee826-6c97-4489-8594-51d62514994d: Accordions # Accordions
     721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom' # Minus Margin Bottom
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images

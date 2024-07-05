@@ -36,26 +36,11 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
-            handle: question
-            includeInCards: false
-            instructions: null
-            label: Question
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 28f524ee-d3d4-42e0-8997-280e0d01519f
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
             fieldUid: a08b46e9-7b38-45d1-98d4-7b4a827012ac # Accordion
             handle: null
             includeInCards: false
             instructions: null
-            label: Answer
+            label: null
             providesThumbs: false
             required: false
             tip: null
@@ -376,6 +361,92 @@ fieldLayouts:
             width: 50
         name: Spacing
         uid: a185036c-1750-4908-8412-53d4a97bafbf
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 21102308-0ca8-4b67-8663-daef265f4c60 # Animation?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d22b42b1-c4a5-44de-9f5a-b036477e1ccd
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: 371260fc-3e2f-4e0b-9433-92c78d02304c
+            userCondition: null
+          -
+            elementCondition: null
+            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292 # Animation Style
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6d60279f-3ab0-4c29-b196-b7a9aa320976
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6 # Animation Easing
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7e9e4abf-c14f-4e56-b189-d63fcd3999ef
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9 # Animation Duration
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bfda7d60-2700-4d3d-997e-a4be3ceb40a1
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: cb2751a6-1d77-4981-a588-68733aa37aa4
+            userCondition: null
+            warning: null
+            width: 50
+        name: Animation
+        uid: 5346c607-2241-4343-ab11-23a8f17dee4f
         userCondition: null
 handle: accordion
 hasTitleField: false

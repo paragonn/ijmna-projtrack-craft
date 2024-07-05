@@ -1,0 +1,177 @@
+{#
+===============================================================================
+    Basic Content (basicContent)
+
+    Variables
+        - Block (block)
+
+    Fields:
+        Content:
+            - Eyebrow (eyebrow)
+            - Heading (heading)
+            - Text (text)
+            - Buttons (buttons) [Matrix]
+                - Button Type (buttonType)
+                - Button Color (buttonColor)
+                - Icon (icon)
+                - Icon Position (iconPosition)
+                - Button (button)
+
+        Settings:
+            - Content Width (contentWidth)
+            - Background Color (backgroundColor)
+            - Overlay Opacity (overlayOpacity)
+            - Content Alignment (contentAlignment)
+            - Heading Size (headingSize)
+            - Font Weight (fontWeight)
+===============================================================================
+#}
+{{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
+{% import "_/includes/macros" as render %}
+
+{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+
+{# Parent Block Fields Start #}
+{% set parent = parent ?? null %}
+{% set childContainer = childContainer ?? false %}
+{% set sectionTag = childContainer ? 'div' : 'section' %}
+{# Parent Block Fields End #}
+
+{% set headingTag = block.headingSize.getValue()|default('h2') %}
+{% set fontWeight = block.fontWeight.getValue()|default('normal') %}
+{% set contentAlignment = block.contentAlignment.value|default(childContainer ? 'left' : 'center') %}
+{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set contentWidth = block.contentWidth|default('2;10') %}
+
+{% set conbackgroundColor = conbackgroundColor ?? null %}
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
+{% set backgroundColor = render.color({
+    handle: backgroundColorLabel,
+    minusMarginTop: getMinusMarginTop,
+    minusMarginBottom: getMinusMarginBottom,
+    swatch: 'background'
+}) %}
+
+{% set conOverlayOpacity = conOverlayOpacity ?? null %}
+{% set overlayOpacity = block.overlayOpacity.getValue()|default(conOverlayOpacity ?? 'none') %}
+{% set bgOpacity = render.setOpacity({
+    opacity: overlayOpacity,
+    opacityType: 'bg'
+}) %}
+
+{% set contentAnimation = render.setAnimation({
+    animation: block.animation,
+    animationStyle: block.animationStyle.value|default('fade-up'),
+    animationDuration: block.animationDuration.value|default(1500),
+    animationOffset: block.animationOffset.value|default(200),
+    animationEasing: block.animationEasing.value|default(null)
+}) | raw %}
+
+{% set buttons = block.buttons.all() %}
+{% set accordions = block.accordion.all() %}
+
+{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
+
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
+    <div class="{{ not childContainer ? 'container' }}">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
+            <div class="mb-10">
+                <div class="relative z-10 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
+                    {{ render.basicContents({
+                        eyebrow: block.eyebrow,
+                        heading: block.heading,
+                        text: block.text,
+                        buttons: buttons,
+                        headingTag: headingTag,
+                        headingSize: headingTag,
+                        fontWeight: fontWeight,
+                        eyebrowFontWeight: 'bold',
+                        fontFamily: '',
+                        overrideParagraphFontSize: 'text-lg',
+                        backgroundColorLabel: backgroundColorLabel,
+                        opacity: overlayOpacity,
+                        contentAlignment: contentAlignment,
+                        animation: block.animation,
+                        contentAnimationStyle: block.animationStyle.value|default('fade-up'),
+                        contentAnimationDuration: block.animationDuration.value|default(1500),
+                        contentAnimationOffset: block.animationOffset.value|default(200),
+                        contentAnimationEasing: block.animationEasing.value|default(null)
+                    }) }}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if accordions|length %}
+            <div class="w-full">
+                <div class="space-y-4"
+                    x-data="{
+                        current: null
+                    }"
+                >
+                    {% for accordion in accordions %}
+                    <div class="border-2 {{ render.foregroundColors({
+                        background: backgroundColorLabel,
+                        opacity: overlayOpacity,
+                        changeDefaultColor: true,
+                        type: 'border-color',
+                    }) }}" {{ contentAnimation|raw }}>
+                        <button type="button" class="p-3 w-full font-medium flex items-center justify-center gap-4 {{ render.foregroundColors({
+                            background: backgroundColorLabel,
+                            opacity: overlayOpacity,
+                            changeDefaultColor: true,
+                            type: 'heading',
+                        }) }}"
+                            x-on:click="current === '{{ loop.index }}' ? current = null : current = '{{ loop.index }}'"
+                        >
+                            {{ accordion.heading }}
+                            <div>
+                                <span x-show="current !== '{{ loop.index }}'" class="{{ render.foregroundColors({
+                                    background: backgroundColorLabel,
+                                    opacity: overlayOpacity,
+                                    changeDefaultColor: true,
+                                    type: 'heading',
+                                }) }}">
+                                    <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 0.813965L10 9.81396L18.814 1" stroke="currentColor" stroke-width="2" />
+                                    </svg>
+                                </span>
+                                <span x-show="current === '{{ loop.index }}'" class="{{ render.foregroundColors({
+                                    background: backgroundColorLabel,
+                                    opacity: overlayOpacity,
+                                    changeDefaultColor: true,
+                                    type: 'heading',
+                                }) }}">
+                                    <svg :class="{'rotate-180' : current === '{{ loop.index }}'}" width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 0.813965L10 9.81396L18.814 1" stroke="currentColor" stroke-width="2" />
+                                    </svg>
+                                </span>
+                            </div>
+                        </button>
+                        <div x-cloak x-show="current === '{{ loop.index }}'" x-collapse>
+                            <div class="border-t-2 {{ render.foregroundColors({
+                                background: backgroundColorLabel,
+                                opacity: overlayOpacity,
+                                changeDefaultColor: true,
+                                type: 'border-color',
+                            }) }}">
+                                {% include "_partials/blocks" with {
+                                    pageBuilder: accordion.answers.all(),
+                                    parent: block.type.handle,
+                                    conbackgroundColor: backgroundColorLabel,
+                                    conOverlayOpacity: overlayOpacity,
+                                    childContainer: false
+                                } %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</{{ sectionTag }}>
+

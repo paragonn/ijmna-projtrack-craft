@@ -1,14 +1,16 @@
 columnSuffix: null
-handle: accordion
+handle: answers
 instructions: null
-name: Accordion
+name: Answers
 searchable: false
 settings:
-  createButtonLabel: Accordions
+  createButtonLabel: Answer
   entryTypes:
-    - 677ee826-6c97-4489-8594-51d62514994d # Accordions
+    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494 # Basic Content
+    - d5783338-8a9d-4621-8556-71a156306314 # Cards
+    - 16c21eca-a8b2-4b44-bd82-463fac26b779 # Icon Cards
   includeTableView: false
-  maxEntries: null
+  maxEntries: 1
   minEntries: null
   pageSize: null
   propagationKeyFormat: null
