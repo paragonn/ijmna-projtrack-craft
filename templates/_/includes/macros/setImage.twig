@@ -26,8 +26,9 @@
     |merge(attrs is iterable ? attrs : {})
 %}
 
-{% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
-    {# <img src="{{ image.getUrl()|default(image) }}"{% if lazy %} loading='lazy'{% endif %}{% if id|length %} id="{{ id }}"{% endif %}{% if class|length %} class="{{ class }}"{% endif %}{% if alt|length %} alt="{{ alt }}"{% endif %} {{ imgWidth }} {{ imgHeight }}> #}
+<img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
+
+{# {% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
     <img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
 
 {% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
@@ -87,4 +88,4 @@
         <img src="{{ craft.imagerx.placeholder({ width: 160, height: 90 }) }}" {{ attr(attributes) }} />
     </picture>
 {% endif %}
-{% endif %}
+{% endif %} #}
