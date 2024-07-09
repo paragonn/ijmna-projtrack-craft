@@ -289,7 +289,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: 'Types Per Row Limit'
+            label: 'Details Per Row Limit'
             providesThumbs: false
             required: false
             tip: null
