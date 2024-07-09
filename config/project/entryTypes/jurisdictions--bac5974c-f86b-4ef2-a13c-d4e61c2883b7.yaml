@@ -163,7 +163,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: 'Background Vides'
+            label: 'Background Video'
             providesThumbs: false
             required: false
             tip: null
