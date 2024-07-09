@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: requireLogin
+instructions: null
+name: 'Require Login?'
+searchable: false
+settings:
+  default: false
+  offLabel: 'NO'
+  onLabel: 'YES'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

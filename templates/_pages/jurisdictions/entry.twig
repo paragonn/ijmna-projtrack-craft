@@ -1,3 +1,9 @@
+{% if not currentUser %}
+    {% redirect siteUrl %}
+{% endif %}
+
+{% requireLogin %}
+
 {% extends '_/layouts/main' %}
 {% import "_/includes/macros" as render %}
 
