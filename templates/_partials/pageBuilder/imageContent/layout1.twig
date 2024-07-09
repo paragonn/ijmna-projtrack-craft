@@ -78,10 +78,17 @@
                         {% set image = item.image.one() %}
                         {% set videos = item.videos.all() %}
                         {% set embedVideo = item.embedVideo %}
+
+                        {% set thumb = {
+                           mode: 'crop',
+                           width: 850,
+                           height: 'auto',
+                           quality: 100
+                        } %}
                         <div class="swiper-slide h-full">
                             <div class="relative h-full" {{ imageAnimation|raw }}>
                                 {{ render.renderVideo({
-                                    image: image|length ? image,
+                                    image: image|length ? image.getUrl(thumb),
                                     alt: image|length ? image.title,
                                     width: image|length ? image.width,
                                     height: image|length ? image.height,
