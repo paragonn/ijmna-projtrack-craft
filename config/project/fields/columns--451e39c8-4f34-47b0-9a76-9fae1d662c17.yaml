@@ -4,7 +4,7 @@ instructions: null
 name: Columns
 searchable: false
 settings:
-  createButtonLabel: Columns
+  createButtonLabel: Column
   entryTypes:
     - e434669f-dd5f-4232-88ef-7a3b8c37b4dc # Column
   includeTableView: false
