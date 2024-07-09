@@ -47,5 +47,7 @@ return GeneralConfig::create()
         '@webroot' => dirname(__DIR__) . '/web',
     ])
 
+    ->generateTransformsBeforePageLoad(true)
+
     ->loginPath(App::env('SSO_LOGIN_PATH') ?? '/sso/login/request/fb7176c8-3ab2-4789-b49b-cb11548fc0ad')
 ;
