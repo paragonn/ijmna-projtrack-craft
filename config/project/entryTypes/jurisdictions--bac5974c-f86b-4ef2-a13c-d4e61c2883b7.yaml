@@ -193,7 +193,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Stage Description'
             providesThumbs: false
             required: false
             tip: null
@@ -208,7 +208,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Jurisdiction Details'
             providesThumbs: false
             required: false
             tip: null
