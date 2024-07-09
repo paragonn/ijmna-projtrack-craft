@@ -85,7 +85,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Map Dot Popup Image'
             providesThumbs: false
             required: false
             tip: null
@@ -100,7 +100,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Map Dot Location'
             providesThumbs: false
             required: true
             tip: null
@@ -109,7 +109,7 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-        name: Filter
+        name: Metadata
         uid: ce7b5803-4685-40c3-b2e3-b9cfd246094d
         userCondition: null
       -
