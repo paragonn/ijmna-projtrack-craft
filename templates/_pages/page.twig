@@ -1,3 +1,7 @@
+{% if entry.requireLogin %}
+    {% requireLogin %}
+{% endif %}
+
 {% extends '_/layouts/main' %}
 {% import "_/includes/macros" as render %}
 

@@ -72,6 +72,27 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
+            fieldUid: 45decbb3-802d-4a8a-9b63-3067d0c45d17 # Require Login?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a85252ec-5df5-4a4c-897e-6efccbe9a8de
+            userCondition: null
+            warning: null
+            width: 100
+        name: Login
+        uid: b5203d00-38e6-4b36-b0e9-c4ad44b7bff5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
             fieldUid: 423bb166-71e5-4c7c-9d8c-71db99966b0b # SEO
             handle: null
             includeInCards: false

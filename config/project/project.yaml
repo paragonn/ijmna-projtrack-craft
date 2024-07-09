@@ -1,4 +1,4 @@
-dateModified: 1720181672
+dateModified: 1720531527
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -78,6 +78,7 @@ meta:
     28ccf5ae-cf72-492b-94c0-edbbbd1f411e: Checklist # Checklist
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
     39a76ad9-6746-4fb7-be42-bd92bcd72610: Answers # Answers
+    45decbb3-802d-4a8a-9b63-3067d0c45d17: 'Require Login?' # Require Login?
     51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
     59f089df-32db-4da9-aa07-7b501b160aa4: Card # Card
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
