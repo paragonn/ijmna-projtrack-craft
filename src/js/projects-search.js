@@ -488,7 +488,7 @@ function addMarkerLayers(markers)
             //   * Blue, 20px circles when point count is less than 100
             //   * Yellow, 30px circles when point count is between 100 and 750
             //   * Pink, 40px circles when point count is greater than or equal to 750
-            'circle-color': [
+            /*'circle-color': [
                 'step',
                 ['get', 'point_count'],
                 '#51bbd6', 100,
@@ -501,7 +501,11 @@ function addMarkerLayers(markers)
                 20, 100,
                 30, 750,
                 40
-            ]
+            ]*/
+            "circle-color": colorMarker,
+            "circle-radius": 20,
+            "circle-stroke-width": 0,
+            "circle-stroke-opacity": 0.4,
         }
     });
 
@@ -512,7 +516,11 @@ function addMarkerLayers(markers)
         filter: ['has', 'point_count'],
         layout: {
             'text-field': ['get', 'point_count_abbreviated'],
-            'text-size': 12
+            'text-size': 14,
+            'text-font': ['Open Sans SemiBold', 'Arial Unicode MS Bold']
+        },
+        paint: {
+            "text-color": '#ffffff',
         }
     });
 
