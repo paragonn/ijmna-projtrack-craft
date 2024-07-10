@@ -364,7 +364,7 @@ fieldLayouts:
         userCondition: null
 handle: container
 hasTitleField: false
-icon: ''
+icon: toolbox
 name: Container
 showSlugField: false
 showStatusField: true

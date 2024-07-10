@@ -4,7 +4,7 @@ instructions: null
 name: Accordion
 searchable: false
 settings:
-  createButtonLabel: Accordions
+  createButtonLabel: Accordion
   entryTypes:
     - 677ee826-6c97-4489-8594-51d62514994d # Accordions
   includeTableView: false

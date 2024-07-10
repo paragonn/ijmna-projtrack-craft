@@ -23,6 +23,30 @@ return [
                     'types' => ['twoColumns', 'container'],
                 ]
             ],
+        ],
+        'column' => [
+            'groups' => [
+                [
+                    'label' => \Craft::t('app', 'Basic'),
+                    'types' => ['basicContent', 'image'],
+                ],
+                [
+                    'label' => \Craft::t('app', 'Components'),
+                    'types' => ['infoBox', 'statsBox', 'checklist', 'stackedCards'],
+                ]
+            ],
+        ],
+        'container' => [
+            'groups' => [
+                [
+                    'label' => \Craft::t('app', 'Basic'),
+                    'types' => ['basicContent', 'image'],
+                ],
+                [
+                    'label' => \Craft::t('app', 'Components'),
+                    'types' => ['infoBox', 'cards', 'iconCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'imageContent', 'twoColumns'],
+                ]
+            ],
         ]
     ]
 ];
