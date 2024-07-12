@@ -17,6 +17,7 @@ settings:
     - 28ccf5ae-cf72-492b-94c0-edbbbd1f411e # Checklist
     - 3d2181fb-3192-45b5-8817-c25be592f8e2 # Accordion
     - 0e63aa9f-6064-4094-ab28-0b9e7f6b8f09 # Image + Content
+    - 1cbb1390-2bb5-47d8-afaa-fb0146a8e4d0 # Code / Embed
     - ec8cf3c5-a3d4-4c87-9c99-6807bee72059 # Two Columns
   includeTableView: false
   maxEntries: null

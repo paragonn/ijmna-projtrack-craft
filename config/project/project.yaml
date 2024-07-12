@@ -1,4 +1,4 @@
-dateModified: 1720803063
+dateModified: 1720804492
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -33,9 +33,11 @@ meta:
   __names__:
     0b15cab4-22ae-40f3-9612-204b951f30f0: Image # Image
     0bb1f59a-bac9-4368-b972-bc346cf78bdb: Links # Links
+    0d8c4992-13e5-49e7-bc75-c6a7036cd8fc: 'Tracking Scripts' # Tracking Scripts
     0e13a17a-1829-4ccb-a64f-c39b6d62af82: 'Animation Offset' # Animation Offset
     0e63aa9f-6064-4094-ab28-0b9e7f6b8f09: 'Image + Content' # Image + Content
     00f64a37-6342-4ab0-a52b-d24123cb37e0: 'Info Box' # Info Box
+    1cbb1390-2bb5-47d8-afaa-fb0146a8e4d0: 'Code / Embed' # Code / Embed
     1cf2528d-1b25-4d76-be36-e58ac8a4d68b: 'Stats Box' # Stats Box
     1da620f4-95cb-4911-9332-8ef04cad860f: Button # Button
     02c1f367-dcb0-49f9-af0b-e255d2928b19: 'Show Border?' # Show Border?
@@ -53,9 +55,11 @@ meta:
     5c654d1e-8c51-46d6-9baa-d89900c8051a: 'Icon Card' # Icon Card
     5d2385da-c451-4d15-a8dc-9bf204cfb717: Eyebrow # Eyebrow
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
+    05ed830d-e0d9-45c1-a952-f81bb441a524: 'Script Position' # Script Position
     05f4aa96-2a20-4f5a-af29-371b169a6725: 'Current Status' # Current Status
     6a8efaa8-2ed0-497f-a528-78203c0632ab: 'Hero Image' # Hero Image
     6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
+    7afc8aef-c2ce-4275-ab1d-9a25238e9304: 'Javascript Code' # Javascript Code
     7b26f9bb-9eda-45e3-878a-0530263e4d2b: 'Stacked Cards' # Stacked Cards
     7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?
     7be90189-1791-495b-a850-3bc340df0caf: Casework # Casework
@@ -102,6 +106,7 @@ meta:
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     887e8c04-ed78-4f44-afb0-408021c88446: 'Background Image' # Background Image
+    910dab4f-1758-4717-b8f9-e8b63a73f3de: 'HTML Code' # HTML Code
     970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
     982eeecd-95ad-43d1-8cc2-f6b3d80be494: 'Basic Content' # Basic Content
     5249fb26-5dbb-40d0-8d43-eaa65ad75be1: Header # Header
@@ -118,11 +123,13 @@ meta:
     29046eec-f132-4f06-8bc6-2289a453e2b9: Split # Split
     31901f15-b181-4b05-8ae6-b070031679db: 'Icon Position' # Icon Position
     56196e9b-e1c4-44b3-817a-0f471121ed32: 'Quote Attribution' # Quote Attribution
+    67356d1e-de3d-4ceb-85ad-abf6b08ff9d2: 'Tracking Script' # Tracking Script
     72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
     395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
     948968bb-c8d8-4627-aaa9-aa1b20ada200: Hero # Hero
     21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
+    45855582-b74b-4405-9639-34fc6b00d637: 'Add only in Production?' # Add only in Production?
     97532141-63d3-4bec-a94a-313c6e99fefa: 'Button Color' # Button Color
     a08b46e9-7b38-45d1-98d4-7b4a827012ac: Accordion # Accordion
     a09ca3ab-fe0a-4cb3-83bd-6f37f4fd3260: 'Public Schema' # Public Schema
@@ -135,6 +142,8 @@ meta:
     bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Jurisdictions # Jurisdictions
     bc97ce21-40cf-43a2-991d-94585d8fb43a: 'Icon Card' # Icon Card
     bcbc592a-d4d0-4afa-92b6-458504f09b17: 'Margin Top' # Margin Top
+    be56efe1-2490-448d-9cf5-ac5c92a43952: 'Tracking Scripts' # Tracking Scripts
+    c0909bba-5350-4f48-875b-48151f1f9f7c: 'Script Files' # Script Files
     c54b7104-c058-41f4-ac16-278920cf8062: 'Container Size' # Container Size
     c14150f6-d51e-480d-9575-1091c8b07cb1: 'Content Builder' # Content Builder
     cf6c9928-e050-4212-a498-0618e38611b1: Country # Country

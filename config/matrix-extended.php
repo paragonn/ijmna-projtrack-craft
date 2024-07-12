@@ -20,7 +20,7 @@ return [
                 ],
                 [
                     'label' => \Craft::t('app', 'Layout'),
-                    'types' => ['twoColumns', 'container'],
+                    'types' => ['codeEmbed', 'twoColumns', 'container'],
                 ]
             ],
         ],
@@ -44,7 +44,11 @@ return [
                 ],
                 [
                     'label' => \Craft::t('app', 'Components'),
-                    'types' => ['infoBox', 'cards', 'iconCards', 'statusCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'imageContent', 'twoColumns'],
+                    'types' => ['infoBox', 'cards', 'iconCards', 'statusCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'imageContent'],
+                ],
+                [
+                    'label' => \Craft::t('app', 'Layout'),
+                    'types' => ['codeEmbed', 'twoColumns'],
                 ]
             ],
         ]

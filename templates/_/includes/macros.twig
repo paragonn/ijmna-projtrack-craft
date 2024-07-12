@@ -376,3 +376,17 @@
         {{ _self.setImage(options) }}
     {% endif %}
 {% endmacro %}
+
+{% macro trackingMacro(params) %}
+    {% set defaultsParams = {
+        script: null,
+        scriptHeading: null,
+        scriptFiles: null,
+        javascriptCode: null,
+        htmlCode: null
+    } %}
+
+    {# Override (overwrite) defaults with passed parameters #}
+    {% set options = defaultsParams|merge(params) %}
+    {% include "_/includes/macros/trackingMacro" with options %}
+{% endmacro %}

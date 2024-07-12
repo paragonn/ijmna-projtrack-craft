@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: addOnlyInProduction
+instructions: null
+name: 'Add only in Production?'
+searchable: false
+settings:
+  default: false
+  offLabel: 'NO'
+  onLabel: 'YES'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

@@ -1,0 +1,140 @@
+color: null
+fieldLayouts:
+  ca5653cc-4d98-476a-a8b0-f6fb40c3db1b:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            elementCondition: null
+            id: null
+            includeInCards: false
+            inputType: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            providesThumbs: false
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\entries\EntryTitleField
+            uid: 63748c8f-f313-4bb7-9606-431bb74c53d2
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: b979d242-e740-4bad-861f-08b13cc492fa
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 05ed830d-e0d9-45c1-a952-f81bb441a524 # Script Position
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4938d887-a81b-466a-8e36-ce314dec4c7d
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 45855582-b74b-4405-9639-34fc6b00d637 # Add only in Production?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 5ea0354d-047d-48aa-b376-7e8fbf29b95f
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: c0909bba-5350-4f48-875b-48151f1f9f7c # Script Files
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c08dd125-b41b-4344-a1e7-959c9aa9eb41
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 7afc8aef-c2ce-4275-ab1d-9a25238e9304 # Javascript Code
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 921d9710-c680-4983-90ea-cbea842478ba
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
+            fieldUid: 910dab4f-1758-4717-b8f9-e8b63a73f3de # HTML Code
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 7af8e726-e11e-4328-b4ac-9801c1f669f0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: e4172ce6-ee88-46c0-bbe1-f98869a90d3e
+        userCondition: null
+handle: trackingScript
+hasTitleField: false
+icon: scroll
+name: 'Tracking Script'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: ''
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

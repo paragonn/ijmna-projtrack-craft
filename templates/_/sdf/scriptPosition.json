@@ -1,0 +1,5 @@
+[
+    { "label": "Head", "value": "head" },
+    { "label": "Body (Start)", "value": "bodyStart" },
+    { "label": "Body (End)", "value": "bodyEnd" }
+]

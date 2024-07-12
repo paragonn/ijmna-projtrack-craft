@@ -5,6 +5,7 @@
     lang: craft.app.language,
     class: 'scroll-smooth'
 } %}
+{% set trackingScripts = trackingScripts.trackingScripts.cache().all() %}
 <html {{ attr(htmlAttrs) }}>
     <head>
         <meta charset="UTF-8">
@@ -23,6 +24,17 @@
         {# <link rel="stylesheet" href="{{ mix('css/swiper.css') }}"> #}
         <link rel="stylesheet" href="{{ mix('css/glightbox.css') }}">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+        {# Include Tracking Scripts Head #}
+        {% for script in trackingScripts|filter(script => script.scriptPosition.value == "head" and (not script.addOnlyInProduction or (script.addOnlyInProduction and craft.app.config.env == "production"))) %}
+            {{ render.trackingMacro({
+                script: script,
+                scriptHeading: script.heading,
+                scriptFiles: script.scriptFiles,
+                javascriptCode: script.javascriptCode,
+                htmlCode: script.htmlCode
+            }) }}
+        {% endfor %}
     </head>
 
     {% set successNotification = successNotification ?? false %}
@@ -62,6 +74,17 @@
         @notifyerror="error=true,nError=true,errorHeading=(typeof($event.detail.heading) !== 'undefined' ? $event.detail.heading : ''),errorText=(typeof($event.detail.text) !== 'undefined' ? $event.detail.text : ''),resetTimeout()"
         :class="{ 'overflow-hidden': isOverflowHidden }"
     >
+        {# Include Tracking Scripts Head #}
+        {% for script in trackingScripts|filter(script => script.scriptPosition.value == "bodyStart" and (not script.addOnlyInProduction or (script.addOnlyInProduction and craft.app.config.env == "production"))) %}
+            {{ render.trackingMacro({
+                script: script,
+                scriptHeading: script.heading,
+                scriptFiles: script.scriptFiles,
+                javascriptCode: script.javascriptCode,
+                htmlCode: script.htmlCode
+            }) }}
+        {% endfor %}
+
         {#
         ============================================
             Include Header
@@ -107,6 +130,17 @@
         {# <script src="{{ mix('js/swiper.js') }}" defer=""></script> #}
 
         {% block footerScriptAfterApp %}{% endblock %}
+
+        {# Include Tracking Scripts Head #}
+        {% for script in trackingScripts|filter(script => script.scriptPosition.value == "bodyEnd" and (not script.addOnlyInProduction or (script.addOnlyInProduction and craft.app.config.env == "production"))) %}
+            {{ render.trackingMacro({
+                script: script,
+                scriptHeading: script.heading,
+                scriptFiles: script.scriptFiles,
+                javascriptCode: script.javascriptCode,
+                htmlCode: script.htmlCode
+            }) }}
+        {% endfor %}
 
         {# {% if currentUser|length and currentUser.can('accessCp') %} #}
             <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=b0jzbj76kcohgf8t555y2w" async="true"></script>
