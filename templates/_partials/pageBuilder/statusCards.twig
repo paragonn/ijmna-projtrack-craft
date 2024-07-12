@@ -60,7 +60,7 @@
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
-{% set containerSize = block.containerSize.getValue()|default('full') %}
+{% set containerSize = block.containerSize.getValue()|default('container') %}
 {% set contentWidth = block.contentWidth|default('1;11') %}
 {% set showBorder = block.showBorder %}
 
@@ -111,9 +111,10 @@
 {% set buttons = block.buttons.all() %}
 {% set cards = block.statusCard.all() %}
 
-{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
+{% set minusMarginCond = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') %}
+{% set addStickyClass = minusMarginCond ? 'z-[5] relative' %}
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
-    <div class="{{ not childContainer ? 'container' }}">
+    <div class="{{ (not childContainer) and (minusMarginCond and backgroundColorLabel != 'white') ? 'container' }}">
         <div class="{{ showBorder and borderColor != null ? 'border py-24 px-4 ' ~ contentBoxColor ~ render.foregroundColors({
             background: borderLabel,
             opacity: overlayOpacity,
