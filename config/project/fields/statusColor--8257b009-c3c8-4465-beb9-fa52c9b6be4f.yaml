@@ -1,0 +1,10 @@
+columnSuffix: null
+handle: statusColor
+instructions: null
+name: 'Status Color '
+searchable: false
+settings:
+  defaultColor: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Color
