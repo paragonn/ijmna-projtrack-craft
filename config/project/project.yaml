@@ -1,4 +1,4 @@
-dateModified: 1720605712
+dateModified: 1720791301
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -53,6 +53,7 @@ meta:
     5c654d1e-8c51-46d6-9baa-d89900c8051a: 'Icon Card' # Icon Card
     5d2385da-c451-4d15-a8dc-9bf204cfb717: Eyebrow # Eyebrow
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
+    05f4aa96-2a20-4f5a-af29-371b169a6725: 'Current Status' # Current Status
     6a8efaa8-2ed0-497f-a528-78203c0632ab: 'Hero Image' # Hero Image
     6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
     7b26f9bb-9eda-45e3-878a-0530263e4d2b: 'Stacked Cards' # Stacked Cards
@@ -93,8 +94,10 @@ meta:
     383b8156-a3da-4bda-991a-7c9893a1c11c: Button # Button
     423bb166-71e5-4c7c-9d8c-71db99966b0b: SEO # SEO
     451e39c8-4f34-47b0-9a76-9fae1d662c17: Columns # Columns
+    493bf7e3-b061-45e5-92e4-2f401b9a8e5a: 'Status Card' # Status Card
     571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
     677ee826-6c97-4489-8594-51d62514994d: Accordions # Accordions
+    703c4614-7d62-46a6-927a-23935a1f6c22: 'Status Cards' # Status Cards
     721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom' # Minus Margin Bottom
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
@@ -106,6 +109,7 @@ meta:
     6352b785-b04c-4d99-befd-2f5f5308c36b: 'Stacked Card' # Stacked Card
     6553bc6c-dfc2-465a-a5ba-e218ea8c0778: 'Jurisdictions Case Types' # Jurisdictions Case Types
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
+    8257b009-c3c8-4465-beb9-fa52c9b6be4f: 'Status Color ' # Status Color 
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
     9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
     10939aae-e10b-4be1-8d12-358d50ce590d: 'Stat Box' # Stat Box
@@ -156,6 +160,7 @@ meta:
     f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7: Buttons # Buttons
     f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd: Stages # Stages
     f9be8226-8b11-4ea4-8950-2dbcb61beec5: 'Column Alignment' # Column Alignment
+    f9eba964-5011-423c-a0cc-36c5554f82ce: 'Status Card' # Status Card
     f36b49ea-9938-42fb-9803-9772a378f173: 'Overlay Opacity' # Overlay Opacity
     f53d3737-57cc-49ff-b173-17376ae0c1bf: 'Stat Box' # Stat Box
     fa195a9b-e2f8-4ff9-b875-48e5cce85e25: 'Image Content Layout' # Image Content Layout
