@@ -150,7 +150,7 @@
                     {% for card in cards %}
                     {% set cardButtons = card.buttons.all() %}
                     <div>
-                        <div class="text-center">
+                        <div class="{{ render.getAlignment({alignment: cardContentAlignment, type: 'text'}) }}" {{ cardAnimation|raw }}>
                             {% if card.heading|length or card.text|length %}
                                 {{ render.basicContents({
                                     heading: card.heading,
@@ -171,7 +171,10 @@
                             {% endif %}
 
                             {% if card.currentStatus|length %}
-                            <p class="text-xl font-bold {{ card.heading|length or card.text|length ? 'mt-4' }} {{ cardButtons|length ? 'mb-4' }}">Current Status: <span style="color: {{ card.statusColor }}">{{ card.currentStatus }}</span></p>
+                            <p class="text-xl font-bold {{ card.heading|length or card.text|length ? 'mt-4' }} {{ cardButtons|length ? 'mb-4' }}">
+                                Current Status:
+                                <span style="color: {{ card.statusColor }}">{{ card.currentStatus }}</span>
+                            </p>
                             {% endif %}
 
                             {{ render.basicContents({

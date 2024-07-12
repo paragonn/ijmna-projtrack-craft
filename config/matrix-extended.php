@@ -16,7 +16,7 @@ return [
                 ],
                 [
                     'label' => \Craft::t('app', 'Components'),
-                    'types' => ['imageContent', 'infoBox', 'cards', 'iconCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'featuredBanner', 'cta'],
+                    'types' => ['imageContent', 'infoBox', 'cards', 'iconCards', 'statusCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'featuredBanner', 'cta'],
                 ],
                 [
                     'label' => \Craft::t('app', 'Layout'),
@@ -44,7 +44,7 @@ return [
                 ],
                 [
                     'label' => \Craft::t('app', 'Components'),
-                    'types' => ['infoBox', 'cards', 'iconCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'imageContent', 'twoColumns'],
+                    'types' => ['infoBox', 'cards', 'iconCards', 'statusCards', 'stackedCards', 'statsBox', 'checklist', 'accordion', 'imageContent', 'twoColumns'],
                 ]
             ],
         ]
