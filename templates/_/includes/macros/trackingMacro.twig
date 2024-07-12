@@ -1,0 +1,44 @@
+{% if scriptHeading|length %}<!-- START {{ scriptHeading|nl2br }}-->{% endif %}
+{% if scriptFiles|length %}
+{% for item in scriptFiles|filter(item => item.type == "css") %}
+    {% set attributesString = item.attributes %}
+
+    {% set attributes = {} %}
+
+    {% for pair in attributesString|split(' ') %}
+        {% set parts = pair|split('=') %}
+        {% if parts|length == 2 %}
+            {% set key = parts[0]|trim(' "') %}
+            {% set value = parts[1]|trim(' "') %}
+            {% set attributes = attributes|merge({(key): value}) %}
+        {% endif %}
+    {% endfor %}
+
+    {% do view.registerCssFile (item.url, attributes|raw) %}
+{% endfor %}
+
+{% for item in scriptFiles|filter(item => item.type == "js") %}
+    {% set attributesString = item.attributes %}
+
+    {% set attributes = {} %}
+
+    {% for pair in attributesString|split(' ') %}
+        {% set parts = pair|split('=') %}
+        {% if parts|length == 2 %}
+            {% set key = parts[0]|trim(' "') %}
+            {% set value = parts[1]|trim(' "') %}
+            {% set attributes = attributes|merge({(key): value}) %}
+        {% endif %}
+    {% endfor %}
+
+    {% do view.registerJsFile (item.url, attributes|raw) %}
+{% endfor %}
+{% endif %}
+
+{% if javascriptCode|length %}
+    {% js %}{{ javascriptCode|raw }}{% endjs %}
+{% endif %}
+
+{{ htmlCode|raw }}
+
+{% if scriptHeading|length %}<!-- END {{ scriptHeading|nl2br }}-->{% endif %}

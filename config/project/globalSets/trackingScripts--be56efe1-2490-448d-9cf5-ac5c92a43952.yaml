@@ -1,0 +1,27 @@
+fieldLayouts:
+  e5892262-d352-46bd-85e2-0af16ad1107b:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            elementCondition: null
+            fieldUid: 0d8c4992-13e5-49e7-bc75-c6a7036cd8fc # Tracking Scripts
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f694bdd5-eb47-48ed-9038-dd5ee57adfb7
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 14de99db-8f77-43bd-b9a2-5cad14edb524
+        userCondition: null
+handle: trackingScripts
+name: 'Tracking Scripts'
+sortOrder: 3

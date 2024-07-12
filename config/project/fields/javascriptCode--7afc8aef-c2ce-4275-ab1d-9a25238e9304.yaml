@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: javascriptCode
+instructions: 'Make sure we dont add <script> tag here.. Only js inner JS code.'
+name: 'Javascript Code'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: true
+  placeholder: 'console.log("My code goes here...");'
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText
