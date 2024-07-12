@@ -112,7 +112,7 @@
 {% set cards = block.statusCard.all() %}
 
 {% set minusMarginCond = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') %}
-{% set addStickyClass = minusMarginCond ? 'z-[5] relative' %}
+{% set addStickyClass = minusMarginCond ? 'z-[5] relative ' %}
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }}">
     <div class="{{ (not childContainer) and (minusMarginCond and backgroundColorLabel != 'white') ? 'container' }}">
         <div class="{{ showBorder and borderColor != null ? 'border py-24 px-4 ' ~ contentBoxColor ~ render.foregroundColors({
