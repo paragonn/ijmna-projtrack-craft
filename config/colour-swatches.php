@@ -69,6 +69,15 @@ return [
                 ]
             ],
             [
+                'label'   => 'light-blue',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#f0f5f9',
+                    ]
+                ]
+            ],
+            [
                 'label'   => 'blue-100',
                 'default' => false,
                 'color'   =>  [
