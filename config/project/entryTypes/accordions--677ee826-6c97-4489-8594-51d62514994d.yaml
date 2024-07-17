@@ -40,7 +40,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: Questions
+            label: Title
             providesThumbs: false
             required: true
             tip: null
@@ -55,7 +55,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: Content
             providesThumbs: false
             required: false
             tip: null
