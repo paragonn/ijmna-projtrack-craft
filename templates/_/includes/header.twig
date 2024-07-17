@@ -46,15 +46,15 @@
                             <li>
                                 <div x-data="{ isOpen: false }" class="relative">
                                     {# Button to toggle the dropdown #}
-                                    <button @click="isOpen = !isOpen" class="text-sm text-white font-medium capitalize flex items-center gap-1.5 hover:text-gold-500 duration-300 transition-all" aria-label="Search">
+                                    {# <button @click="isOpen = !isOpen" class="text-sm text-white font-medium capitalize flex items-center gap-1.5 hover:text-gold-500 duration-300 transition-all" aria-label="Search">
                                         <svg width="32" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M23.9 12c0 5.73-4.9 10.5-11.1 10.5-6.2 0-11.1-4.77-11.1-10.5S6.6 1.5 12.8 1.5C19 1.5 23.9 6.27 23.9 12Z" stroke="#101523" stroke-width="3" />
                                             <path d="m21.2 20 9.45 9" stroke="#000" stroke-width="3" />
                                         </svg>
-                                    </button>
+                                    </button> #}
 
                                     {# Search #}
-                                    <div class="absolute z-50 bg-white min-w-40 rounded p-2 shadow-md right-0 top-8"
+                                    {# <div class="absolute z-50 bg-white min-w-40 rounded p-2 shadow-md right-0 top-8"
                                         x-show="isOpen"
                                         @click.away="isOpen = false"
                                         x-transition:enter="transition ease-in-out duration-150"
@@ -75,7 +75,7 @@
                                                 </button>
                                             </div>
                                         </form>
-                                    </div>
+                                    </div> #}
                                 </div>
                             </li>
 
