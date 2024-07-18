@@ -609,8 +609,8 @@ function convertToSlug(Text) {
 function createMarkerPopup(item) {
     let image = JSON.parse(item.image);
     let country = JSON.parse(item.country);
+    let casework = JSON.parse(item.casework);
     // let address = JSON.parse(item.address);
-    // let casework = JSON.parse(item.casework);
     let card = `<div class="flex sm:flex-row flex-col items-stretch bg-blue-800">`;
         if(image.length) {
             card += `<div class="flex-1 sm:max-w-[118px] overflow-hidden">
@@ -619,9 +619,9 @@ function createMarkerPopup(item) {
         }
 
         card += `<div class="py-5 pl-5 pr-12 text-white relative flex-1 w-full">
-            <p class="text-blue-500 text-base">Country: ${country[0].title}</p>
             <h3 class="text-2xl md:text-3xl mt-2 font-Baskervville">${item.title}</h3>
             <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
+            <p class="text-blue-500 text-base">Casework: ${casework[0].title}</p>
             <div class="absolute right-4 bottom-4">
                 <a href="/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
