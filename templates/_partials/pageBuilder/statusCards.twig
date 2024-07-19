@@ -113,7 +113,7 @@
 
 {% set minusMarginCond = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') %}
 {% set addStickyClass = minusMarginCond ? 'z-[5] relative' %}
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-4 md:px-6' }} relative">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }} relative">
     <div class="{{ (not childContainer) and (minusMarginCond and backgroundColorLabel != 'white') ? 'container' }}">
         <div class="{{ showBorder and borderColor != null ? 'border py-24 px-4 ' ~ contentBoxColor ~ render.foregroundColors({
             background: borderLabel,
@@ -121,7 +121,7 @@
             changeDefaultColor: true,
             type: 'borderColor'
         }) }}">
-            <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+            <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) : 'max-w-[700px] mx-auto' }}">
                 {% if block.eyebrow|length or block.heading|length or block.text|length %}
                 <div class="mb-16 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
                     {{ render.basicContents({
