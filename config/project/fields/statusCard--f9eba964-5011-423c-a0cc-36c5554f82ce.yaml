@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Card
   entryTypes:
-    - 493bf7e3-b061-45e5-92e4-2f401b9a8e5a # Status Card
+    - 493bf7e3-b061-45e5-92e4-2f401b9a8e5a
   includeTableView: false
   maxEntries: null
   minEntries: null

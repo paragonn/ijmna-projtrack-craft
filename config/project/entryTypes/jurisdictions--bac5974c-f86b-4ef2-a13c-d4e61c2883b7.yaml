@@ -36,7 +36,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d # Stage
+            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 434146a4-9bb6-41fc-8ce9-984ed4921d55 # Country
+            fieldUid: 434146a4-9bb6-41fc-8ce9-984ed4921d55
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: fd3064ce-7808-4f58-bc09-64a40469022d # Casework
+            fieldUid: fd3064ce-7808-4f58-bc09-64a40469022d
             handle: null
             includeInCards: false
             instructions: null
@@ -81,7 +81,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0 # Image
+            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0
             handle: null
             includeInCards: false
             instructions: null
@@ -96,7 +96,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 95b9f0e3-06b5-4fdf-add4-4d87ad204c7e # Address
+            fieldUid: 95b9f0e3-06b5-4fdf-add4-4d87ad204c7e
             handle: null
             includeInCards: false
             instructions: null
@@ -123,7 +123,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 887e8c04-ed78-4f44-afb0-408021c88446 # Background Image
+            fieldUid: 887e8c04-ed78-4f44-afb0-408021c88446
             handle: null
             includeInCards: false
             instructions: null
@@ -138,7 +138,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348
             handle: null
             includeInCards: false
             instructions: null
@@ -153,7 +153,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 6a8efaa8-2ed0-497f-a528-78203c0632ab # Hero Image
+            fieldUid: 6a8efaa8-2ed0-497f-a528-78203c0632ab
             handle: null
             includeInCards: false
             instructions: null
@@ -168,7 +168,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 68a24557-cc86-4045-b642-754749ccf485 # Stage Byline
+            fieldUid: 68a24557-cc86-4045-b642-754749ccf485
             handle: null
             includeInCards: false
             instructions: null
@@ -183,7 +183,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 6553bc6c-dfc2-465a-a5ba-e218ea8c0778 # Jurisdictions Case Types
+            fieldUid: 6553bc6c-dfc2-465a-a5ba-e218ea8c0778
             handle: null
             includeInCards: false
             instructions: null
@@ -198,7 +198,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72 # Quote
+            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72
             handle: null
             includeInCards: false
             instructions: null
@@ -213,7 +213,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32 # Quote Attribution
+            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32
             handle: null
             includeInCards: false
             instructions: null
@@ -228,7 +228,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
+            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7
             handle: null
             includeInCards: false
             instructions: null
@@ -249,7 +249,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: e671a976-5fd4-4e36-a257-592286dfcf78 # Image Position
+            fieldUid: e671a976-5fd4-4e36-a257-592286dfcf78
             handle: null
             includeInCards: false
             instructions: null
@@ -264,7 +264,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd # Per Row Limit
+            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd
             handle: null
             includeInCards: false
             instructions: null
@@ -279,7 +279,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
+            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c
             handle: null
             includeInCards: false
             instructions: null
@@ -294,7 +294,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173 # Overlay Opacity
+            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173
             handle: null
             includeInCards: false
             instructions: null
@@ -315,7 +315,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: c14150f6-d51e-480d-9575-1091c8b07cb1 # Content Builder
+            fieldUid: c14150f6-d51e-480d-9575-1091c8b07cb1
             handle: null
             includeInCards: false
             instructions: null
@@ -336,7 +336,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 423bb166-71e5-4c7c-9d8c-71db99966b0b # SEO
+            fieldUid: 423bb166-71e5-4c7c-9d8c-71db99966b0b
             handle: null
             includeInCards: false
             instructions: null

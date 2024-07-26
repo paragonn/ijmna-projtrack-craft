@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'Stat Box'
   entryTypes:
-    - 10939aae-e10b-4be1-8d12-358d50ce590d # Stat Box
+    - 10939aae-e10b-4be1-8d12-358d50ce590d
   includeTableView: false
   maxEntries: null
   minEntries: null

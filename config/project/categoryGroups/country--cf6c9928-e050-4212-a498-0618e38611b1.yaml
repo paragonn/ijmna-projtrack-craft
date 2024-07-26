@@ -40,7 +40,7 @@ fieldLayouts:
 handle: country
 name: Country
 siteSettings:
-  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
+  af56b8d4-e8df-4952-96c3-24e39909380c:
     hasUrls: false
     template: null
     uriFormat: null

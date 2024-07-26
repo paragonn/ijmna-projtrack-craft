@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'Stacked Card'
   entryTypes:
-    - 6352b785-b04c-4d99-befd-2f5f5308c36b # Stacked Card
+    - 6352b785-b04c-4d99-befd-2f5f5308c36b
   includeTableView: false
   maxEntries: null
   minEntries: null
