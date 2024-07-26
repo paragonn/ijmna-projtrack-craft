@@ -1,6 +1,6 @@
 <?php
 
 return [
-    // 'requireResponseToBeSigned' => false,
-    // 'entityId' => getenv('SSO_ENTITY_ID'),
+    'requireResponseToBeSigned' => false,
+    'entityId' => getenv('SSO_ENTITY_ID'),
 ];
