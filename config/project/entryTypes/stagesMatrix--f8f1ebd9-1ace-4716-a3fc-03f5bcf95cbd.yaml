@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d
+            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d # Stage
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 571eaa99-3b98-41a7-8942-c300b3c2fe5b
+            fieldUid: 571eaa99-3b98-41a7-8942-c300b3c2fe5b # Byline
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
             handle: protectionTargetHeading
             includeInCards: false
             instructions: null
@@ -79,21 +79,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            elementCondition: null
-            fieldUid: 571eaa99-3b98-41a7-8942-c300b3c2fe5b
-            handle: protectionTargetByline
-            includeInCards: false
-            instructions: null
-            label: 'Protection Target Byline'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: b2567c92-59f5-437d-95fb-c9410229f3b9
-            userCondition: null
-            warning: null
-            width: 100
         name: Content
         uid: 198cf762-0cd8-47c3-94c5-d342b3225447
         userCondition: null
@@ -102,22 +87,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 8ee03cb6-c673-4aca-b24c-41391b451ecf
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 1e72b960-7d95-4109-bfd8-210ebbae186c
-            userCondition: null
-            warning: null
-            width: 100
-          -
-            elementCondition: null
-            fieldUid: dcc4c3a7-d1ad-429a-8db7-6eb780b2d453
+            fieldUid: dcc4c3a7-d1ad-429a-8db7-6eb780b2d453 # Dots in group of
             handle: null
             includeInCards: false
             instructions: null
@@ -132,7 +102,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7bc32678-0f69-4111-926c-26e502c0c7fc
+            fieldUid: 7bc32678-0f69-4111-926c-26e502c0c7fc # 1 Blank at?
             handle: null
             includeInCards: false
             instructions: null
