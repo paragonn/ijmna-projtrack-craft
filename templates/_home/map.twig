@@ -154,7 +154,16 @@
         }
     }
 }">
-    <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden" x-data="{ open: true }">
+    <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden"
+        x-data="{
+            open: false,
+            init() {
+                if(typeof(window.location.href.split('?')[1]) === 'undefined') {
+                    this.open = true;
+                }
+            }
+        }"
+    >
         <div class="relative z-20 shrink-0">
             <div class="bottom-0 top-0 absolute left-0 w-[336px] md:w-[407px] lg:w-[656px] transition-all duration-700 -translate-x-full" :class="open ? '-translate-x-full md:translate-x-0' : 'translate-x-0 md:-translate-x-full'" x-cloak>
                 <div class="h-full bg-blue-800 overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-blue-500/50 scrollbar-thin scrollbar-track-transparent">
@@ -173,11 +182,12 @@
                             </div>
 
                             {% for i, stage in stages %}
-                            {% set dots = stage.numberOfDots|default(0) %}
+                            {# {% set dots = stage.numberOfDots|default(0) %} #}
+                            {% set dots = craft.entries.section("jurisdictions").stage(stage.stage.getValue()|default(":empty:")).count() %}
                             {% set dotsInGroupOf = stage.dotsInGroupOf.getValue()|default(3) %}
                             {% set blankAt = stage.blankAt.getValue()|default("bottomRight") %}
                             {% set pendingDots = dots > 0 ? dots % dotsInGroupOf : 0 %}
-                            {% set dots = dots > 0 ? dots - pendingDots : 0 %}
+                            {% set dotsToPrint = dots > 0 ? dots - pendingDots : 0 %}
 
                             {% set currentStage = stage.stage.getValue()|default() %}
                             {% set nextStage = stages[i+1].stage.getValue()|default() %}
@@ -199,8 +209,8 @@
                                             </div>
                                             {% endif %}
 
-                                            {% if dots > 0 %}
-                                            {% for dotBatch in (1..dots)|batch(dotsInGroupOf) %}
+                                            {% if dotsToPrint > 0 %}
+                                            {% for dotBatch in (1..dotsToPrint)|batch(dotsInGroupOf) %}
                                             <div class="flex w-full flex-row gap-1">
                                                 {% for dot in dotBatch %}
                                                 <div class="w-1 h-1 bg-white block rounded-full"></div>
@@ -238,9 +248,7 @@
                                     </div>
                                     <div class="whitespace-nowrap">
                                         <p class="font-bold uppercase">{{ stage.protectionTargetHeading }}</p>
-                                        {{ stage.protectionTargetByline | replace({
-                                            '<p': '<p class="mt-1.5"'
-                                        }) | raw }}
+                                        <p class="mt-1.5">({{ dots }} Jurisdictions)</p>
                                     </div>
 
                                     {% if currentStage == "projectsReady" %}
