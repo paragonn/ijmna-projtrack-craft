@@ -122,7 +122,7 @@
                                             {{ 'Sign In'|t }}
                                         </span>
                                     </a> #}
-                                    <a href="/sso/login/request/fb7176c8-3ab2-4789-b49b-cb11548fc0ad?RelayState={{ craft.app.request.absoluteUrl() }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
+                                    <a href="{{ getenv("SSO_LOGIN_PATH") }}?RelayState={{ getenv("SSO_ENTITY_ID") }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign In'|t }}
                                         </span>
