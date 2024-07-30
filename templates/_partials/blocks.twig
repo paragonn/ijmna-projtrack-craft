@@ -66,13 +66,31 @@
         {% endif %}
     {% endif %}
 
-    {% set minusMarginTop = block.minusMarginTop.value|default(defaultMinusMarginTop) %}
+    {% set minusMarginTop = 'none' %}
+    {% set getMarginStyle = block.marginStyle.value|default('normal') %}
+    {% if current == 'container' and getMarginStyle == 'staggered' %}
+        {% set defaultMarginTop = "none" %}
+        {% set defaultPaddingTop = "none" %}
+    {% endif %}
+
+    {% if parent == 'container' and parentMarginStyle == 'staggered' and first %}
+        {% set minusMarginTop = 'medium' %}
+    {% endif %}
+
+    {% if nextBlock.marginStyle.value|default('normal') == 'staggered' %}
+        {% if not currentBgColor %}
+            {% set defaultMarginBottom = "none" %}
+        {% else %}
+            {% set defaultPaddingBottom = 'extraLarge' %}
+        {% endif %}
+    {% endif %}
+
+    {# {% set minusMarginTop = block.minusMarginTop.value|default(defaultMinusMarginTop) %}
     {% set minusMarginBottom = block.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
 
     {% if minusMarginTop|length and minusMarginTop != 'none' %}
         {% if not currentBgColor %}
             {% set defaultMarginTop = "none" %}
-            {# {% set defaultPaddingTop = "small" %} #}
         {% endif %}
     {% endif %}
 
@@ -85,7 +103,7 @@
 
     {% if nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none' and (not currentBgColor) %}
         {% set defaultMarginBottom = "none" %}
-    {% endif %}
+    {% endif %} #}
 
     {% set spacing = collect({}) %}
     {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding', 'minusMarginTop', 'minusMarginBottom'] %}
@@ -110,7 +128,6 @@
             defaultSpacing: defaultSpacing,
 
             minusMarginTop: minusMarginTop,
-            minusMarginBottom: minusMarginBottom,
 
             marginTop: block.marginTop.value|default(defaultMarginTop),
             paddingTop: block.paddingTop.value|default(defaultPaddingTop),
@@ -118,6 +135,9 @@
             paddingBottom: block.paddingBottom.value|default(defaultPaddingBottom),
         }) }) %}
     {% endfor %}
+
+    {# minusMarginTop: minusMarginTop,
+    minusMarginBottom: minusMarginBottom, #}
 
     {# ignore missing #}
     {% include "_partials/pageBuilder/#{block.type.handle}" %}
