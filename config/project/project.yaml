@@ -1,4 +1,4 @@
-dateModified: 1722322025
+dateModified: 1722342434
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -81,6 +81,7 @@ meta:
     16c21eca-a8b2-4b44-bd82-463fac26b779: 'Icon Cards' # Icon Cards
     18de2689-3603-4c37-8473-396f9ce4f78c: 'Padding Bottom' # Padding Bottom
     021cf0d0-1863-4788-aeb4-6225da5b03a9: 'Embed Video' # Embed Video
+    24e627ff-4926-4819-9fc1-9efb83576180: 'Margin Style' # Margin Style
     26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28ccf5ae-cf72-492b-94c0-edbbbd1f411e: Checklist # Checklist
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
@@ -104,7 +105,7 @@ meta:
     571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
     677ee826-6c97-4489-8594-51d62514994d: Accordions # Accordions
     703c4614-7d62-46a6-927a-23935a1f6c22: 'Status Cards' # Status Cards
-    721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom' # Minus Margin Bottom
+    721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom (Deprecated)' # Minus Margin Bottom (Deprecated)
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     887e8c04-ed78-4f44-afb0-408021c88446: 'Background Image' # Background Image
@@ -153,7 +154,7 @@ meta:
     cfc164dd-7161-4a3d-9407-1080228e7455: 'Content Alignment' # Content Alignment
     d07b837d-c20e-48d9-ac52-34b7a29fbfcb: 'Container Id' # Container Id
     d1abafe9-7def-492a-8370-693e6103efe8: 'Check List Table' # Check List Table
-    d3ab5ad8-585b-43bc-b8ad-c093a04c787f: 'Minus Margin Top' # Minus Margin Top
+    d3ab5ad8-585b-43bc-b8ad-c093a04c787f: 'Minus Margin Top (Deprecated)' # Minus Margin Top (Deprecated)
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     d5783338-8a9d-4621-8556-71a156306314: Cards # Cards
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of

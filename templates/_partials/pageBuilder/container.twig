@@ -41,8 +41,8 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
+{# {% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
+{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %} #}
 
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
@@ -64,8 +64,9 @@
 
 {% set buttons = block.buttons.all() %}
 {% set container = block.container.all() %}
+{% set marginStyle = block.marginStyle.value|default('normal') %}
 
-{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
+{% set addStickyClass = marginStyle == 'staggered' ? 'z-[5] relative' %}
 
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">
@@ -97,6 +98,7 @@
                 {% include "_partials/blocks" with {
                     pageBuilder: container,
                     parent: block.type.handle,
+                    parentMarginStyle: marginStyle,
                     conbackgroundColor: backgroundColorLabel,
                     conOverlayOpacity: overlayOpacity,
                     childContainer: true,

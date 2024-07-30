@@ -1,0 +1,52 @@
+columnSuffix: null
+handle: marginStyle
+instructions: null
+name: 'Margin Style'
+searchable: false
+settings:
+  displayAsGraphic: true
+  displayFullwidth: null
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Normal
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - normal
+        -
+          - imageUrl
+          - /images/buttonBox/marginStyle/normal.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - Staggered
+        -
+          - showLabel
+          - ''
+        -
+          - value
+          - staggered
+        -
+          - imageUrl
+          - /images/buttonBox/marginStyle/staggered.png
+        -
+          - imageAlign
+          - left
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: verbb\buttonbox\fields\Buttons

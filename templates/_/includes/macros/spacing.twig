@@ -115,7 +115,7 @@
     {% set defaultPaddingBottom = "none" %}
 {% endif %}
 
-{% set minusMarginTopCondition = (nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none') and currentBgColor %}
+{# {% set minusMarginTopCondition = (nextBlock and nextBlock.minusMarginTop.value|default(defaultMinusMarginTop) != 'none') and currentBgColor %}
 {% set minusMarginBottomCondition = prevBlock and prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) != 'none' and currentBgColor %}
 
 {% if minusMarginTopCondition %}
@@ -128,8 +128,7 @@
     {% set pcurrentBlockSpacing = prevBlock.minusMarginBottom.value|default(defaultMinusMarginBottom) %}
     {% set spacingCurrentBlock = spacing[pcurrentBlockSpacing] %}
     {% set defaultSpacePaddingTop = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %}
-    {# {% set space = space.merge(spacingCurrentBlock.paddingTopForMinusMargin) %} #}
-{% endif %}
+{% endif %} #}
 
 {% if type in ['marginPadding', 'margin', 'minusMarginTop'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(minusMarginTop: #{minusMarginTop|default(defaultMarginTop)})-->") | raw }} #}
@@ -153,14 +152,14 @@
 
 {% if type in ['marginPadding', 'padding', 'paddingTop'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(paddingTop: #{paddingTop|default(defaultPaddingTop)})-->") | raw }} #}
-    {# {% set space = space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %} #}
-    {% set space = minusMarginBottomCondition ? defaultSpacePaddingTop : space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %}
+    {% set space = space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %}
+    {# {% set space = minusMarginBottomCondition ? defaultSpacePaddingTop : space.merge(spacing[paddingTop|default(defaultPaddingTop)].paddingTop) %} #}
 {% endif %}
 
 {% if type in ['marginPadding', 'padding', 'paddingBottom'] %}
     {# {{ craft.app.config.general.devMode ? ("<!--(paddingBottom: #{paddingBottom|default(defaultPaddingBottom)})-->") | raw }} #}
-    {# {% set space = space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %} #}
-    {% set space = minusMarginTopCondition ? defaultSpacePaddingBottom : space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
+    {% set space = space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %}
+    {# {% set space = minusMarginTopCondition ? defaultSpacePaddingBottom : space.merge(spacing[paddingBottom|default(defaultPaddingBottom)].paddingBottom) %} #}
 {% endif %}
 
 {{ space.implode(" ") }}

@@ -1,7 +1,7 @@
 columnSuffix: null
 handle: minusMarginTop
 instructions: null
-name: 'Minus Margin Top'
+name: 'Minus Margin Top (Deprecated)'
 searchable: false
 settings:
   cachedOptions: true
