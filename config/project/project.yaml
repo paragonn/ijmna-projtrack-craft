@@ -1,4 +1,4 @@
-dateModified: 1721216500
+dateModified: 1722307189
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -40,6 +40,7 @@ meta:
     1cbb1390-2bb5-47d8-afaa-fb0146a8e4d0: 'Code / Embed' # Code / Embed
     1cf2528d-1b25-4d76-be36-e58ac8a4d68b: 'Stats Box' # Stats Box
     1da620f4-95cb-4911-9332-8ef04cad860f: Button # Button
+    01f461ba-4bc8-44aa-9f3a-797489f1fcc5: Editor # Editor
     02c1f367-dcb0-49f9-af0b-e255d2928b19: 'Show Border?' # Show Border?
     2e9cec4b-7c08-4594-a616-22bb4a04cba8: Brands # Brands
     3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
@@ -110,6 +111,7 @@ meta:
     970e66f8-69d9-430c-b4f9-74359ab8d3bd: Advanced # Advanced
     982eeecd-95ad-43d1-8cc2-f6b3d80be494: 'Basic Content' # Basic Content
     5249fb26-5dbb-40d0-8d43-eaa65ad75be1: Header # Header
+    5581efe6-f333-49f1-8b13-ac5d43570282: 'View Only' # View Only
     6065b222-611d-42ce-a1de-85a02891694c: 'Background Color' # Background Color
     6352b785-b04c-4d99-befd-2f5f5308c36b: 'Stacked Card' # Stacked Card
     6553bc6c-dfc2-465a-a5ba-e218ea8c0778: 'Jurisdictions Case Types' # Jurisdictions Case Types
@@ -382,15 +384,9 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: solo
+  edition: pro
   live: true
   name: 'IJM Program Tracker'
   retryDuration: null
   schemaVersion: 5.0.0.21
   timeZone: America/Los_Angeles
-users:
-  allowPublicRegistration: false
-  defaultGroup: null
-  photoSubpath: null
-  photoVolumeUid: null
-  requireEmailVerification: true

@@ -219,9 +219,13 @@ function handleDataFromGql(data)
         console.log("No rows found")
         return false;
     }
-
+    let loadedCountries = [];
     data.entries.forEach(function(item, key) {
         // countries.push(item.address.parts.state ? item.address.parts.state + ", " + item.address.parts.country : item.address.parts.country);
+        if(! loadedCountries.includes(item.address.parts.country)) {
+            loadedCountries.push(item.address.parts.country);
+        }
+
         let marker = {
             type: 'Feature',
             geometry: {
@@ -287,17 +291,22 @@ function handleDataFromGql(data)
 
     // Display only the dealer markers that are within the dealer list
     map.setFilter("markers", markerFilter);
-    hideLoader();
 
-    let bounds = bbox(markers);
-    map.fitBounds(bounds, {
-        padding: 150,
-        duration: 200,
-        maxZoom: 15
-    });
+    if(loadedCountries.length == 1 && country.length < 2) {
+        hightlightAreaOnMap(loadedCountries, true);
+    } else {
+        let bounds = bbox(markers);
+        map.fitBounds(bounds, {
+            padding: 150,
+            duration: 200,
+            maxZoom: 15
+        });
+
+        hideLoader();
+    }
 }
 
-function hightlightAreaOnMap(locations)
+function hightlightAreaOnMap(locations, fitBounds = false)
 {
     for (let index = 0; index < locations.length; index++)
     {
@@ -311,6 +320,15 @@ function hightlightAreaOnMap(locations)
         Promise.all([getBoundaries(locations[index], id)]).then(boundaryData => {
             if(boundaryData[0]) {
                 drawBoundaries(id);
+
+                if(fitBounds) {
+                    map.fitBounds(boundaryData[0], {
+                        padding: 50,
+                        duration: 200
+                    });
+
+                    hideLoader();
+                }
             }
         });
     }
