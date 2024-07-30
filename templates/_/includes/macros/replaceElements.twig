@@ -86,8 +86,8 @@
 {% set h6 = h6|default("text-base lg:text-lg font-Baskervville") %}
 {% set a = a|default("underline underline-offset-2 transition-all duration-300 #{fontFamily}") %}
 {% set p = p|default("#{spacingClass} #{paragraphFontSize} #{fontFamily}") %}
-{% set ul = ul|default("space-y-1 list-disc #{markerColor[background]} #{listStyle} #{paragraphFontSize} #{listPaddingLeft} #{fontFamily}") %}
-{% set ol = ol|default("space-y-1 list-decimal #{markerColor[background]} #{listStyle} #{paragraphFontSize} #{listPaddingLeft} #{fontFamily}") %}
+{% set ul = ul|default("space-y-1 list-disc !mb-6 last:!mb-0 #{markerColor[background]} #{listStyle} #{paragraphFontSize} #{listPaddingLeft} #{fontFamily}") %}
+{% set ol = ol|default("space-y-1 list-decimal !mb-6 last:!mb-0 #{markerColor[background]} #{listStyle} #{paragraphFontSize} #{listPaddingLeft} #{fontFamily}") %}
 {% set li = li|default("") %}
 {% set hr = hr|default("my-6 #{borderClass} #{fontFamily}") %}
 {% set blockquote = blockquote|default("rounded-tr rounded-br border border-l-4 bg-transparent p-5 pl-3.5 #{blockquoteClass} #{fontFamily}") %}

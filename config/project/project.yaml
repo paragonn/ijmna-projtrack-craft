@@ -1,4 +1,4 @@
-dateModified: 1722321620
+dateModified: 1722322025
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -50,6 +50,7 @@ meta:
     3d6985d0-6c25-467d-8334-100bb6a30cce: 'Call to Action' # Call to Action
     3fc2d296-ed56-4d93-a0e3-435f9f12a54c: CTA # CTA
     4b89198b-d038-4943-ae58-1f0c6d1ccc8d: Stage # Stage
+    4d0f80d5-2179-4e31-89b1-569192b6e7fd: 'Check List Layout' # Check List Layout
     4f72c1ee-9438-4229-aa23-ef809d4af047: Logo # Logo
     5a2e4125-53c6-4343-b44e-970c058d6ba3: 'Projects Search Feature with MapBox' # Projects Search Feature with MapBox
     5c6bb440-978c-4cab-8939-e7991f378b17: Custom # Custom
