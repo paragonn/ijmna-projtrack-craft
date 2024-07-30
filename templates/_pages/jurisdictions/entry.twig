@@ -153,7 +153,7 @@
                 </div>
 
                 {% if jurisdictionsCaseTypes|length %}
-                <div class="grid gap-y-9 sm:gap-y-10 gap-3 items-end mt-14 {{ rowLimit[perRowLimit] }}">
+                <div class="grid gap-y-9 sm:gap-y-10 gap-3 mt-14 {{ rowLimit[perRowLimit] }}">
                     {% for row in entry.jurisdictionsCaseTypes %}
                     <div>
                         {% if row.key|length %}
@@ -182,7 +182,7 @@
                     {% if entry.quote|length %}
                     <h3 class="text-2xl lg:text-3xl font-Baskervville -tracking-wide">
                         <span class="xl:absolute -left-5">“</span>
-                        {{ entry.quote|nl2br ~ '”' }}
+                        {{ entry.quote|raw|nl2br ~ '”' }}
                     </h3>
                     {% endif %}
 
