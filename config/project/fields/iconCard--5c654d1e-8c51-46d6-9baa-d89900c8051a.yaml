@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'Icon Card'
   entryTypes:
-    - bc97ce21-40cf-43a2-991d-94585d8fb43a
+    - bc97ce21-40cf-43a2-991d-94585d8fb43a # Icon Card
   includeTableView: false
   maxEntries: null
   minEntries: null

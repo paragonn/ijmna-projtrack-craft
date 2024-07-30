@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: null
   entryTypes:
-    - f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd
+    - f8f1ebd9-1ace-4716-a3fc-03f5bcf95cbd # Stages
   includeTableView: false
   maxEntries: null
   minEntries: null

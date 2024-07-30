@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Button
   entryTypes:
-    - 383b8156-a3da-4bda-991a-7c9893a1c11c
+    - 383b8156-a3da-4bda-991a-7c9893a1c11c # Button
   includeTableView: false
   maxEntries: null
   minEntries: null

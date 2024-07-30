@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Hero
   entryTypes:
-    - 29046eec-f132-4f06-8bc6-2289a453e2b9
+    - 29046eec-f132-4f06-8bc6-2289a453e2b9 # Split
   includeTableView: false
   maxEntries: 1
   minEntries: null

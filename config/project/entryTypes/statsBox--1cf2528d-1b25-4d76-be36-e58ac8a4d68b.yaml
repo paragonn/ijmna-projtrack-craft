@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: f53d3737-57cc-49ff-b173-17376ae0c1bf
+            fieldUid: f53d3737-57cc-49ff-b173-17376ae0c1bf # Stat Box
             handle: null
             includeInCards: false
             instructions: null
@@ -57,7 +57,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717
+            fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717 # Eyebrow
             handle: null
             includeInCards: false
             instructions: null
@@ -72,7 +72,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
             handle: null
             includeInCards: false
             instructions: null
@@ -87,7 +87,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85
+            fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85 # Text
             handle: null
             includeInCards: false
             instructions: null
@@ -102,7 +102,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7
+            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
             handle: null
             includeInCards: false
             instructions: null
@@ -129,7 +129,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: aeac151d-d4a9-4733-9c2f-c8a1eac9a41b
+            fieldUid: aeac151d-d4a9-4733-9c2f-c8a1eac9a41b # Content Width
             handle: null
             includeInCards: false
             instructions: null
@@ -144,7 +144,7 @@ fieldLayouts:
             width: 75
           -
             elementCondition: null
-            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
             handle: null
             includeInCards: false
             instructions: null
@@ -159,7 +159,7 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c
+            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
             handle: null
             includeInCards: false
             instructions: null
@@ -174,7 +174,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173
+            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173 # Overlay Opacity
             handle: null
             includeInCards: false
             instructions: null
@@ -189,7 +189,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd
+            fieldUid: 51e378c8-6e12-44cb-ae38-9b5c9703adfd # Per Row Limit
             handle: null
             includeInCards: false
             instructions: null
@@ -204,7 +204,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19
+            fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
             handle: null
             includeInCards: false
             instructions: null
@@ -223,13 +223,13 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
                   layoutElementUid: d0cc5dfe-b41a-4fb2-b512-f0aed9c3cfd4
                   uid: 9ad9dfe0-292e-4d7a-9650-63a2f2a51fe6
                   value: true
               elementType: craft\elements\Entry
               fieldContext: global
-            fieldUid: 89cc861f-51a9-49de-9637-831af3da0e7a
+            fieldUid: 89cc861f-51a9-49de-9637-831af3da0e7a # Border Color
             handle: null
             includeInCards: false
             instructions: null
@@ -248,13 +248,13 @@ fieldLayouts:
               conditionRules:
                 -
                   class: craft\fields\conditions\LightswitchFieldConditionRule
-                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19
+                  fieldUid: 02c1f367-dcb0-49f9-af0b-e255d2928b19 # Show Border?
                   layoutElementUid: d0cc5dfe-b41a-4fb2-b512-f0aed9c3cfd4
                   uid: cf081e29-934c-4d54-85c6-b3023e3c0b0b
                   value: true
               elementType: craft\elements\Entry
               fieldContext: global
-            fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8
+            fieldUid: 26c9ce02-0df9-486a-90b7-104efcd7f5a8 # Content Box Color
             handle: null
             includeInCards: false
             instructions: null
@@ -275,7 +275,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455
+            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
             handle: null
             includeInCards: false
             instructions: null
@@ -290,7 +290,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455
+            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
             handle: contentAlignment2
             includeInCards: false
             instructions: null
@@ -305,7 +305,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e05fb8e0-726b-4a55-b97f-aea98a58c8a1
+            fieldUid: e05fb8e0-726b-4a55-b97f-aea98a58c8a1 # Heading Size
             handle: null
             includeInCards: false
             instructions: null
@@ -320,7 +320,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd
+            fieldUid: ef7dff82-7ddc-453d-b03e-6b90683f02bd # Font Weight
             handle: null
             includeInCards: false
             instructions: null
@@ -340,7 +340,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: d07b837d-c20e-48d9-ac52-34b7a29fbfcb
+            fieldUid: d07b837d-c20e-48d9-ac52-34b7a29fbfcb # Container Id
             handle: null
             includeInCards: false
             instructions: null
@@ -361,7 +361,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f
+            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f # Minus Margin Top
             handle: null
             includeInCards: false
             instructions: null
@@ -376,7 +376,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be
+            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be # Minus Margin Bottom
             handle: null
             includeInCards: false
             instructions: null
@@ -396,7 +396,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: bcbc592a-d4d0-4afa-92b6-458504f09b17
+            fieldUid: bcbc592a-d4d0-4afa-92b6-458504f09b17 # Margin Top
             handle: null
             includeInCards: false
             instructions: null
@@ -411,7 +411,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 9affc432-fe49-4e90-96ea-be5425095c2c
+            fieldUid: 9affc432-fe49-4e90-96ea-be5425095c2c # Margin Bottom
             handle: null
             includeInCards: false
             instructions: null
@@ -426,7 +426,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 3c44034a-42a6-4e12-a863-4f3cc325f1a4
+            fieldUid: 3c44034a-42a6-4e12-a863-4f3cc325f1a4 # Padding Top
             handle: null
             includeInCards: false
             instructions: null
@@ -441,7 +441,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 18de2689-3603-4c37-8473-396f9ce4f78c
+            fieldUid: 18de2689-3603-4c37-8473-396f9ce4f78c # Padding Bottom
             handle: null
             includeInCards: false
             instructions: null
@@ -462,7 +462,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 21102308-0ca8-4b67-8663-daef265f4c60
+            fieldUid: 21102308-0ca8-4b67-8663-daef265f4c60 # Animation?
             handle: null
             includeInCards: false
             instructions: null
@@ -483,7 +483,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292
+            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292 # Animation Style
             handle: null
             includeInCards: false
             instructions: null
@@ -498,7 +498,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6
+            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6 # Animation Easing
             handle: null
             includeInCards: false
             instructions: null
@@ -513,7 +513,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9
+            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9 # Animation Duration
             handle: null
             includeInCards: false
             instructions: null
@@ -528,7 +528,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82
+            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
             handle: null
             includeInCards: false
             instructions: null
@@ -549,7 +549,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292
+            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292 # Animation Style
             handle: animationStyle2
             includeInCards: false
             instructions: null
@@ -564,7 +564,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6
+            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6 # Animation Easing
             handle: animationEasing2
             includeInCards: false
             instructions: null
@@ -579,7 +579,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9
+            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9 # Animation Duration
             handle: animationDuration2
             includeInCards: false
             instructions: null
@@ -594,7 +594,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82
+            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
             handle: animationOffset2
             includeInCards: false
             instructions: null
