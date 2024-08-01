@@ -1,8 +1,7 @@
-{% set setBgWhite = (minusMarginBottom|length and minusMarginBottom != 'none') or (minusMarginTop|length and minusMarginTop != 'none') ? '' : 'bg-white' %}
 {% set colors = {
     'background' : {
         'none'       : 'bg-white',
-        'white'      : setBgWhite,
+        'white'      : 'bg-white',
         'light-blue' : 'bg-blue-light',
         'blue-100'   : 'bg-blue-100',
         'blue'       : 'bg-blue-500',
@@ -21,7 +20,7 @@
         'blue-800'   : 'from-blue-800'
     },
     'box-color' : {
-        'none'        : setBgWhite,
+        'none'        : 'bg-white',
         'white'       : 'bg-white',
         'transparent' : 'bg-transparent'
     }

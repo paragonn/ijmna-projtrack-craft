@@ -49,9 +49,6 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %}
-
 {# Parent Block Fields Start #}
 {% set parent = parent ?? null %}
 {% set childContainer = childContainer ?? false %}
@@ -109,9 +106,7 @@
 {% set buttons = block.buttons.all() %}
 {% set imageContents = block.imageContent.all() %}
 
-{% set addStickyClass = (getMinusMarginBottom|length and getMinusMarginBottom != 'none') or (getMinusMarginTop|length and getMinusMarginTop != 'none') ? 'z-[5] relative' %}
-
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }}">
     <div class="{{ not childContainer ? 'container' }}">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div>
