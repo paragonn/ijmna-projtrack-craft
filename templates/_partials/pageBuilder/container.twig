@@ -41,9 +41,6 @@
 {{ craft.app.config.general.devMode ? ('<!-- Template: ' ~ _self ~ ' -->') | raw }}
 {% import "_/includes/macros" as render %}
 
-{# {% set getMinusMarginTop = block.minusMarginTop.getValue()|default(null) %}
-{% set getMinusMarginBottom = block.minusMarginBottom.getValue()|default(null) %} #}
-
 {% set headingTag = block.headingSize.getValue()|default('h2') %}
 {% set fontWeight = block.fontWeight.getValue()|default('normal') %}
 {% set contentAlignment = block.contentAlignment.value|default('center') %}
@@ -66,9 +63,7 @@
 {% set container = block.container.all() %}
 {% set marginStyle = block.marginStyle.value|default('normal') %}
 
-{% set addStickyClass = marginStyle == 'staggered' ? 'z-[5] relative' %}
-
-<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ addStickyClass }} {{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
+<section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ backgroundColor }} {{ bgOpacity }}">
     <div class="container">
         <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
