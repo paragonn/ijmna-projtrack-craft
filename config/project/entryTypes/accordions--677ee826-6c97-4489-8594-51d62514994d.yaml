@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 39a76ad9-6746-4fb7-be42-bd92bcd72610 # Answers
+            fieldUid: 39a76ad9-6746-4fb7-be42-bd92bcd72610
             handle: null
             includeInCards: false
             instructions: null
@@ -75,6 +75,6 @@ showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

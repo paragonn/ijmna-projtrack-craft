@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0 # Image
+            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348
             handle: null
             includeInCards: false
             instructions: null
@@ -71,7 +71,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717 # Eyebrow
+            fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717
             handle: null
             includeInCards: false
             instructions: null
@@ -86,7 +86,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
             handle: null
             includeInCards: false
             instructions: null
@@ -101,7 +101,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72 # Quote
+            fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72
             handle: null
             includeInCards: false
             instructions: null
@@ -116,7 +116,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32 # Quote Attribution
+            fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32
             handle: null
             includeInCards: false
             instructions: null
@@ -131,7 +131,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85 # Text
+            fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85
             handle: null
             includeInCards: false
             instructions: null
@@ -146,7 +146,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
+            fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7
             handle: null
             includeInCards: false
             instructions: null
@@ -167,7 +167,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9 # Embed Video
+            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9
             handle: null
             includeInCards: false
             instructions: null
@@ -191,6 +191,6 @@ showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

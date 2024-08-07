@@ -6,10 +6,10 @@ searchable: false
 settings:
   cachedOptions: true
   element: null
-  genError: ''
+  genError: null
   json: ''
   template: _/sdf/spacing.json
-  templateData: ''
+  templateData: null
 translationKeyFormat: null
 translationMethod: none
 type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

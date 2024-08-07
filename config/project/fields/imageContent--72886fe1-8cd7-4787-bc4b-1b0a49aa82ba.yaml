@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Slide
   entryTypes:
-    - 9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6 # Image Content Slide
+    - 9ea500de-6e50-41cc-a7ad-a1a5aeb0aca6
   includeTableView: false
   maxEntries: null
   minEntries: null

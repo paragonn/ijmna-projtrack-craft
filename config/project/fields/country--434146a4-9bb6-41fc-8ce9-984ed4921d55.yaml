@@ -13,7 +13,7 @@ settings:
   selectionLabel: null
   showCardsInGrid: false
   showSiteMenu: true
-  source: 'group:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  source: 'group:cf6c9928-e050-4212-a498-0618e38611b1'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

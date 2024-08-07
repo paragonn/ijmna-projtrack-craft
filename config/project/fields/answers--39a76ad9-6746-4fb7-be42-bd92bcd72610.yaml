@@ -6,9 +6,9 @@ searchable: false
 settings:
   createButtonLabel: Answer
   entryTypes:
-    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494 # Basic Content
-    - d5783338-8a9d-4621-8556-71a156306314 # Cards
-    - 16c21eca-a8b2-4b44-bd82-463fac26b779 # Icon Cards
+    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494
+    - d5783338-8a9d-4621-8556-71a156306314
+    - 16c21eca-a8b2-4b44-bd82-463fac26b779
   includeTableView: false
   maxEntries: 1
   minEntries: null
