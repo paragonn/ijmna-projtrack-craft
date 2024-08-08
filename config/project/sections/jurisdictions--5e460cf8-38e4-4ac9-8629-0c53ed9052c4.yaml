@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - bac5974c-f86b-4ef2-a13c-d4e61c2883b7
+  - bac5974c-f86b-4ef2-a13c-d4e61c2883b7 # Jurisdictions
 handle: jurisdictions
 maxAuthors: 1
 name: Jurisdictions
@@ -19,7 +19,7 @@ previewTargets:
         - '{url}'
 propagationMethod: all
 siteSettings:
-  af56b8d4-e8df-4952-96c3-24e39909380c:
+  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Program Tracker
     enabledByDefault: true
     hasUrls: true
     template: _pages/index.twig

@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 05ed830d-e0d9-45c1-a952-f81bb441a524
+            fieldUid: 05ed830d-e0d9-45c1-a952-f81bb441a524 # Script Position
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 45855582-b74b-4405-9639-34fc6b00d637
+            fieldUid: 45855582-b74b-4405-9639-34fc6b00d637 # Add only in Production?
             handle: null
             includeInCards: false
             instructions: null
@@ -81,7 +81,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: c0909bba-5350-4f48-875b-48151f1f9f7c
+            fieldUid: c0909bba-5350-4f48-875b-48151f1f9f7c # Script Files
             handle: null
             includeInCards: false
             instructions: null
@@ -96,7 +96,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 7afc8aef-c2ce-4275-ab1d-9a25238e9304
+            fieldUid: 7afc8aef-c2ce-4275-ab1d-9a25238e9304 # Javascript Code
             handle: null
             includeInCards: false
             instructions: null
@@ -111,7 +111,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 910dab4f-1758-4717-b8f9-e8b63a73f3de
+            fieldUid: 910dab4f-1758-4717-b8f9-e8b63a73f3de # HTML Code
             handle: null
             includeInCards: false
             instructions: null

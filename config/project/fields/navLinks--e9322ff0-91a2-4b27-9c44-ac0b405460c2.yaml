@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'Nav Links'
   entryTypes:
-    - 0bb1f59a-bac9-4368-b972-bc346cf78bdb
+    - 0bb1f59a-bac9-4368-b972-bc346cf78bdb # Links
   includeTableView: false
   maxEntries: null
   minEntries: null

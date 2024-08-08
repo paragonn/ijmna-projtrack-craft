@@ -195,7 +195,7 @@ async function performMagic(params)
                             }
                         }
                         image {
-                            url @transform(width: 118, height: 138, mode: "crop")
+                            url @transform(width: 236, height: 296, mode: "crop")
                         }
                     }
                 }

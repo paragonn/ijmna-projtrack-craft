@@ -6,31 +6,31 @@ permissions:
   - accessplugin-formie
   - accessplugin-navigation
   - accessplugin-seomatic
-  - 'createentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'createentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'createentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'createfolders:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'createfolders:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'deletecategories:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'deletecategories:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'deleteentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'deleteentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'deleteentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'deletepeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'deletepeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'deletepeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'deletepeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'deletepeerentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'deletepeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'deletepeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'deletepeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799'
-  - 'deletepeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'editglobalset:395545e5-c12d-445f-b791-fe195138302c'
-  - 'editglobalset:5249fb26-5dbb-40d0-8d43-eaa65ad75be1'
-  - 'editimages:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'editimages:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'editpeerimages:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'editpeerimages:f0cc5f70-7696-4267-8c7c-769e499ad9de'
+  - 'createentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'createentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'createentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'createfolders:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'createfolders:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'deletecategories:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'deletecategories:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'deleteentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'deleteentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'deleteentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'deletepeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'deletepeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'deletepeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'deletepeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'deletepeerentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'deletepeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'deletepeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'deletepeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
+  - 'deletepeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'editglobalset:395545e5-c12d-445f-b791-fe195138302c' # General Information
+  - 'editglobalset:5249fb26-5dbb-40d0-8d43-eaa65ad75be1' # Header
+  - 'editimages:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'editimages:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'editpeerimages:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'editpeerimages:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
   - formie-accessforms
   - formie-accesssentnotifications
   - formie-accesssubmissions
@@ -50,29 +50,29 @@ permissions:
   - formie-shownotificationstemplates
   - formie-viewsentnotifications
   - formie-viewsubmissions
-  - 'replacefiles:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'replacefiles:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'replacepeerfiles:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'replacepeerfiles:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'saveassets:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'saveassets:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'savecategories:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'savecategories:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'saveentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'saveentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'saveentries:798cf224-57ed-4c61-bc6d-17cd588d0799'
-  - 'saveentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'savepeerassets:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'savepeerassets:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'savepeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'savepeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'savepeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'savepeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'savepeerentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'savepeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'savepeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'savepeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799'
-  - 'savepeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77'
+  - 'replacefiles:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'replacefiles:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'replacepeerfiles:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'replacepeerfiles:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'saveassets:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'saveassets:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'savecategories:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'savecategories:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'saveentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'saveentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'saveentries:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
+  - 'saveentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'savepeerassets:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'savepeerassets:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'savepeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'savepeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'savepeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'savepeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'savepeerentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'savepeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'savepeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'savepeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
+  - 'savepeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
   - 'seomatic:content-meta'
   - 'seomatic:content-meta:facebook'
   - 'seomatic:content-meta:general'
@@ -82,22 +82,22 @@ permissions:
   - 'utility:clear-caches'
   - 'utility:cloudflare-purge'
   - 'utility:db-backup'
-  - 'viewassets:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'viewassets:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'viewcategories:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'viewcategories:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'viewentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'viewentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'viewentries:798cf224-57ed-4c61-bc6d-17cd588d0799'
-  - 'viewentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'viewpeerassets:811baf06-6695-4229-9067-1b2f8a49e13c'
-  - 'viewpeerassets:f0cc5f70-7696-4267-8c7c-769e499ad9de'
-  - 'viewpeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf'
-  - 'viewpeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1'
-  - 'viewpeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'viewpeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'viewpeerentries:8893b951-cdef-4627-b3d4-e6a892beec77'
-  - 'viewpeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce'
-  - 'viewpeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4'
-  - 'viewpeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799'
-  - 'viewpeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77'
+  - 'viewassets:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'viewassets:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'viewcategories:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'viewcategories:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'viewentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'viewentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'viewentries:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
+  - 'viewentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'viewpeerassets:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
+  - 'viewpeerassets:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos
+  - 'viewpeercategorydrafts:7be90189-1791-495b-a850-3bc340df0caf' # Casework
+  - 'viewpeercategorydrafts:cf6c9928-e050-4212-a498-0618e38611b1' # Country
+  - 'viewpeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'viewpeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'viewpeerentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'viewpeerentrydrafts:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'viewpeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'viewpeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
+  - 'viewpeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
