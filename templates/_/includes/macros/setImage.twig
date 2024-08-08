@@ -14,6 +14,9 @@
     {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
 {% endif %}
 
+{% set width = width * cropMultiply %}
+{% set height = height * cropMultiply %}
+
 {% set attributes = {}
     |merge(id|length ? {id : id} : {})
     |merge(class|length ? {class : class} : {})
@@ -21,6 +24,7 @@
     |merge(alt|length ? {alt : alt} : {})
     |merge(width|length ? {width : width} : {})
     |merge(height|length ? {height : height} : {})
+    |merge(mode|length ? {mode : mode} : {})
     |merge(lazy ? {loading: "lazy"} : {})
     |merge(imageStyles|length ? {style: imageStyles} : {})
     |merge(attrs is iterable ? attrs : {})
