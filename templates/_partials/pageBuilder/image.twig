@@ -84,18 +84,18 @@
         <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
             <div class="relative">
                 <div class="h-full {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
-                    {% set thumb = {
+                    {# {% set thumb = {
                        mode: 'crop',
                        width: 1920,
                        height: 'auto',
                        quality: 100
-                    } %}
+                    } %} #}
 
                     {{ render.renderVideo({
-                        image: image|length ? image.getUrl(thumb),
+                        image: image|length ? image,
                         alt: image|length ? image.title,
-                        width: image|length ? image.width,
-                        height: image|length ? image.height,
+                        width: image|length ? 1920,
+                        height: image|length ? 'auto',
                         class: "w-full h-full object-cover",
                         lazy: false,
                         videoLazy: false,

@@ -76,7 +76,7 @@
         } %} #}
 
         {{ render.renderVideo({
-            image: image|length ? image.getUrl(),
+            image: image|length ? image,
             alt: image|length ? image.title,
             width: image|length ? 790,
             height: image|length ? 900,
