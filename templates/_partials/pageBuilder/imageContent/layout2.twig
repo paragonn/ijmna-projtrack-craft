@@ -36,18 +36,18 @@
                     <div class="flex w-full relative gap-8 {{ imagePositionLayou2 == 'oddEven' ? oddEventClass : (imagePositionLayou2 == 'right' ? 'lg:flex-row-reverse flex-col' : 'lg:flex-row flex-col') }}">
                         <div class="lg:max-w-[800px] w-full relative">
                             <div class="aspect-w-8 aspect-h-5">
-                                {% set thumb = {
+                                {# {% set thumb = {
                                    mode: 'crop',
                                    width: 850,
                                    height: 'auto',
                                    quality: 100
-                                } %}
+                                } %} #}
 
                                 {{ render.renderVideo({
-                                    image: image|length ? image.getUrl(thumb),
+                                    image: image|length ? image,
                                     alt: image|length ? image.title,
-                                    width: image|length ? image.width,
-                                    height: image|length ? image.height,
+                                    width: image|length ? 850,
+                                    height: image|length ? 'auto',
                                     class: "w-full h-full object-cover",
                                     pictureClass: "w-full h-full object-cover",
                                     lazy: false,

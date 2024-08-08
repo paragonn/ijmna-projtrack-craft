@@ -14,6 +14,9 @@
     {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
 {% endif %}
 
+{% set width = width == 'auto' ? width : width * cropMultiply %}
+{% set height = height == 'auto' ? height : height * cropMultiply %}
+
 {% set attributes = {}
     |merge(id|length ? {id : id} : {})
     |merge(class|length ? {class : class} : {})
@@ -26,7 +29,12 @@
     |merge(attrs is iterable ? attrs : {})
 %}
 
-<img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
+<img src="{{ image.getUrl({
+    width: width,
+    height: height,
+    mode: mode|default('crop'),
+    quality: 100
+})|default(image) }}" {{ attr(attributes) }}>
 
 {# {% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
     <img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>

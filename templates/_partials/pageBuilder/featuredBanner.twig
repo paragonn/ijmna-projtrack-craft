@@ -53,18 +53,18 @@
 
 <section id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="relative {{ spacing.minusMarginTop }} {{ spacing.minusMarginBottom }} {{ spacing.marginTop }} {{ spacing.marginBottom }}">
     {% if image|length or videos|length %}
-        {% set thumb = {
+        {# {% set thumb = {
            mode: 'crop',
            width: 1920,
            height: 'auto',
            quality: 100
-        } %}
+        } %} #}
 
         {{ render.renderVideo({
-            image: image|length ? image.getUrl(thumb),
+            image: image|length ? image,
             alt: image|length ? image.title,
-            width: image|length ? image.width,
-            height: image|length ? image.height,
+            width: image|length ? 1920,
+            height: image|length ? 'auto',
             class: "object-cover w-full h-full absolute inset-0",
             lazy: false,
             videoLazy: false,

@@ -68,18 +68,18 @@
 <section class="lg:flex relative mt-[79px] {{ contentExist ? 'lg:min-h-[900px]' : 'lg:min-h-[calc(79px-100vh)]' }} {{ backgroundColor }} {{ bgOpacity }}">
     {% if image|length or embedVideoMedia|length or videos|length %}
     <div class="relative lg:absolute lg:inset-y-0 z-10 {{ imagePosition == 'left' ? 'lg:left-0' : 'lg:right-0' }} {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'lg:w-1/2' : 'w-full' }} " {{ imageAnimation|raw }}>
-        {% set thumb = {
+        {# {% set thumb = {
            mode: 'crop',
            width: 1200,
            height: 'auto',
            quality: 100
-        } %}
+        } %} #}
 
         {{ render.renderVideo({
-            image: image|length ? image.getUrl(thumb),
+            image: image|length ? image,
             alt: image|length ? image.title,
-            width: image|length ? image.width,
-            height: image|length ? image.height,
+            width: image|length ? 790,
+            height: image|length ? 900,
             class: "object-cover max-h-96 lg:max-h-none lg:!h-full w-full",
             lazy: false,
             videoLazy: false,
