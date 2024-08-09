@@ -17,11 +17,13 @@
             <div class="max-w-3xl mx-auto">
                 {% if image|length %}
                 <div class="mb-8">
-                    {{ render.setImage({
+                    {{ render.picture({
                         image: image,
                         alt: image.title,
-                        fill: "currentColor",
-                        class: "h-16 mx-auto text-blue-500"
+                        class: "w-auto h-16 mx-auto text-blue-500",
+                        attrs: {
+                            fill: "currentColor",
+                        },
                     }) }}
                 </div>
                 {% endif %}

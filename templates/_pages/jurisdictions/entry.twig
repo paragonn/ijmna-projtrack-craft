@@ -49,11 +49,13 @@
         <div class="flex items-center justify-between shrink-0 w-full px-5">
             {% if altLogo|length %}
             <a href="{{ siteUrl }}" class="logo {{ backgroundColorLabel == 'white' ? 'text-blue-500' : 'text-white' }}">
-                {{ render.setImage({
+                {{ render.picture({
                     image: altLogo,
                     alt: altLogo.title,
-                    fill: "currentColor",
-                    class: "h-14"
+                    class: "w-auto h-14",
+                    attrs: {
+                        fill: "currentColor",
+                    },
                 }) }}
             </a>
             {% endif %}
@@ -80,7 +82,7 @@
             width: backgroundImage|length ? backgroundImage.width,
             height: backgroundImage|length ? backgroundImage.height,
             class: "object-cover w-full h-full absolute inset-0",
-            lazy: false,
+            lazy: true,
             videoLazy: false,
             videos: bgVideos,
             videoClass: "object-cover w-full h-full absolute inset-0",
@@ -208,12 +210,10 @@
             {% if heroImage|length %}
             <div class="md:max-w-[440px] w-full flex-1">
                 <div class="aspect-h-6 aspect-w-9 md:aspect-h-16 md:aspect-w-12">
-                    {{ render.setImage({
+                    {{ render.picture({
                         image: heroImage,
                         alt: heroImage.title,
-                        width: heroImage.width,
-                        height: heroImage.height,
-                        class: "w-full h-full object-cover",
+                        class: "w-full h-full object-cover"
                     }) }}
                 </div>
             </div>

@@ -18,13 +18,13 @@
                     <div class="flex items-center justify-between shrink-0 w-full lg:w-auto">
                         {% if headerLogo|length %}
                         <a href="{{ siteUrl }}" class="logo text-blue-500" aria-label="{{ siteName }}">
-                            {{ render.setImage({
+                            {{ render.picture({
                                 image: headerLogo,
                                 alt: headerLogo.title,
-                                width: 'auto',
-                                height: 'auto',
-                                fill: "currentColor",
-                                class: "h-14 text-blue-500"
+                                class: "w-auto h-14 text-blue-500",
+                                attrs: {
+                                    fill: "currentColor",
+                                },
                             }) }}
                         </a>
                         {% endif %}
@@ -194,11 +194,13 @@
             <div class="flex items-center justify-between shrink-0 w-full px-5">
                 {% if altLogo|length %}
                 <a href="{{ siteUrl }}" class="logo text-white">
-                    {{ render.setImage({
+                    {{ render.picture({
                         image: altLogo,
                         alt: altLogo.title,
-                        fill: "currentColor",
-                        class: "h-14"
+                        class: "w-auto h-14",
+                        attrs: {
+                            fill: "currentColor",
+                        },
                     }) }}
                 </a>
                 {% endif %}
