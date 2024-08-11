@@ -27,7 +27,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
     case 'live':
     case 'production':
         $components = [
-            'cache' => function() {
+            /*'cache' => function() {
                 $config = [
                     'class' => yii\redis\Cache::class,
                     'keyPrefix' => Craft::$app->id,
@@ -44,7 +44,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                 return Craft::createObject($config);
             },
-            /*'session' => function() {
+            'session' => function() {
                 // Get the default component config:
                 $config = craft\helpers\App::sessionConfig();
 
