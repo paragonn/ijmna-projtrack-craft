@@ -22,6 +22,82 @@
 
 use craft\helpers\App;
 
+switch ( App::env('CRAFT_ENVIRONMENT') )
+{
+    case 'live':
+    case 'production':
+        $components = [
+            'cache' => function() {
+                $config = [
+                    'class' => yii\redis\Cache::class,
+                    'keyPrefix' => Craft::$app->id,
+                    'defaultDuration' => Craft::$app->config->general->cacheDuration,
+
+                    // Full Redis connection details:
+                    'redis' => [
+                        'hostname' => App::env('REDIS_HOST') ?: 'localhost',
+                        'port' => App::env('REDIS_PORT'),
+                        'password' => App::env('REDIS_PASSWORD') ?: null,
+                        'database' => 0
+                    ],
+                ];
+
+                return Craft::createObject($config);
+            },
+            'session' => function() {
+                // Get the default component config:
+                $config = craft\helpers\App::sessionConfig();
+
+                // Replace component class:
+                $config['class'] = yii\redis\Session::class;
+
+                // Define additional properties:
+                $config['redis'] = [
+                    'hostname' => App::env('REDIS_HOST') ?: 'localhost',
+                    'port' => App::env('REDIS_PORT'),
+                    'password' => App::env('REDIS_PASSWORD') ?: null,
+                    'database' => 1
+                ];
+
+                // Return the initialized component:
+                return Craft::createObject($config);
+            },
+            'mutex' => function() {
+                $config = [
+                    'class' => craft\mutex\Mutex::class,
+                    'mutex' => [
+                        'class' => yii\redis\Mutex::class,
+                        // set the max duration to 15 minutes for console requests
+                        'expire' => Craft::$app->request->isConsoleRequest ? 900 : 30,
+                        'redis' => [
+                            'hostname' => App::env('REDIS_HOST') ?: 'localhost',
+                            'port' => App::env('REDIS_PORT'),
+                            'password' => App::env('REDIS_PASSWORD') ?: null,
+                            'database' => 2
+                        ],
+                    ],
+                ];
+
+                // Return the initialized component:
+                return Craft::createObject($config);
+            },
+        ];
+        break;
+
+    case 'dev':
+        $components = [
+            'log' => [
+                'traceLevel' => 20,
+            ],
+        ];
+        break;
+
+    default:
+        $components = [];
+}
+
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
+    'components' => $components,
 ];
+
