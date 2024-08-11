@@ -22,12 +22,13 @@
 
 use craft\helpers\App;
 
+/*
 switch ( App::env('CRAFT_ENVIRONMENT') )
 {
     case 'live':
     case 'production':
         $components = [
-            /*'cache' => function() {
+            'cache' => function() {
                 $config = [
                     'class' => yii\redis\Cache::class,
                     'keyPrefix' => Craft::$app->id,
@@ -80,7 +81,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                 // Return the initialized component:
                 return Craft::createObject($config);
-            },*/
+            },
         ];
         break;
 
@@ -95,9 +96,10 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
     default:
         $components = [];
 }
+*/
 
 return [
     'id' => App::env('CRAFT_APP_ID') ?: 'CraftCMS',
-    'components' => $components,
+    //'components' => $components,
 ];
 
