@@ -24,8 +24,8 @@ use craft\helpers\App;
 
 switch ( App::env('CRAFT_ENVIRONMENT') )
 {
-    case 'live1':
-    case 'production1':
+    case 'live':
+    case 'production':
         $components = [
             'cache' => function() {
                 $config = [
@@ -44,7 +44,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                 return Craft::createObject($config);
             },
-            'session' => function() {
+            /*'session' => function() {
                 // Get the default component config:
                 $config = craft\helpers\App::sessionConfig();
 
@@ -80,7 +80,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                 // Return the initialized component:
                 return Craft::createObject($config);
-            },
+            },*/
         ];
         break;
 
