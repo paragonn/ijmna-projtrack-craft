@@ -24,8 +24,8 @@ use craft\helpers\App;
 
 switch ( App::env('CRAFT_ENVIRONMENT') )
 {
-    case 'live1':
-    case 'production1':
+    case 'live':
+    case 'production':
         $components = [
             'cache' => function() {
                 $config = [
