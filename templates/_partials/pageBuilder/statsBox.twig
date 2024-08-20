@@ -59,9 +59,9 @@
 
 {% set perRowLimit = block.perRowLimit.getValue()|default(parent == 'twoColumns' ? '2' : '3') %}
 {% set rowLimit = {
-    '2' : 'grid-cols-1 md:grid-cols-2',
-    '3' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
-    '4' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4',
+    '2' : 'md:w-[calc(50%-10px)] w-full',
+    '3' : 'lg:w-[calc(33.33%-14px)] md:w-[calc(50%-10px)] w-full',
+    '4' : 'lg:w-[calc(25%-15px)] md:w-[calc(50%-10px)] w-full',
 } %}
 
 {% set conbackgroundColor = conbackgroundColor ?? null %}
@@ -125,10 +125,10 @@
                     {% endif %}
 
                     {% if statsBox|length %}
-                    <div class="grid gap-5 {{ rowLimit[perRowLimit] }}">
+                    <div class="flex flex-wrap justify-center gap-5">
                         {% for statBox in statsBox %}
                         {% set statBoxButton = statBox.buttons.all() %}
-                        <div class="{{ render.getAlignment({alignment: cardAlignment, type: 'text'}) }}">
+                        <div class="{{ rowLimit[perRowLimit] }} {{ render.getAlignment({alignment: cardAlignment, type: 'text'}) }}">
                             {{ render.basicContents({
                                 eyebrow: statBox.eyebrow,
                                 heading: statBox.heading,
