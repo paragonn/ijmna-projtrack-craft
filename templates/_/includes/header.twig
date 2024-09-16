@@ -37,10 +37,13 @@
                                 x-on:mouseleave="tooltip = false"
                                 class="ml-4 cursor-pointer"
                             >
-                               {{ svg('@webroot/icons/custom/circle-info.svg')|attr({
-                                       class: 'size-8 fill-current',
-                               }) }}
-                               <span x-show="tooltip" class="absolute inline-block font-Baskervville text-base text-white bg-black rounded-sm px-2 py-1 w-full max-w-72 transform translate-y-2 -translate-x-[200px]">
+                                {{ svg('@webroot/icons/custom/circle-info.svg')|attr({
+                                    class: 'size-8 fill-current',
+                                }) }}
+                                <span x-show="tooltip" class="absolute inline-block font-Baskervville text-base text-white bg-black rounded-sm px-2 py-1 w-full max-w-72 transform translate-y-2 -translate-x-[200px]">
+                                    <svg class="absolute z-10 w-8 h-8 text-blue-900 transform right-14 -translate-y-3 fill-current stroke-current">
+                                        <rect x="12" y="-10" width="12" height="12" transform="rotate(45)" />
+                                    </svg>
                                     {{ header.globalHeading }}
                                 </span>
                            </span>
