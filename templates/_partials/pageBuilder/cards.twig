@@ -124,19 +124,11 @@
 
                 <div>
                     {% if image|length %}
-                    {% set thumb = {
-                       mode: 'crop',
-                       width: 450,
-                       height: 'auto',
-                       quality: 100
-                    } %}
                     <div class="aspect-w-16 aspect-h-9 {{ card.eyebrow|length or card.heading|length or card.text|length or buttons|length ? 'mb-4' }}" {{ cardAnimation|raw }}>
-                        {{ render.setImage({
-                            image: image.getUrl(thumb),
+                        {{ render.picture({
+                            image: image,
                             alt: image.title,
-                            width: image.width,
-                            height: image.height,
-                            class: "w-full h-full object-cover",
+                            class: "w-full h-full object-cover"
                         }) }}
                     </div>
                     {% endif %}

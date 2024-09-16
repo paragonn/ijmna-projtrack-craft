@@ -1,4 +1,4 @@
-enabled: true
+enabled: '1'
 handle: solid
 name: Solid
 settings:

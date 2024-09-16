@@ -360,7 +360,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f
+            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f # Minus Margin Top (Deprecated)
             handle: null
             includeInCards: false
             instructions: null
@@ -375,7 +375,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be
+            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be # Minus Margin Bottom (Deprecated)
             handle: null
             includeInCards: false
             instructions: null
@@ -550,6 +550,6 @@ showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

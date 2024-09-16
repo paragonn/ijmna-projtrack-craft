@@ -50,5 +50,7 @@ return GeneralConfig::create()
 
     ->generateTransformsBeforePageLoad(true)
 
+    ->maxUploadFileSize(52428800)
+
     ->loginPath(App::env('SSO_LOGIN_PATH') ?? '/')
 ;

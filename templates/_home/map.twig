@@ -49,12 +49,18 @@
 {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
 <section class="mt-[79px]" x-data="{
     stage: '',
+    stageOpen: false,
+    sideDrawer: false,
     filters: {},
 
     init() {
         let _this = this;
         let params = getQueryParams();
         _this.stage = getFromParams('stage');
+
+        if(typeof(window.location.href.split('?')[1]) === 'undefined') {
+            this.stageOpen = true;
+        }
 
         if(_this.stage) {
             let stage = document.querySelector(`.stage-wrapper[data-stage='${_this.stage}']`);
@@ -77,6 +83,9 @@
     handleStageChange(stage) {
         let _this = this;
         if(_this.stage != stage) {
+            this.stageOpen = false;
+            this.sideDrawer = false;
+
             _this.stage = stage;
 
             if(stage != '') {
@@ -154,23 +163,14 @@
         }
     }
 }">
-    <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden"
-        x-data="{
-            open: false,
-            init() {
-                if(typeof(window.location.href.split('?')[1]) === 'undefined') {
-                    this.open = true;
-                }
-            }
-        }"
-    >
+    <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden">
         <div class="relative z-20 shrink-0">
-            <div class="bottom-0 top-0 absolute left-0 w-[336px] md:w-[407px] lg:w-[656px] transition-all duration-700 -translate-x-full" :class="open ? '-translate-x-full md:translate-x-0' : 'translate-x-0 md:-translate-x-full'" x-cloak>
+            <div class="bottom-0 top-0 absolute left-0 w-[336px] md:w-[407px] lg:w-[656px] transition-all duration-700 -translate-x-full" :class="stageOpen ? '-translate-x-full md:translate-x-0' : 'translate-x-0 md:-translate-x-full'" x-cloak>
                 <div class="h-full bg-blue-800 overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-blue-500/50 scrollbar-thin scrollbar-track-transparent">
                     <div class="px-5 md:px-8 lg:px-[74px] py-8 md:py-10">
                         <div>
                             <h4 class="text-xl md:text-2xl font-Baskervville text-white">Progress Toward Protecting 500 Million People from Slavery and Violence</h4>
-                            <p class="text-white mt-2 text-xs">IJM Program Tracker: Updated Feb 2024</p>
+                            {#<p class="text-white mt-2 text-xs">IJM Program Tracker: Updated Feb 2024</p>#}
                         </div>
                         <div class="mt-3 progress-active">
                             <div class="flex items-stretch gap-6 md:gap-7 lg:gap-[68px]">
@@ -196,7 +196,7 @@
                                 class="stage-wrapper flex items-stretch gap-6 md:gap-7 lg:gap-[68px] target-progress trigger-progress cursor-pointer"
                                 data-stage="{{ stage.stage.getValue() }}"
                                 :class="stage == '{{ stage.stage.getValue() }}' ? 'active' : ''"
-                                @click.prevent="open = !open, handleStageChange('{{ stage.stage.getValue() }}')"
+                                @click.prevent="handleStageChange('{{ stage.stage.getValue() }}')"
                             >
                                 <div class="md:w-10 sm:w-8 w-7 shrink-0">
                                     <div class="bg-blue-500 borderactive border-t border-x border-white/40 h-full flex items-center justify-center w-full">
@@ -261,11 +261,11 @@
                     </div>
                 </div>
             </div>
-            <div class="h-full border-l border-white bg-blue-800 duration-700 transition-transform" :class="open ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
+            <div class="h-full border-l border-white bg-blue-800 duration-700 transition-transform" :class="stageOpen ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
                 <div class="w-[50px] md:w-[62px] h-full">
                     <div>
-                        <button class="flex items-center justify-center h-[87px] w-full" :class="open ? 'md:bg-blue-500' : 'bg-blue-500 md:bg-transparent'" @click="open = !open" @keydown.escape="open = false">
-                            <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all duration-300" :class="open ? 'rotate-180 md:rotate-0' : 'rotate-0 md:rotate-180'">
+                        <button class="flex items-center justify-center h-[87px] w-full" :class="stageOpen ? 'md:bg-blue-500' : 'bg-blue-500 md:bg-transparent'" @click="stageOpen = !stageOpen" @keydown.escape="stageOpen = false">
+                            <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-all duration-300" :class="stageOpen ? 'rotate-180 md:rotate-0' : 'rotate-0 md:rotate-180'">
                                 <path d="M3.00004 16.5928L32.5911 16.5928" stroke="white" stroke-width="3" />
                                 <path d="M17.6516 2L3 15.9978L17.6516 30.4074" stroke="white" stroke-width="3" />
                             </svg>
@@ -277,7 +277,7 @@
                         </div>
                         <div class="flex w-full flex-col justify-end flex-1 items-center h-full">
                             <span>
-                                <svg width="24" height="39" :class="open ? 'md:fill-blue-500' : 'fill-blue-500 md:fill-transparent'" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="24" height="39" :class="stageOpen ? 'md:fill-blue-500' : 'fill-blue-500 md:fill-transparent'" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M11.613 32.806 1 37.265V1h22v36.264l-10.613-4.458-.387-.162-.387.162Z" stroke="#fff" stroke-width="2" />
                                     <circle cx="6.675" cy="11.92" r=".648" fill="#fff" stroke="#fff" stroke-width="1.5" />
                                     <circle cx="6.675" cy="16.791" r=".648" fill="#fff" stroke="#fff" stroke-width="1.5" />
@@ -295,7 +295,7 @@
                 </div>
             </div>
         </div>
-        <div class="" x-data="{drawer: false }">
+        <div class="">
             <div id="mapbox_map"
                 class="h-full !absolute z-10 w-[calc(100vw-50px)] md:w-[calc(100vw-62px)]"
                 style="overflow-anchor: none;"
@@ -315,8 +315,8 @@
             </div>
 
             <div class="relative">
-                <div class="z-30 whitespace-nowrap duration-700 transition-transform relative inline-block md:pl-8 md:pt-8 pt-6 pl-6" :class="open ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
-                    <button x-on:click="drawer = ! drawer" @keydown.escape="drawer = false" :class="{'bg-blue-800 text-white' : drawer , 'bg-white text-blue-800' : !drawer}" class="relative group flex gap-5 px-5 py-3 hover:bg-blue-800 hover:text-white border border-blue-800 font-medium text-lg transition-all duration-300 shrink-0">
+                <div class="z-30 whitespace-nowrap duration-700 transition-transform relative inline-block md:pl-8 md:pt-8 pt-6 pl-6" :class="stageOpen ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
+                    <button x-on:click="sideDrawer = ! sideDrawer,stageOpen = false" @keydown.escape="sideDrawer = false" :class="{'bg-blue-800 text-white' : sideDrawer , 'bg-white text-blue-800' : !sideDrawer}" class="relative group flex gap-5 px-5 py-3 hover:bg-blue-800 hover:text-white border border-blue-800 font-medium text-lg transition-all duration-300 shrink-0">
                         <span class="md:block hidden">
                             Filter Map
                         </span>
@@ -330,20 +330,20 @@
                         </svg>
                     </button>
                 </div>
-                <div class="z-30 whitespace-nowrap duration-700 transition-transform relative md:pl-8 pl-6" :class="open ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
+                <div class="z-30 whitespace-nowrap duration-700 transition-transform relative md:pl-8 pl-6" :class="stageOpen ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
                     <div class="mt-5" x-show="Object.keys(filters).length" style="display: none;">
                         {{ filters|raw }}
                     </div>
                 </div>
             </div>
             <div class="relative">
-                <div x-show="drawer" @click="drawer = false" class="fixed block inset-0 bg-blue-800/40 z-50" x-transition:enter="transition-opacity ease-out duration-700" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-700" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
+                <div x-show="sideDrawer" @click="sideDrawer = false" class="fixed block inset-0 bg-blue-800/40 z-50" x-transition:enter="transition-opacity ease-out duration-700" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity ease-in duration-700" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></div>
                 <div class="relative">
                     <form method="get" action="/{{ craft.app.request.fullPath }}" style="display:none"
                         id="js-search-form"
                         class="space-y-8 duration-700 z-50 ease-in-out right-0 w-full md:w-[450px] lg:w-[631px] bg-white fixed top-0 h-screen overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-blue-500/50 scrollbar-track-transparent"
-                        @submit.prevent="drawer = false, setFiltersFromFormFields(), submitFormViaAjax();"
-                        x-show="drawer"
+                        @submit.prevent="sideDrawer = false, stageOpen = false, setFiltersFromFormFields(), submitFormViaAjax();"
+                        x-show="sideDrawer"
                         x-transition:enter="transition-transform ease-in-out duration-1000"
                         x-transition:enter="transform transition ease-in-out duration-1000"
                         x-transition:enter-start="translate-x-full opacity-0"
@@ -365,8 +365,8 @@
                                 </div>
                             </div>
                             <button type="button" class="h-5 w-5 flex items-center justify-center hover:text-turkey-800 transition-all duration-300"
-                                x-show="drawer"
-                                @click="drawer = false;"
+                                x-show="sideDrawer"
+                                @click="sideDrawer = false;"
                                 x-transition:enter="transition-transform ease-in-out duration-300"
                                 x-transition:enter="transform transition ease-in-out duration-300"
                                 x-transition:enter-start="-translate-x-full opacity-0"
@@ -432,7 +432,7 @@
                 </div>
             </div>
 
-            <div class="absolute z-30 md:left-24 md:bottom-8 left-[4.70rem] bottom-5 whitespace-nowrap duration-700 transition-transform hidden" :class="open ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
+            <div class="absolute z-30 md:left-24 md:bottom-8 left-[4.70rem] bottom-5 whitespace-nowrap duration-700 transition-transform hidden" :class="stageOpen ? 'translate-x-0 lg:translate-x-[656px] md:translate-x-[407px]' : 'translate-x-[336px] md:translate-x-0'">
                 <p class="text-blue-500 font-bold">Program Footprint</p>
                 <p>Jurisdictions: <span class="js-entry-count"></span></p>
             </div>

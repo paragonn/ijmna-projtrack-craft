@@ -18,18 +18,37 @@
                     <div class="flex items-center justify-between shrink-0 w-full lg:w-auto">
                         {% if headerLogo|length %}
                         <a href="{{ siteUrl }}" class="logo text-blue-500" aria-label="{{ siteName }}">
-                            {{ render.setImage({
+                            {{ render.picture({
                                 image: headerLogo,
                                 alt: headerLogo.title,
-                                width: 149,
-                                height: 56,
-                                fill: "currentColor",
-                                class: "h-14 text-blue-500"
+                                class: "w-auto h-14 text-blue-500",
+                                attrs: {
+                                    fill: "currentColor",
+                                },
                             }) }}
                         </a>
                         {% endif %}
 
-                        <div class="lg:hidden block">
+                        <div class="block lg:hidden flex items-center gap-4">
+                           {% if header.globalHeading|length %}
+                            <span
+                                x-data="{ tooltip: false }"
+                                x-on:mouseover="tooltip = true"
+                                x-on:mouseleave="tooltip = false"
+                                class="ml-4 cursor-pointer"
+                            >
+                                {{ svg('@webroot/icons/custom/circle-info.svg')|attr({
+                                    class: 'size-8 fill-current',
+                                }) }}
+                                <span x-show="tooltip" class="absolute inline-block font-Baskervville text-base text-white bg-black rounded-sm px-2 py-1 w-full max-w-72 transform translate-y-2 -translate-x-[200px]">
+                                    <svg class="absolute z-10 w-8 h-8 text-blue-900 transform right-14 -translate-y-3 fill-current stroke-current">
+                                        <rect x="12" y="-10" width="12" height="12" transform="rotate(45)" />
+                                    </svg>
+                                    {{ header.globalHeading }}
+                                </span>
+                           </span>
+                           {% endif %}
+
                             <button class="w-10 h-8 relative z-30 shrink-0" aria-label="Hamburger"
                                 x-on:click="hamburger = ! hamburger;isOverflowHidden = !isOverflowHidden"
                                 @keydown.escape="hamburger = false"
@@ -41,10 +60,15 @@
                             </button>
                         </div>
                     </div>
+
+                    {% if header.globalHeading|length %}
+                    <span class="hidden lg:block text-xl text-center text-blue-500 font-bold font-Baskervville">{{ header.globalHeading|nl2br }}</span>
+                    {% endif %}
+
                     <div class="lg:block hidden">
                         <ul class="space-y-3 lg:space-y-0 lg:space-x-5 xl:space-x-10 p-5 lg:p-0 lg:!flex lg:items-center lg:mt-0 max-[991px]:overflow-auto  duration-300 ease-in-out right-0  lg:h-full w-full bg-gray-700 lg:bg-transparent fixed top-28 lg:top-0 lg:relative h-[calc(100vh-112px)]">
-                            <li>
-                                <div x-data="{ isOpen: false }" class="relative">
+                            {# <li>
+                                <div x-data="{ isOpen: false }" class="relative"> #}
                                     {# Button to toggle the dropdown #}
                                     {# <button @click="isOpen = !isOpen" class="text-sm text-white font-medium capitalize flex items-center gap-1.5 hover:text-gold-500 duration-300 transition-all" aria-label="Search">
                                         <svg width="32" height="31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,8 +100,8 @@
                                             </div>
                                         </form>
                                     </div> #}
-                                </div>
-                            </li>
+                                {# </div>
+                            </li> #}
 
                             {% for node in navLinks %}
                             <li class="relative">
@@ -194,11 +218,13 @@
             <div class="flex items-center justify-between shrink-0 w-full px-5">
                 {% if altLogo|length %}
                 <a href="{{ siteUrl }}" class="logo text-white">
-                    {{ render.setImage({
+                    {{ render.picture({
                         image: altLogo,
                         alt: altLogo.title,
-                        fill: "currentColor",
-                        class: "h-14"
+                        class: "w-auto h-14",
+                        attrs: {
+                            fill: "currentColor",
+                        },
                     }) }}
                 </a>
                 {% endif %}

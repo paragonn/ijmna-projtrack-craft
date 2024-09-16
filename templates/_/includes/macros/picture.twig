@@ -1,0 +1,107 @@
+{% if image|length %}
+	{% set extension = image.extension|default(image|split('.')|last) %}
+
+	{% set styles = {} %}
+	{% set pictureAttrs = {} %}
+
+	{# Alt Text #}
+	{% set altText = alt|default(image.title) %}
+
+	{# Image at the highest res we'd need to use #}
+	{% set maxResWidth = 2560 %}
+	{% set maxResHeight = null %}
+
+	{# Fallback Image #}
+	{% set reasonableFallbackWidth = fallbackWidth|default(1280) %}
+	{% set reasonableFallbackHeight = null %}
+
+	{# Aspect Ratio #}
+	{% if aspectRatio is numeric %}
+		{% set maxResHeight = maxResWidth / (aspectRatio) %}
+		{% set reasonableFallbackHeight = reasonableFallbackWidth / (aspectRatio) %}
+		{% set pictureAttrs = pictureAttrs|merge({
+			style: {
+				'--aspect-ratio': aspectRatio
+			}
+		}) %}
+	{% endif %}
+
+	{# Focal Point #}
+	{% if image.hasFocalPoint %}
+		{% set x = image.focalpoint|first * 100 ~ '%' %}
+		{% set y = image.focalpoint|last * 100 ~ '%' %}
+		{% set styles = styles|merge({'object-position':  x ~ ' ' ~ y}) %}
+	{% endif %}
+
+	{# Picture Classes #}
+	{% if pictureClasses|length %}
+		{% set pictureAttrs = pictureAttrs|merge({
+			class: pictureClasses|join(' ')
+		}) %}
+	{% endif %}
+
+	{% set imgAttrs = {
+		width: image.width,
+		height: image.height,
+		alt: altText,
+	} %}
+	{% if lazy %}
+		{% set imgAttrs = imgAttrs|merge( { loading: 'lazy' } ) %}
+	{% endif %}
+	{% if class|length %}
+		{% set imgAttrs = imgAttrs|merge( { class: class|join(' ') } ) %}
+	{% endif %}
+	{% if styles|length %}
+		{% set imgAttrs = imgAttrs|merge( { style: styles } ) %}
+	{% endif %}
+	{% if attrs|length %}
+		{% set imgAttrs = imgAttrs|merge( attrs, true ) %}
+	{% endif %}
+
+	{% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
+		{% set imgAttrs = imgAttrs|merge({ src: image.url }) %}
+		{{ tag('img', imgAttrs) }}
+
+	{% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
+		{{ svg(image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) | attr(imgAttrs) }}
+
+	{% elseif not image.extension|default(null)|length and extension == "svg" %}
+		{% set imagePath = '@webroot/' ~ image %}
+		{{ svg(imagePath) | attr(imgAttrs) }}
+
+	{% else %}
+		<picture {{ attr(pictureAttrs) }}>
+			{% if craft.app.images.supportsAvif and image.mimeType != 'image/avif' %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, format: 'avif', mode: transformMode|default('crop') }) %}
+				{{ tag('source', {
+					srcset: image.getSrcset(transformArr),
+					sizes: sizes|join(', '),
+					type: 'image/avif',
+				}) }}
+			{% endif %}
+
+			{% if craft.app.images.supportsWebP and image.mimeType != 'image/webp' %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, format: 'webp', mode: transformMode|default('crop') }) %}
+				{{ tag('source', {
+					srcset: image.getSrcset(transformArr),
+					sizes: sizes|join(', '),
+					type: 'image/webp',
+				}) }}
+			{% else %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, mode: transformMode|default('crop') }) %}
+				{{ tag('source', {
+					srcset: image.getSrcset(transformArr),
+					sizes: sizes|join(', '),
+					type: image.mimeType,
+				}) }}
+			{% endif %}
+
+			{% do image.setTransform({ width: reasonableFallbackWidth, height: reasonableFallbackHeight, mode: transformMode|default('crop') }) %}
+			{% set imgAttrs = imgAttrs|merge({ src: image.url }) %}
+
+			{{ tag('img', imgAttrs) }}
+		</picture>
+	{% endif %}
+{# {% else %}
+	<p>No image specified.</p> #}
+{% endif %}

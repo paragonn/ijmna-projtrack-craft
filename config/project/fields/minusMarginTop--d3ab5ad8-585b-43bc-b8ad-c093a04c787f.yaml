@@ -1,14 +1,14 @@
 columnSuffix: null
-handle: imageRatio
+handle: minusMarginTop
 instructions: null
-name: 'Image Ratio'
+name: 'Minus Margin Top (Deprecated)'
 searchable: false
 settings:
   cachedOptions: true
   element: null
   genError: null
   json: ''
-  template: _/sdf/imageRatio.json
+  template: _/sdf/spacing.json
   templateData: null
 translationKeyFormat: null
 translationMethod: none

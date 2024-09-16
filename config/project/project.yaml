@@ -1,4 +1,4 @@
-dateModified: 1722507423
+dateModified: 1726483799
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -105,7 +105,9 @@ meta:
     571eaa99-3b98-41a7-8942-c300b3c2fe5b: Byline # Byline
     677ee826-6c97-4489-8594-51d62514994d: Accordions # Accordions
     703c4614-7d62-46a6-927a-23935a1f6c22: 'Status Cards' # Status Cards
+    721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom (Deprecated)' # Minus Margin Bottom (Deprecated)
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
+    806f2d8a-f448-4eee-baa7-55e1a29a2702: 'Global Heading' # Global Heading
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     887e8c04-ed78-4f44-afb0-408021c88446: 'Background Image' # Background Image
     910dab4f-1758-4717-b8f9-e8b63a73f3de: 'HTML Code' # HTML Code
@@ -153,6 +155,7 @@ meta:
     cfc164dd-7161-4a3d-9407-1080228e7455: 'Content Alignment' # Content Alignment
     d07b837d-c20e-48d9-ac52-34b7a29fbfcb: 'Container Id' # Container Id
     d1abafe9-7def-492a-8370-693e6103efe8: 'Check List Table' # Check List Table
+    d3ab5ad8-585b-43bc-b8ad-c093a04c787f: 'Minus Margin Top (Deprecated)' # Minus Margin Top (Deprecated)
     d381de9e-9630-4674-827e-b9e59ed8b921: 'Contact Form' # Contact Form
     d5783338-8a9d-4621-8556-71a156306314: Cards # Cards
     dcc4c3a7-d1ad-429a-8db7-6eb780b2d453: 'Dots in group of' # Dots in group of
@@ -193,6 +196,18 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
+    settings:
+      apiKey: null
+      apiToken: USk3LPMuoV6z1VSKyizIsP-QBEqXLDuJbnFV2KMB
+      authType: token
+      email: null
+      purgeElements:
+        - craft\elements\Asset
+        - craft\elements\Category
+        - craft\elements\Entry
+      userServiceKey: ''
+      zone: 0cdd48133f3329ccea70446de6285439
+      zoneName: ijmtracker.org
   colour-swatches:
     edition: standard
     enabled: true

@@ -15,12 +15,33 @@
         webp: true,
         alpineClass:"",
         attrs: null,
-        preset: ""
+        preset: "",
+        cropMultiply: 2,
+        mode: 'crop'
     } %}
 
     {# Override (overwrite) defaults with passed parameters #}
     {% set options = defaultsParams|merge(params) %}
     {% include "_/includes/macros/setImage" with options %}
+{% endmacro %}
+
+{% macro picture(params) %}
+	{% set defaults = {
+		image: null,
+		class: null,
+		attrs: null,
+        lazy: true,
+		sizes: '100vw',
+		transformArr: ['320w','640w','1280w','1920w','2560w'],
+		transformMode: 'crop',
+		aspectRatio: null,
+		alt: null,
+		pictureClasses: null,
+		fallbackWidth: 1280
+	} %}
+	{# Override (overwrite) defaults with passed parameters #}
+	{% set options = defaults|merge(params) %}
+	{% include "_/includes/macros/picture" with options %}
 {% endmacro %}
 
 {% macro spacing(params) %}
@@ -364,7 +385,9 @@
         svgSize: null,
         videoSize: null,
         preset: null,
-        videoId: null
+        videoId: null,
+        attrs: null,
+        class: null,
     } %}
 
     {# Override (overwrite) defaults with passed parameters #}
@@ -372,8 +395,12 @@
     {% include "_/includes/macros/renderVideo" with options %}
 
     {# Call the 'setImage' macro from the same file using 'self' #}
-    {% if options.videoType not in ["background", "bgPopup"] or (not options.videos|length) %}
+    {# {% if options.videoType not in ["background", "bgPopup"] or (not options.videos|length) %}
         {{ _self.setImage(options) }}
+    {% endif %} #}
+
+    {% if options.videoType not in ["background", "bgPopup"] or (not options.videos|length) %}
+        {{ _self.picture(options) }}
     {% endif %}
 {% endmacro %}
 
