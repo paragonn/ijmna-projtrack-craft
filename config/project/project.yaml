@@ -1,4 +1,4 @@
-dateModified: 1724161135
+dateModified: 1726483799
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -107,6 +107,7 @@ meta:
     703c4614-7d62-46a6-927a-23935a1f6c22: 'Status Cards' # Status Cards
     721f6c59-d353-4810-9d84-eee327f296be: 'Minus Margin Bottom (Deprecated)' # Minus Margin Bottom (Deprecated)
     798cf224-57ed-4c61-bc6d-17cd588d0799: Home # Home
+    806f2d8a-f448-4eee-baa7-55e1a29a2702: 'Global Heading' # Global Heading
     811baf06-6695-4229-9067-1b2f8a49e13c: Images # Images
     887e8c04-ed78-4f44-afb0-408021c88446: 'Background Image' # Background Image
     910dab4f-1758-4717-b8f9-e8b63a73f3de: 'HTML Code' # HTML Code
