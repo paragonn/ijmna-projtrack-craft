@@ -1,4 +1,4 @@
-dateModified: 1724161135
+dateModified: 1727904621
 email:
   fromEmail: mufi@paragonn.com
   fromName: 'IJM Program Tracker'
@@ -287,6 +287,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
   saml-sp:
     edition: standard
     enabled: true
