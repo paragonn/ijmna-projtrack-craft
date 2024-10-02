@@ -1,4 +1,4 @@
-dateModified: 1727907563
+dateModified: 1727910638
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -6,7 +6,7 @@ email:
   template: ''
   transportSettings:
     messageStream: ''
-    token: 12fb5515-5a57-4a8f-bdc1-fa198f771e56
+    token: $POSTMARK_TOKEN
   transportType: craftcms\postmark\Adapter
 fs:
   images:
