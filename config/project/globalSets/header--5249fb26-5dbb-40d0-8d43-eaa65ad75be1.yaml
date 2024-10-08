@@ -48,7 +48,22 @@ fieldLayouts:
             uid: 0a6345f9-72bb-454b-8512-fe0bf6fd6825
             userCondition: null
             warning: null
-            width: 100
+            width: 75
+          -
+            elementCondition: null
+            fieldUid: eee2fdf4-ec2b-4027-9fcc-24d1b1bbb284 # Global Heading Text Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9ee8c0cc-713e-468d-bdb3-69d38a2e1e6b
+            userCondition: null
+            warning: null
+            width: 25
           -
             elementCondition: null
             fieldUid: e9322ff0-91a2-4b27-9c44-ac0b405460c2 # Nav Links

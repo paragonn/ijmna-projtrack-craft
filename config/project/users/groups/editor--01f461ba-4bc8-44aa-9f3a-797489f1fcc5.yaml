@@ -25,7 +25,7 @@ permissions:
   - 'deletepeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
   - 'deletepeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
   - 'deletepeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
-  - 'editglobalset:395545e5-c12d-445f-b791-fe195138302c' # General Information
+  - 'editglobalset:395545e5-c12d-445f-b791-fe195138302c' # Map Sidebar
   - 'editglobalset:5249fb26-5dbb-40d0-8d43-eaa65ad75be1' # Header
   - 'editimages:811baf06-6695-4229-9067-1b2f8a49e13c' # Images
   - 'editimages:f0cc5f70-7696-4267-8c7c-769e499ad9de' # Videos

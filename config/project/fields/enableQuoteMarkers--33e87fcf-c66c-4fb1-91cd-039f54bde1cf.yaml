@@ -1,0 +1,12 @@
+columnSuffix: null
+handle: enableQuoteMarkers
+instructions: null
+name: 'Enable Quote Markers?'
+searchable: false
+settings:
+  default: true
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

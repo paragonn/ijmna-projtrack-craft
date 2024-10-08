@@ -1,4 +1,4 @@
-dateModified: 1728398085
+dateModified: 1728400272
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -86,6 +86,7 @@ meta:
     26c9ce02-0df9-486a-90b7-104efcd7f5a8: 'Content Box Color' # Content Box Color
     28ccf5ae-cf72-492b-94c0-edbbbd1f411e: Checklist # Checklist
     28f860da-7e14-4288-a55f-bce3b2856d85: Text # Text
+    33e87fcf-c66c-4fb1-91cd-039f54bde1cf: 'Enable Quote Markers?' # Enable Quote Markers?
     39a76ad9-6746-4fb7-be42-bd92bcd72610: Answers # Answers
     45decbb3-802d-4a8a-9b63-3067d0c45d17: 'Require Login?' # Require Login?
     51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
@@ -131,7 +132,8 @@ meta:
     56196e9b-e1c4-44b3-817a-0f471121ed32: 'Quote Attribution' # Quote Attribution
     67356d1e-de3d-4ceb-85ad-abf6b08ff9d2: 'Tracking Script' # Tracking Script
     72886fe1-8cd7-4787-bc4b-1b0a49aa82ba: 'Image Content' # Image Content
-    395545e5-c12d-445f-b791-fe195138302c: 'General Information' # General Information
+    74407dc1-407b-459b-b3db-d84a1677b8a7: 'Override Region Text' # Override Region Text
+    395545e5-c12d-445f-b791-fe195138302c: 'Map Sidebar' # Map Sidebar
     434146a4-9bb6-41fc-8ce9-984ed4921d55: Country # Country
     948968bb-c8d8-4627-aaa9-aa1b20ada200: Hero # Hero
     21102308-0ca8-4b67-8663-daef265f4c60: 'Animation?' # Animation?
@@ -169,6 +171,7 @@ meta:
     e434669f-dd5f-4232-88ef-7a3b8c37b4dc: Column # Column
     ea3ff1c6-5aea-4ffe-8849-124fd7287995: New # New
     ec8cf3c5-a3d4-4c87-9c99-6807bee72059: 'Two Columns' # Two Columns
+    eee2fdf4-ec2b-4027-9fcc-24d1b1bbb284: 'Global Heading Text Size' # Global Heading Text Size
     ef7dff82-7ddc-453d-b03e-6b90683f02bd: 'Font Weight' # Font Weight
     efbbee8b-1252-4404-9606-10025e02711b: 'Column Layout' # Column Layout
     f0cc5f70-7696-4267-8c7c-769e499ad9de: Videos # Videos

@@ -81,6 +81,21 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
+            fieldUid: 74407dc1-407b-459b-b3db-d84a1677b8a7 # Override Region Text
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 57221e01-9b43-4661-b6f6-c1eb8c579ef9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0 # Image
             handle: null
             includeInCards: false
@@ -225,7 +240,22 @@ fieldLayouts:
             uid: 4a23f80b-be80-456e-8adf-0fd59b28e217
             userCondition: null
             warning: null
-            width: 100
+            width: 50
+          -
+            elementCondition: null
+            fieldUid: 33e87fcf-c66c-4fb1-91cd-039f54bde1cf # Enable Quote Markers?
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9090ede0-1a37-446a-b50d-2136b8519e2b
+            userCondition: null
+            warning: null
+            width: 50
           -
             elementCondition: null
             fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
@@ -360,6 +390,6 @@ showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: null
+titleFormat: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

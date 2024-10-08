@@ -6,6 +6,21 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 17583d7f-08af-4919-aaaf-77b5df785d88
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            elementCondition: null
             fieldUid: 75f7ed78-7f7c-432f-a6f5-b028a8b82c52 # Stages
             handle: null
             includeInCards: false
@@ -22,6 +37,6 @@ fieldLayouts:
         name: Stages
         uid: 1fb796c3-956e-463c-9ff3-d8d01dca2412
         userCondition: null
-handle: generalInformation
-name: 'General Information'
+handle: mapSidebar
+name: 'Map Sidebar'
 sortOrder: 2
