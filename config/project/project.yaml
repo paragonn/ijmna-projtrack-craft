@@ -1,4 +1,4 @@
-dateModified: 1728392354
+dateModified: 1728398085
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -118,6 +118,7 @@ meta:
     6065b222-611d-42ce-a1de-85a02891694c: 'Background Color' # Background Color
     6352b785-b04c-4d99-befd-2f5f5308c36b: 'Stacked Card' # Stacked Card
     6553bc6c-dfc2-465a-a5ba-e218ea8c0778: 'Jurisdictions Case Types' # Jurisdictions Case Types
+    7072e37e-db27-442e-a0a4-cd7cc5d205f1: 'Global Heading' # Global Heading
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
     8257b009-c3c8-4465-beb9-fa52c9b6be4f: 'Status Color ' # Status Color 
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
