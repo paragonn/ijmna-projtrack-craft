@@ -1,0 +1,15 @@
+columnSuffix: null
+handle: globalHeadingTextSize
+instructions: null
+name: 'Global Heading Text Size'
+searchable: false
+settings:
+  cachedOptions: true
+  element: null
+  genError: ''
+  json: ''
+  template: _/sdf/globalHeadingTextSizes.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
