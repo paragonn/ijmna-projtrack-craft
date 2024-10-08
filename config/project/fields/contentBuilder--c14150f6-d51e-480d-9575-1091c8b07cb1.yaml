@@ -6,22 +6,22 @@ searchable: false
 settings:
   createButtonLabel: 'Content Builder'
   entryTypes:
-    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494 # Basic Content
-    - 60cbc150-308a-4195-882f-fe574c5af2d0 # Image
-    - 8078a4c8-2881-4519-9e4a-e50fbd74a5eb # Featured Banner
-    - 13612fd6-fab3-4e45-9853-5634a3ef9d91 # CTA
-    - 00f64a37-6342-4ab0-a52b-d24123cb37e0 # Info Box
-    - d5783338-8a9d-4621-8556-71a156306314 # Cards
-    - 16c21eca-a8b2-4b44-bd82-463fac26b779 # Icon Cards
-    - 703c4614-7d62-46a6-927a-23935a1f6c22 # Status Cards
-    - 7b26f9bb-9eda-45e3-878a-0530263e4d2b # Stacked Cards
-    - 28ccf5ae-cf72-492b-94c0-edbbbd1f411e # Checklist
-    - 1cf2528d-1b25-4d76-be36-e58ac8a4d68b # Stats Box
-    - 3d2181fb-3192-45b5-8817-c25be592f8e2 # Accordion
-    - 0e63aa9f-6064-4094-ab28-0b9e7f6b8f09 # Image + Content
-    - 1cbb1390-2bb5-47d8-afaa-fb0146a8e4d0 # Code / Embed
-    - ec8cf3c5-a3d4-4c87-9c99-6807bee72059 # Two Columns
-    - a134d66d-e5d8-439a-bc68-e947c91e759b # Container
+    - 982eeecd-95ad-43d1-8cc2-f6b3d80be494
+    - 60cbc150-308a-4195-882f-fe574c5af2d0
+    - 8078a4c8-2881-4519-9e4a-e50fbd74a5eb
+    - 13612fd6-fab3-4e45-9853-5634a3ef9d91
+    - 00f64a37-6342-4ab0-a52b-d24123cb37e0
+    - d5783338-8a9d-4621-8556-71a156306314
+    - 16c21eca-a8b2-4b44-bd82-463fac26b779
+    - 703c4614-7d62-46a6-927a-23935a1f6c22
+    - 7b26f9bb-9eda-45e3-878a-0530263e4d2b
+    - 28ccf5ae-cf72-492b-94c0-edbbbd1f411e
+    - 1cf2528d-1b25-4d76-be36-e58ac8a4d68b
+    - 3d2181fb-3192-45b5-8817-c25be592f8e2
+    - 0e63aa9f-6064-4094-ab28-0b9e7f6b8f09
+    - 1cbb1390-2bb5-47d8-afaa-fb0146a8e4d0
+    - ec8cf3c5-a3d4-4c87-9c99-6807bee72059
+    - a134d66d-e5d8-439a-bc68-e947c91e759b
   includeTableView: false
   maxEntries: null
   minEntries: null

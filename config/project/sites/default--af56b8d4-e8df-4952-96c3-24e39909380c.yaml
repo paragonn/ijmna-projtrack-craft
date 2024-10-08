@@ -3,7 +3,7 @@ enabled: true
 handle: default
 hasUrls: true
 language: en-US
-name: 'IJM Progress Tracker'
+name: 'IJM Program Tracker'
 primary: true
-siteGroup: 061c5a97-e8a9-4593-9f93-8a54597d62b4 # IJM Progress Tracker
+siteGroup: 061c5a97-e8a9-4593-9f93-8a54597d62b4
 sortOrder: 1

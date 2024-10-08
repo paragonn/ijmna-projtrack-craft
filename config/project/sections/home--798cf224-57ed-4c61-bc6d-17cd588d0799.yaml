@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
 entryTypes:
-  - 3bf73e53-2279-498c-9693-f24c6e498172 # Page Builder
+  - 3bf73e53-2279-498c-9693-f24c6e498172
 handle: home
 maxAuthors: 1
 name: Home
@@ -19,7 +19,7 @@ previewTargets:
         - '{url}'
 propagationMethod: all
 siteSettings:
-  af56b8d4-e8df-4952-96c3-24e39909380c: # IJM Progress Tracker
+  af56b8d4-e8df-4952-96c3-24e39909380c:
     enabledByDefault: true
     hasUrls: true
     template: _home/index.twig

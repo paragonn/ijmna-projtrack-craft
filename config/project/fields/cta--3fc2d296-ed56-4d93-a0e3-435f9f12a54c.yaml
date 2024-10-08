@@ -14,7 +14,7 @@ settings:
   showCardsInGrid: false
   showSiteMenu: false
   sources:
-    - 'section:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+    - 'section:3d6985d0-6c25-467d-8334-100bb6a30cce'
   targetSiteId: null
   validateRelatedElements: false
   viewMode: list

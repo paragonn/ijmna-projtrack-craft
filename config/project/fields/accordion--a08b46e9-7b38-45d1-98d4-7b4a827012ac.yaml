@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Accordion
   entryTypes:
-    - 677ee826-6c97-4489-8594-51d62514994d # Accordions
+    - 677ee826-6c97-4489-8594-51d62514994d
   includeTableView: false
   maxEntries: null
   minEntries: null

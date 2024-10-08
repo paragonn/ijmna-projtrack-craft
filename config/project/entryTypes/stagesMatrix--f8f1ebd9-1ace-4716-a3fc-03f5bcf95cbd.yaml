@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d # Stage
+            fieldUid: 4b89198b-d038-4943-ae58-1f0c6d1ccc8d
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 571eaa99-3b98-41a7-8942-c300b3c2fe5b # Byline
+            fieldUid: 571eaa99-3b98-41a7-8942-c300b3c2fe5b
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
+            fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f
             handle: protectionTargetHeading
             includeInCards: false
             instructions: null
@@ -87,7 +87,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: dcc4c3a7-d1ad-429a-8db7-6eb780b2d453 # Dots in group of
+            fieldUid: dcc4c3a7-d1ad-429a-8db7-6eb780b2d453
             handle: null
             includeInCards: false
             instructions: null
@@ -102,7 +102,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7bc32678-0f69-4111-926c-26e502c0c7fc # 1 Blank at?
+            fieldUid: 7bc32678-0f69-4111-926c-26e502c0c7fc
             handle: null
             includeInCards: false
             instructions: null

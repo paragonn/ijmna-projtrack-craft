@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 3fc2d296-ed56-4d93-a0e3-435f9f12a54c # CTA
+            fieldUid: 3fc2d296-ed56-4d93-a0e3-435f9f12a54c
             handle: null
             includeInCards: false
             instructions: null

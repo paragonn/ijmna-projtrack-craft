@@ -6,7 +6,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 75f7ed78-7f7c-432f-a6f5-b028a8b82c52 # Stages
+            fieldUid: 75f7ed78-7f7c-432f-a6f5-b028a8b82c52
             handle: null
             includeInCards: false
             instructions: null
