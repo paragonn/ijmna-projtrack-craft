@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0
+            fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0 # Image
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348
+            fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 7d09c5e7-e849-465a-9e4f-087bdef82bb4
+            fieldUid: 7d09c5e7-e849-465a-9e4f-087bdef82bb4 # Caption
             handle: null
             includeInCards: false
             instructions: null
@@ -87,7 +87,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9
+            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9 # Embed Video
             handle: null
             includeInCards: false
             instructions: null
@@ -114,7 +114,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: aeac151d-d4a9-4733-9c2f-c8a1eac9a41b
+            fieldUid: aeac151d-d4a9-4733-9c2f-c8a1eac9a41b # Content Width
             handle: null
             includeInCards: false
             instructions: null
@@ -129,7 +129,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062
+            fieldUid: c54b7104-c058-41f4-ac16-278920cf8062 # Container Size
             handle: null
             includeInCards: false
             instructions: null
@@ -144,7 +144,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 9ce08183-1391-4b24-8288-a39ac4f97186
+            fieldUid: 9ce08183-1391-4b24-8288-a39ac4f97186 # Image Ratio
             handle: null
             includeInCards: false
             instructions: null
@@ -159,7 +159,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c
+            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
             handle: null
             includeInCards: false
             instructions: null
@@ -174,7 +174,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173
+            fieldUid: f36b49ea-9938-42fb-9803-9772a378f173 # Overlay Opacity
             handle: null
             includeInCards: false
             instructions: null
@@ -189,7 +189,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 71fa55a9-c465-4fe2-91f2-ee5a739774a9
+            fieldUid: 71fa55a9-c465-4fe2-91f2-ee5a739774a9 # Overlay Gradient
             handle: null
             includeInCards: false
             instructions: null
@@ -210,7 +210,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455
+            fieldUid: cfc164dd-7161-4a3d-9407-1080228e7455 # Content Alignment
             handle: captionAlignment
             includeInCards: false
             instructions: null
@@ -230,7 +230,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: d07b837d-c20e-48d9-ac52-34b7a29fbfcb
+            fieldUid: d07b837d-c20e-48d9-ac52-34b7a29fbfcb # Container Id
             handle: null
             includeInCards: false
             instructions: null
@@ -251,7 +251,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f
+            fieldUid: d3ab5ad8-585b-43bc-b8ad-c093a04c787f # Minus Margin Top (Deprecated)
             handle: null
             includeInCards: false
             instructions: null
@@ -266,7 +266,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be
+            fieldUid: 721f6c59-d353-4810-9d84-eee327f296be # Minus Margin Bottom (Deprecated)
             handle: null
             includeInCards: false
             instructions: null
@@ -286,7 +286,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: bcbc592a-d4d0-4afa-92b6-458504f09b17
+            fieldUid: bcbc592a-d4d0-4afa-92b6-458504f09b17 # Margin Top
             handle: null
             includeInCards: false
             instructions: null
@@ -301,7 +301,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 9affc432-fe49-4e90-96ea-be5425095c2c
+            fieldUid: 9affc432-fe49-4e90-96ea-be5425095c2c # Margin Bottom
             handle: null
             includeInCards: false
             instructions: null
@@ -316,7 +316,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 3c44034a-42a6-4e12-a863-4f3cc325f1a4
+            fieldUid: 3c44034a-42a6-4e12-a863-4f3cc325f1a4 # Padding Top
             handle: null
             includeInCards: false
             instructions: null
@@ -331,7 +331,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 18de2689-3603-4c37-8473-396f9ce4f78c
+            fieldUid: 18de2689-3603-4c37-8473-396f9ce4f78c # Padding Bottom
             handle: null
             includeInCards: false
             instructions: null
@@ -352,7 +352,7 @@ fieldLayouts:
         elements:
           -
             elementCondition: null
-            fieldUid: 21102308-0ca8-4b67-8663-daef265f4c60
+            fieldUid: 21102308-0ca8-4b67-8663-daef265f4c60 # Animation?
             handle: null
             includeInCards: false
             instructions: null
@@ -372,7 +372,7 @@ fieldLayouts:
             userCondition: null
           -
             elementCondition: null
-            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292
+            fieldUid: 3b2d250a-efd7-4394-9e59-a1ae3b9d5292 # Animation Style
             handle: null
             includeInCards: false
             instructions: null
@@ -387,7 +387,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6
+            fieldUid: 8df78e11-4ebe-4815-a6a8-a9a62e77b6d6 # Animation Easing
             handle: null
             includeInCards: false
             instructions: null
@@ -402,7 +402,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9
+            fieldUid: e0e47b5e-62b4-4b02-aeca-99868e8625d9 # Animation Duration
             handle: null
             includeInCards: false
             instructions: null
@@ -417,7 +417,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82
+            fieldUid: 0e13a17a-1829-4ccb-a64f-c39b6d62af82 # Animation Offset
             handle: null
             includeInCards: false
             instructions: null

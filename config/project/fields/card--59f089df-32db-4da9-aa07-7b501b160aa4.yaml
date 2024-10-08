@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: Card
   entryTypes:
-    - 23661aee-cd9b-46df-9aa0-3f931f87ba19
+    - 23661aee-cd9b-46df-9aa0-3f931f87ba19 # card
   includeTableView: false
   maxEntries: null
   minEntries: null

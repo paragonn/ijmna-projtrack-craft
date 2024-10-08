@@ -6,7 +6,7 @@ searchable: false
 settings:
   createButtonLabel: 'Tracking Script'
   entryTypes:
-    - 67356d1e-de3d-4ceb-85ad-abf6b08ff9d2
+    - 67356d1e-de3d-4ceb-85ad-abf6b08ff9d2 # Tracking Script
   includeTableView: false
   maxEntries: null
   minEntries: null

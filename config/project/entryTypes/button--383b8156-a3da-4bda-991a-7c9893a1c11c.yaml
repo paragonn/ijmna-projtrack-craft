@@ -36,7 +36,7 @@ fieldLayouts:
             width: 100
           -
             elementCondition: null
-            fieldUid: 9eeafc05-3901-41da-8748-e04485b292cb
+            fieldUid: 9eeafc05-3901-41da-8748-e04485b292cb # Button Type
             handle: null
             includeInCards: false
             instructions: null
@@ -51,7 +51,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 97532141-63d3-4bec-a94a-313c6e99fefa
+            fieldUid: 97532141-63d3-4bec-a94a-313c6e99fefa # Button Color
             handle: null
             includeInCards: false
             instructions: null
@@ -66,7 +66,7 @@ fieldLayouts:
             width: 50
           -
             elementCondition: null
-            fieldUid: 6ae7d75d-cf9a-41db-b14d-a11c5a609f43
+            fieldUid: 6ae7d75d-cf9a-41db-b14d-a11c5a609f43 # Icon
             handle: null
             includeInCards: false
             instructions: null
@@ -81,7 +81,7 @@ fieldLayouts:
             width: 75
           -
             elementCondition: null
-            fieldUid: 31901f15-b181-4b05-8ae6-b070031679db
+            fieldUid: 31901f15-b181-4b05-8ae6-b070031679db # Icon Position
             handle: null
             includeInCards: false
             instructions: null
@@ -96,7 +96,7 @@ fieldLayouts:
             width: 25
           -
             elementCondition: null
-            fieldUid: 1da620f4-95cb-4911-9332-8ef04cad860f
+            fieldUid: 1da620f4-95cb-4911-9332-8ef04cad860f # Button
             handle: null
             includeInCards: false
             instructions: null
