@@ -1,12 +1,13 @@
-dateModified: 1726483799
+dateModified: 1727910638
 email:
-  fromEmail: mufi@paragonn.com
-  fromName: 'IJM Program Tracker'
+  fromEmail: noreply@ijmtracker.org
+  fromName: 'IJM Progress Tracker'
   replyToEmail: null
-  template: null
+  template: ''
   transportSettings:
-    command: '/usr/sbin/sendmail -t -i'
-  transportType: craft\mail\transportadapters\Sendmail
+    messageStream: ''
+    token: $POSTMARK_TOKEN
+  transportType: craftcms\postmark\Adapter
 fs:
   images:
     hasUrls: true
@@ -90,7 +91,7 @@ meta:
     51e378c8-6e12-44cb-ae38-9b5c9703adfd: 'Per Row Limit' # Per Row Limit
     59f089df-32db-4da9-aa07-7b501b160aa4: Card # Card
     60cbc150-308a-4195-882f-fe574c5af2d0: Image # Image
-    061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Program Tracker' # IJM Program Tracker
+    061c5a97-e8a9-4593-9f93-8a54597d62b4: 'IJM Progress Tracker' # IJM Progress Tracker
     68a24557-cc86-4045-b642-754749ccf485: 'Stage Byline' # Stage Byline
     71fa55a9-c465-4fe2-91f2-ee5a739774a9: 'Overlay Gradient' # Overlay Gradient
     75f7ed78-7f7c-432f-a6f5-b028a8b82c52: Stages # Stages
@@ -119,7 +120,7 @@ meta:
     6352b785-b04c-4d99-befd-2f5f5308c36b: 'Stacked Card' # Stacked Card
     6553bc6c-dfc2-465a-a5ba-e218ea8c0778: 'Jurisdictions Case Types' # Jurisdictions Case Types
     8078a4c8-2881-4519-9e4a-e50fbd74a5eb: 'Featured Banner' # Featured Banner
-    8257b009-c3c8-4465-beb9-fa52c9b6be4f: 'Status Color ' # Status Color 
+    8257b009-c3c8-4465-beb9-fa52c9b6be4f: 'Status Color ' # Status Color
     8893b951-cdef-4627-b3d4-e6a892beec77: Pages # Pages
     9898b51a-08e7-4470-9553-ccca82c2fd7b: Solid # Solid
     10939aae-e10b-4be1-8d12-358d50ce590d: 'Stat Box' # Stat Box
@@ -143,7 +144,7 @@ meta:
     a579166c-0d8c-47c9-ba09-8eaa6ca4cdd9: 'Image Position 2' # Image Position 2
     ab7328c2-0ac9-4a96-8ed5-054ee9e45cbf: 'Per Row Limit' # Per Row Limit
     aeac151d-d4a9-4733-9c2f-c8a1eac9a41b: 'Content Width' # Content Width
-    af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Program Tracker' # IJM Program Tracker
+    af56b8d4-e8df-4952-96c3-24e39909380c: 'IJM Progress Tracker' # IJM Progress Tracker
     bac5974c-f86b-4ef2-a13c-d4e61c2883b7: Jurisdictions # Jurisdictions
     bc97ce21-40cf-43a2-991d-94585d8fb43a: 'Icon Card' # Icon Card
     bcbc592a-d4d0-4afa-92b6-458504f09b17: 'Margin Top' # Margin Top
@@ -288,6 +289,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 1.0.1
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
   saml-sp:
     edition: standard
     enabled: true
@@ -401,7 +406,7 @@ plugins:
 system:
   edition: pro
   live: true
-  name: 'IJM Program Tracker'
+  name: 'IJM Progress Tracker'
   retryDuration: null
   schemaVersion: 5.0.0.21
   timeZone: America/Los_Angeles
