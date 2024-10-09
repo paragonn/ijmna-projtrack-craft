@@ -106,7 +106,7 @@
                     changeDefaultColor: true,
                     type: 'eyebrow',
                 }) }}">
-                    {{ 'Region: ' ~ (country.title|default(entry.overrideRegionText)) }}
+                    {{ entry.overrideRegionText ?: ('Region: ' ~ country.title) }}
                 </p>
                 {% endif %}
 
