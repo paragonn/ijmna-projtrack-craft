@@ -5,6 +5,7 @@
         "amici/craft-super-dynamic-fields": "^5.0.1",
         "craftcms/ckeditor": "4.1.0",
         "craftcms/cms": "5.2.4.1",
+        "craftcms/postmark": "^3.1.0",
         "craftpulse/craft-colour-swatches": "^5.0.0",
         "ether/simplemap": "5.0.1",
         "flipboxfactory/saml-sp": "^5.0.0",

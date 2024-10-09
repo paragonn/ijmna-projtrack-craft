@@ -62,7 +62,15 @@
                     </div>
 
                     {% if header.globalHeading|length %}
-                    <span class="hidden lg:block text-xl text-center text-blue-500 font-bold font-Baskervville">{{ header.globalHeading|nl2br }}</span>
+                    {% set sizes = {
+                        "small": "text-base",
+                        "medium": "text-md",
+                        "large": "text-lg",
+                        "extra-large": "text-xl",
+                    } %}
+                    <span class="hidden lg:block text-center text-blue-500 font-bold font-Baskervville {{ sizes[header.globalHeadingTextSize.getValue()|default('large')] }}">
+                        {{ header.globalHeading|nl2br }}
+                    </span>
                     {% endif %}
 
                     <div class="lg:block hidden">
