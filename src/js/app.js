@@ -23,3 +23,18 @@ window.addEventListener("load", (event) => {
     });
 });
 
+// Function to open link in a new window
+function openLinkInNewWindow(event) {
+    event.preventDefault();
+    var link = event.currentTarget.getAttribute("href");
+    window.open(link, "_blank");
+}
+
+function closeWindow() {
+    window.close();
+}
+
+// Add event listeners to all anchor tags with target="_blank"
+document.querySelectorAll('a[target="_blank"]').forEach(anchor => {
+    anchor.addEventListener('click', openLinkInNewWindow);
+});
