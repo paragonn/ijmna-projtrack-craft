@@ -8,7 +8,7 @@
         "craftcms/postmark": "^3.1.0",
         "craftpulse/craft-colour-swatches": "^5.0.0",
         "ether/simplemap": "5.0.1",
-        "flipboxfactory/saml-sp": "^5.0.0",
+        "flipboxfactory/saml-sp": "5.1.2",
         "lewisjenkins/craft-range-slider": "^5.0.0",
         "marionnewlevant/twig-perversion": "^5.0.0",
         "misterbk/mix": "^v1.7.1",
