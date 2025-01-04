@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83aa13ce9a65d13131002ba59c65272b",
+    "content-hash": "57dcaf4783fe19ce4b59f9e2ab66b866",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -574,15 +574,15 @@
         },
         {
             "name": "craftcms/ckeditor",
-            "version": "4.1.0",
+            "version": "4.4.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/7ee8b9025b51bc907db9b9fdcc04293e0c6855d7",
-                "reference": "7ee8b9025b51bc907db9b9fdcc04293e0c6855d7",
+                "url": "https://api.github.com/repos/craftcms/ckeditor/zipball/5b219fe06b395b411df0d61137fd750e834b8022",
+                "reference": "5b219fe06b395b411df0d61137fd750e834b8022",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^5.2.0",
+                "craftcms/cms": "^5.5.0",
                 "craftcms/html-field": "^3.1.0",
                 "nystudio107/craft-code-editor": ">=1.0.8 <=1.0.13 || ^1.0.16",
                 "php": "^8.2"
@@ -622,7 +622,7 @@
                 "docs": "https://github.com/craftcms/ckeditor/blob/master/README.md",
                 "rss": "https://github.com/craftcms/ckeditor/commits/master.atom"
             },
-            "time": "2024-06-12T16:42:12+00:00"
+            "time": "2024-11-12T17:32:39+00:00"
         },
         {
             "name": "craftcms/cms",
@@ -1488,11 +1488,11 @@
         },
         {
             "name": "ether/simplemap",
-            "version": "5.0.1",
+            "version": "5.0.4",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ethercreative/simplemap/zipball/90cd19756c6ee5b8a82b6612e3386a6d0f1e65e6",
-                "reference": "90cd19756c6ee5b8a82b6612e3386a6d0f1e65e6",
+                "url": "https://api.github.com/repos/ethercreative/simplemap/zipball/45da58e7fb472989efcdf2f2471ca41aa761e7df",
+                "reference": "45da58e7fb472989efcdf2f2471ca41aa761e7df",
                 "shasum": ""
             },
             "require": {
@@ -1530,7 +1530,7 @@
                 "source": "https://github.com/ethercreative/simplemap",
                 "issues": "https://github.com/ethercreative/simplemap/issues"
             },
-            "time": "2024-06-27T10:21:08+00:00"
+            "time": "2024-11-11T12:11:23+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -4591,11 +4591,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "5.0.4",
+            "version": "5.1.8",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/ab4dc818160f772f9ce4744797405c6872cda911",
-                "reference": "ab4dc818160f772f9ce4744797405c6872cda911",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/faead4dd1b5656975253c42eaf3cd3e09ac664aa",
+                "reference": "faead4dd1b5656975253c42eaf3cd3e09ac664aa",
                 "shasum": ""
             },
             "require": {
@@ -4647,7 +4647,7 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "time": "2024-06-13T22:58:31+00:00"
+            "time": "2024-12-21T23:33:37+00:00"
         },
         {
             "name": "oscarotero/html-parser",
@@ -8729,15 +8729,15 @@
         },
         {
             "name": "vandres/craft-matrix-extended",
-            "version": "v3.5.0",
+            "version": "v4.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vandres/craft-matrix-extended/zipball/0d85584e952bbb9bce01f5579e968086fee6fb07",
-                "reference": "0d85584e952bbb9bce01f5579e968086fee6fb07",
+                "url": "https://api.github.com/repos/vandres/craft-matrix-extended/zipball/4b249b06b68fe696329b37daa0e6521e57afd68d",
+                "reference": "4b249b06b68fe696329b37daa0e6521e57afd68d",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^5.1.0",
+                "craftcms/cms": "^5.5.5",
                 "nystudio107/craft-plugin-vite": "^5.0",
                 "php": ">=8.2"
             },
@@ -8771,7 +8771,7 @@
                 "docs": "https://github.com/vandres/craft-matrix-extended",
                 "rss": "https://github.com/vandres/craft-matrix-extended/releases.atom"
             },
-            "time": "2024-06-30T14:40:05+00:00"
+            "time": "2024-12-09T10:42:15+00:00"
         },
         {
             "name": "verbb/auth",
@@ -8987,11 +8987,11 @@
         },
         {
             "name": "verbb/hyper",
-            "version": "2.0.2",
+            "version": "2.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/hyper/zipball/4fb586d7701b86a5fb4fc89383ac1bf30f47288c",
-                "reference": "4fb586d7701b86a5fb4fc89383ac1bf30f47288c",
+                "url": "https://api.github.com/repos/verbb/hyper/zipball/d8bb508bc74e57ba5f5df8f098979de882d7e71b",
+                "reference": "d8bb508bc74e57ba5f5df8f098979de882d7e71b",
                 "shasum": ""
             },
             "require": {
@@ -9037,7 +9037,7 @@
                 "docs": "https://github.com/verbb/hyper",
                 "rss": "https://github.com/verbb/hyper/commits/v2.atom"
             },
-            "time": "2024-06-15T04:55:54+00:00"
+            "time": "2024-12-27T01:14:56+00:00"
         },
         {
             "name": "verbb/icon-picker",
@@ -9098,11 +9098,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "3.0.1",
+            "version": "3.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/715aa7fe1afc2602d369c8167578fd16aa06077b",
-                "reference": "715aa7fe1afc2602d369c8167578fd16aa06077b",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/97748fa6f0567b0ebc7b99391aeb47df115380c2",
+                "reference": "97748fa6f0567b0ebc7b99391aeb47df115380c2",
                 "shasum": ""
             },
             "require": {
@@ -9147,7 +9147,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2024-06-16T01:22:25+00:00"
+            "time": "2024-10-20T01:56:07+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -9648,11 +9648,16 @@
         },
         {
             "name": "web-auth/webauthn-lib",
-            "version": "4.9.1",
+            "version": "4.9.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/web-auth/webauthn-lib.git",
+                "reference": "008b25171c27cf4813420d0de31cc059bcc71f1a"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/fd7a0943c663b325e92ad562c2bcc943e77beeac",
-                "reference": "fd7a0943c663b325e92ad562c2bcc943e77beeac",
+                "url": "https://api.github.com/repos/web-auth/webauthn-lib/zipball/008b25171c27cf4813420d0de31cc059bcc71f1a",
+                "reference": "008b25171c27cf4813420d0de31cc059bcc71f1a",
                 "shasum": ""
             },
             "require": {
@@ -9686,8 +9691,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "web-auth/webauthn-framework",
-                    "url": "https://github.com/web-auth/webauthn-framework"
+                    "url": "https://github.com/web-auth/webauthn-framework",
+                    "name": "web-auth/webauthn-framework"
                 }
             },
             "autoload": {
@@ -9695,6 +9700,7 @@
                     "Webauthn\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -9715,7 +9721,20 @@
                 "fido",
                 "webauthn"
             ],
-            "time": "2024-07-16T18:36:36+00:00"
+            "support": {
+                "source": "https://github.com/web-auth/webauthn-lib/tree/4.9.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Spomky",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/FlorentMorselli",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2025-01-04T09:47:58+00:00"
         },
         {
             "name": "webmozart/assert",
