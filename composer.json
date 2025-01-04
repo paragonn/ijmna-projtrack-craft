@@ -18,7 +18,7 @@
         "putyourlightson/craft-cloudflare": "^3.0.0",
         "spacecatninja/imager-x": "^5.0.0",
         "spacecatninja/imager-x-do-spaces-driver": "^4.0.0",
-        "spicyweb/craft-neo": "5.0.5",
+        "spicyweb/craft-neo": "5.2.21",
         "ttempleton/craft-nocache": "^3.0.2",
         "vaersaagod/dospaces": "^3.0.0-beta.1",
         "vandres/craft-matrix-extended": "v3.5.0",

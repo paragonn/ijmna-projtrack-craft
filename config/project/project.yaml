@@ -1,4 +1,4 @@
-dateModified: 1735966997
+dateModified: 1735970033
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -283,7 +283,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 8NBR5V21CE3HK6A4K8927WNJ
-    schemaVersion: 5.0.0.1
+    schemaVersion: 5.1.0.1
   nocache:
     edition: standard
     enabled: true
