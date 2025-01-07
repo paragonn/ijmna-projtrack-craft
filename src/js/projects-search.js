@@ -205,7 +205,58 @@ async function performMagic(params)
     })
     .then(response => response.json());
 
-    console.log(result);
+console.log("Query:", `query fetchJurisdictionsTrackingData($stage: [QueryArgument], $categories: [CategoryCriteriaInput]) {
+    entryCount(section: "jurisdictions", stage: $stage, relatedToCategories:$categories)
+    categoriesForStage: entries(section: "jurisdictions", stage: $stage) {
+        ... on jurisdictions_Entry {
+            country {
+                ... on country_Category {
+                slug
+                }
+            }
+            casework {
+                ... on casework_Category {
+                slug
+                }
+            }
+        }
+    }
+    entries(section: "jurisdictions", stage: $stage, relatedToCategories: $categories) {
+        ... on jurisdictions_Entry {
+            id,
+            title,
+            uri,
+            stage(label: true),
+            address {
+                lat,
+                lng,
+                parts {
+                    state,
+                    country,
+                }
+            }
+            country {
+                ... on country_Category {
+                    id,
+                    slug,
+                    title,
+                }
+            }
+            casework {
+                ... on casework_Category {
+                    id,
+                    slug,
+                    title,
+                }
+            }
+            image {
+                url @transform(width: 236, height: 296, mode: "crop")
+            }
+        }
+    }
+}`);
+console.log("Variables:", variables);
+console.log(result);
 
     handleDataFromGql(result.data);
 }
