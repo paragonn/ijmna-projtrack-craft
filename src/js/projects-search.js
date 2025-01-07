@@ -205,7 +205,7 @@ async function performMagic(params)
     })
     .then(response => response.json());
 
-    console.log(result.data);
+    console.log(result);
 
     handleDataFromGql(result.data);
 }
