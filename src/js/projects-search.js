@@ -150,7 +150,7 @@ async function performMagic(params)
         },
         cache: "force-cache",
         body: JSON.stringify({
-            query: `query fetchJurisdictionsTrackingData($stage: [QueryArgument], $categories: [CategoryCriteriaInput]) {
+            query: `query fetchJurisdictionsTrackingData($stage: [QueryArgument], $categories: [CategoryRelationCriteriaInput]) {
                 entryCount(section: "jurisdictions", stage: $stage, relatedToCategories:$categories)
                 categoriesForStage: entries(section: "jurisdictions", stage: $stage) {
                     ... on jurisdictions_Entry {
