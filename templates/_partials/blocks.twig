@@ -107,7 +107,8 @@
 
     {% set spacing = collect({}) %}
     {% for item in ['marginTop', 'marginBottom', 'paddingTop', 'paddingBottom', 'marginPadding', 'minusMarginTop', 'minusMarginBottom'] %}
-        {% set spacing = spacing.merge({ (item) : render.spacing({
+        {% set _space %}
+        {{ render.spacing({
             type: item,
 
             first: first,
@@ -133,7 +134,9 @@
             paddingTop: block.paddingTop.value|default(defaultPaddingTop),
             marginBottom: block.marginBottom.value|default(defaultMarginBottom),
             paddingBottom: block.paddingBottom.value|default(defaultPaddingBottom),
-        }) }) %}
+        }) }}
+        {% endset %}
+        {% set spacing = spacing.merge({ (item) : _space.__toString()|replace({ "\n": ""})|trim }) %}
     {% endfor %}
 
     {# minusMarginTop: minusMarginTop,

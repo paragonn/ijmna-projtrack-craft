@@ -69,9 +69,12 @@
     } %}
 
     {# Override (overwrite) defaults with passed parameters #}
-    {% set options = defaults|merge(params) %}
+    {# {% set options = defaults|merge(params) %}
     {% set ret %}{% include "_/includes/macros/spacing" with options %}{% endset %}
-    {% return ret|replace({ "\n": '' })|trim %}
+    {% return ret|replace({ "\n": '' })|trim %} #}
+
+    {% set options = defaults|merge(params) %}
+    {% include "_/includes/macros/spacing" with options %}
 {% endmacro %}
 
 {% macro replaceElements(text = null, params = {}) %}
