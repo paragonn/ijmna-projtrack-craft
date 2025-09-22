@@ -23,3 +23,18 @@ window.addEventListener("load", (event) => {
     });
 });
 
+// Function to open link in a new window
+window.openLinkInNewWindow = function(event) {
+    event.preventDefault();
+    var link = event.currentTarget.getAttribute("href");
+    window.open(link, "_blank");
+}
+
+window.closeWindow = function() {
+    window.close();
+}
+
+// Add event listeners to all anchor tags with target="_blank"
+document.querySelectorAll('a[target="_blank"]').forEach(anchor => {
+    anchor.addEventListener('click', openLinkInNewWindow);
+});
