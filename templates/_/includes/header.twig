@@ -148,21 +148,19 @@
                                 </li>
                             {% else %}
                                 <li class="relative">
-                                    {# <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
-                                        data-type="content"
-                                        data-event="{{ header.uid }}"
-                                        data-form="signin-form"
-                                        data-apiForm="signin-form"
-                                    >
-                                        <span class="cursor-pointer font-medium">
-                                            {{ 'Sign In'|t }}
-                                        </span>
-                                    </a> #}
-                                    <a href="{{ getenv("SSO_LOGIN_PATH") }}?RelayState={{ getenv("SSO_ENTITY_ID") }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
+                                {% if craft.app.config.env == 'production' %}
+                                    <a href="{{ getenv('SSO_LOGIN_PATH') }}?RelayState={{ getenv('SSO_ENTITY_ID') }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign In'|t }}
                                         </span>
                                     </a>
+                                {% else %}
+                                    <a href="{{ craft.app.config.general.loginPath }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign In'|t }}
+                                        </span>
+                                    </a>
+                                {% endif %}                                    
                                 </li>
                             {% endif %}
                         </ul>
@@ -205,16 +203,19 @@
                                 </li>
                             {% else %}
                                 <li class="relative py-1.5 first:pt-0 last:pb-0">
-                                    <a href="javaScript:;" class="glightbox-popup-form text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300"
-                                        data-type="content"
-                                        data-event="{{ header.uid }}"
-                                        data-form="signin-form"
-                                        data-apiForm="signin-form"
-                                    >
+                                {% if craft.app.config.env == 'production' %}
+                                    <a href="{{ getenv('SSO_LOGIN_PATH') }}?RelayState={{ getenv('SSO_ENTITY_ID') }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign In'|t }}
                                         </span>
                                     </a>
+                                {% else %}
+                                    <a href="{{ craft.app.config.general.loginPath }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
+                                        <span class="cursor-pointer font-medium">
+                                            {{ 'Sign In'|t }}
+                                        </span>
+                                    </a>
+                                {% endif %}                                    
                                 </li>
                             {% endif %}
                         </ul>
