@@ -1,16 +1,15 @@
 {% if image|length %}
 
-    {% set doWebp = craft.app.config.env != 'dev' and webp and craft.imager.serverSupportsWebp() %}
-
+    {% set doWebp = craft.app.config.env != 'dev' and webp %}
     {% set imgWidth = width ? "width = #{width|default(null)}" : null %}
     {% set imgHeight = height ? "height = #{height|default(null)}" : null %}
     {% set extension = image.extension|default(image|split('.')|last) %}
 
     {% set imageStyles = null %}
     {% if image.hasFocalPoint|default(false) %}
-        {% set x = image.focalPoint | first * 100 ~ '%' %}
-        {% set y = image.focalPoint | last * 100 ~ '%' %}
-        {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
+        {% set x = image.focalPoint | first %}
+        {% set y = image.focalPoint | last %}
+        {% set imageStyles = 'object-position: ' ~ [x * 100 ~ '%', y * 100 ~ '%']|join(' ') %}
     {% endif %}
 
     {% set attributes = {}
@@ -25,10 +24,27 @@
         |merge(attrs is iterable ? attrs : {})
     %}
 
-    {% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
-        <img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
+    {% set baseUrl = image.getUrl()|default(image) %}
+    {% set cfBasePath = '/cdn-cgi/image/' %}
+    {% set cfParams = [] %}
+    {% if width %}
+        {% set cfParams = cfParams|merge(['width=' ~ width]) %}
+    {% endif %}
+    {% if height %}
+        {% set cfParams = cfParams|merge(['height=' ~ height]) %}
+    {% endif %}
+    {% if image.hasFocalPoint|default(false) %}
+        {% set cfParams = cfParams|merge(['gravity=' ~ x ~ 'x' ~ y]) %}
+    {% endif %}
+    {% if preset %}
+        {% set cfParams = cfParams|merge([preset]) %}
+    {% endif %}
+    {% set cfParams = cfParams|merge(['fit=cover']) %}
 
-    {% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
+    {% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last in ["gif"]) %}
+        <img src="{{ baseUrl }}" {{ attr(attributes) }}>
+
+    {% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last in ["svg"]) %}
         {{ svg(image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) | attr({
             fill: fill,
             class: class,
@@ -46,43 +62,52 @@
         }| merge(attrs is iterable ? attrs : {})) }}
 
     {% elseif plainImage %}
-        {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
-        {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
-        <img src="{{ transformedImages[0].url }}" type="image/jpeg" {{ attr(attributes) }}/>
+        {% set cfParams = cfParams|merge(['format=auto']) %}
+        {% set cfImageUrl = cfBasePath ~ cfParams|join(',') ~ '/' ~ baseUrl %}
+        <img src="{{ cfImageUrl }}" type="image/jpeg" {{ attr(attributes) }}/>
+
     {% else %}
         {% set found = false %}
-
         <picture {% if pictureClass %} class="{{ pictureClass }}"{% endif %}>
             {% if doWebp and extension != "webp" %}
-                {% set transform = 'webp' ~ (preset ? '-' ~ preset) %}
-                {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+                {% set cfParamsWebp = cfParams|merge(['format=webp']) %}
+                {% set cfImageUrl = cfBasePath ~ cfParamsWebp|join(',') ~ '/' ~ baseUrl %}
                 {% if addSrcSet %}
-                    {% if transformedImages|length %}
-                    <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/webp">
+                    {% set srcSetWidths = width ? [width * 0.5, width, width * 1.5] : [640, 1280, 1920] %}
+                    {% set srcSetItems = [] %}
+                    {% for w in srcSetWidths %}
+                        {% set cfParamsSrcSet = cfParams|merge(['width=' ~ w, 'format=webp']) %}
+                        {% set srcSetItems = srcSetItems|merge(["#{cfBasePath ~ cfParamsSrcSet|join(',') ~ '/' ~ baseUrl} #{w}w"]) %}
+                    {% endfor %}
+                    <source sizes="100vw" srcset="{{ srcSetItems|join(', ') }}" type="image/webp">
                     {% set found = true %}
-                    {% endif %}
                 {% else %}
-                    <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url }}" type="image/webp">
+                    <source sizes="100vw" srcset="{{ cfImageUrl }}" type="image/webp">
                     {% set found = true %}
                 {% endif %}
             {% endif %}
 
-            {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
-            {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+            {% set cfParamsJpg = cfParams|merge(['format=auto']) %}
+            {% set cfImageUrl = cfBasePath ~ cfParamsJpg|join(',') ~ '/' ~ baseUrl %}
             {% if addSrcSet %}
-                {% if transformedImages|length %}
-                <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
+                {% set srcSetWidths = width ? [width * 0.5, width, width * 1.5] : [640, 1280, 1920] %}
+                {% set srcSetItems = [] %}
+                {% for w in srcSetWidths %}
+                    {% set cfParamsSrcSet = cfParams|merge(['width=' ~ w, 'format=auto']) %}
+                    {% set srcSetItems = srcSetItems|merge(["#{cfBasePath ~ cfParamsSrcSet|join(',') ~ '/' ~ baseUrl} #{w}w"]) %}
+                {% endfor %}
+                <source sizes="100vw" srcset="{{ srcSetItems|join(', ') }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
                 {% set found = true %}
-                {% endif %}
             {% else %}
-                <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url() }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
+                <source sizes="100vw" srcset="{{ cfImageUrl }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
                 {% set found = true %}
             {% endif %}
 
             {% if not found %}
-                <source sizes="100vw" srcset="{{ image.getUrl()|default(image) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
+                <source sizes="100vw" srcset="{{ baseUrl }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
             {% endif %}
-            <img src="{{ craft.imagerx.placeholder({ width: 160, height: 90 }) }}" {{ attr(attributes) }} />
+            {% set cfParamsPlaceholder = ['width=160', 'height=90', 'format=auto'] %}
+            <img src="{{ cfBasePath ~ cfParamsPlaceholder|join(',') ~ '/' ~ baseUrl }}" {{ attr(attributes) }} />
         </picture>
     {% endif %}
     
