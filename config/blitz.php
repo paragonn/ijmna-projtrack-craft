@@ -86,7 +86,7 @@ return [
         // Cloudflare purger settings (zone ID keys are site UIDs)
         'cachePurgerSettings' => [
             'zoneIds' => [
-                '00966af5-2c34-4f75-8d7c-d4f4e4780d52' => [
+                'af56b8d4-e8df-4952-96c3-24e39909380c' => [
                     'zoneId' => '0cdd48133f3329ccea70446de6285439', // IJMTracker.org
                 ],
             ],
