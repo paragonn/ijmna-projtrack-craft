@@ -1,4 +1,4 @@
-dateModified: 1758519575
+dateModified: 1758524643
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -13,9 +13,18 @@ fs:
     hasUrls: true
     name: Images
     settings:
-      path: '@webroot/uploads/images'
-    type: craft\fs\Local
-    url: '@web/uploads/images'
+      accountId: $CF_R2_ACCOUNT_ID
+      addSubfolderToRootUrl: true
+      bucket: ijm-tracker-storage-test
+      bucketSelectionMode: choose
+      expires: ''
+      keyId: $CF_R2_ACCESS_KEY_ID
+      makeUploadsPublic: false
+      secret: $CF_R2_SECRET_ACCESS_KEY
+      storageClass: ''
+      subfolder: images
+    type: jrrdnx\cloudflarer2\Fs
+    url: $CF_R2_BASE_URL
   transforms:
     hasUrls: true
     name: Transforms
@@ -27,9 +36,18 @@ fs:
     hasUrls: true
     name: Videos
     settings:
-      path: '@webroot/uploads/videos'
-    type: craft\fs\Local
-    url: '@web/uploads/videos'
+      accountId: $CF_R2_ACCOUNT_ID
+      addSubfolderToRootUrl: true
+      bucket: ijm-tracker-storage-test
+      bucketSelectionMode: choose
+      expires: ''
+      keyId: $CF_R2_ACCESS_KEY_ID
+      makeUploadsPublic: false
+      secret: $CF_R2_SECRET_ACCESS_KEY
+      storageClass: ''
+      subfolder: videos
+    type: jrrdnx\cloudflarer2\Fs
+    url: $CF_R2_BASE_URL
 meta:
   __names__:
     0b15cab4-22ae-40f3-9612-204b951f30f0: Image # Image
@@ -370,6 +388,10 @@ plugins:
       userServiceKey: ''
       zone: 0cdd48133f3329ccea70446de6285439
       zoneName: ijmtracker.org
+  cloudflare-r2:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.0'
   colour-swatches:
     edition: standard
     enabled: true
