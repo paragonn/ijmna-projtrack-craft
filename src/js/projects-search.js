@@ -685,7 +685,7 @@ function createMarkerPopup(item) {
     let card = `<div class="flex sm:flex-row flex-col items-stretch bg-blue-800">`;
         if(image.length) {
             card += `<div class="flex-1 sm:max-w-[118px] overflow-hidden">
-                <img src="${image[0].url}" class="object-cover object-center w-full h-full" alt="${item.title}">
+                <img src="${image[0].url}" width="118" height="196" class="object-cover object-center w-full h-full" alt="${item.title}">
             </div>`;
         }
 
