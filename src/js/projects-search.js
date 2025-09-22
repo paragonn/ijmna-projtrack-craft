@@ -694,7 +694,7 @@ function createMarkerPopup(item) {
             <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
             <p class="text-blue-500 text-base">Focus Area: ${casework[0].title}</p>
             <div class="absolute right-4 bottom-4">
-                <a target="_blank" href="/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
+                <a target="_blank" href="https://test.ijmtracker.org/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0.96875 12.5H24.2427" stroke="currentColor" stroke-width="2"></path>
                         <path d="M12.6055 25L12.6055 0" stroke="currentColor" stroke-width="2"></path>
