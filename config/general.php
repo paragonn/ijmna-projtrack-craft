@@ -11,7 +11,9 @@
 use craft\config\GeneralConfig;
 use craft\helpers\App;
 
-return GeneralConfig::create()
+$env = App::env('CRAFT_ENVIRONMENT') ?: 'production';
+
+$commonConfig = GeneralConfig::create()
     // Set the default week start day for date pickers (0 = Sunday, 1 = Monday, etc.)
     ->defaultWeekStartDay(1)
 
@@ -51,14 +53,26 @@ return GeneralConfig::create()
     ->generateTransformsBeforePageLoad(true)
 
     ->maxUploadFileSize(52428800)
-
-    // Environment-specific configurations
-    ->merge([
-        '*' => [
-            'loginPath' => App::env('CP_TRIGGER') . '/login', // Default to native login for non-specified environments
-        ],
-        'production' => [
-            'loginPath' => App::env('SSO_LOGIN_PATH') ?: App::env('CP_TRIGGER') . '/login', // Use SSO in production
-        ],
-    ])
 ;
+
+// Environment-specific configurations
+$envConfigs = [
+    '*' => [
+        'loginPath' => 'control/login', // Native login for staging
+    ],
+    'production' => [
+        'loginPath' => App::env('SSO_LOGIN_PATH') ?: 'control/login', // SSO for production
+    ],
+];
+
+// Apply environment-specific settings
+$config = $commonConfig;
+if (isset($envConfigs[$env])) {
+    foreach ($envConfigs[$env] as $key => $value) {
+        $config->$key($value);
+    }
+}
+
+return $config;
+
+
