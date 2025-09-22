@@ -52,12 +52,6 @@ return [
 
         // Query string caching behavior
         'queryStringCaching' => \putyourlightson\blitz\models\SettingsModel::QUERY_STRINGS_DO_NOT_CACHE_URLS,
-    ],
-
-    // Production-specific settings
-    'production' => [
-        // Enable caching only in production
-        'cachingEnabled' => true,
 
         // URI patterns to include in caching
         'includedUriPatterns' => [
@@ -97,6 +91,18 @@ return [
         // Disable SSI and ESI
         'ssiEnabled' => false,
         'detectSsiEnabled' => false,
-        'esiEnabled' => false,
+        'esiEnabled' => false,        
+    ],
+
+    // Staging-specific settings
+    'staging' => [
+        // Enable caching only in production
+        'cachingEnabled' => true,
+    ],    
+
+    // Production-specific settings
+    'production' => [
+        // Enable caching only in production
+        'cachingEnabled' => true,
     ],
 ];
