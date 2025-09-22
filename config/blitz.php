@@ -57,7 +57,7 @@ return [
         'includedUriPatterns' => [
             [
                 'siteId' => '',
-                'uriPattern' => '.*',
+                'uriPattern' => 'jurisdictions/*',
             ],
         ],
 
