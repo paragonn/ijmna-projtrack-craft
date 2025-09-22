@@ -1,4 +1,4 @@
-dateModified: 1758516690
+dateModified: 1758519575
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -191,7 +191,161 @@ plugins:
   blitz:
     edition: standard
     enabled: true
+    licenseKey: K5V35J4ZRKVXM8RKEH26MY20
     schemaVersion: 5.12.0
+    settings:
+      apiKey: ''
+      cacheActionRequests: false
+      cacheControlHeader: 'public, s-maxage=31536000, max-age=0'
+      cacheControlHeaderExpired: 'public, s-maxage=5, max-age=0'
+      cacheDuration: null
+      cacheGeneratorSettings:
+        __assoc__:
+          -
+            - concurrency
+            - '3'
+          -
+            - useBasicAuth
+            - ''
+          -
+            - username
+            - ''
+          -
+            - password
+            - ''
+      cacheGeneratorType: putyourlightson\blitz\drivers\generators\HttpGenerator
+      cacheNonHtmlResponses: false
+      cachePurgerSettings:
+        __assoc__:
+          -
+            - zoneIds
+            -
+              __assoc__:
+                -
+                  - af56b8d4-e8df-4952-96c3-24e39909380c # IJM Program Tracker
+                  -
+                    __assoc__:
+                      -
+                        - zoneId
+                        - 0cdd48133f3329ccea70446de6285439
+          -
+            - authenticationMethod
+            - apiToken
+          -
+            - apiToken
+            - O-PnLluhjBp4NGib-B8ua6NTXUZ8FtYy-aOrKIvg
+          -
+            - apiKey
+            - ''
+          -
+            - email
+            - ''
+      cachePurgerType: putyourlightson\blitz\drivers\purgers\CloudflarePurger
+      cacheStorageSettings:
+        __assoc__:
+          -
+            - compressCachedValues
+            - ''
+      cacheStorageType: putyourlightson\blitz\drivers\storage\YiiCacheStorage
+      cachedIncludePathParam: p
+      cachingEnabled: true
+      debug: false
+      defaultCacheControlHeader: no-store
+      deployerType: putyourlightson\blitz\drivers\deployers\DummyDeployer
+      detectSsiEnabled: false
+      driverJobBatchSize: 100
+      driverJobPriority: 100
+      esiEnabled: false
+      excludedQueryStringParams:
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - queryStringParam
+              - gclid
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - queryStringParam
+              - fbclid
+      excludedUriPatterns:
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - uriPattern
+              - 'actions/*'
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - uriPattern
+              - 'dynamic/*'
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - uriPattern
+              - 'forms/*'
+      generatePagesWithQueryStringParams: true
+      hintsEnabled: false
+      includedQueryStringParams:
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - queryStringParam
+              - '.*'
+      includedUriPatterns:
+        -
+          __assoc__:
+            -
+              - enabled
+              - '1'
+            -
+              - uriPattern
+              - '.*'
+      injectScriptEvent: DOMContentLoaded
+      injectScriptPosition: 3
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\CommerceIntegration
+        - putyourlightson\blitz\drivers\integrations\DatastarIntegration
+        - putyourlightson\blitz\drivers\integrations\SeomaticIntegration
+      maxRetryAttempts: 10
+      maxUriIndexLength: 767
+      maxUriLength: 2048
+      mutexTimeout: 1
+      onlyCacheLowercaseUris: false
+      outputComments: true
+      purgeAssetImagesWhenChanged: true
+      queryStringCaching: 0
+      queueJobTtr: 300
+      refreshCacheAutomaticallyForGlobals: false
+      refreshCacheEnabled: true
+      refreshCacheJobPriority: 10
+      refreshCacheWhenElementMovedInStructure: true
+      refreshCacheWhenElementSavedNotLive: false
+      refreshCacheWhenElementSavedUnchanged: false
+      refreshExpiredCacheAfterVisit: true
+      refreshMode: 0
+      sendPoweredByHeader: false
+      ssiEnabled: false
+      ssiTagFormat: '<!--#include virtual="{uri}" -->'
+      trackElementQueries: true
+      trackElements: true
   buttonbox:
     edition: standard
     enabled: true
