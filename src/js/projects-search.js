@@ -692,7 +692,7 @@ function createMarkerPopup(item) {
         card += `<div class="py-5 pl-5 pr-12 text-white relative flex-1 w-full">
             <h3 class="text-2xl md:text-3xl mt-2 font-Baskervville">${item.title}</h3>
             <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
-            <p class="text-blue-500 text-base">Focus Area: ${casework[0].title}</p>
+            ${casework && casework.length > 0 ? `<p class="text-blue-500 text-base">Focus Area: ${casework[0].title}</p>` : ''}
             <div class="absolute right-4 bottom-4">
                 <a target="_blank" href="https://test.ijmtracker.org/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
