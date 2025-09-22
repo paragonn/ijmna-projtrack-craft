@@ -1,122 +1,89 @@
 {% if image|length %}
-{# {% set doWebp = craft.app.config.env != 'dev' and webp and craft.imager.serverSupportsWebp() %}
 
-{% set imgWidth = width ? "width = #{width|default(null)}" : null %}
-{% set imgHeight = height ? "height = #{height|default(null)}" : null %}
-{% set extension = image.extension|default(image|split('.')|last) %}
+    {% set doWebp = craft.app.config.env != 'dev' and webp and craft.imager.serverSupportsWebp() %}
 
-{% set imageStyles = null %}
-{% if image.hasFocalPoint|default(false) %}
-    {% set x = image.focalPoint | first * 100 ~ '%' %}
-    {% set y = image.focalPoint | last * 100 ~ '%' %}
-    {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
-{% endif %}
+    {% set imgWidth = width ? "width = #{width|default(null)}" : null %}
+    {% set imgHeight = height ? "height = #{height|default(null)}" : null %}
+    {% set extension = image.extension|default(image|split('.')|last) %}
 
-{% set width = width == 'auto' ? width : width * cropMultiply %}
-{% set height = height == 'auto' ? height : height * cropMultiply %}
+    {% set imageStyles = null %}
+    {% if image.hasFocalPoint|default(false) %}
+        {% set x = image.focalPoint | first * 100 ~ '%' %}
+        {% set y = image.focalPoint | last * 100 ~ '%' %}
+        {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
+    {% endif %}
 
-{% set attributes = {}
-    |merge(id|length ? {id : id} : {})
-    |merge(class|length ? {class : class} : {})
-    |merge(alpineClass|length ? {":class" : alpineClass} : {})
-    |merge(alt|length ? {alt : alt} : {})
-    |merge(width|length ? {width : width} : {})
-    |merge(height|length ? {height : height} : {})
-    |merge(lazy ? {loading: "lazy"} : {})
-    |merge(imageStyles|length ? {style: imageStyles} : {})
-    |merge(attrs is iterable ? attrs : {})
-%}
+    {% set attributes = {}
+        |merge(id|length ? {id : id} : {})
+        |merge(class|length ? {class : class} : {})
+        |merge(alpineClass|length ? {":class" : alpineClass} : {})
+        |merge(alt|length ? {alt : alt} : {})
+        |merge(width|length ? {width : width} : {})
+        |merge(height|length ? {height : height} : {})
+        |merge(lazy ? {loading: "lazy"} : {})
+        |merge(imageStyles|length ? {style: imageStyles} : {})
+        |merge(attrs is iterable ? attrs : {})
+    %}
 
-<img src="{{ image.getUrl({
-    width: width,
-    height: height,
-    mode: mode|default('crop'),
-    quality: 100
-})|default(image) }}" {{ attr(attributes) }}> #}
+    {% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
+        <img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
 
-{% set doWebp = craft.app.config.env != 'dev' and webp and craft.imager.serverSupportsWebp() %}
+    {% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
+        {{ svg(image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) | attr({
+            fill: fill,
+            class: class,
+            width: width,
+            height: height,
+        }| merge(attrs is iterable ? attrs : {})) }}
 
-{% set imgWidth = width ? "width = #{width|default(null)}" : null %}
-{% set imgHeight = height ? "height = #{height|default(null)}" : null %}
-{% set extension = image.extension|default(image|split('.')|last) %}
+    {% elseif not image.extension|default(null)|length and extension == "svg" %}
+        {% set imagePath = '@webroot/' ~ image %}
+        {{ svg(imagePath) | attr({
+            fill: fill,
+            class: class,
+            width: width,
+            height: height,
+        }| merge(attrs is iterable ? attrs : {})) }}
 
-{% set imageStyles = null %}
-{% if image.hasFocalPoint|default(false) %}
-    {% set x = image.focalPoint | first * 100 ~ '%' %}
-    {% set y = image.focalPoint | last * 100 ~ '%' %}
-    {% set imageStyles = 'object-position: ' ~ [x, y]|join(' ') %}
-{% endif %}
+    {% elseif plainImage %}
+        {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
+        {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+        <img src="{{ transformedImages[0].url }}" type="image/jpeg" {{ attr(attributes) }}/>
+    {% else %}
+        {% set found = false %}
 
-{% set attributes = {}
-    |merge(id|length ? {id : id} : {})
-    |merge(class|length ? {class : class} : {})
-    |merge(alpineClass|length ? {":class" : alpineClass} : {})
-    |merge(alt|length ? {alt : alt} : {})
-    |merge(width|length ? {width : width} : {})
-    |merge(height|length ? {height : height} : {})
-    |merge(lazy ? {loading: "lazy"} : {})
-    |merge(imageStyles|length ? {style: imageStyles} : {})
-    |merge(attrs is iterable ? attrs : {})
-%}
+        <picture {% if pictureClass %} class="{{ pictureClass }}"{% endif %}>
+            {% if doWebp and extension != "webp" %}
+                {% set transform = 'webp' ~ (preset ? '-' ~ preset) %}
+                {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
+                {% if addSrcSet %}
+                    {% if transformedImages|length %}
+                    <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/webp">
+                    {% set found = true %}
+                    {% endif %}
+                {% else %}
+                    <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url }}" type="image/webp">
+                    {% set found = true %}
+                {% endif %}
+            {% endif %}
 
-{% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
-    <img src="{{ image.getUrl()|default(image) }}" {{ attr(attributes) }}>
-
-{% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
-    {{ svg(image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) | attr({
-        fill: fill,
-        class: class,
-        width: width,
-        height: height,
-    }| merge(attrs is iterable ? attrs : {})) }}
-
-{% elseif not image.extension|default(null)|length and extension == "svg" %}
-    {% set imagePath = '@webroot/' ~ image %}
-    {{ svg(imagePath) | attr({
-        fill: fill,
-        class: class,
-        width: width,
-        height: height,
-    }| merge(attrs is iterable ? attrs : {})) }}
-
-{% elseif plainImage %}
-    {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
-    {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
-    <img src="{{ transformedImages[0].url }}" type="image/jpeg" {{ attr(attributes) }}/>
-{% else %}
-    {% set found = false %}
-
-    <picture {% if pictureClass %} class="{{ pictureClass }}"{% endif %}>
-        {% if doWebp and extension != "webp" %}
-            {% set transform = 'webp' ~ (preset ? '-' ~ preset) %}
+            {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
             {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
             {% if addSrcSet %}
                 {% if transformedImages|length %}
-                <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/webp">
+                <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
                 {% set found = true %}
                 {% endif %}
             {% else %}
-                <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url }}" type="image/webp">
+                <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url() }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
                 {% set found = true %}
             {% endif %}
-        {% endif %}
 
-        {% set transform = 'jpg' ~ (preset ? '-' ~ preset) %}
-        {% set transformedImages = craft.imagerx.transformImage(image, transform) %}
-        {% if addSrcSet %}
-            {% if transformedImages|length %}
-            <source sizes="100vw" srcset="{{ craft.imagerx.srcset(transformedImages) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
-            {% set found = true %}
+            {% if not found %}
+                <source sizes="100vw" srcset="{{ image.getUrl()|default(image) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
             {% endif %}
-        {% else %}
-            <source sizes="100vw" srcset="{{ transformedImages|length ? transformedImages[0].url() }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
-            {% set found = true %}
-        {% endif %}
-
-        {% if not found %}
-            <source sizes="100vw" srcset="{{ image.getUrl()|default(image) }}" type="image/{{ extension == 'webp' ? extension : 'jpeg' }}">
-        {% endif %}
-        <img src="{{ craft.imagerx.placeholder({ width: 160, height: 90 }) }}" {{ attr(attributes) }} />
-    </picture>
-{% endif %}
+            <img src="{{ craft.imagerx.placeholder({ width: 160, height: 90 }) }}" {{ attr(attributes) }} />
+        </picture>
+    {% endif %}
+    
 {% endif %}
