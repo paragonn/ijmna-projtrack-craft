@@ -52,5 +52,13 @@ return GeneralConfig::create()
 
     ->maxUploadFileSize(52428800)
 
-    ->loginPath(App::env('SSO_LOGIN_PATH') ?? '/')
+    // Environment-specific configurations
+    ->merge([
+        '*' => [
+            'loginPath' => App::env('CP_TRIGGER') . '/login', // Default to native login for non-specified environments
+        ],
+        'production' => [
+            'loginPath' => App::env('SSO_LOGIN_PATH') ?: App::env('CP_TRIGGER') . '/login', // Use SSO in production
+        ],
+    ])
 ;
