@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "561d14d3de2fe6930afb793fc45a8d9c",
+    "content-hash": "3f8e2085f397da1da886529c5c9953cc",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -4401,6 +4401,57 @@
             ],
             "description": "Provides functionality for http_build_url() to environments without pecl_http.",
             "time": "2017-05-01T15:36:40+00:00"
+        },
+        {
+            "name": "jrrdnx/craft-cloudflare-r2",
+            "version": "1.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jrrdnx/craft-cloudflare-r2/zipball/febf925ca206f73d6f4f89e69de9abe5e493eaf4",
+                "reference": "febf925ca206f73d6f4f89e69de9abe5e493eaf4",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^4.0.0-beta.1 || ^5.0.0-beta.1",
+                "craftcms/flysystem": "^1.0.0 || ^2.0.0",
+                "league/flysystem-aws-s3-v3": "^3.0.0",
+                "php": "^8.0.2"
+            },
+            "type": "craft-plugin",
+            "extra": {
+                "name": "Cloudflare R2",
+                "handle": "cloudflare-r2",
+                "documentationUrl": "https://jarrodnix.dev/plugins/cloudflare-r2/v1"
+            },
+            "autoload": {
+                "psr-4": {
+                    "jrrdnx\\cloudflarer2\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jarrod D Nix",
+                    "homepage": "https://jarrodnix.dev/"
+                }
+            ],
+            "description": "Cloudflare R2 integration for Craft CMS",
+            "keywords": [
+                "cloudflare",
+                "cms",
+                "craftcms",
+                "flysystem",
+                "r2",
+                "s3",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/jrrdnx/craft-cloudflare-r2/issues",
+                "docs": "https://jarrodnix.dev/plugins/cloudflare-r2/v1"
+            },
+            "time": "2024-06-25T01:26:25+00:00"
         },
         {
             "name": "kelunik/certificate",

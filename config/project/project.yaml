@@ -1,4 +1,4 @@
-dateModified: 1758519575
+dateModified: 1758521345
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -370,6 +370,10 @@ plugins:
       userServiceKey: ''
       zone: 0cdd48133f3329ccea70446de6285439
       zoneName: ijmtracker.org
+  cloudflare-r2:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.0'
   colour-swatches:
     edition: standard
     enabled: true
