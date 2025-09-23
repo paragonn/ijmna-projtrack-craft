@@ -157,24 +157,46 @@
                 {% if jurisdictionsCaseTypes|length %}
                 <div class="grid gap-y-9 sm:gap-y-10 gap-3 mt-14 {{ rowLimit[perRowLimit] }}">
                     {% for row in entry.jurisdictionsCaseTypes %}
-                    <div>
-                        {% if row.key|length %}
-                        <p class="uppercase font-medium text-sm tracking-widest {{ render.foregroundColors({
-                            background: backgroundColorLabel,
-                            opacity: overlayOpacity,
-                            changeDefaultColor: true,
-                            type: 'eyebrow',
-                        }) }}">
-                            {{ row.key }}
-                        </p>
-                        {% endif %}
+                    {% if row.key|lower != "focus areas" %}
+                        <div>
+                            {% if row.key|length %}
+                            <p class="uppercase font-medium text-sm tracking-widest {{ render.foregroundColors({
+                                background: backgroundColorLabel,
+                                opacity: overlayOpacity,
+                                changeDefaultColor: true,
+                                type: 'eyebrow',
+                            }) }}">
+                                {{ row.key }}
+                            </p>
+                            {% endif %}
 
-                        {% if row.value|length %}
-                        <p class="font-bold text-lg tracking-widest uppercase">
-                            {{ row.value }}
-                        </p>
+                            {% if row.value|length %}
+                            <p class="font-bold text-lg tracking-widest uppercase">
+                                {{ row.value }}
+                            </p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        {% set casework = entry.casework.all() %}
+                        {% if casework|length %}
+                        <div>
+                            <p class="uppercase font-medium text-sm tracking-widest {{ render.foregroundColors({
+                                background: backgroundColorLabel,
+                                opacity: overlayOpacity,
+                                changeDefaultColor: true,
+                                type: 'eyebrow',
+                            }) }}">
+                                Impact Area
+                            </p>
+
+                            <p class="font-bold text-lg tracking-widest uppercase">
+                            {% for item in casework %}
+                                {{ item.title }}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                            </p>
+                        </div>
                         {% endif %}
-                    </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
                 {% endif %}

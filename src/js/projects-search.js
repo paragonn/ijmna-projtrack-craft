@@ -682,17 +682,17 @@ function createMarkerPopup(item) {
     let country = JSON.parse(item.country);
     let casework = JSON.parse(item.casework);
     // let address = JSON.parse(item.address);
-    let card = `<div class="flex sm:flex-row flex-col items-stretch bg-blue-800">`;
-        if(image.length) {
-            card += `<div class="flex-1 sm:max-w-[118px] overflow-hidden">
-                <img src="${image[0].url}" width="118" height="196" class="object-cover object-center w-full h-full" alt="${item.title}">
+    let card = `<div class="grid grid-cols-1 sm:grid-cols-7 bg-blue-800">`;
+        if(image && image.length) {
+            card += `<div class="sm:col-span-2 overflow-hidden" style="overflow: hidden;">
+                <img src="${image[0].url}" width="196" height="196" class="object-cover object-center w-full h-full" alt="${item.title}">
             </div>`;
         }
 
-        card += `<div class="py-5 pl-5 pr-12 text-white relative flex-1 w-full">
+        card += `<div class="py-5 pl-5 pr-12 text-white relative sm:col-span-5">
             <h3 class="text-2xl md:text-3xl mt-2 font-Baskervville">${item.title}</h3>
             <p class="mt-4 text-base uppercase">STAGE: ${item.stage}</p>
-            <p class="text-blue-500 text-base">Focus Area: ${casework[0].title}</p>
+            ${casework && casework.length > 0 ? `<p class="text-blue-500 text-base">Impact Area: ${casework.map(c => c.title).join(", ")}</p>` : ''}
             <div class="absolute right-4 bottom-4">
                 <a target="_blank" href="https://test.ijmtracker.org/${item.uri}" class="text-white hover:text-blue-500 transition-all duration-300">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">

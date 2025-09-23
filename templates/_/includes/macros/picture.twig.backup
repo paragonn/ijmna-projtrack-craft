@@ -58,38 +58,12 @@
 		{% set imgAttrs = imgAttrs|merge( attrs, true ) %}
 	{% endif %}
 
-	{# Cloudflare Images Configuration - Get original image URL #}
-	{% set baseUrl = image.url %}
-	{% set cfDomain = getenv('CF_ASSETS_DOMAIN')|default('https://assets-test.ijmtracker.org') %}
-	{% set cfBasePath = cfDomain ~ '/cdn-cgi/image/' %}
-	{% set cfParams = [] %}
-
-	{# Add width parameter #}
-	{% if maxResWidth %}
-		{% set cfParams = cfParams|merge(['width=' ~ maxResWidth]) %}
-	{% endif %}
-
-	{# Add height parameter #}
-	{% if maxResHeight %}
-		{% set cfParams = cfParams|merge(['height=' ~ maxResHeight]) %}
-	{% endif %}
-
-	{# Add focal point for gravity #}
-	{% if image.hasFocalPoint %}
-		{% set x = image.focalPoint | first %}
-		{% set y = image.focalPoint | last %}
-		{% set cfParams = cfParams|merge(['gravity=' ~ x ~ 'x' ~ y]) %}
-	{% endif %}
-
-	{# Add transform mode #}
-	{% set cfParams = cfParams|merge(['fit=' ~ (transformMode|default('cover'))]) %}
-
 	{% if extension == "gif" or (not image.extension|default(null)|length and image|split('.')|last  in ["gif"]) %}
-		{% set imgAttrs = imgAttrs|merge({ src: baseUrl }) %}
+		{% set imgAttrs = imgAttrs|merge({ src: image.url }) %}
 		{{ tag('img', imgAttrs) }}
 
 	{% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
-		{{ svg(image.getVolume().fs.hasMethod('path') ? (image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) : baseUrl) | attr(imgAttrs) }}
+		{{ svg(image.getVolume().fs.hasMethod('path') ? (image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) : image.url) | attr(imgAttrs) }}
 
 	{% elseif not image.extension|default(null)|length and extension == "svg" %}
 		{% set imagePath = '@webroot/' ~ image %}
@@ -97,50 +71,33 @@
 
 	{% else %}
 		<picture {{ attr(pictureAttrs) }}>
-			{# AVIF Source #}
 			{% if craft.app.images.supportsAvif and image.mimeType != 'image/avif' %}
-				{% set cfParamsAvif = cfParams|merge(['format=avif']) %}
-				{% set cfImageUrl = cfBasePath ~ cfParamsAvif|join(',') ~ '/' ~ baseUrl %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, format: 'avif', mode: transformMode|default('crop') }) %}
 				{{ tag('source', {
-					srcset: cfImageUrl,
+					srcset: image.getSrcset(transformArr),
 					sizes: sizes|join(', '),
 					type: 'image/avif',
 				}) }}
 			{% endif %}
 
-			{# WebP Source #}
 			{% if craft.app.images.supportsWebP and image.mimeType != 'image/webp' %}
-				{% set cfParamsWebp = cfParams|merge(['format=webp']) %}
-				{% set cfImageUrl = cfBasePath ~ cfParamsWebp|join(',') ~ '/' ~ baseUrl %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, format: 'webp', mode: transformMode|default('crop') }) %}
 				{{ tag('source', {
-					srcset: cfImageUrl,
+					srcset: image.getSrcset(transformArr),
 					sizes: sizes|join(', '),
 					type: 'image/webp',
 				}) }}
 			{% else %}
-				{# Fallback to auto format #}
-				{% set cfParamsAuto = cfParams|merge(['format=auto']) %}
-				{% set cfImageUrl = cfBasePath ~ cfParamsAuto|join(',') ~ '/' ~ baseUrl %}
+				{% do image.setTransform({ width: maxResWidth, height: maxResHeight, mode: transformMode|default('crop') }) %}
 				{{ tag('source', {
-					srcset: cfImageUrl,
+					srcset: image.getSrcset(transformArr),
 					sizes: sizes|join(', '),
 					type: image.mimeType,
 				}) }}
 			{% endif %}
 
-			{# Fallback Image #}
-			{% set cfParamsFallback = ['width=' ~ reasonableFallbackWidth] %}
-			{% if reasonableFallbackHeight %}
-				{% set cfParamsFallback = cfParamsFallback|merge(['height=' ~ reasonableFallbackHeight]) %}
-			{% endif %}
-			{% set cfParamsFallback = cfParamsFallback|merge(['format=auto', 'fit=' ~ (transformMode|default('cover'))]) %}
-			{% if image.hasFocalPoint %}
-				{% set x = image.focalPoint | first %}
-				{% set y = image.focalPoint | last %}
-				{% set cfParamsFallback = cfParamsFallback|merge(['gravity=' ~ x ~ 'x' ~ y]) %}
-			{% endif %}
-			{% set cfImageUrl = cfBasePath ~ cfParamsFallback|join(',') ~ '/' ~ baseUrl %}
-			{% set imgAttrs = imgAttrs|merge({ src: cfImageUrl }) %}
+			{% do image.setTransform({ width: reasonableFallbackWidth, height: reasonableFallbackHeight, mode: transformMode|default('crop') }) %}
+			{% set imgAttrs = imgAttrs|merge({ src: image.url }) %}
 
 			{{ tag('img', imgAttrs) }}
 		</picture>
