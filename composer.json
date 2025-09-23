@@ -30,7 +30,8 @@
         "verbb/icon-picker": "3.0.3",
         "verbb/navigation": "3.0.6",
         "vlucas/phpdotenv": "^5.4.0",
-        "wrav/oembed": "3.1.4"
+        "wrav/oembed": "3.1.4",
+        "yiisoft/yii2-redis": "^2.0"
     },
     "require-dev": {
         "craftcms/generator": "^2.0",
