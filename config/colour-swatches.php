@@ -181,5 +181,34 @@ return [
                 ]
             ]
         ],
+        'Linear Gradient Background Color' => [
+            [
+                'label'   => 'light-blue',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#f0f5f9',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-100',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#50C1FF',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-100/2',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ECF5F9',
+                    ]
+                ]
+            ]
+        ]
     ]
 ];
