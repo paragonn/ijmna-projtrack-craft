@@ -135,7 +135,7 @@
             {% endif %}
 
             {% if childrens|length %}
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 {{ containerBgExist ? 'md:px-20' }} {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 {{ containerBgExist ? 'lg:px-10' }} {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
                 {% for child in childrens %}
                 <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }} {{ loop.length == '1' ? 'lg:!col-span-full lg:mx-auto' }}">
                     {% include "_partials/blocks" with {
