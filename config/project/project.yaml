@@ -1,4 +1,4 @@
-dateModified: 1758554709
+dateModified: 1758699355
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -62,6 +62,7 @@ meta:
     01f461ba-4bc8-44aa-9f3a-797489f1fcc5: Editor # Editor
     02c1f367-dcb0-49f9-af0b-e255d2928b19: 'Show Border?' # Show Border?
     2e9cec4b-7c08-4594-a616-22bb4a04cba8: Brands # Brands
+    2f1a5765-978a-4125-828b-8f653bebf9be: 'Show as Linear Gradient?' # Show as Linear Gradient?
     3b2d250a-efd7-4394-9e59-a1ae3b9d5292: 'Animation Style' # Animation Style
     3bf73e53-2279-498c-9693-f24c6e498172: 'Page Builder' # Page Builder
     3c44034a-42a6-4e12-a863-4f3cc325f1a4: 'Padding Top' # Padding Top
@@ -78,6 +79,7 @@ meta:
     5e460cf8-38e4-4ac9-8629-0c53ed9052c4: Jurisdictions # Jurisdictions
     05ed830d-e0d9-45c1-a952-f81bb441a524: 'Script Position' # Script Position
     05f4aa96-2a20-4f5a-af29-371b169a6725: 'Current Status' # Current Status
+    5fd6e0ca-0596-48d6-b2b3-7efc75f636dd: 'Linear Gradient Background Color' # Linear Gradient Background Color
     6a8efaa8-2ed0-497f-a528-78203c0632ab: 'Hero Image' # Hero Image
     6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
     7afc8aef-c2ce-4275-ab1d-9a25238e9304: 'Javascript Code' # Javascript Code
