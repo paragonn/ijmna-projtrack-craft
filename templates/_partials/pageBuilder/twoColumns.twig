@@ -98,12 +98,11 @@
 {% set attributes = collect({
     class: [
         'z-10',
-        containerBgExist ? backgroundColor,
-        bgOpacity,
-        containerBgExist and childContainer ? 'px-9 md:px-24',
-        containerSize == 'container' ? render.contentWidth({width: contentWidth}),
-        spacing.implode(' '),
-        not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container',
+        containerBgExist ? backgroundColor ~ ' ' ~ bgOpacity,
+        containerBgExist and childContainer ? 'px-9 md:px-24 ',
+        containerSize == 'container' ? render.contentWidth({width: contentWidth}) ~ ' ',
+        spacing.implode(' ') ~ ' ',
+        not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' ~ ' ',
     ],
     id: block.containerId|length ? block.containerId : 'block-' ~ block.getId(),
 }) %}
