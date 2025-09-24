@@ -38,7 +38,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
                         'port' => App::env('REDIS_PORT'),
                         'password' => App::env('REDIS_PASSWORD') ?: null,
                         'useSSL' => true,
-                        'database' => 1
+                        'database' => 0 
                     ],
                 ];
 
@@ -57,7 +57,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
                     'port' => App::env('REDIS_PORT'),
                     'password' => App::env('REDIS_PASSWORD') ?: null,
                     'useSSL' => true,
-                    'database' => 2
+                    'database' => 1
                 ];
 
                 // Return the initialized component:
