@@ -60,7 +60,7 @@
 
 	{# Cloudflare Images Configuration - Get original image URL #}
 	{% set baseUrl = image.url %}
-	{% set cfDomain = getenv('CF_ASSETS_DOMAIN')|default('https://assets-test.ijmtracker.org') %}
+	{% set cfDomain = getenv('CF_ASSETS_DOMAIN')|default('https://assets.ijmtracker.org') %}
 	{% set cfBasePath = cfDomain ~ '/cdn-cgi/image/' %}
 	{% set cfParams = [] %}
 
