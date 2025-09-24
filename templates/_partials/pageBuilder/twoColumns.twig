@@ -51,14 +51,15 @@
 {% set columnAlignment = block.columnAlignment.getValue()|default('left') %}
 
 {% set conbackgroundColor = conbackgroundColor ?? null %}
-{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'none') %}
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
-{% set linearGradientColorLabel = block.linearGradientBackgroundColor.label|default('') %}
 
+{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
 {% set backgroundColor = render.color({
     handle: backgroundColorLabel,
     swatch: 'background'
 }) %}
+
+{% set linearGradientColorLabel = block.linearGradientBackgroundColor.label|default('') %}
 {% set gradientColor = render.color({
     handle: linearGradientColorLabel,
     swatch: 'linearGradient'
