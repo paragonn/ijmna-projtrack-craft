@@ -98,12 +98,13 @@
 
 {% set classes = [
     'z-10',
-    containerBgExist ? (backgroundColor ~ ' ' ~ bgOpacity)|trim,
+    containerBgExist ? backgroundColor,
+    containerBgExist ? bgOpacity,
     containerBgExist and childContainer ? 'px-9 md:px-24',
-    containerSize == 'container' ? render.contentWidth({ width: contentWidth })|trim,
-    spacing.implode(' '),
     (not childContainer and containerSize == 'container' and contentWidth == '0;12') ? 'container',
-] | filter(v => v) %}
+    containerSize == 'container' ? render.contentWidth({ width: contentWidth }),
+    spacing.implode(' '),
+] | filter(v => v and v|trim != '') %}
 
 {% set attributes = collect({
     class: classes,
