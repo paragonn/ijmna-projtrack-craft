@@ -128,8 +128,10 @@ return [
                 'color'   =>  [
                     [
                         'color' => '#ffffff',
+                    ],
+                    [
                         'color' => '#ECF5F9',
-                    ]
+                    ],                    
                 ]
             ],
         ],
