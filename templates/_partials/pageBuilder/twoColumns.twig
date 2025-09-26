@@ -53,7 +53,7 @@
 {% set conbackgroundColor = conbackgroundColor ?? null %}
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
 {% set backgroundColor = render.color({ 
     handle: backgroundColorLabel,
     swatch: 'background'
