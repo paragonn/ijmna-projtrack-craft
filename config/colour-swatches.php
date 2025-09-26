@@ -123,7 +123,7 @@ return [
                 ]
             ],
             [
-                'label'   => 'gradient-white-to-blue-light',
+                'label'   => 'white-to-light-blue',
                 'default' => false,
                 'color'   =>  [
                     [
