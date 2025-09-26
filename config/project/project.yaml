@@ -1,4 +1,4 @@
-dateModified: 1758699355
+dateModified: 1758864121
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -82,6 +82,7 @@ meta:
     5fd6e0ca-0596-48d6-b2b3-7efc75f636dd: 'Linear Gradient Background Color' # Linear Gradient Background Color
     6a8efaa8-2ed0-497f-a528-78203c0632ab: 'Hero Image' # Hero Image
     6ae7d75d-cf9a-41db-b14d-a11c5a609f43: Icon # Icon
+    6f38b25f-efca-4db5-b007-cd3fed523fdd: 'Minus Margin Top' # Minus Margin Top
     7afc8aef-c2ce-4275-ab1d-9a25238e9304: 'Javascript Code' # Javascript Code
     7b26f9bb-9eda-45e3-878a-0530263e4d2b: 'Stacked Cards' # Stacked Cards
     7bc32678-0f69-4111-926c-26e502c0c7fc: '1 Blank at?' # 1 Blank at?

@@ -54,15 +54,16 @@
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 
 {% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
-{% set backgroundColor = render.color({
+{% set backgroundColor = render.color({ 
     handle: backgroundColorLabel,
     swatch: 'background'
 }) %}
 
 {% set linearGradientColorLabel = block.linearGradientBackgroundColor.label|default('') %}
+{% set minusMarginTop2 = block.minusMarginTop2 ?? false %}
 {% set gradientColor = render.color({
     handle: linearGradientColorLabel,
-    swatch: 'linearGradient'
+    swatch: minusMarginTop2 ? 'linearGradient' : 'linearGradient-2'
 }) %}
 
 {% set conOverlayOpacity = conOverlayOpacity ?? null %}
