@@ -121,7 +121,17 @@ return [
                         'color' => '#101523',
                     ]
                 ]
-            ]
+            ],
+            [
+                'label'   => 'gradient-white-to-blue-light',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ffffff',
+                        'color' => '#ECF5F9',
+                    ]
+                ]
+            ],
         ],
         'Border Color' => [
             [
