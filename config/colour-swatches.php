@@ -69,7 +69,7 @@ return [
                 ]
             ],
             [
-                'label'   => 'light-blue',
+                'label'   => 'blue-light',
                 'default' => false,
                 'color'   =>  [
                     [
@@ -183,7 +183,7 @@ return [
         ],
         'Linear Gradient Background Color' => [
             [
-                'label'   => 'light-blue',
+                'label'   => 'blue-light',
                 'default' => false,
                 'color'   =>  [
                     [
@@ -197,15 +197,6 @@ return [
                 'color'   =>  [
                     [
                         'color' => '#50C1FF',
-                    ]
-                ]
-            ],
-            [
-                'label'   => 'blue-100/2',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#ECF5F9',
                     ]
                 ]
             ]
