@@ -73,7 +73,7 @@ return [
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#f0f5f9',
+                        'color' => '#ECF5F9',
                     ]
                 ]
             ],
@@ -187,7 +187,7 @@ return [
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#f0f5f9',
+                        'color' => '#ECF5F9',
                     ]
                 ]
             ],
