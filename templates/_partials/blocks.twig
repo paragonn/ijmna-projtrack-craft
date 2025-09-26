@@ -27,7 +27,7 @@
     {% set nextBgColor = pageBuilder[i+1].backgroundColor.label|default(defaults[next].bgColor|default(null)) %}
 
     {% set prevBgColor = prevBgColor != "white" ? prevBgColor : null %}
-    {% set currentBgColor = currentBgColor != "white" ? currentBgColor : null %}
+    {% set currentBgColor = currentBgColor in ['white', 'white-to-blue-light'] ? null : currentBgColor %}
     {% set nextBgColor = nextBgColor != "white" ? nextBgColor : null %}
 
     {% set first = loop.first %}
