@@ -72,10 +72,10 @@
 
 {% set classes = [
     (containerSize == 'container' and contentWidth == '0;12') ? 'container',
-    containerSize == 'container' ? render.contentWidth({width: contentWidth}),
-    spacing.implode(' '),
     backgroundColor,
     bgOpacity,
+    spacing.implode(' '),
+    containerSize == 'container' ? render.contentWidth({width: contentWidth}),
 ] | filter(v => v and v|trim != '') %}
 
 {% set attributes = collect({

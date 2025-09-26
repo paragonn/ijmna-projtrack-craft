@@ -102,8 +102,8 @@
     containerBgExist ? bgOpacity,
     containerBgExist and childContainer ? 'px-9 md:px-24',
     (not childContainer and containerSize == 'container' and contentWidth == '0;12') ? 'container',
-    containerSize == 'container' ? render.contentWidth({ width: contentWidth }),
     spacing.implode(' '),
+    containerSize == 'container' ? render.contentWidth({ width: contentWidth }),
 ] | filter(v => v and v|trim != '') %}
 
 {% set attributes = collect({
