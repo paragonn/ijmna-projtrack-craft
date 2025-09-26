@@ -116,7 +116,7 @@
             changeDefaultColor: true,
             type: 'borderColor'
         }) }}">
-            <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) : 'max-w-[700px] mx-auto' }}">
+            <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim : 'max-w-[700px] mx-auto' }}">
                 {% if block.eyebrow|length or block.heading|length or block.text|length %}
                 <div class="mb-16 {{ render.getAlignment({alignment: contentAlignment, type: 'text'}) }}">
                     {{ render.basicContents({
