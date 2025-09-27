@@ -271,6 +271,7 @@
 {# Footer CTA #}
 {% set numberOfBlocks = entry.contentBuilder | length %}
 {% set lastBlock = numberOfBlocks ? entry.contentBuilder[numberOfBlocks - 1] %}
+{{ dumb(lastBlock) }}
 {% set getLastBgColorLabel = 'white' %}
 {% set getLastBgColor = null %}
 {% set lastBgOpacity = null %}
