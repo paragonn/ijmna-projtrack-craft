@@ -95,13 +95,9 @@
     {% if prevBgColor %}
         {% set defaultMarginTop = "none" %}
 
-        {% if prevBgColor == currentBgColor %}
+        {% if prevBgColor == currentBgColor or currentBgGradient %}
             {% set defaultPaddingTop = "none" %}
         {% endif %}
-    {% endif %}
-
-    {% if currentBgFirstColor == 'white' %}
-        {% set defaultPaddingTop = "none" %}
     {% endif %}
 
     {% if nextBgColor %}
