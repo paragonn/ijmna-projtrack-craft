@@ -278,7 +278,11 @@
 {% if getLastBgColorLabel and lastBlock %}
 
     {% if lastBlock.containerBackgroundColor.label is defined %}
-        {% set getLastBgColorLabel = lastBlock.containerBackgroundColor.label|default(conbackgroundColor|default('white')) %}
+        {% if lastBlock.containerBackgroundColor.label == 'white-to-light-blue' %}
+            {% set getLastBgColorLabel = 'blue-light' %}
+        {% else %}
+            {% set getLastBgColorLabel = lastBlock.containerBackgroundColor.label|default(conbackgroundColor|default('white')) %}
+        {% endif %}
     {% elseif lastBlock.backgroundColor.label is defined %}
         {% set getLastBgColorLabel = lastBlock.backgroundColor.label|default(conbackgroundColor|default('white')) %}
     {% endif %}
