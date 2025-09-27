@@ -6,35 +6,8 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
-            autocapitalize: true
-            autocomplete: false
-            autocorrect: true
-            class: null
-            disabled: false
-            elementCondition: null
-            id: null
-            includeInCards: false
-            inputType: null
-            instructions: null
-            label: null
-            max: null
-            min: null
-            name: null
-            orientation: null
-            placeholder: null
-            providesThumbs: false
-            readonly: false
-            requirable: false
-            size: null
-            step: null
-            tip: null
-            title: null
-            type: craft\fieldlayoutelements\entries\EntryTitleField
-            uid: 97a34988-60e7-4f45-97ec-a90e83ef3984
-            userCondition: null
-            warning: null
-            width: 100
-          -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 0b15cab4-22ae-40f3-9612-204b951f30f0 # Image
             handle: null
@@ -50,6 +23,8 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 7f018fb5-73a1-482a-97e6-20b925125348 # Videos
             handle: null
@@ -65,11 +40,31 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
+            elementCondition: null
+            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9 # Embed Video
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: null
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 8f21ae3d-6f55-4c8e-97d1-1f5a83c4d114
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-09-27T06:09:37+00:00'
             elementCondition: null
             type: craft\fieldlayoutelements\HorizontalRule
             uid: b03ebf6d-328a-417c-a206-f3015411d968
             userCondition: null
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 5d2385da-c451-4d15-a8dc-9bf204cfb717 # Eyebrow
             handle: null
@@ -85,6 +80,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 08f0c8e2-e9c0-426a-aab3-861fbf413a1f # Heading
             handle: null
@@ -100,6 +97,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 90a810f2-de87-4697-8abf-8e6e2c825c72 # Quote
             handle: null
@@ -115,6 +114,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 56196e9b-e1c4-44b3-817a-0f471121ed32 # Quote Attribution
             handle: null
@@ -130,6 +131,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: 28f860da-7e14-4288-a55f-bce3b2856d85 # Text
             handle: null
@@ -145,6 +148,8 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-09-27T06:09:37+00:00'
+            editCondition: null
             elementCondition: null
             fieldUid: f3d1f10a-2e4d-40dc-9dc4-d6aea55b51d7 # Buttons
             handle: null
@@ -161,27 +166,6 @@ fieldLayouts:
             width: 100
         name: Content
         uid: 0f91899a-7513-48fd-a8fc-92a7382172a8
-        userCondition: null
-      -
-        elementCondition: null
-        elements:
-          -
-            elementCondition: null
-            fieldUid: 021cf0d0-1863-4788-aeb4-6225da5b03a9 # Embed Video
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 8f21ae3d-6f55-4c8e-97d1-1f5a83c4d114
-            userCondition: null
-            warning: null
-            width: 100
-        name: Auxiliary
-        uid: c2a01ec3-4c2e-4aa1-b82c-9c5bb1052604
         userCondition: null
 handle: ImageContentSlide
 hasTitleField: false
