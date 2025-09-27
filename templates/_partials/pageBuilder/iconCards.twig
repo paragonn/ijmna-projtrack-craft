@@ -89,7 +89,7 @@
 
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }}">
     <div class="{{ not childContainer ? 'container' }}">
-        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
                 {{ render.basicContents({
                     eyebrow: block.eyebrow,

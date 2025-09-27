@@ -27,7 +27,13 @@
     {% set nextBgColor = pageBuilder[i+1].backgroundColor.label|default(defaults[next].bgColor|default(null)) %}
 
     {% set prevBgColor = prevBgColor != "white" ? prevBgColor : null %}
-    {% set currentBgColor = currentBgColor != "white" ? currentBgColor : null %}
+    {% set currentBgGradient = currentBgColor == 'white-to-light-blue' ? true : false %}
+    {% set currentBgFirstColor = currentBgGradient ? 'white' : currentBgColor %}
+    {% if currentBgGradient %}
+        {% set currentBgColor = 'blue-light' %}
+    {% else %}
+        {% set currentBgColor = currentBgColor != 'white' ? currentBgColor : null %}
+    {% endif %}
     {% set nextBgColor = nextBgColor != "white" ? nextBgColor : null %}
 
     {% set first = loop.first %}
@@ -78,7 +84,7 @@
     {% endif %}
 
     {% if nextBlock.marginStyle.value|default('normal') == 'staggered' %}
-        {% if not currentBgColor %}
+        {% if not currentBgColor or currentBgGradient %}
             {% set defaultMarginBottom = "none" %}
         {% else %}
             {% set defaultPaddingBottom = 'extraLarge' %}
@@ -124,6 +130,8 @@
 
             prevBgColor: prevBgColor,
             currentBgColor: currentBgColor,
+            currentBgFirstColor: currentBgFirstColor,
+            currentBgGradient: currentBgGradient,
             nextBgColor: nextBgColor,
 
             defaultSpacing: defaultSpacing,

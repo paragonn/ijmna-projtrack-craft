@@ -69,11 +69,11 @@ return [
                 ]
             ],
             [
-                'label'   => 'light-blue',
+                'label'   => 'blue-light',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#f0f5f9',
+                        'color' => '#ECF5F9',
                     ]
                 ]
             ],
@@ -123,6 +123,83 @@ return [
                 ]
             ]
         ],
+        'Container Background Color' => [
+            [
+                'label'   => 'white',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ffffff',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-light',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ECF5F9',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-100',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#50C1FF',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#006FAC',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-600',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#004B74',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-700',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#00273C',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'blue-800',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#101523',
+                    ]
+                ]
+            ],
+            [
+                'label'   => 'white-to-light-blue',
+                'default' => false,
+                'color'   =>  [
+                    [
+                        'color' => '#ffffff',
+                    ],
+                    [
+                        'color' => '#ECF5F9',
+                    ],                    
+                ]
+            ],
+        ],        
         'Border Color' => [
             [
                 'label'   => 'white',
@@ -183,11 +260,11 @@ return [
         ],
         'Linear Gradient Background Color' => [
             [
-                'label'   => 'light-blue',
+                'label'   => 'blue-light',
                 'default' => false,
                 'color'   =>  [
                     [
-                        'color' => '#f0f5f9',
+                        'color' => '#ECF5F9',
                     ]
                 ]
             ],
@@ -197,15 +274,6 @@ return [
                 'color'   =>  [
                     [
                         'color' => '#50C1FF',
-                    ]
-                ]
-            ],
-            [
-                'label'   => 'blue-100/2',
-                'default' => false,
-                'color'   =>  [
-                    [
-                        'color' => '#ECF5F9',
                     ]
                 ]
             ]

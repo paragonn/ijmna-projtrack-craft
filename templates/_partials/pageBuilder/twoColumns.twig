@@ -53,17 +53,18 @@
 {% set conbackgroundColor = conbackgroundColor ?? null %}
 {% set containerBgExist = conbackgroundColor != backgroundColorLabel %}
 
-{% set backgroundColorLabel = block.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
-{% set backgroundColor = render.color({
+{% set backgroundColorLabel = block.backgroundColor.label|default('white') %}
+{% set backgroundColor = render.color({ 
     handle: backgroundColorLabel,
     swatch: 'background'
 }) %}
 
-{% set linearGradientColorLabel = block.linearGradientBackgroundColor.label|default('') %}
+{# {% set linearGradientColorLabel = block.linearGradientBackgroundColor.label|default('') %}
+{% set minusMarginTop2 = block.minusMarginTop2 ?? false %}
 {% set gradientColor = render.color({
     handle: linearGradientColorLabel,
-    swatch: 'linearGradient'
-}) %}
+    swatch: minusMarginTop2 ? 'linearGradient' : 'linearGradient-2'
+}) %} #}
 
 {% set conOverlayOpacity = conOverlayOpacity ?? null %}
 {% set overlayOpacity = block.overlayOpacity.getValue()|default(conOverlayOpacity ?? 'none') %}
@@ -97,21 +98,22 @@
 
 {% set classes = [
     'z-10',
-    containerBgExist ? (backgroundColor ~ ' ' ~ bgOpacity)|trim,
+    containerBgExist ? backgroundColor,
+    containerBgExist ? bgOpacity,
     containerBgExist and childContainer ? 'px-9 md:px-24',
-    containerSize == 'container' ? render.contentWidth({ width: contentWidth })|trim,
-    spacing.implode(' '),
     (not childContainer and containerSize == 'container' and contentWidth == '0;12') ? 'container',
-] | filter(v => v) %}
+    spacing.implode(' ')|trim,
+    containerSize == 'container' ? render.contentWidth({ width: contentWidth }).__toString()|replace({ "\n": ""})|trim,
+] %}
 
 {% set attributes = collect({
     class: classes,
 }) %}
 
-<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ linearGradientColorLabel ? gradientColor }} {{ linearGradientColorLabel and containerSize != 'full' ? 'px-6 md:px-0' }}">
+<{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ backgroundColor }} {{ backgroundColorLabel and containerSize != 'full' ? 'px-6 md:px-0' }} container">
 <div {{ attr(attributes.toArray()) }}>
-    <div class="{{ not childContainer ? 'container' }}">
-        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+    <div class="container">
+        <div class="grid grid-cols-1 {{ containerSize == 'full' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim }}">
             {% if block.eyebrow|length or block.heading|length or block.text|length %}
             {{ render.basicContents({
                 eyebrow: block.eyebrow,
@@ -135,7 +137,7 @@
             {% endif %}
 
             {% if childrens|length %}
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 {{ containerBgExist ? 'lg:px-10' }} {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-12 {{ containerBgExist or childContainer ? 'lg:px-10' }} {{ render.getAlignment({alignment: columnAlignment, type: 'items'}) }} {{ block.eyebrow|length or block.heading|length or block.text|length ? 'mt-12' }}">
                 {% for child in childrens %}
                 <div class="{{ loop.first ? firstDiv[columnsWidth] : lastDiv[columnsWidth] }} {{ loop.length == '1' ? 'lg:!col-span-full lg:mx-auto' }}">
                     {% include "_partials/blocks" with {

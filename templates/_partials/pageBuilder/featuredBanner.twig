@@ -82,7 +82,7 @@
 
     {% if block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
     <div class="container relative z-10 {{ backgroundColorLabel == 'white' ? 'lg:py-28 py-16' }} {{ spacing.paddingTop }} {{ spacing.paddingBottom }}">
-        <div class="{{ render.contentWidth({width: contentWidth}) }}">
+        <div class="{{ render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim }}">
             {{ render.basicContents({
                 eyebrow: block.eyebrow,
                 heading: block.heading,

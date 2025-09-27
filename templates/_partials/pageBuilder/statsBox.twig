@@ -90,7 +90,7 @@
 
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ spacing.implode(' ') }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }}">
     <div class="{{ not childContainer ? 'container' }}">
-        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim }}">
             <div class="grid grid-cols-1">
                 {% set borderLabel = ((backgroundColorLabel == borderColor and backgroundColorLabel != 'white' and contentBoxColorLabel != 'white') ? 'white' : (backgroundColorLabel in ['white'] and borderColor in ['white'] ? 'blue' : borderColor)) %}
                 <div class="text-center {{ showBorder and borderColor != null ? 'border-2 px-8 py-14 ' ~ contentBoxColor ~  render.foregroundColors({

@@ -81,7 +81,7 @@
 {% if image|length or videos|length or embedVideo|length %}
 <{{ sectionTag }} id="{{ block.containerId|length ? block.containerId : 'block-' ~ block.getId() }}" class="{{ not childContainer and containerSize == 'container' and contentWidth == '0;12' ? 'container' }} {{ containerSize == 'container' ? render.contentWidth({width: contentWidth}) }} {{ spacing.implode(' ') }} {{ containerBgExist ? backgroundColor }} {{ bgOpacity }} {{ containerBgExist and childContainer ? 'px-9 md:px-24' }}">
     <div class="{{ (not childContainer) and containerSize == 'container' ? 'container' }}">
-        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}) }}">
+        <div class="{{ containerSize == 'full' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim }}">
             <div class="relative">
                 <div class="h-full {{ ratio[imageRatio] }}" {{ imageAnimation|raw }}>
                     {# {% set thumb = {
