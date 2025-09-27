@@ -47,7 +47,7 @@
     {% set defaultMarginBottom = defaults[current].spacing.marginBottom|default(null) %}
     {% set defaultPaddingBottom = defaults[current].spacing.paddingBottom|default(null) %}
 
-    {% set defaultSpacing = defaultSpacing|default("medium") %}
+    {% set defaultSpacing = defaultSpacing|default("small") %}
 
     {% if first %}
         {% set defaultMarginTop = firstBlockSpacing.defaultMarginTop|default(defaultMarginTop) %}
