@@ -271,13 +271,18 @@
 {# Footer CTA #}
 {% set numberOfBlocks = entry.contentBuilder | length %}
 {% set lastBlock = numberOfBlocks ? entry.contentBuilder[numberOfBlocks - 1] %}
-{{ dump(lastBlock) }}
 {% set getLastBgColorLabel = 'white' %}
 {% set getLastBgColor = null %}
 {% set lastBgOpacity = null %}
 
 {% if getLastBgColorLabel and lastBlock %}
-    {% set getLastBgColorLabel = lastBlock.backgroundColor.label|default(conbackgroundColor ?? 'white') %}
+
+    {% if lastBlock.containerBackgroundColor.label is defined %}
+        {% set getLastBgColorLabel = lastBlock.containerBackgroundColor.label|default(conbackgroundColor|default('white')) %}
+    {% elseif lastBlock.backgroundColor.label is defined %}
+        {% set getLastBgColorLabel = lastBlock.backgroundColor.label|default(conbackgroundColor|default('white')) %}
+    {% endif %}
+
     {% set getLastBgColor = render.color({
         handle: getLastBgColorLabel,
         swatch: 'background'
