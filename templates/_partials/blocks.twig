@@ -27,7 +27,8 @@
     {% set nextBgColor = pageBuilder[i+1].backgroundColor.label|default(defaults[next].bgColor|default(null)) %}
 
     {% set prevBgColor = prevBgColor != "white" ? prevBgColor : null %}
-    {% set currentBgColor = currentBgColor not in ['white', 'white-to-light-blue'] ? currentBgColor : null %}
+    {% set currentBgColor = currentBgColor != 'white' ? currentBgColor : null %}
+    {% set currentBgGradient = currentBgColor == 'white-to-light-blue' ? true : false %}
     {% set nextBgColor = nextBgColor != "white" ? nextBgColor : null %}
 
     {% set first = loop.first %}
@@ -58,7 +59,7 @@
     {% endif %}
 
     {% if first and (not heroExist|length) and (parent not in ['cta', 'twoColumns', 'container', 'accordion']) %}
-        {% if currentBgColor %}
+        {% if currentBgColor or currentBgGradient %}
             {% set defaultPaddingTop = "large" %}
         {% else %}
             {% set defaultPaddingTop = "small" %}
@@ -78,7 +79,7 @@
     {% endif %}
 
     {% if nextBlock.marginStyle.value|default('normal') == 'staggered' %}
-        {% if not currentBgColor %}
+        {% if not currentBgColor or currentBgGradient %}
             {% set defaultMarginBottom = "none" %}
         {% else %}
             {% set defaultPaddingBottom = 'extraLarge' %}
