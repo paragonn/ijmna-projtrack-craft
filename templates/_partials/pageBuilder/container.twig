@@ -72,7 +72,6 @@
 
 {% set classes = [
     (containerSize == 'container' and contentWidth == '0;12') ? 'container',
-    backgroundColor,
     bgOpacity,
     spacing.implode(' ')|trim,
     containerSize == 'container' ? render.contentWidth({width: contentWidth}).__toString()|replace({ "\n": ""})|trim,
