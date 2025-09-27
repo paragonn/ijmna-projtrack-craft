@@ -59,7 +59,7 @@
     {% endif %}
 
     {% if first and (not heroExist|length) and (parent not in ['cta', 'twoColumns', 'container', 'accordion']) %}
-        {% if currentBgColor or currentBgGradient %}
+        {% if currentBgColor %}
             {% set defaultPaddingTop = "large" %}
         {% else %}
             {% set defaultPaddingTop = "small" %}
