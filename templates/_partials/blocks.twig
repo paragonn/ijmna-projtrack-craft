@@ -27,13 +27,13 @@
     {% set nextBgColor = pageBuilder[i+1].backgroundColor.label|default(defaults[next].bgColor|default(null)) %}
 
     {% set prevBgColor = prevBgColor != "white" ? prevBgColor : null %}
-    {% set currentBgFirstColor = currentBgColor == 'white-to-light-blue' ? 'white' : currentBgColor %}
-    {% if currentBgFirstColor == 'white' and currentBgColor == 'white-to-light-blue' %}
+    {% set currentBgGradient = currentBgColor == 'white-to-light-blue' ? true : false %}
+    {% set currentBgFirstColor = currentBgGradient ? 'white' : currentBgColor %}
+    {% if currentBgGradient %}
         {% set currentBgColor = 'blue-light' %}
     {% else %}
         {% set currentBgColor = currentBgColor != 'white' ? currentBgColor : null %}
     {% endif %}
-    {% set currentBgGradient = currentBgColor != currentBgFirstColor ? true : false %}
     {% set nextBgColor = nextBgColor != "white" ? nextBgColor : null %}
 
     {% set first = loop.first %}
