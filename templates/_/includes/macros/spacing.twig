@@ -110,9 +110,12 @@
         {% if nextBgColor == currentBgColor %}
             {% set defaultPaddingBottom = "small" %}
         {% endif %}
-    {% elseif last %}
+    {% endif %}
+
+    {% if last %}
         {% set defaultMarginBottom = "none" %}
     {% endif %}
+    
 {% else %}
     {% set defaultMarginTop = staticSpacing %}
     {% set defaultPaddingTop = "none" %}
