@@ -1,4 +1,4 @@
-dateModified: 1758864330
+dateModified: 1758928413
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -90,6 +90,7 @@ meta:
     7d09c5e7-e849-465a-9e4f-087bdef82bb4: Caption # Caption
     7f018fb5-73a1-482a-97e6-20b925125348: Videos # Videos
     7fe9589b-0f2b-4c94-91b8-f1e030710e58: Regular # Regular
+    8addc211-26f4-4d0a-ba64-f41374221fe8: 'Container Background Color' # Container Background Color
     8df78e11-4ebe-4815-a6a8-a9a62e77b6d6: 'Animation Easing' # Animation Easing
     8ee03cb6-c673-4aca-b24c-41391b451ecf: 'Number of Dots' # Number of Dots
     08f0c8e2-e9c0-426a-aab3-861fbf413a1f: Heading # Heading
