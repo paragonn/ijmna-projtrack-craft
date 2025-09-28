@@ -161,23 +161,6 @@ fieldLayouts:
             warning: null
             width: 50
           -
-            dateAdded: '2025-09-24T06:59:15+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 5fd6e0ca-0596-48d6-b2b3-7efc75f636dd # Linear Gradient Background Color
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 84bcaa6d-42a9-43a8-9a07-82f2860681c5
-            userCondition: null
-            warning: null
-            width: 50
-          -
             dateAdded: '2025-09-24T06:08:30+00:00'
             editCondition: null
             elementCondition: null

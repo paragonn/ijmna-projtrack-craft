@@ -168,7 +168,7 @@ fieldLayouts:
             handle: null
             includeInCards: false
             instructions: null
-            label: null
+            label: 'Background Color'
             providesThumbs: false
             required: false
             tip: null
@@ -177,23 +177,6 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
-          -
-            dateAdded: '2025-09-24T07:34:31+00:00'
-            editCondition: null
-            elementCondition: null
-            fieldUid: 6065b222-611d-42ce-a1de-85a02891694c # Background Color
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: null
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: aadd6cf6-3899-4b16-9d03-2f9bc4f1830e
-            userCondition: null
-            warning: null
-            width: 50
           -
             dateAdded: '2025-09-24T07:34:31+00:00'
             editCondition: null
