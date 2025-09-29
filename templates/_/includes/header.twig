@@ -51,6 +51,7 @@
                                {% endif %}
                             {% endif %}
 
+                            {% if craft.app.user.isGuest %}
                             <button class="w-10 h-8 relative z-30 shrink-0" aria-label="Hamburger"
                                 x-on:click="hamburger = ! hamburger;isOverflowHidden = !isOverflowHidden"
                                 @keydown.escape="hamburger = false"
@@ -60,6 +61,7 @@
                                 <span :class="{'opacity-0' : hamburger , '' : !hamburger}" class="w-full ml-0 h-1 mx-auto block bg-current my-3 transition-all"></span>
                                 <span :class="{'-rotate-[45deg] -translate-y-[7px] md:-translate-y-[14px]' : hamburger , '' : !hamburger}" class="w-full h-1 mx-auto block bg-current absolute bottom-0 left-0 transition-transform"></span>
                             </button>
+                            {% endif %}
                         </div>
                     </div>
 
@@ -139,13 +141,13 @@
                                         </span>
                                     </a>
                                 </li> #}
-                                <li class="relative">
+                                {# <li class="relative">
                                     <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign Out'|t }}
                                         </span>
                                     </a>
-                                </li>
+                                </li> #}
                             {% else %}
                                 <li class="relative">
                                 {% if craft.app.config.env == 'production' %}
@@ -194,13 +196,13 @@
                             {% endfor %}
 
                             {% if currentUser|length %}
-                                <li class="relative">
+                                {# <li class="relative">
                                     <a href="{{ logoutUrl }}" class="text-lg font-medium flex justify-between lg:items-center lg:justify-center hover:!text-blue-500 transition-all duration-300">
                                         <span class="cursor-pointer font-medium">
                                             {{ 'Sign Out'|t }}
                                         </span>
                                     </a>
-                                </li>
+                                </li> #}
                             {% else %}
                                 <li class="relative py-1.5 first:pt-0 last:pb-0">
                                 {% if craft.app.config.env == 'production' %}

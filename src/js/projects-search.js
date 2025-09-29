@@ -682,9 +682,9 @@ function createMarkerPopup(item) {
     let country = JSON.parse(item.country);
     let casework = JSON.parse(item.casework);
     // let address = JSON.parse(item.address);
-    let card = `<div class="flex flex-col w-[222px] bg-blue-800 sm:!grid sm:!grid-cols-7 sm:!w-full">`;
+    let card = `<div class="flex flex-col bg-blue-800 w-[250px] sm:!grid sm:!grid-cols-7 sm:!w-full">`;
         if(image && image.length) {
-            card += `<div class="sm:col-span-2 overflow-hidden w-[222px] h-[222px] sm:w-auto sm:h-auto" style="overflow: hidden;">
+            card += `<div class="sm:col-span-2 overflow-hidden aspect-w-16 aspect-h-9" style="overflow: hidden;">
                 <img src="${image[0].url}" width="196" height="196" class="object-cover object-center w-full h-full" alt="${item.title}">
             </div>`;
         }
