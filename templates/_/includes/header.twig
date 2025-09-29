@@ -166,7 +166,7 @@
                         </ul>
                     </div>
                     <div class="lg:hidden block">
-                        <ul class="p-5 duration-300 ease-in-out right-0 w-full bg-white fixed top-[78px] overflow-auto h-[calc(100vh-78px)]"
+                        <ul class="p-5 duration-300 ease-in-out right-0 w-full bg-white fixed overflow-auto {{ currentUser|length ? 'h-[calc(100vh-55px)] top-[55px]' : 'h-[calc(100vh-51px)] top-[51px]' }}"
                             x-show="hamburger"
                             @click.outside="hamburger = false"
                             x-transition:enter="transform transition ease-in-out duration-300"

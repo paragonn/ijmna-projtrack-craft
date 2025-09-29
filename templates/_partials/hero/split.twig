@@ -65,7 +65,7 @@
 {% set embedVideoMedia = block.embedVideo.media ?? null %}
 {% set contentExist = block.eyebrow|length or block.heading|length or block.text|length or buttons|length %}
 
-<section class="lg:flex relative mt-[79px] {{ contentExist ? 'lg:min-h-[900px]' : 'lg:min-h-[calc(79px-100vh)]' }} {{ backgroundColor }} {{ bgOpacity }}">
+<section class="lg:flex relative mt-[51px] {{ contentExist ? 'lg:min-h-[900px]' : 'lg:min-h-[calc(51px-100vh)]' }} {{ backgroundColor }} {{ bgOpacity }}">
     {% if image|length or embedVideoMedia|length or videos|length %}
     <div class="relative lg:absolute lg:inset-y-0 z-10 {{ imagePosition == 'left' ? 'lg:left-0' : 'lg:right-0' }} {{ block.eyebrow|length or block.heading|length or block.text|length or buttons|length ? 'lg:w-1/2' : 'w-full' }} " {{ imageAnimation|raw }}>
         {# {% set thumb = {
