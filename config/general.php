@@ -41,6 +41,9 @@ $commonConfig = GeneralConfig::create()
 
     ->errorTemplatePrefix("_messages/")
 
+    // Set user session duration to 7 days (604800 seconds)
+    ->userSessionDuration(604800)
+
     // Login SSO entityId
     // ->entityId(App::env('SSO_ENTITY_ID') ?? false)
 
