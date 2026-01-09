@@ -413,7 +413,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: WIQUZC8QRUXW7HIY5D0Z4905
-    schemaVersion: 3.4.8
+    schemaVersion: 3.4.12
   hyper:
     edition: standard
     enabled: true
@@ -462,7 +462,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 4A9NGKFKTS61WKHQ0RLFS5NF
-    schemaVersion: 2.1.0
+    schemaVersion: 2.1.1
   neo:
     edition: standard
     enabled: true
@@ -542,7 +542,7 @@ plugins:
           __assoc__:
             -
               - policy
-              - '''self'''
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: ''
       displayAnalysisSidebar: true
@@ -595,5 +595,5 @@ system:
   live: true
   name: 'IJM Progress Tracker'
   retryDuration: null
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.8.0.3
   timeZone: America/Los_Angeles
