@@ -4,7 +4,7 @@
     "require": {
         "amici/craft-super-dynamic-fields": "^5.0.1",
         "craftcms/ckeditor": "4.6.0",
-        "craftcms/cms": "5.7.1.1",
+        "craftcms/cms": "5.8.22",
         "craftcms/postmark": "^3.1.0",
         "craftpulse/craft-colour-swatches": "5.1.0",
         "ether/simplemap": "5.0.4",
@@ -25,7 +25,7 @@
         "vaersaagod/dospaces": "3.0.0",
         "vandres/craft-matrix-extended": "v4.2.1",
         "verbb/buttonbox": "^5.0.0",
-        "verbb/formie": "3.0.25",
+        "verbb/formie": "3.1.6",
         "verbb/hyper": "2.2.4",
         "verbb/icon-picker": "3.0.3",
         "verbb/navigation": "3.0.6",
