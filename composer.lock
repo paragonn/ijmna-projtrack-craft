@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "261ac0ba6cb47b0baf9314f44f89da32",
+    "content-hash": "576d58208c1fe4ba0a0a420b9137db71",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -8057,11 +8057,11 @@
         },
         {
             "name": "putyourlightson/craft-cloudflare",
-            "version": "3.0.2",
+            "version": "3.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/putyourlightson/craft-cloudflare/zipball/c62211e95782d4c2081276bf4205a96283d4fb4a",
-                "reference": "c62211e95782d4c2081276bf4205a96283d4fb4a",
+                "url": "https://api.github.com/repos/putyourlightson/craft-cloudflare/zipball/9838db6c18128f2e03eb4c344c9f5860871361cb",
+                "reference": "9838db6c18128f2e03eb4c344c9f5860871361cb",
                 "shasum": ""
             },
             "require": {
@@ -8092,7 +8092,7 @@
                 "source": "https://github.com/putyourlightson/craft-cloudflare",
                 "issues": "https://github.com/putyourlightson/craft-cloudflare/issues"
             },
-            "time": "2024-12-04T12:30:45+00:00"
+            "time": "2025-07-12T10:53:45+00:00"
         },
         {
             "name": "putyourlightson/craft-sprig-core",
