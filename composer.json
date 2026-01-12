@@ -3,7 +3,7 @@
     "prefer-stable": true,
     "require": {
         "amici/craft-super-dynamic-fields": "^5.0.1",
-        "craftcms/ckeditor": "4.6.0",
+        "craftcms/ckeditor": "4.11.0",
         "craftcms/cms": "5.8.22",
         "craftcms/postmark": "^3.1.0",
         "craftpulse/craft-colour-swatches": "5.1.0",
