@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "43bd1013d939b4b04cab6fb5862ad0b7",
+    "content-hash": "261ac0ba6cb47b0baf9314f44f89da32",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -12434,15 +12434,15 @@
         },
         {
             "name": "vandres/craft-matrix-extended",
-            "version": "v4.2.1",
+            "version": "v5.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vandres/craft-matrix-extended/zipball/bc3a4e52f74a564c62b9854055959772b899ebbb",
-                "reference": "bc3a4e52f74a564c62b9854055959772b899ebbb",
+                "url": "https://api.github.com/repos/vandres/craft-matrix-extended/zipball/2ae84bebd46874ce1dbd0f7d3c52b726d97fa368",
+                "reference": "2ae84bebd46874ce1dbd0f7d3c52b726d97fa368",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^5.5.5",
+                "craftcms/cms": "^5.7.0",
                 "nystudio107/craft-plugin-vite": "^5.0",
                 "php": ">=8.2"
             },
@@ -12476,7 +12476,7 @@
                 "docs": "https://github.com/vandres/craft-matrix-extended",
                 "rss": "https://github.com/vandres/craft-matrix-extended/releases.atom"
             },
-            "time": "2025-02-18T12:34:10+00:00"
+            "time": "2025-12-02T08:47:16+00:00"
         },
         {
             "name": "verbb/auth",
