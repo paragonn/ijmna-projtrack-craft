@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "91fe67c591ad9f477dfd2dec8b320eb6",
+    "content-hash": "83b781bdc7881de18e1eb8b07abc41ec",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -1158,22 +1158,22 @@
         },
         {
             "name": "cakephp/core",
-            "version": "5.2.7",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "99c317e8fe70ff8e1d0c68796681e5a051923790"
+                "reference": "c30bd737306167ece77430fceee837dcf055a93a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/99c317e8fe70ff8e1d0c68796681e5a051923790",
-                "reference": "99c317e8fe70ff8e1d0c68796681e5a051923790",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/c30bd737306167ece77430fceee837dcf055a93a",
+                "reference": "c30bd737306167ece77430fceee837dcf055a93a",
                 "shasum": ""
             },
             "require": {
-                "cakephp/utility": "5.2.*@dev",
-                "league/container": "^4.2",
-                "php": ">=8.1",
+                "cakephp/utility": "^5.3.0",
+                "league/container": "^5.1",
+                "php": ">=8.2",
                 "psr/container": "^1.1 || ^2.0"
             },
             "provide": {
@@ -1187,7 +1187,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-5.x": "5.2.x-dev"
+                    "dev-5.next": "5.3.x-dev"
                 }
             },
             "autoload": {
@@ -1221,25 +1221,25 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/core"
             },
-            "time": "2025-08-23T07:01:20+00:00"
+            "time": "2026-01-10T04:29:00+00:00"
         },
         {
             "name": "cakephp/utility",
-            "version": "5.2.7",
+            "version": "5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
-                "reference": "4afaf913daed30e216396bcd5ac7adc9cef28a2c"
+                "reference": "033499304b29b6e500c2297c8a73c4e2dec36b70"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/utility/zipball/4afaf913daed30e216396bcd5ac7adc9cef28a2c",
-                "reference": "4afaf913daed30e216396bcd5ac7adc9cef28a2c",
+                "url": "https://api.github.com/repos/cakephp/utility/zipball/033499304b29b6e500c2297c8a73c4e2dec36b70",
+                "reference": "033499304b29b6e500c2297c8a73c4e2dec36b70",
                 "shasum": ""
             },
             "require": {
-                "cakephp/core": "5.2.*@dev",
-                "php": ">=8.1"
+                "cakephp/core": "^5.3.0",
+                "php": ">=8.2"
             },
             "suggest": {
                 "ext-intl": "To use Text::transliterate() or Text::slug()",
@@ -1248,7 +1248,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-5.x": "5.2.x-dev"
+                    "dev-5.next": "5.3.x-dev"
                 }
             },
             "autoload": {
@@ -1285,7 +1285,7 @@
                 "issues": "https://github.com/cakephp/cakephp/issues",
                 "source": "https://github.com/cakephp/utility"
             },
-            "time": "2025-08-19T12:55:08+00:00"
+            "time": "2026-01-10T04:29:00+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -4742,21 +4742,21 @@
         },
         {
             "name": "league/container",
-            "version": "4.2.5",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/container.git",
-                "reference": "d3cebb0ff4685ff61c749e54b27db49319e2ec00"
+                "reference": "041c52d266763887fff2256fb5dc9392d808f8f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/container/zipball/d3cebb0ff4685ff61c749e54b27db49319e2ec00",
-                "reference": "d3cebb0ff4685ff61c749e54b27db49319e2ec00",
+                "url": "https://api.github.com/repos/thephpleague/container/zipball/041c52d266763887fff2256fb5dc9392d808f8f3",
+                "reference": "041c52d266763887fff2256fb5dc9392d808f8f3",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.2 || ^8.0",
-                "psr/container": "^1.1 || ^2.0"
+                "php": "^8.1",
+                "psr/container": "^2.0.2"
             },
             "provide": {
                 "psr/container-implementation": "^1.0"
@@ -4765,13 +4765,13 @@
                 "orno/di": "~2.0"
             },
             "require-dev": {
-                "nette/php-generator": "^3.4",
-                "nikic/php-parser": "^4.10",
-                "phpstan/phpstan": "^0.12.47",
-                "phpunit/phpunit": "^8.5.17",
+                "nette/php-generator": "^4.1",
+                "nikic/php-parser": "^5.0",
+                "phpstan/phpstan": "^2.1.11",
+                "phpunit/phpunit": "^10.5.45|^11.5.15|^12.0",
                 "roave/security-advisories": "dev-latest",
-                "scrutinizer/ocular": "^1.8",
-                "squizlabs/php_codesniffer": "^3.6"
+                "scrutinizer/ocular": "^1.9",
+                "squizlabs/php_codesniffer": "^3.9"
             },
             "type": "library",
             "extra": {
@@ -4780,7 +4780,8 @@
                     "dev-2.x": "2.x-dev",
                     "dev-3.x": "3.x-dev",
                     "dev-4.x": "4.x-dev",
-                    "dev-master": "4.x-dev"
+                    "dev-5.x": "5.x-dev",
+                    "dev-master": "5.x-dev"
                 }
             },
             "autoload": {
@@ -4812,7 +4813,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/container/issues",
-                "source": "https://github.com/thephpleague/container/tree/4.2.5"
+                "source": "https://github.com/thephpleague/container/tree/5.1.0"
             },
             "funding": [
                 {
@@ -4820,7 +4821,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-20T12:55:37+00:00"
+            "time": "2025-05-28T07:37:56+00:00"
         },
         {
             "name": "league/flysystem",
@@ -12776,11 +12777,11 @@
         },
         {
             "name": "verbb/icon-picker",
-            "version": "3.0.3",
+            "version": "3.0.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/icon-picker/zipball/069fc43c789951f68eaf0bd9e36547216b7b1f78",
-                "reference": "069fc43c789951f68eaf0bd9e36547216b7b1f78",
+                "url": "https://api.github.com/repos/verbb/icon-picker/zipball/5024ef4f82c2932bf6433bf8e12f4b461f4ee144",
+                "reference": "5024ef4f82c2932bf6433bf8e12f4b461f4ee144",
                 "shasum": ""
             },
             "require": {
@@ -12829,7 +12830,7 @@
                 "docs": "https://github.com/verbb/icon-picker",
                 "rss": "https://github.com/verbb/icon-picker/commits/v2.atom"
             },
-            "time": "2025-02-02T01:12:46+00:00"
+            "time": "2025-08-13T00:49:52+00:00"
         },
         {
             "name": "verbb/navigation",
