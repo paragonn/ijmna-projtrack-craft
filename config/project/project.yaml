@@ -1,4 +1,4 @@
-dateModified: 1761931368
+dateModified: 1768188435
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -405,15 +405,11 @@ plugins:
     enabled: true
     licenseKey: XTK8R84UVOIS7OAIWIRR2JG3
     schemaVersion: 1.0.0
-  dospaces:
-    edition: standard
-    enabled: true
-    schemaVersion: 2.0.0
   formie:
     edition: standard
     enabled: true
     licenseKey: WIQUZC8QRUXW7HIY5D0Z4905
-    schemaVersion: 3.4.8
+    schemaVersion: 3.4.12
   hyper:
     edition: standard
     enabled: true
@@ -433,11 +429,6 @@ plugins:
       iconSetsPath: '@webroot/icons/'
       iconSetsUrl: '@web/icons/'
       redactorFieldHandle: ''
-  imager-x:
-    edition: pro
-    enabled: true
-    licenseKey: V5RA73U38PF7P7A7MKHI0A89
-    schemaVersion: 4.0.0
   imager-x-do-spaces-driver:
     edition: standard
     enabled: true
@@ -462,7 +453,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: 4A9NGKFKTS61WKHQ0RLFS5NF
-    schemaVersion: 2.1.0
+    schemaVersion: 2.1.1
   neo:
     edition: standard
     enabled: true
@@ -542,7 +533,7 @@ plugins:
           __assoc__:
             -
               - policy
-              - '''self'''
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: ''
       displayAnalysisSidebar: true
@@ -553,8 +544,8 @@ plugins:
       enableSeoFileLinkEndpoint: false
       environment: live
       excludeNonCanonicalUrls: false
-      generatorEnabled: true
-      headersEnabled: true
+      generatorEnabled: false
+      headersEnabled: false
       includeHomepageInBreadcrumbs: true
       lowercaseCanonicalUrl: true
       manuallySetEnvironment: false
@@ -571,7 +562,7 @@ plugins:
         - facebook
       siteGroupsSeparate: true
       siteUrlOverride: ''
-      sitemapsEnabled: true
+      sitemapsEnabled: false
       socialMediaPreviewTarget: true
       submitSitemaps: true
       truncateDescriptionTags: true
@@ -595,5 +586,5 @@ system:
   live: true
   name: 'IJM Progress Tracker'
   retryDuration: null
-  schemaVersion: 5.7.0.3
+  schemaVersion: 5.8.0.3
   timeZone: America/Los_Angeles
