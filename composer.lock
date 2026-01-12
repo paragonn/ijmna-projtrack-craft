@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18f28359303db7a8d003e090778c95de",
+    "content-hash": "a1f4875642eec1c978f5ce7b1d872e22",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -12833,11 +12833,11 @@
         },
         {
             "name": "verbb/navigation",
-            "version": "3.0.6",
+            "version": "3.0.15",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/navigation/zipball/9074d68f2f0ac33f22492ea5a20a3f6ca2c45b2b",
-                "reference": "9074d68f2f0ac33f22492ea5a20a3f6ca2c45b2b",
+                "url": "https://api.github.com/repos/verbb/navigation/zipball/66280d7c7549716a9a5dba1af81a3a58307b0b9d",
+                "reference": "66280d7c7549716a9a5dba1af81a3a58307b0b9d",
                 "shasum": ""
             },
             "require": {
@@ -12882,7 +12882,7 @@
                 "docs": "https://github.com/verbb/navigation",
                 "rss": "https://github.com/verbb/navigation/commits/v2.atom"
             },
-            "time": "2025-02-05T03:30:00+00:00"
+            "time": "2025-11-08T10:57:10+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
