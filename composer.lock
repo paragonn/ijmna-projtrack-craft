@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "71322bcb14449e205b9940bd148c8581",
+    "content-hash": "931a91f8dcc34df948f5a822831b6e08",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -5845,11 +5845,11 @@
         },
         {
             "name": "misterbk/mix",
-            "version": "v1.7.2",
+            "version": "v1.8.1",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mister-bk/craft-plugin-mix/zipball/ffdf4a39f8d89d42f28de4a9b8c9deed92f2e431",
-                "reference": "ffdf4a39f8d89d42f28de4a9b8c9deed92f2e431",
+                "url": "https://api.github.com/repos/mister-bk/craft-plugin-mix/zipball/03f30c7951a13d2b82cc20fd0413e92b2b72ee19",
+                "reference": "03f30c7951a13d2b82cc20fd0413e92b2b72ee19",
                 "shasum": ""
             },
             "require": {
@@ -5895,7 +5895,7 @@
                 "laravel-mix",
                 "mix"
             ],
-            "time": "2024-10-02T14:43:43+00:00"
+            "time": "2025-06-18T07:35:39+00:00"
         },
         {
             "name": "ml/iri",

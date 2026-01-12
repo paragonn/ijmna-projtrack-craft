@@ -12,7 +12,7 @@
         "jrrdnx/craft-cloudflare-r2": "^1.1.1",
         "lewisjenkins/craft-range-slider": "^5.0.0",
         "marionnewlevant/twig-perversion": "5.0.1",
-        "misterbk/mix": "v1.7.2",
+        "misterbk/mix": "v1.8.1",
         "nystudio107/craft-minify": "^5.0.0",
         "nystudio107/craft-seomatic": "5.1.12",
         "paragonn/craft-ijm-project-tracker-custom-plugin": "dev-main",
