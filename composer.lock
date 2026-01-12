@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83b781bdc7881de18e1eb8b07abc41ec",
+    "content-hash": "71322bcb14449e205b9940bd148c8581",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -12723,11 +12723,11 @@
         },
         {
             "name": "verbb/hyper",
-            "version": "2.2.4",
+            "version": "2.2.10",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/verbb/hyper/zipball/be71f449a945972e7efe8d799c88678f48b35d58",
-                "reference": "be71f449a945972e7efe8d799c88678f48b35d58",
+                "url": "https://api.github.com/repos/verbb/hyper/zipball/8d4c6b6a349ab4a89d1b5af4a31da75972a8e0f6",
+                "reference": "8d4c6b6a349ab4a89d1b5af4a31da75972a8e0f6",
                 "shasum": ""
             },
             "require": {
@@ -12773,7 +12773,7 @@
                 "docs": "https://github.com/verbb/hyper",
                 "rss": "https://github.com/verbb/hyper/commits/v2.atom"
             },
-            "time": "2025-03-04T23:13:52+00:00"
+            "time": "2025-11-06T03:27:48+00:00"
         },
         {
             "name": "verbb/icon-picker",
