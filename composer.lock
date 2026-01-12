@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "931a91f8dcc34df948f5a822831b6e08",
+    "content-hash": "3f85aad617df307e583bfeb0cb65858a",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -8774,11 +8774,11 @@
         },
         {
             "name": "spicyweb/craft-neo",
-            "version": "5.4.2",
+            "version": "5.5.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/250822c4a69997e6035d514c076bba50712c4b11",
-                "reference": "250822c4a69997e6035d514c076bba50712c4b11",
+                "url": "https://api.github.com/repos/spicywebau/craft-neo/zipball/d921a7c9c493704e8ff653cd0ea13f5433dc66d5",
+                "reference": "d921a7c9c493704e8ff653cd0ea13f5433dc66d5",
                 "shasum": ""
             },
             "require": {
@@ -8792,7 +8792,7 @@
                 "schemaVersion": "5.1.0.1",
                 "class": "benf\\neo\\Plugin",
                 "changelogUrl": "https://github.com/spicywebau/craft-neo/blob/5.x/CHANGELOG.md",
-                "downloadUrl": "https://github.com/spicywebau/craft-neo/archive/refs/tags/5.4.2.zip"
+                "downloadUrl": "https://github.com/spicywebau/craft-neo/archive/refs/tags/5.5.3.zip"
             },
             "autoload": {
                 "psr-4": {
@@ -8820,10 +8820,10 @@
             "support": {
                 "issues": "https://github.com/spicywebau/craft-neo/issues",
                 "source": "https://github.com/spicywebau/craft-neo",
-                "docs": "https://github.com/spicywebau/craft-neo/blob/5.4.2/README.md",
+                "docs": "https://github.com/spicywebau/craft-neo/blob/5.5.3/README.md",
                 "rss": "https://github.com/spicywebau/craft-neo/commits/5.x.atom"
             },
-            "time": "2025-04-17T02:23:00+00:00"
+            "time": "2025-11-11T00:07:29+00:00"
         },
         {
             "name": "spomky-labs/cbor-php",
