@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1f4875642eec1c978f5ce7b1d872e22",
+    "content-hash": "91fe67c591ad9f477dfd2dec8b320eb6",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -13651,11 +13651,11 @@
         },
         {
             "name": "wrav/oembed",
-            "version": "3.1.4",
+            "version": "3.1.6",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wrav/oembed/zipball/6535179efab631fb01ce9b81f3c4a27f0a47aa16",
-                "reference": "6535179efab631fb01ce9b81f3c4a27f0a47aa16",
+                "url": "https://api.github.com/repos/wrav/oembed/zipball/b2fe6022d736967821af089de95511f0076844f8",
+                "reference": "b2fe6022d736967821af089de95511f0076844f8",
                 "shasum": ""
             },
             "require": {
@@ -13710,7 +13710,7 @@
                 "docs": "https://github.com/wrav/oembed/blob/master/README.md",
                 "issues": "https://github.com/wrav/oembed/issues"
             },
-            "time": "2025-04-10T07:57:20+00:00"
+            "time": "2025-09-08T00:27:50+00:00"
         },
         {
             "name": "yiisoft/yii2",
