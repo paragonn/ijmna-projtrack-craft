@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32a5fa7f0a4f9a463de94af9b589b31f",
+    "content-hash": "9bfe5f03a5d25f4b98577ce704a4754d",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -7022,11 +7022,11 @@
         },
         {
             "name": "nystudio107/craft-seomatic",
-            "version": "5.1.12",
+            "version": "5.1.20",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/a2f6fe4ec2fafb747735deafb72a2b929b80d60e",
-                "reference": "a2f6fe4ec2fafb747735deafb72a2b929b80d60e",
+                "url": "https://api.github.com/repos/nystudio107/craft-seomatic/zipball/c88261b04a6078c8caba9e57091833ab7dab2621",
+                "reference": "c88261b04a6078c8caba9e57091833ab7dab2621",
                 "shasum": ""
             },
             "require": {
@@ -7034,6 +7034,7 @@
                 "davechild/textstatistics": "^1.0.3",
                 "nystudio107/craft-code-editor": "^1.0.14",
                 "nystudio107/craft-plugin-vite": "^5.0.0",
+                "nystudio107/craft-twig-sandbox": "^5.0.5",
                 "php": "^8.2",
                 "php-science/textrank": "^1.0.3",
                 "sunra/php-simple-html-dom-parser": "^1.5.2"
@@ -7078,7 +7079,69 @@
                 "issues": "https://nystudio107.com/plugins/seomatic/support",
                 "source": "https://github.com/nystudio107/craft-seomatic"
             },
-            "time": "2025-04-04T02:36:35+00:00"
+            "time": "2026-01-20T22:33:38+00:00"
+        },
+        {
+            "name": "nystudio107/craft-twig-sandbox",
+            "version": "5.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nystudio107/craft-twig-sandbox.git",
+                "reference": "e4742fcf97ac01ab76d36118c357f0221c7a5ce0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nystudio107/craft-twig-sandbox/zipball/e4742fcf97ac01ab76d36118c357f0221c7a5ce0",
+                "reference": "e4742fcf97ac01ab76d36118c357f0221c7a5ce0",
+                "shasum": ""
+            },
+            "require": {
+                "craftcms/cms": "^5.0.0",
+                "twig/twig": "^3.0.0"
+            },
+            "require-dev": {
+                "craftcms/ecs": "dev-main",
+                "craftcms/phpstan": "dev-main",
+                "craftcms/rector": "dev-main",
+                "markhuot/craft-pest-core": "^2.0.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "nystudio107\\crafttwigsandbox\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "nystudio107",
+                    "homepage": "https://nystudio107.com"
+                }
+            ],
+            "description": "Allows you to easily create a sandboxed Twig environment where you can control what tags, filters, functions, and object methods/properties are allowed",
+            "keywords": [
+                "Craft",
+                "cms",
+                "craftcms",
+                "sandbox",
+                "security",
+                "twig"
+            ],
+            "support": {
+                "docs": "https://github.com/nystudio107/craft-twig-sandbox/blob/v5/README.md",
+                "issues": "https://github.com/nystudio107/craft-twig-sandbox/issues",
+                "source": "https://github.com/nystudio107/craft-twig-sandbox"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/khalwat",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-08-18T16:00:57+00:00"
         },
         {
             "name": "oscarotero/html-parser",
@@ -12601,15 +12664,15 @@
         },
         {
             "name": "ttempleton/craft-nocache",
-            "version": "3.0.4",
+            "version": "3.1.0",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ttempleton/craft-nocache/zipball/7b20ad87d972846787e126dd6e8c7043ff88ace5",
-                "reference": "7b20ad87d972846787e126dd6e8c7043ff88ace5",
+                "url": "https://api.github.com/repos/ttempleton/craft-nocache/zipball/4415d88c03cafb64b2a2a3112870f36e2d9be087",
+                "reference": "4415d88c03cafb64b2a2a3112870f36e2d9be087",
                 "shasum": ""
             },
             "require": {
-                "craftcms/cms": "^4.0.0|^5.0.0-alpha",
+                "craftcms/cms": "^4.17.0|^5.9.0",
                 "php": "^8.0.2"
             },
             "type": "craft-plugin",
@@ -12618,7 +12681,7 @@
                 "name": "No-Cache",
                 "class": "ttempleton\\nocache\\Plugin",
                 "changelogUrl": "https://github.com/ttempleton/craft-nocache/blob/master/CHANGELOG.md",
-                "downloadUrl": "https://github.com/ttempleton/craft-nocache/archive/refs/tags/3.0.4.zip"
+                "downloadUrl": "https://github.com/ttempleton/craft-nocache/archive/refs/tags/3.1.0.zip"
             },
             "autoload": {
                 "psr-4": {
@@ -12645,7 +12708,7 @@
                 "source": "https://github.com/ttempleton/craft-nocache",
                 "rss": "https://github.com/ttempleton/craft-nocache/commits/master.atom"
             },
-            "time": "2024-09-24T09:31:19+00:00"
+            "time": "2026-02-08T05:23:39+00:00"
         },
         {
             "name": "tubalmartin/cssmin",
