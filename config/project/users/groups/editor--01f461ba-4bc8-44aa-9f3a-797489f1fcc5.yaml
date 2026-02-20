@@ -101,3 +101,6 @@ permissions:
   - 'viewpeerentrydrafts:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
   - 'viewpeerentrydrafts:798cf224-57ed-4c61-bc6d-17cd588d0799' # Home
   - 'viewpeerentrydrafts:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
+  - 'changeauthorforpeerentries:3d6985d0-6c25-467d-8334-100bb6a30cce' # Call to Action
+  - 'changeauthorforpeerentries:5e460cf8-38e4-4ac9-8629-0c53ed9052c4' # Jurisdictions
+  - 'changeauthorforpeerentries:8893b951-cdef-4627-b3d4-e6a892beec77' # Pages
