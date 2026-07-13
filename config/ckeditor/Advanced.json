@@ -1,0 +1,34 @@
+{
+  "alignment": {
+    "options": [
+      "left",
+      "center",
+      "right"
+    ]
+  },
+  "style": {
+    "definitions": [
+      {
+        "classes": [
+          "red-heading"
+        ],
+        "element": "h2",
+        "name": "Red heading"
+      },
+      {
+        "classes": [
+          "vibrant-code"
+        ],
+        "element": "pre",
+        "name": "Vibrant code"
+      },
+      {
+        "classes": [
+          "marker"
+        ],
+        "element": "span",
+        "name": "Marker"
+      }
+    ]
+  }
+}
