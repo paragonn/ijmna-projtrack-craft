@@ -597,8 +597,8 @@ input:where([type='file']):focus{outline:1px solid ButtonText;outline:1px auto -
 .mt-\[79px\]{margin-top:79px}
 .box-border{box-sizing:border-box}
 .block{display:block}
-.inline-block{display:inline-block}
 .\!inline-block{display:inline-block !important}
+.inline-block{display:inline-block}
 .flex{display:flex}
 .inline-flex{display:inline-flex}
 .table{display:table}
