@@ -5,17 +5,25 @@ import {
     Autoplay,
     Thumbs,
     EffectFade,
+    FreeMode,
 } from "swiper/modules";
 
-Swiper.use([Navigation, Pagination, Autoplay, Thumbs, EffectFade]);
 window.Swiper = Swiper;
+
+const ALL_MODULES = [
+    Navigation,
+    Pagination,
+    Autoplay,
+    Thumbs,
+    EffectFade,
+    FreeMode,
+];
 
 let sliders = document.querySelectorAll(".swiper-slider");
 sliders.forEach((slider) => {
     let settings = {};
     let modules = { modules: [] };
 
-    settings["modules"] = [];
     if (slider.dataset.modulenav) {
         modules["modules"].push(Navigation);
     }
@@ -37,7 +45,7 @@ sliders.forEach((slider) => {
     }
 
     settings = merge(modules, settings);
-    let swiper = new Swiper(slider, settings);
+    new Swiper(slider, settings);
 });
 
 function merge(modules, settings) {
@@ -47,43 +55,10 @@ function merge(modules, settings) {
     return modules;
 }
 
-// let thumbSlider = document.querySelector(".thumbslider");
-// if (thumbSlider) {
-//     let thumbslider = new Swiper(".thumbslider", {
-//         spaceBetween: 2,
-//         slidesPerView: 1,
-//         freeMode: true,
-//         centeredSlides: true,
-//         slideToClickedSlide: true,
-//         allowTouchMove: false
-//     });
-
-//     let productslider = new Swiper(".productslider", {
-//         slidesPerView: 1,
-//         centeredSlides: true,
-//         allowTouchMove: false,
-//         pagination: {
-//             el: ".swiper-pagination-imageContent",
-//             type: "fraction"
-//         },
-//         navigation: {
-//             nextEl: ".swiper-button-next-product-main",
-//             prevEl: ".swiper-button-prev-product-main"
-//         },
-//         thumbs: {
-//             swiper: thumbslider
-//         },
-//         on: {
-//             slideChange: function () {
-//                 console.log('Slide changed to: ', this.activeIndex);
-//             }
-//         }
-//     });
-// }
-
 let thumbSlider = document.querySelector(".thumbslider");
 if (thumbSlider) {
     var thumbslider = new Swiper(".thumbslider", {
+        modules: ALL_MODULES,
         spaceBetween: 10,
         slidesPerView: 1,
         freeMode: true,
@@ -96,7 +71,8 @@ if (thumbSlider) {
         },
     });
 
-    var productslider = new Swiper(".productslider", {
+    new Swiper(".productslider", {
+        modules: ALL_MODULES,
         spaceBetween: 10,
         slidesPerView: 1,
         autoHeight: true,
@@ -113,31 +89,3 @@ if (thumbSlider) {
         },
     });
 }
-
-/*let thumbcreativeSlider = document.querySelector(".thumb-creativelider");
-if (thumbcreativeSlider) {
-    let thumbslider = new Swiper(".thumb-creativelider", {
-        spaceBetween: 2,
-        slidesPerView: 1,
-        centeredSlides: true,
-        slideToClickedSlide: true,
-        allowTouchMove: false,
-    });
-}*/
-
-// var swiper = new Swiper(".swiper-progress", {
-//     autoplay: {
-//         delay: 2500,
-//         disableOnInteraction: false,
-//     },
-//     on: {
-//         autoplayTimeLeft(s, time, progress) {
-//             const currentSlide = s.slides[s.activeIndex];
-//             const progressBar = currentSlide.querySelector(".progressBar");
-//             if (progressBar) {
-//                 const widthPercentage = parseFloat(progress) * 100;
-//                 progressBar.style.width = widthPercentage + "%";
-//             }
-//         },
-//     },
-// });

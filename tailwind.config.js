@@ -1,8 +1,6 @@
 require("dotenv").config();
 
 module.exports = {
-    mode: "jit",
-
     content: [
         "./src/**/*.{html,js}",
         "./templates/**/*.{html,twig,json,php,js}",
@@ -61,7 +59,7 @@ module.exports = {
         },
     },
     corePlugins: {
-        aspectRatio: true,
+        aspectRatio: false,
     },
     plugins: [
         require("@tailwindcss/aspect-ratio"),

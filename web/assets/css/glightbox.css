@@ -279,7 +279,6 @@
 * something like facebook does the description
 * for the photos
 */
-
 .glightbox-mobile .glightbox-container .gslide-description {
   height: auto !important;
   width: 100%;
@@ -433,7 +432,6 @@ iframe.wait-autoplay {
 }
 
 /*Skin */
-
 .glightbox-clean .gslide-description {
   background: #fff;
 }
@@ -509,7 +507,6 @@ iframe.wait-autoplay {
 }
 
 /*CSS Animations*/
-
 .gfadeIn {
   animation: gfadeIn 0.5s ease;
 }
@@ -541,7 +538,6 @@ iframe.wait-autoplay {
 .gzoomOut {
   animation: gzoomOut 0.5s ease;
 }
-
 @keyframes lightboxLoader {
   0% {
     transform: rotate(0deg);
@@ -550,7 +546,6 @@ iframe.wait-autoplay {
     transform: rotate(360deg);
   }
 }
-
 @keyframes gfadeIn {
   from {
     opacity: 0;
@@ -559,7 +554,6 @@ iframe.wait-autoplay {
     opacity: 1;
   }
 }
-
 @keyframes gfadeOut {
   from {
     opacity: 1;
@@ -568,7 +562,6 @@ iframe.wait-autoplay {
     opacity: 0;
   }
 }
-
 @keyframes gslideInLeft {
   from {
     opacity: 0;
@@ -580,7 +573,6 @@ iframe.wait-autoplay {
     opacity: 1;
   }
 }
-
 @keyframes gslideOutLeft {
   from {
     opacity: 1;
@@ -593,7 +585,6 @@ iframe.wait-autoplay {
     visibility: hidden;
   }
 }
-
 @keyframes gslideInRight {
   from {
     opacity: 0;
@@ -605,7 +596,6 @@ iframe.wait-autoplay {
     opacity: 1;
   }
 }
-
 @keyframes gslideOutRight {
   from {
     opacity: 1;
@@ -617,7 +607,6 @@ iframe.wait-autoplay {
     opacity: 0;
   }
 }
-
 @keyframes gzoomIn {
   from {
     opacity: 0;
@@ -627,7 +616,6 @@ iframe.wait-autoplay {
     opacity: 1;
   }
 }
-
 @keyframes gzoomOut {
   from {
     opacity: 1;
@@ -640,7 +628,6 @@ iframe.wait-autoplay {
     opacity: 0;
   }
 }
-
 @media (min-width: 769px) {
   .glightbox-container .ginner-container {
     width: auto;
@@ -713,20 +700,17 @@ iframe.wait-autoplay {
     top: 45%;
   }
 }
-
 @media (min-width: 992px) {
   .glightbox-clean .gclose {
     opacity: 0.7;
     right: 20px;
   }
 }
-
 @media screen and (max-height: 420px) {
   .goverlay {
     background: rgba(16, 21, 35, 0.5);
   }
 }
-
 .gslide-media {
   width: 100% !important;
 }

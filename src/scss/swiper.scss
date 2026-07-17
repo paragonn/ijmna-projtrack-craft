@@ -1,8 +1,20 @@
 @import "swiper/css";
-
-/* @import "swiper/css/navigation"; */
 @import "swiper/css/pagination";
 @import "swiper/css/effect-fade";
+@import "swiper/css/navigation";
+@import "swiper/css/free-mode";
+@import "swiper/css/thumbs";
+
 .swiper-bullet-white.swiper-pagination-bullet {
     background-color: white;
+}
+
+/* Swiper 12+ injects SVG arrows into nav buttons; keep custom button chrome intact */
+.swiper-button-prev,
+.swiper-button-next,
+[class*="swiper-button-prev"],
+[class*="swiper-button-next"] {
+    svg {
+        display: none;
+    }
 }
