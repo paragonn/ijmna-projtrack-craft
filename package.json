@@ -46,5 +46,15 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "overrides": {
+    "webpack-dev-server": "5.2.6",
+    "sockjs": {
+      "uuid": "11.1.1"
+    },
+    "node-notifier": {
+      "uuid": "11.1.1"
+    },
+    "elliptic": "npm:@mapped/elliptic@^6.6.5"
   }
 }
