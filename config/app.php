@@ -34,11 +34,12 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                     // Full Redis connection details:
                     'redis' => [
+                        'class' => yii\redis\Connection::class,
                         'hostname' => App::env('REDIS_HOST') ?: 'localhost',
                         'port' => App::env('REDIS_PORT'),
                         'password' => App::env('REDIS_PASSWORD') ?: null,
                         'useSSL' => true,
-                        'database' => 0 
+                        'database' => 0
                     ],
                 ];
 
@@ -53,6 +54,7 @@ switch ( App::env('CRAFT_ENVIRONMENT') )
 
                 // Define additional properties:
                 $config['redis'] = [
+                    'class' => yii\redis\Connection::class,
                     'hostname' => App::env('REDIS_HOST') ?: 'localhost',
                     'port' => App::env('REDIS_PORT'),
                     'password' => App::env('REDIS_PASSWORD') ?: null,
