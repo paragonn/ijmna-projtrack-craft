@@ -370,21 +370,51 @@ function hightlightAreaOnMap(locations, fitBounds = false)
         // removeLayerIfExists(map, "locationOutline_" + id);
         // removeSourceIfExists(map, "location_" + id);
 
-        Promise.all([getBoundaries(locations[index], id)]).then(boundaryData => {
-            if(boundaryData[0]) {
-                drawBoundaries(id);
+        Promise.all([getBoundaries(locations[index], id)])
+            .then(boundaryData => {
+                if(boundaryData[0]) {
+                    drawBoundaries(id);
 
+                    if(fitBounds) {
+                        map.fitBounds(boundaryData[0], {
+                            padding: 50,
+                            duration: 200
+                        });
+                    }
+                } else if(fitBounds) {
+                    // No boundary polygon to zoom to (e.g. an entry with incomplete
+                    // address data). Fall back to fitting the map to the markers we
+                    // already have instead of leaving the view stuck as-is.
+                    fitBoundsToMarkers();
+                }
+            })
+            .catch(() => {
+                // A network hiccup while fetching boundary data shouldn't leave the
+                // page loading forever either — fall back the same way.
                 if(fitBounds) {
-                    map.fitBounds(boundaryData[0], {
-                        padding: 50,
-                        duration: 200
-                    });
-
+                    fitBoundsToMarkers();
+                }
+            })
+            .finally(() => {
+                // Always clear the loader once we're done attempting to zoom,
+                // regardless of whether the boundary lookup succeeded, came back
+                // empty, or failed outright.
+                if(fitBounds) {
                     hideLoader();
                 }
-            }
-        });
+            });
     }
+}
+
+function fitBoundsToMarkers() {
+    if(!markers.features || !markers.features.length) return;
+
+    let bounds = bbox(markers);
+    map.fitBounds(bounds, {
+        padding: 150,
+        duration: 200,
+        maxZoom: 15
+    });
 }
 
 function removeLayerIfExists(map, layer) {
