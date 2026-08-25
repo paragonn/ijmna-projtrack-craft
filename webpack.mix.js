@@ -44,6 +44,18 @@ mix.options({
 
 mix.setPublicPath("web/assets");
 
+// setPublicPath() only controls where Mix writes files on disk / how the
+// mix() Twig helper builds versioned URLs. It does NOT set webpack's own
+// runtime publicPath, which is what dynamically-imported chunks (e.g. the
+// import("@turf/buffer") in projects-search.js) use to build their request
+// URL at runtime -- that defaulted to "/", not "/assets/", so a lazy chunk
+// would 404 in production. This aligns the two.
+mix.webpackConfig({
+    output: {
+        publicPath: "/assets/",
+    },
+});
+
 mix.js("src/js/app.js", "js");
 mix.js("src/js/glightbox.js", "js");
 mix.js("src/js/swiper.js", "js");

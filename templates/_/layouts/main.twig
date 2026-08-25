@@ -17,6 +17,8 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
 
+        {% block preconnect %}{% endblock %}
+
         {% block seo %}{% endblock %}
         {# CSS #}
         <script>supportWebp = e => document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;</script>

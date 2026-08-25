@@ -1,5 +1,13 @@
 {% extends "_/layouts/main" %}
 
+{% block preconnect %}
+{# Warm up the connections Mapbox GL needs for its style/tile/telemetry
+   requests, which otherwise only start once the map JS itself finishes
+   loading and runs -- shaving the DNS/TLS handshake off the critical path. #}
+<link rel="preconnect" href="https://api.mapbox.com" crossorigin>
+<link rel="preconnect" href="https://events.mapbox.com" crossorigin>
+{% endblock %}
+
 {% block footerScriptBeforeApp %}
 <script src="{{ mix('js/projects-search.js') }}" defer=""></script>
 {% endblock %}

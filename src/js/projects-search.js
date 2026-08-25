@@ -1,5 +1,9 @@
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
-import { bbox, buffer, circle } from "@turf/turf";
+import { bbox, circle } from "@turf/turf";
+// @turf/buffer pulls in jsts (~270KB), a full geometry library, just for
+// the rare case below where Nominatim returns a LineString boundary
+// instead of a Polygon. Loaded on demand in getPolygon() instead of
+// bundling it into every visitor's initial download.
 import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl/dist/mapbox-gl.js";
 
@@ -29,7 +33,14 @@ let params = getQueryParams();
 let defaultLat = 13.839994950862705;
 let defaultLng = 32.53248643419619;
 
-window.addEventListener("load", (event) => {
+// Initialize as soon as the DOM is parsed rather than waiting for the
+// window "load" event, which doesn't fire until every image/font on the
+// page has finished downloading -- there's no reason the map needs to
+// wait on unrelated page assets before it can start loading its own
+// style/tiles. The script itself loads with `defer`, so the DOM is
+// already guaranteed to be ready by the time this runs; DOMContentLoaded
+// is used defensively in case that ever changes.
+document.addEventListener("DOMContentLoaded", () => {
 
     mapboxgl.accessToken = $map_holder.dataset.mapbox;
     map = new mapboxgl.Map({
@@ -467,7 +478,7 @@ function getBoundaries(location, id) {
             cache: "force-cache"
         })
             .then(response => response.json())
-            .then(data => {
+            .then(async data => {
                 if (data.length == 0) return false;
 
                 // filter the data to get only the polygon coordinates
@@ -489,10 +500,10 @@ function getBoundaries(location, id) {
                     const boundaryData = data.find(x => x.class == 'boundary');
 
                     if (boundaryData) {
-                        data = getPolygon(boundaryData)
+                        data = await getPolygon(boundaryData)
                         d = getBoundingBox3(data);
                     } else {
-                        data = getPolygon(data[0]);
+                        data = await getPolygon(data[0]);
                         d = getBoundingBox3(data);
                     }
 
@@ -550,7 +561,7 @@ function drawBoundaries(location) {
     })
 }
 
-function getPolygon(data) {
+async function getPolygon(data) {
     let value = {
         type: "Feature",
         properties: {},
@@ -560,6 +571,7 @@ function getPolygon(data) {
     }
 
     if ("LineString" === data.geojson.type) {
+        const { default: buffer } = await import("@turf/buffer");
         value = buffer(value, 1)
     } else if ("Point" === data.geojson.type) {
         value = circle(value, 1)
