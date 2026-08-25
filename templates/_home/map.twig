@@ -47,7 +47,7 @@
 
 {% block content %}
 {{ craft.app.config.general.devMode ? ('<!-- Page: ' ~ _self ~ ' -->') | raw }}
-<section class="mt-[55px] lg:mt-[79px]" x-data="{
+<section class="flex-1 min-h-0" x-data="{
     stage: '',
     stageOpen: false,
     sideDrawer: false,
@@ -163,7 +163,7 @@
         }
     }
 }">
-    <div class="h-[calc(100vh-79px)] relative flex items-stretch w-full overflow-hidden">
+    <div class="h-full relative flex items-stretch w-full overflow-hidden">
         <div class="relative z-20 shrink-0">
             <div class="bottom-0 top-0 absolute left-0 w-[336px] md:w-[407px] lg:w-[656px] transition-all duration-700 -translate-x-full" :class="stageOpen ? '-translate-x-full md:translate-x-0' : 'translate-x-0 md:-translate-x-full'" x-cloak>
                 <div class="h-full bg-blue-800 overflow-y-auto scrollbar-thumb-rounded-full scrollbar-track-rounded-full scrollbar-thumb-blue-500/50 scrollbar-thin scrollbar-track-transparent">

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 {% set htmlAttrs = {
     lang: craft.app.language,
-    class: 'scroll-smooth'
+    class: 'scroll-smooth overflow-x-hidden'
 } %}
 {% set trackingScripts = trackingScripts.trackingScripts.cache().all() %}
 <html {{ attr(htmlAttrs) }}>
@@ -39,7 +39,7 @@
 
     {% set successNotification = successNotification ?? false %}
     {% set errorNotification = errorNotification ?? false %}
-    <body class="antialiased font-inter text-base font-normal text-blue-800 overflow-x-hidden"
+    <body class="antialiased font-inter text-base font-normal text-blue-800 flex flex-col min-h-screen"
         x-data="{
             isOverflowHidden: false,
             timeout : null,
