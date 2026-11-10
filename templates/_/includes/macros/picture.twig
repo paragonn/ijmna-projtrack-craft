@@ -89,7 +89,16 @@
 		{{ tag('img', imgAttrs) }}
 
 	{% elseif image.extension|default(null) in ["svg"] or (not image.extension|default(null)|length and image|split('.')|last  in ["svg"]) %}
-		{{ svg(image.getVolume().fs.hasMethod('path') ? (image.getVolume().fs.path ~ "/" ~ image.getFolder().path ~ image.filename) : baseUrl) | attr(imgAttrs) }}
+		{# Pass the Asset itself: svg() reads its contents from whatever filesystem the volume
+		   uses (R2, Spaces, local). Passing a URL string returns nothing, because svg() only
+		   accepts inline markup or a local file path. Cached so the logo isn't fetched from
+		   remote storage on every page view; the key changes when the asset is modified. #}
+		{% set svgMarkup %}
+			{% cache globally using key "svg-asset-" ~ image.id ~ "-" ~ image.dateModified|date('U') %}
+				{{ svg(image) }}
+			{% endcache %}
+		{% endset %}
+		{{ svgMarkup | attr(imgAttrs) }}
 
 	{% elseif not image.extension|default(null)|length and extension == "svg" %}
 		{% set imagePath = '@webroot/' ~ image %}
