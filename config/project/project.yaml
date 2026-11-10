@@ -1,4 +1,4 @@
-dateModified: 1783938015
+dateModified: 1794277414
 email:
   fromEmail: noreply@ijmtracker.org
   fromName: 'IJM Progress Tracker'
@@ -434,7 +434,7 @@ plugins:
   keychain:
     edition: standard
     enabled: true
-    schemaVersion: 1.0.0
+    schemaVersion: 1.0.1
   matrix-extended:
     edition: standard
     enabled: true
@@ -584,5 +584,5 @@ system:
   live: true
   name: 'IJM Progress Tracker'
   retryDuration: null
-  schemaVersion: 5.10.0.0
+  schemaVersion: 5.12.0.1
   timeZone: America/Los_Angeles

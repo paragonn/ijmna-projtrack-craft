@@ -39,6 +39,7 @@ fieldLayouts:
 fs: videos
 handle: videos
 name: Videos
+propagationMethod: custom
 sortOrder: 2
 subpath: ''
 titleTranslationKeyFormat: null
