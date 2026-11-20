@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5086b077cae00dec03c0dfe55cbecea",
+    "content-hash": "507db4cb63c1075aebe588fae6600b63",
     "packages": [
         {
             "name": "amici/craft-super-dynamic-fields",
@@ -3541,16 +3541,16 @@
         },
         {
             "name": "flipboxfactory/saml-core",
-            "version": "5.0.12",
+            "version": "5.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flipboxfactory/saml-core.git",
-                "reference": "216fecb5f300a54fb4de1fa2e839916f5f7ef8af"
+                "reference": "4c316d49574eaf95149806d0281b213c24b6d838"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flipboxfactory/saml-core/zipball/216fecb5f300a54fb4de1fa2e839916f5f7ef8af",
-                "reference": "216fecb5f300a54fb4de1fa2e839916f5f7ef8af",
+                "url": "https://api.github.com/repos/flipboxfactory/saml-core/zipball/4c316d49574eaf95149806d0281b213c24b6d838",
+                "reference": "4c316d49574eaf95149806d0281b213c24b6d838",
                 "shasum": ""
             },
             "require": {
@@ -3591,26 +3591,26 @@
                 "rss": "https://github.com/flipboxfactory/saml-core/commits/master.atom",
                 "source": "https://github.com/flipboxfactory/saml-core"
             },
-            "time": "2026-11-07T19:41:04+00:00"
+            "time": "2026-11-18T00:01:23+00:00"
         },
         {
             "name": "flipboxfactory/saml-sp",
-            "version": "5.2.6",
+            "version": "5.2.9",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/flipboxfactory/saml-sp/zipball/dd76e4ba81d1ef30a4a940891a6afa646f784570",
-                "reference": "dd76e4ba81d1ef30a4a940891a6afa646f784570",
+                "url": "https://api.github.com/repos/flipboxfactory/saml-sp/zipball/a9a1394469c4c96c08c91d23cdcadeb26645a761",
+                "reference": "a9a1394469c4c96c08c91d23cdcadeb26645a761",
                 "shasum": ""
             },
             "require": {
                 "craftcms/cms": "^5.10.8",
                 "flipboxfactory/keychain": "^5.0.3",
-                "flipboxfactory/saml-core": "^5.0.12"
+                "flipboxfactory/saml-core": "^5.0.13"
             },
             "type": "craft-plugin",
             "extra": {
                 "name": "SAML Service Provider",
-                "version": "5.2.6",
+                "version": "5.2.9",
                 "schemaVersion": "2.1.0",
                 "handle": "saml-sp",
                 "class": "flipbox\\saml\\sp\\Saml",
@@ -3645,7 +3645,7 @@
                 "docs": "https://github.com/flipboxfactory/saml-sp",
                 "rss": "https://github.com/flipboxfactory/saml-sp/commits/master.atom"
             },
-            "time": "2026-11-07T20:05:55+00:00"
+            "time": "2026-11-19T00:18:30+00:00"
         },
         {
             "name": "geoip2/geoip2",
@@ -10435,16 +10435,16 @@
         },
         {
             "name": "simplesamlphp/saml2",
-            "version": "v4.19.4",
+            "version": "v4.19.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/simplesamlphp/saml2.git",
-                "reference": "9b41a0188aa288ddcc5f0bf6244bcebd0ed808b4"
+                "reference": "bc2ce430c117d37da4a422f215991dfd046f607f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simplesamlphp/saml2/zipball/9b41a0188aa288ddcc5f0bf6244bcebd0ed808b4",
-                "reference": "9b41a0188aa288ddcc5f0bf6244bcebd0ed808b4",
+                "url": "https://api.github.com/repos/simplesamlphp/saml2/zipball/bc2ce430c117d37da4a422f215991dfd046f607f",
+                "reference": "bc2ce430c117d37da4a422f215991dfd046f607f",
                 "shasum": ""
             },
             "require": {
@@ -10490,9 +10490,9 @@
             "description": "SAML2 PHP library from SimpleSAMLphp",
             "support": {
                 "issues": "https://github.com/simplesamlphp/saml2/issues",
-                "source": "https://github.com/simplesamlphp/saml2/tree/v4.19.4"
+                "source": "https://github.com/simplesamlphp/saml2/tree/v4.19.7"
             },
-            "time": "2026-11-05T20:35:34+00:00"
+            "time": "2026-11-16T21:19:27+00:00"
         },
         {
             "name": "spacecatninja/imager-x",
@@ -14852,11 +14852,6 @@
         {
             "name": "verbb/buttonbox",
             "version": "5.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/verbb/buttonbox.git",
-                "reference": "af9ebdd7a8a78ac848e3953e805351d52ff6cc79"
-            },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/verbb/buttonbox/zipball/af9ebdd7a8a78ac848e3953e805351d52ff6cc79",
@@ -14871,17 +14866,16 @@
             "type": "craft-plugin",
             "extra": {
                 "name": "Button Box",
-                "class": "verbb\\buttonbox\\ButtonBox",
                 "handle": "buttonbox",
+                "documentationUrl": "https://github.com/verbb/buttonbox",
                 "changelogUrl": "https://raw.githubusercontent.com/verbb/buttonbox/craft-5/CHANGELOG.md",
-                "documentationUrl": "https://github.com/verbb/buttonbox"
+                "class": "verbb\\buttonbox\\ButtonBox"
             },
             "autoload": {
                 "psr-4": {
                     "verbb\\buttonbox\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -14897,25 +14891,19 @@
             ],
             "description": "A collection of utility field types.",
             "keywords": [
-                "Craft",
                 "buttonbox",
                 "cms",
+                "craft",
                 "craft-plugin",
                 "craftcms"
             ],
             "support": {
-                "docs": "https://github.com/verbb/buttonbox",
                 "email": "support@verbb.io",
                 "issues": "https://github.com/verbb/buttonbox/issues?state=open",
-                "rss": "https://github.com/verbb/buttonbox/commits/v2.atom",
-                "source": "https://github.com/verbb/buttonbox"
+                "source": "https://github.com/verbb/buttonbox",
+                "docs": "https://github.com/verbb/buttonbox",
+                "rss": "https://github.com/verbb/buttonbox/commits/v2.atom"
             },
-            "funding": [
-                {
-                    "url": "https://github.com/verbb",
-                    "type": "github"
-                }
-            ],
             "time": "2025-07-18T14:03:48+00:00"
         },
         {
@@ -15152,12 +15140,12 @@
             "version": "v5.6.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/vlucas/phpdotenv.git",
+                "url": "https://github.com/phpdotenv/phpdotenv.git",
                 "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/416df702837983f8d5ff48c9c3fee4f5f57b980b",
+                "url": "https://api.github.com/repos/phpdotenv/phpdotenv/zipball/416df702837983f8d5ff48c9c3fee4f5f57b980b",
                 "reference": "416df702837983f8d5ff48c9c3fee4f5f57b980b",
                 "shasum": ""
             },
@@ -16695,5 +16683,5 @@
     "platform-overrides": {
         "php": "8.2"
     },
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
